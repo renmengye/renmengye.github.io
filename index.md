@@ -31,10 +31,11 @@ Scholar</a>&nbsp;
 <div class='nav-bar'>
 <a href="#bio">Bio</a> |
 <a href="#research">Research</a> |
+<a href="#teaching">Teaching</a> |
 <a href="#news">News</a> |
+<a href="#group">Group</a> |
 <!--<a href="#preprints">Preprints</a> |-->
 <a href="#papers">Selected Papers</a> |
-<a href="#teaching">Teaching</a> |
 <!--<a href="#soft">Software</a> |-->
 <a href="#talks">Selected Talks</a>
 <!--<a href="#service">Service</a> -->
@@ -92,6 +93,17 @@ i.e. few-shot learning (FSL):
 [local unsupervised learning](https://arxiv.org/abs/2008.01342),
 [recurrent attention](https://arxiv.org/abs/1605.09410),
 [divisive normalization](https://arxiv.org/abs/1611.04520)
+
+-------------------------------------------------------------------------------
+
+## <a name="teaching">Teaching</a>
+
+* NYU DS-GA 1003: Machine Learning (2023 spring)
+
+* Vector Institute: Deep Learning II (2020 fall)
+
+* UofT CSC 411: Machine Learning and Data Mining (2019 winter)
+[[course website](teach/csc411_19s)]
 
 -------------------------------------------------------------------------------
 
@@ -170,6 +182,15 @@ i.e. few-shot learning (FSL):
 * 2018/04: I will visit the University of Tübingen and MPI for Intelligent Systems from June 25 to
   July 20, 2018.
  -->
+
+----------------------------------------------------------------------------
+
+## <a name="group">Group</a>
+
+* [Nikhil Bhattasali](https://www.linkedin.com/in/nikhilxb/)
+* [Ryan Teehan](https://rteehas.github.io/)
+* [Alex Wang](https://www.cs.toronto.edu/~alexw/)
+* [Yanlai Yang](https://yanlai00.github.io/)
 
 ----------------------------------------------------------------------------
 
@@ -263,33 +284,6 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 [[code](https://github.com/renmengye/imageqa-public)]
 [[question generation](https://github.com/renmengye/imageqa-qgen)]
 
--------------------------------------------------------------------------------
-
-## <a name="teaching">Teaching</a>
-<!--Course instructor:-->
-
-<!--* Vector Institute: Deep learning II (2020 fall)-->
-
-* UofT CSC 411: Machine learning and data mining (2019 winter)
-[[course website](teach/csc411_19s)]
-
-<!--
-Teaching assistant:
-
-* UofT ECE 521: Inference algorithms (2017 winter)
-
-* UofT CSC 401/2511: Natural language computing (2016 winter)
-
-* UofT CSC 411/2515: Introduction to machine learning (2015/2016 fall)
-  * Naive Bayes and Gaussian Bayes classifier tutorial
-[[slides](teach/csc411_15f/nb_gbc_tutorial.pdf)]
-[[code](teach/csc411_15f/nb_gbc_tutorial_code.zip)]
-
-* UofT CSC 190: Data structure and algorithm (engineering science) (2014 winter)
--->
-
-<!--
-------------------------------------------------------------------------------->
 
 <!--
 ## <a name="soft">Software</a>
