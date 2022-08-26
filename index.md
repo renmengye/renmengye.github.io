@@ -93,14 +93,6 @@ i.e. few-shot learning (FSL):
 [recurrent attention](https://arxiv.org/abs/1605.09410),
 [divisive normalization](https://arxiv.org/abs/1611.04520)
 
-**Prospective students:** I am looking for motivated students with strong math
-or computer science background to join my future group at NYU. If you are
-interested, please send me an email with your CV, apply to the PhD program at
-[Computer Science Department](https://cs.nyu.edu/home/phd/index.html) or
-[Center for Data Science](https://cds.nyu.edu/phd-program/) and mention my name
-in your application as your potential supervisor. You can only apply to one
-program at a time. The application deadline is Dec 12, 2021.
-
 -------------------------------------------------------------------------------
 
 ## <a name="news">News</a>
