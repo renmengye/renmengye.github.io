@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700|Crete+Round" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../style.css">
+<script>
+       (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+       ga("create", "UA-7905505-5", "auto");
+       ga("send", "pageview");
+</script>
+<meta charset="UTF-8">
+</head>
+<body>
+    <title>
+SBNet: Sparse Blocks Network for Fast Inference
+</title>
+<div class="ribbon">
+
+</div>
+<h1>
+SBNet: Sparse Blocks Network for Fast Inference
+</h1>
+<p>Mengye Ren<sup><code>*</code>,1,2</sup>, Andrei Pokrovsky<sup><code>*</code>,1</sup>, Bin Yang<sup><code>*</code>,1,2</sup>, Raquel Urtasun<sup>1,2</sup><br /> <br /> <sup>1</sup>Uber Advanced Technologies Group, Toronto ON, CANADA<br /> <sup>2</sup>Department of Computer Science, University of Toronto, Toronto ON, CANADA<br /> <sup><code>*</code></sup>Equal contribution<br /> <br/> <img class="paper-fig" src="img/fig1.png" /></p>
+<h2 id="abstract">Abstract</h2>
+<p>Conventional deep convolutional neural networks (CNNs) apply convolution operators uniformly in space across all feature maps for hundreds of layers - this incurs a high computational cost for real time applications. For many problems such as object detection and semantic segmentation, we are able to obtain a low-cost computation mask, either from a priori problem knowledge, or from a low resolution segmentation network. We show that such computation masks can be used to reduce computation in the high resolution main network. Variants of sparse activation CNNs have previously been explored on small scale tasks, and showed no degradation in terms of object classification accuracy, but often measured gains in terms of theoretical FLOPs without realizing a practical speed-up when compared to highly optimized dense convolution implementations. In this work, we leverage the sparsity structure of computation masks and propose a novel tiling-based sparse convolution algorithm. We verified the effectiveness of our sparse CNN on LiDAR based 3D object detection, and we report significant wall-clock speed-ups compared to dense convolution, as well as improved detection accuracy.</p>
+<hr />
+<h2 id="full-paper">Full Paper</h2>
+<p>[<a href="papers/paper.pdf">pdf</a>]</p>
+<hr />
+<h2 id="code">Code</h2>
+<p>[<a href="https://github.com/uber/sbnet">link</a>]</p>
+<hr />
+<h2 id="cite">Cite</h2>
+<pre>
+<code>
+@inproceeding{ren18sbnet,
+  author    = {Mengye Ren and 
+               Andrei Pokrovsky and
+               Bin Yang and
+               Raquel Urtasun},
+  title     = {SBNet: Sparse Blocks Network for Fast Inference},
+  journal   = {Proceedings of the 2018 IEEE Conference on Computer Vision 
+               and Pattern Recognition, {CVPR}},
+  year      = {2018},
+}
+</code>
+</pre>
+<div class="ribbon">
+
+</div>
+
+</body>
+</html>

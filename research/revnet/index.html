@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700|Crete+Round" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../style.css">
+<script>
+       (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+       ga("create", "UA-7905505-5", "auto");
+       ga("send", "pageview");
+</script>
+<meta charset="UTF-8">
+</head>
+<body>
+    <title>
+The Reversible Residual Network: Backpropagation Without Storing Activations
+</title>
+<div class="ribbon">
+
+</div>
+<h1>
+The Reversible Residual Network: Backpropagation Without Storing Activations
+</h1>
+<p>Aidan Gomez<sup><code>*</code></sup>, Mengye Ren<sup><code>*</code></sup>, Raquel Urtasun, Roger B. Grosse<br /> <br /> Department of Computer Science, University of Toronto, Toronto ON, CANADA<br /> <sup><code>*</code></sup>Equal contribution<br /> <br/> <img class="paper-fig" src="img/fig1.png" /></p>
+<h2 id="abstract">Abstract</h2>
+<p>Deep residual networks (ResNets) have significantly pushed forward the state-of-the-art on image classification, increasing in performance as networks grow both deeper and wider. However, memory consumption becomes a bottleneck, as one needs to store the activations in order to calculate gradients using backpropagation. We present the Reversible Residual Network (RevNet), a variant of ResNets where each layer's activations can be reconstructed exactly from the next layer's. Therefore, the activations for most layers need not be stored in memory during backpropagation. We demonstrate the effectiveness of RevNets on CIFAR-10, CIFAR-100, and ImageNet, establishing nearly identical classification accuracy to equally-sized ResNets, even though the activation storage requirements are independent of depth.</p>
+<hr />
+<h2 id="full-paper">Full Paper</h2>
+<p>[<a href="papers/paper.pdf">pdf</a>]</p>
+<hr />
+<h2 id="code">Code</h2>
+<p>[<a href="https://github.com/renmengye/revnet-public">link</a>]</p>
+<hr />
+<h2 id="cite">Cite</h2>
+<pre>
+<code>
+@inproceedings{gomez17revnet,
+  author    = {Aidan N. Gomez and 
+               Mengye Ren and 
+               Raquel Urtasun and 
+               Roger B. Grosse},
+  title     = {The Reversible Residual Network: Backpropagation without 
+               Storing Activations}
+  booktitle = {NIPS},
+  year      = {2017},
+}
+</code>
+</pre>
+<div class="ribbon">
+
+</div>
+
+</body>
+</html>
