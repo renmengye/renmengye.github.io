@@ -6,11 +6,6 @@
 <p><span class="title">Assistant Professor</span>
 <br/>
 New York University</p>
-<p><span class="title">Visiting Researcher</span>
-<br/>
-Google Brain</p>
-<!--Department of Computer Science<br/>
-University of Toronto</p>-->
 <p>Email: mengye@cs.nyu.edu</p>
 <p>
 <a href="https://www.linkedin.com/in/mengye-ren-593b3546">LinkedIn</a>&nbsp;
@@ -108,6 +103,12 @@ i.e. few-shot learning (FSL):
 -------------------------------------------------------------------------------
 
 ## <a name="news">News</a>
+
+* 2022/09: I have moved to New York and officially joined NYU.
+
+* 2022/07: One paper accepted at ECCV 2022.
+
+* 2022/01: I started working at Google Brain Toronto as a visiting faculty researcher.
 
 * 2021/11: I will visit the University of Oxford and give a talk on Nov 17, 2021.
 
