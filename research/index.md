@@ -12,6 +12,7 @@
 **Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2021.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
+[[code](https://github.com/renmengye/online-unsup-proto-net)]
 
 * Probing few-shot generalization with attributes.
 **Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.

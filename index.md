@@ -205,6 +205,7 @@ i.e. few-shot learning (FSL):
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2021.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
+[[code](https://github.com/renmengye/online-unsup-proto-net)]
 
 * Self-supervised representation learning from flow equivariance.
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
