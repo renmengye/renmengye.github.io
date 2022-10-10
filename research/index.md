@@ -34,11 +34,18 @@ Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
 
 ----------------------------------------------------------------------------
 
-## 2021
+## 2022
+
+* Rethinking closed-loop training for autonomous driving.
+Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai, Rui Hu, 
+**Mengye Ren**, Raquel Urtasun.
+*ECCV*, 2022.
 
 * Open-world machine learning with limited labeled data.
-**Mengye Ren**. *Ph.D. Thesis, University of Toronto*, 2021.
-[[pdf](https://drive.google.com/file/d/11ZbCKTNCb9blzkijaXA-QpTXlK7TTPQP/view?usp=sharing)]
+**Mengye Ren**. *Ph.D. Thesis, University of Toronto*, 2022.
+[[pdf](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)]
+
+## 2021
 
 * Self-supervised representation learning from flow equivariance.
 Yuwen Xiong, **Mengye Ren**, Wenyuan Zeng, Raquel Urtasun.
