@@ -58,15 +58,15 @@ adapt, and reason in naturalistic environments.
 
 ## <a name="research">Research</a>
 
-Areas: machine learning, computer vision, meta-learning, representation
-learning, few-shot learning, brain & cognitively inspired learning, robot
+Areas: machine learning, computer vision, representation learning,
+meta-learning, few-shot learning, brain & cognitively inspired learning, robot
 learning, self-driving vehicles
 
 My key research question is: how do we enable human-like, agent-based machine
 intelligence to continually learn, adapt, and reason in naturalistic
 environments? Towards this goal of building a more general and flexible AI, my
-research has centered on developing *meta-learning* and *representation
-learning* algorithms.
+research has centered on developing *representation learning* and
+*meta-learning* algorithms.
 
 Some recent research highlights include:
 
@@ -75,7 +75,8 @@ i.e. few-shot learning (FSL):
 [semi-supervised FSL](https://arxiv.org/abs/1803.00676),
 [incremental FSL](https://arxiv.org/abs/1810.07218),
 [online contextualized FSL](https://arxiv.org/abs/2007.04546),
-[attribute FSL](https://arxiv.org/abs/2012.05895)
+[attribute FSL](https://arxiv.org/abs/2012.05895),
+[online self-supervised learning](https://arxiv.org/abs/2109.05675)
 
 * Meta-learning algorithms:
 [contextual prototypical memory](https://arxiv.org/abs/2007.04546),
@@ -84,10 +85,11 @@ i.e. few-shot learning (FSL):
 [graph hypernetworks](https://arxiv.org/abs/1810.05749)
 
 * Brain and cognitively inspired representation learning:
-[learning to imitate drawing](https://arxiv.org/abs/2009.04806),
+[local activity perturbation](https://arxiv.org/abs/2210.03310),
+[local self-supervised learning](https://arxiv.org/abs/2008.01342),
 [self-supervised learning from video](https://arxiv.org/abs/2101.06553),
-[local unsupervised learning](https://arxiv.org/abs/2008.01342),
 [recurrent attention](https://arxiv.org/abs/1605.09410),
+[learning to imitate drawing](https://arxiv.org/abs/2009.04806),
 [divisive normalization](https://arxiv.org/abs/1611.04520)
 
 -------------------------------------------------------------------------------
@@ -105,6 +107,9 @@ i.e. few-shot learning (FSL):
 
 ## <a name="news">News</a>
 
+* 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
+  plausible learning with local activity perturbation.
+
 * 2022/09: I have moved to New York and officially joined NYU.
 
 * 2022/07: One paper accepted at ECCV 2022.
@@ -117,7 +122,7 @@ i.e. few-shot learning (FSL):
 
 * 2021/10: I defended my Ph.D. thesis ["Open World Machine Learning with
   Limited Labeled
-  Data"](https://drive.google.com/file/d/11ZbCKTNCb9blzkijaXA-QpTXlK7TTPQP/view?usp=sharing)
+  Data"](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)
   on Oct 19, 2021.
 
 * 2021/09: Two papers [[1](https://arxiv.org/abs/2104.03956),
@@ -201,6 +206,12 @@ i.e. few-shot learning (FSL):
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
+* Scaling forward gradient with local losses.
+Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
+*arXiv preprint 2210.03310*, 2022.
+[[arxiv](https://arxiv.org/abs/2210.03310)]
+[[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+
 * Online unsupervised learning of visual representations and categories.
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2021.
@@ -216,6 +227,7 @@ Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
+[[code](https://github.com/alexnwang/SketchEmbedNet-public)]
 
 * Wandering within a world: Online contextualized few-shot learning.
 Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.

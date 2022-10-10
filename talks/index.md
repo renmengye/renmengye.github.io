@@ -4,6 +4,12 @@
 
 ----------------------------------------------------------------------------
 
+## 2022
+
+* Visual learning in the open world.
+19th Conference on Robotics and Vision (CRV) Symposium. Toronto, ON. 2022/06.
+[[slides](https://drive.google.com/file/d/1cWMBA3nsrwXCuCOCIf5PuYjPSXf25nVa/view?usp=sharing)]
+
 ## 2021
 
 * Visual learning in the open world.

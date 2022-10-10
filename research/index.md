@@ -7,6 +7,17 @@
 ----------------------------------------------------------------------------
 
 ## Preprints
+* Scaling forward gradient with local losses.
+**Mengye Ren**, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
+*arXiv preprint 2210.03310*, 2022.
+[[arxiv](https://arxiv.org/abs/2210.03310)]
+[[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+
+* Learning to reason with relational abstractions.
+Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
+*arXiv preprint 2210.02615*, 2022.
+[[arxiv](https://arxiv.org/abs/2210.02615)]
+[[dataset](https://github.com/renmengye/grade-school-math-relational)]
 
 * Online unsupervised learning of visual representations and categories.
 **Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
