@@ -70,27 +70,29 @@ research has centered on developing *representation learning* and
 
 Some recent research highlights include:
 
-* Naturalistic paradigms for learning novel classes & attributes with very few examples, 
-i.e. few-shot learning (FSL):
-[semi-supervised FSL](https://arxiv.org/abs/1803.00676),
-[incremental FSL](https://arxiv.org/abs/1810.07218),
-[online contextualized FSL](https://arxiv.org/abs/2007.04546),
-[attribute FSL](https://arxiv.org/abs/2012.05895),
-[online self-supervised learning](https://arxiv.org/abs/2109.05675)
+* Naturalistic paradigms for learning representations, classes, and attributes
+  in an online continual data stream and very few labeled examples (few-shot 
+  learning FSL): 
+  [semi-supervised FSL](https://arxiv.org/abs/1803.00676), 
+  [incremental FSL](https://arxiv.org/abs/1810.07218), 
+  [online contextualized FSL](https://arxiv.org/abs/2007.04546),
+  [attribute FSL](https://arxiv.org/abs/2012.05895),
+  [online self-supervised learning](https://arxiv.org/abs/2109.05675)
 
 * Meta-learning algorithms:
-[contextual prototypical memory](https://arxiv.org/abs/2007.04546),
-[learning regularization functions](https://arxiv.org/abs/1810.07218),
-[learning to reweight examples](https://arxiv.org/abs/1803.09050),
-[graph hypernetworks](https://arxiv.org/abs/1810.05749)
+  [contextual prototypical memory](https://arxiv.org/abs/2007.04546),
+  [unsupervised prototypical memory](https://arxiv.org/abs/2109.05675),
+  [learning regularization functions](https://arxiv.org/abs/1810.07218),
+  [learning to reweight examples](https://arxiv.org/abs/1803.09050),
+  [graph hypernetworks](https://arxiv.org/abs/1810.05749)
 
 * Brain and cognitively inspired representation learning:
-[local activity perturbation](https://arxiv.org/abs/2210.03310),
-[local self-supervised learning](https://arxiv.org/abs/2008.01342),
-[self-supervised learning from video](https://arxiv.org/abs/2101.06553),
-[recurrent attention](https://arxiv.org/abs/1605.09410),
-[learning to imitate drawing](https://arxiv.org/abs/2009.04806),
-[divisive normalization](https://arxiv.org/abs/1611.04520)
+  [local activity perturbation](https://arxiv.org/abs/2210.03310),
+  [local self-supervised learning](https://arxiv.org/abs/2008.01342),
+  [self-supervised learning from video](https://arxiv.org/abs/2101.06553),
+  [recurrent attention](https://arxiv.org/abs/1605.09410),
+  [learning to imitate drawing](https://arxiv.org/abs/2009.04806),
+  [divisive normalization](https://arxiv.org/abs/1611.04520)
 
 -------------------------------------------------------------------------------
 
