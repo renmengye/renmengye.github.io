@@ -6,9 +6,15 @@
 
 ## 2022
 
+* Biologically plausible learning using local activity perturbation.
+New York University, Center for Data Science. New York, NY. 2022/10.
+[[slides](https://drive.google.com/file/d/1dR9eHXZPVBh6T_2R_eFZ1vU6fQt42yK-/view?usp=sharing)]
+
 * Visual learning in the open world.
 19th Conference on Robotics and Vision (CRV) Symposium. Toronto, ON. 2022/06.
 [[slides](https://drive.google.com/file/d/1cWMBA3nsrwXCuCOCIf5PuYjPSXf25nVa/view?usp=sharing)]
+
+----------------------------------------------------------------------------
 
 ## 2021
 

@@ -5,8 +5,16 @@
 <h1>Mengye Ren</h1>
 <p><span class="title">Assistant Professor</span>
 <br/>
+Department of Computer Science
+<br/>
+Courant Institute of Mathematical Sciences (joint)
+<br/>
+Center for Data Science (joint)
+<br/>
 New York University</p>
-<p>Email: mengye@cs.nyu.edu</p>
+<p>Email: mengye@cs.nyu.edu
+<br/>Tel: +1 (212) 998-3369
+<br/>Office: 60 5th Ave., Rm 508, New York, NY, 10011</p>
 <p>
 <a href="https://www.linkedin.com/in/mengye-ren-593b3546">LinkedIn</a>&nbsp;
 <!--<a href="https://twitter.com/mengyer">Twitter</a>&nbsp;-->
@@ -103,7 +111,7 @@ Some recent research highlights include:
 * Vector Institute: Deep Learning II (2020 fall)
 
 * UofT CSC 411: Machine Learning and Data Mining (2019 winter)
-[[course website](teach/csc411_19s)]
+[[website](teach/csc411_19s)]
 
 -------------------------------------------------------------------------------
 
