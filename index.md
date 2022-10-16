@@ -7,14 +7,14 @@
 <br/>
 Department of Computer Science
 <br/>
-Courant Institute of Mathematical Sciences (joint)
+Courant Institute of Mathematical Sciences
 <br/>
 Center for Data Science (joint)
 <br/>
 New York University</p>
 <p>Email: mengye@cs.nyu.edu
 <br/>Tel: +1 (212) 998-3369
-<br/>Office: 60 5th Ave., Rm 508, New York, NY, 10011</p>
+<br/>Office: 60 5th Ave, Rm 508, New York, NY, 10011</p>
 <p>
 <a href="https://www.linkedin.com/in/mengye-ren-593b3546">LinkedIn</a>&nbsp;
 <!--<a href="https://twitter.com/mengyer">Twitter</a>&nbsp;-->
