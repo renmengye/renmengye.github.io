@@ -19,6 +19,11 @@ Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
 [[arxiv](https://arxiv.org/abs/2210.02615)]
 [[dataset](https://github.com/renmengye/grade-school-math-relational)]
 
+* Gaussian-Bernoulli RBMs without tears.
+Renjie Liao, Simon Kornblith, **Mengye Ren**, David J. Fleet, Geoffrey Hinton.
+*arXiv preprint 2210.10318*, 2022.
+[[arxiv](https://arxiv.org/abs/2210.10318)]
+
 * Online unsupervised learning of visual representations and categories.
 **Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2021.
