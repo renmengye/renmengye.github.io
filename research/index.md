@@ -30,25 +30,37 @@ Renjie Liao, Simon Kornblith, **Mengye Ren**, David J. Fleet, Geoffrey Hinton.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
 
-* Probing few-shot generalization with attributes.
-**Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
-*arXiv preprint 2012.05895*, 2020.
-[[arxiv](https://arxiv.org/abs/2012.05895)]
-[[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
-
 
 ----------------------------------------------------------------------------
 
 ## 2022
 
+* Learning to reason with relational abstractions.
+Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
+*NeurIPS MATH-AI Worshop*, 2022.
+[[arxiv](https://arxiv.org/abs/2210.02615)]
+[[dataset](https://github.com/renmengye/grade-school-math-relational)]
+
+* Neural network online training with sensitivity to multiscale temporal structure.
+Matt Jones, Tyler R. Scott, Gamaleldin F. Elsayed, **Mengye Ren**, Katherine Hermann, David Mayo, Michael C. Mozer.
+*NeurIPS MemARI Workshop*, 2022.
+
 * Rethinking closed-loop training for autonomous driving.
 Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai, Rui Hu, 
 **Mengye Ren**, Raquel Urtasun.
 *ECCV*, 2022.
+[[pdf](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf)]
 
 * Open-world machine learning with limited labeled data.
 **Mengye Ren**. *Ph.D. Thesis, University of Toronto*, 2022.
 [[pdf](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)]
+
+* Probing few-shot generalization with attributes.
+**Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
+*arXiv preprint 2012.05895*, 2020.
+[[arxiv](https://arxiv.org/abs/2012.05895)]
+
+----------------------------------------------------------------------------
 
 ## 2021
 
@@ -121,6 +133,12 @@ Yuwen Xiong, **Mengye Ren**, Raquel Urtasun.
 Laleh Seyyed-Kalantari, Karsten Roth, **Mengye Ren**, Parsa Torabian, Joseph P. Cohen, Marzyeh Ghassemi.
 *Medical Imaging Meets NeurIPS Workshop*, 2020.
 [[video](https://slideslive.com/38942997/multilabel-incremental-fewshot-learning-for-medical-image-pathology-classifiers)]
+
+* Flexible Few-Shot Learning of Contextual Similarities.
+**Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
+*NeurIPS Meta-Learning Workshop*, 2020.
+[[pdf](https://meta-learn.github.io/2020/papers/49_paper.pdf)]
+[[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
 
 * Learning to communicate and correct pose errors.
 Nicholas Vadivelu, **Mengye Ren**, James Tu, Jingkang Wang, Raquel Urtasun.
