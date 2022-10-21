@@ -120,9 +120,13 @@ Some recent research highlights include:
 * 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
   plausible learning with local activity perturbation.
 
+* 2022/10: One [paper](https://arxiv.org/abs/2210.02615) accepted at MATH-AI workshop at NeurIPS.
+
+* 2022/10: One paper accepted at MemARI workshop at NeurIPS.
+
 * 2022/09: I have moved to New York and officially joined NYU.
 
-* 2022/07: One paper accepted at ECCV 2022.
+* 2022/07: One [paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf) accepted at ECCV 2022.
 
 * 2022/01: I started working at Google Brain Toronto as a visiting faculty researcher.
 
