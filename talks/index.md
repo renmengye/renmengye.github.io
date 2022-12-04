@@ -6,6 +6,9 @@
 
 ## 2022
 
+* Meta-learning within a lifetime. NeurIPS 2022 MetaLearn Workshop invited talk. New Orleans, LA. 2022/12.
+[[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)]
+
 * Biologically plausible learning using local activity perturbation.
 New York University, Center for Data Science. New York, NY. 2022/10.
 [[slides](https://drive.google.com/file/d/1dR9eHXZPVBh6T_2R_eFZ1vU6fQt42yK-/view?usp=sharing)]
