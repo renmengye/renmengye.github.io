@@ -6,7 +6,7 @@
 
 ## 2022
 
-* Meta-learning within a lifetime. NeurIPS 2022 MetaLearn Workshop invited talk. New Orleans, LA, USA. 2022/12.
+* Meta-learning within a lifetime. NeurIPS 2022 MetaLearn Workshop, Invited Talk. New Orleans, LA, USA. 2022/12.
 [[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)]
 
 * Biologically plausible learning using local activity perturbation.
@@ -14,7 +14,7 @@ New York University, Center for Data Science. New York, NY, USA. 2022/10.
 [[slides](https://drive.google.com/file/d/1dR9eHXZPVBh6T_2R_eFZ1vU6fQt42yK-/view?usp=sharing)]
 
 * Visual learning in the open world.
-19th Conference on Robotics and Vision (CRV) Symposium. Toronto, ON, Canada. 2022/06.
+19th Conference on Robotics and Vision (CRV), Invited Symposium. Toronto, ON, Canada. 2022/06.
 [[slides](https://drive.google.com/file/d/1cWMBA3nsrwXCuCOCIf5PuYjPSXf25nVa/view?usp=sharing)]
 
 ----------------------------------------------------------------------------
