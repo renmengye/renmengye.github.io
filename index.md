@@ -17,8 +17,9 @@ New York University</p>
 <br/>Office: 60 5th Ave, Rm 508, New York, NY, 10011</p>
 <p>
 <a href="https://www.linkedin.com/in/mengye-ren-593b3546">LinkedIn</a>&nbsp;
-<!--<a href="https://twitter.com/mengyer">Twitter</a>&nbsp;-->
-<a href="https://github.com/renmengye">GitHub</a>&nbsp;
+<a href="https://twitter.com/mengyer">Twitter</a>&nbsp;
+<!-- <a href="https://github.com/renmengye">GitHub</a>&nbsp; -->
+<a href="https://www.youtube.com/@mengyetalks">YouTube</a>&nbsp;
 <a href="https://scholar.google.com/citations?user=XcQ9WqMAAAAJ">Google
 Scholar</a>&nbsp;
 <a href="cv/cv_mengye_ren.pdf">CV</a>&nbsp;
