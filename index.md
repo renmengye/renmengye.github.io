@@ -117,6 +117,8 @@ Some recent research highlights include:
 
 ## <a name="news">News</a>
 
+* 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
+
 * 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
   plausible learning with local activity perturbation.
 
@@ -332,7 +334,9 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 
 [[Full List](talks)]
 
-* Visual learning in the open world.
+* Visual learning in the open world / meta-learning within a lifetime.
+    * NeurIPS 2022 MetaLearn. New Orleans, LA, USA. 2022/12.
+    [[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)] [[video](https://youtu.be/bYZ_lO8nNf0)]
     * University of Oxford. Oxford, UK. 2021/11.
     [[slides](https://drive.google.com/file/d/10_vWl_ETc_dNXFNcyt6Ft-4uvRyxaLAM/view?usp=sharing)]
     * Google Brain. Toronto, ON, Canada. 2021/11.
