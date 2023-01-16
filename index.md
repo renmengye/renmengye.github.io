@@ -107,7 +107,7 @@ Some recent research highlights include:
 
 ## <a name="teaching">Teaching</a>
 
-* NYU DS-GA 1003: Machine Learning (2023 spring)
+* NYU DS-GA 1003: Machine Learning (2023 spring) [[website](https://nyu-ds1003.github.io/spring2023)]
 
 * Vector Institute: Deep Learning II (2020 fall)
 
