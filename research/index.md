@@ -7,11 +7,12 @@
 ----------------------------------------------------------------------------
 
 ## Preprints
-* Scaling forward gradient with local losses.
+<!-- * Scaling forward gradient with local losses.
 **Mengye Ren**, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 *arXiv preprint 2210.03310*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+ -->
 
 * Learning to reason with relational abstractions.
 Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
@@ -24,12 +25,20 @@ Renjie Liao, Simon Kornblith, **Mengye Ren**, David J. Fleet, Geoffrey Hinton.
 *arXiv preprint 2210.10318*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.10318)]
 
-* Online unsupervised learning of visual representations and categories.
-**Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
-*arXiv preprint 2109.05675*, 2021.
-[[arxiv](https://arxiv.org/abs/2109.05675)]
-[[code](https://github.com/renmengye/online-unsup-proto-net)]
+----------------------------------------------------------------------------
 
+## 2023
+
+* Scaling forward gradient with local losses.
+**Mengye Ren**, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
+<!-- *arXiv preprint 2210.03310*, 2022. -->
+*ICLR*, 2023.
+[[arxiv](https://arxiv.org/abs/2210.03310)]
+[[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+
+* Learning in temporally structured environments.
+Matt Jones, Tyler R. Scott, **Mengye Ren**, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
+*ICLR*, 2023.
 
 ----------------------------------------------------------------------------
 
@@ -59,6 +68,12 @@ Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai,
 **Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
+
+* Online unsupervised learning of visual representations and categories.
+**Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
+*arXiv preprint 2109.05675*, 2021.
+[[arxiv](https://arxiv.org/abs/2109.05675)]
+[[code](https://github.com/renmengye/online-unsup-proto-net)]
 
 ----------------------------------------------------------------------------
 

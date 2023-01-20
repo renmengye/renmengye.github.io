@@ -118,6 +118,8 @@ Some recent research highlights include:
 
 ## <a name="news">News</a>
 
+* 2023/01: Two papers are accepted at ICLR 2023.
+
 * 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
 
 * 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
@@ -225,7 +227,8 @@ Some recent research highlights include:
 
 * Scaling forward gradient with local losses.
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
-*arXiv preprint 2210.03310*, 2022.
+<!-- *arXiv preprint 2210.03310*, 2022. -->
+*ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 
