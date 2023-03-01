@@ -29,6 +29,10 @@ Renjie Liao, Simon Kornblith, **Mengye Ren**, David J. Fleet, Geoffrey Hinton.
 
 ## 2023
 
+* Towards unsupervised object detection from LiDAR point clouds.
+Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, **Mengye Ren**, Raquel Urtasun.
+*CVPR*, 2023.
+
 * Scaling forward gradient with local losses.
 **Mengye Ren**, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 <!-- *arXiv preprint 2210.03310*, 2022. -->

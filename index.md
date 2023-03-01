@@ -118,6 +118,8 @@ Some recent research highlights include:
 
 ## <a name="news">News</a>
 
+* 2023/02: One paper is accepted at CVPR 2023.
+
 * 2023/01: Two papers are accepted at ICLR 2023.
 
 * 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
