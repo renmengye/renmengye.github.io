@@ -215,7 +215,6 @@ Some recent research highlights include:
 
 ## <a name="group">Group</a>
 
-* [Nikhil Bhattasali](https://www.linkedin.com/in/nikhilxb/) (co-supervised with [Lerrel Pinto](https://www.lerrelpinto.com) and [Yann LeCun](https://yann.lecun.com))
 * [Ryan Teehan](https://rteehas.github.io/)
 * [Alex Wang](https://www.cs.toronto.edu/~alexw/)
 * [Yanlai Yang](https://yanlai00.github.io/)
