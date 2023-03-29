@@ -107,6 +107,8 @@ Some recent research highlights include:
 
 ## <a name="teaching">Teaching</a>
 
+* NYU CSCI-GA 2565: Machine Learning (2023 fall)
+
 * NYU DS-GA 1003: Machine Learning (2023 spring) [[website](https://nyu-ds1003.github.io/spring2023)]
 
 * Vector Institute: Deep Learning II (2020 fall)
@@ -133,7 +135,7 @@ Some recent research highlights include:
 
 * 2022/09: I have moved to New York and officially joined NYU.
 
-* 2022/07: One [paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf) accepted at ECCV 2022.
+<!-- * 2022/07: One [paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf) accepted at ECCV 2022.
 
 * 2022/01: I started working at Google Brain Toronto as a visiting faculty researcher.
 
@@ -178,7 +180,7 @@ Some recent research highlights include:
   give a talk on Sept 22, 2020.
 
 * 2020/08: I will give a talk at [Mila](https://mila.quebec/en/cours/rdv) on
-  Aug 28, 2020.
+  Aug 28, 2020. -->
 
 <!-- * 2020/07: One [paper](https://arxiv.org/abs/2008.05930) is accepted at ECCV 2020.
 
