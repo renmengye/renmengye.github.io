@@ -215,9 +215,9 @@ Some recent research highlights include:
 
 ## <a name="group">Group</a>
 
-* [Ryan Teehan](https://rteehas.github.io/)
-* [Alex Wang](https://www.cs.toronto.edu/~alexw/)
-* [Yanlai Yang](https://yanlai00.github.io/)
+* [Ryan Teehan](https://rteehas.github.io/) (2022-)
+* [Alex Wang](https://www.cs.toronto.edu/~alexw/) (2022-)
+* [Yanlai Yang](https://yanlai00.github.io/) (2022-)
 
 ----------------------------------------------------------------------------
 
