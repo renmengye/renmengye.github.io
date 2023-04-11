@@ -39,6 +39,7 @@ Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, **Mengye Ren
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+[[html](2023/scaling-forward-gradient-with-local-losses)]
 
 * Learning in temporally structured environments.
 Matt Jones, Tyler R. Scott, **Mengye Ren**, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
@@ -120,7 +121,7 @@ James Lucas, **Mengye Ren**, Irene Kameni, Toniann Pitassi, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2010.07140)]
 [[video](https://slideslive.com/38954221/theoretical-bounds-on-estimation-error-for-metalearning)]
-[[html](lucas-2021-theoretical/theoretical-bounds-on-estimation-error-for-meta-learning.html)]
+[[html](2021/theoretical-bounds-on-estimation-error-for-meta-learning)]
 
 * Perceive, attend, and drive: Learning spatial attention for safe self-driving.
 Bob Wei``*``, **Mengye Ren**``*``, Wenyuan Zeng, Ming Liang, Bin Yang, Raquel Urtasun.
@@ -268,7 +269,7 @@ Yuhuai Wu``*``, **Mengye Ren**``*``, Renjie Liao, Roger B. Grosse.
 [[link](metaoptim/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.02021)]
 [[code](https://github.com/renmengye/meta-optim-public)]
-[[html](wu-2018-understanding/understanding-short-horizon-bias-in-stochastic-meta-optimization.html)]
+[[html](2018/understanding-short-horizon-bias-in-stochastic-meta-optimization/)]
 
 ----------------------------------------------------------------------------
 

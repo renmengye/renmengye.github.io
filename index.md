@@ -228,12 +228,13 @@ Some recent research highlights include:
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
-* Scaling forward gradient with local losses.
+* [Scaling forward gradient with local losses](research/2023/scaling-forward-gradient-with-local-losses).
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 <!-- *arXiv preprint 2210.03310*, 2022. -->
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+[[html](research/2023/scaling-forward-gradient-with-local-losses)]
 
 * Online unsupervised learning of visual representations and categories.
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
