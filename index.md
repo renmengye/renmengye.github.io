@@ -120,6 +120,8 @@ Some recent research highlights include:
 
 ## <a name="news">News</a>
 
+* 2023/04: One paper is accepted at CogSci 2023.
+
 * 2023/02: One paper is accepted at CVPR 2023.
 
 * 2023/01: Two papers are accepted at ICLR 2023.
@@ -236,11 +238,12 @@ Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](research/2023/scaling-forward-gradient-with-local-losses)]
 
-* Online unsupervised learning of visual representations and categories.
+* [Online unsupervised learning of visual representations and categories](research/2022/online-unsupervised-learning-of-visual-representations-and-categories).
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
-*arXiv preprint 2109.05675*, 2021.
+*arXiv preprint 2109.05675*, 2022.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
+[[html](research/2022/online-unsupervised-learning-of-visual-representations-and-categories)]
 
 * Self-supervised representation learning from flow equivariance.
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
