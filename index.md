@@ -249,6 +249,7 @@ Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zeme
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
+[[html](research/2021/self-supervised-representation-learning-from-flow-equivariance)]
 
 * SketchEmbedNet: Learning novel concepts by imitating drawings.
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.

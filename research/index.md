@@ -90,6 +90,7 @@ Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai,
 Yuwen Xiong, **Mengye Ren**, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
+[[html](2021/self-supervised-representation-learning-from-flow-equivariance)]
 
 * Adversarial attacks on multi-agent communication.
 James Tu``*``, Tsunhsuan Wang``*``, Jingkang Wang, Sivabalan Manivasagam, **Mengye Ren**, Raquel Urtasun.
