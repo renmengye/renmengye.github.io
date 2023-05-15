@@ -245,7 +245,7 @@ Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zeme
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
 [[html](research/2022/online-unsupervised-learning-of-visual-representations-and-categories)]
 
-* Self-supervised representation learning from flow equivariance.
+* [Self-supervised representation learning from flow equivariance](research/2021/self-supervised-representation-learning-from-flow-equivariance).
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
