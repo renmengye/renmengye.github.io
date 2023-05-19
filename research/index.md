@@ -86,7 +86,7 @@ Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai,
 
 ## 2021
 
-* Self-supervised representation learning from flow equivariance.
+* [Self-supervised representation learning from flow equivariance](2021/self-supervised-representation-learning-from-flow-equivariance).
 Yuwen Xiong, **Mengye Ren**, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
@@ -107,10 +107,11 @@ James Tu, Huichen Li, Xinchen Yan, **Mengye Ren**, Yun Chen, Ming Liang, Eilyan 
 *CoRL*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06784)]
 
-* SketchEmbedNet: Learning novel concepts by imitating drawings.
+* [SketchEmbedNet: Learning novel concepts by imitating drawings](2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings).
 Alexander Wang``*``, **Mengye Ren**``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
+[[html](2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
 * Wandering within a world: Online contextualized few-shot learning.
 **Mengye Ren**, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.

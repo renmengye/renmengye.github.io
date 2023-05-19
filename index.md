@@ -251,11 +251,12 @@ Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
 [[html](research/2021/self-supervised-representation-learning-from-flow-equivariance)]
 
-* SketchEmbedNet: Learning novel concepts by imitating drawings.
+* [SketchEmbedNet: Learning novel concepts by imitating drawings](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings).
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
 [[code](https://github.com/alexnwang/SketchEmbedNet-public)]
+[[html](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
 * Wandering within a world: Online contextualized few-shot learning.
 Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
