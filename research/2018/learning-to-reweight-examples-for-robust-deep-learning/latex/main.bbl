@@ -1,0 +1,305 @@
+\begin{thebibliography}{44}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abadi et~al.(2016)Abadi, Barham, Chen, Chen, Davis, Dean, Devin,
+  Ghemawat, Irving, Isard, Kudlur, Levenberg, Monga, Moore, Murray, Steiner,
+  Tucker, Vasudevan, Warden, Wicke, Yu, and Zheng]{tensorflow}
+Abadi, Mart{\'{\i}}n, Barham, Paul, Chen, Jianmin, Chen, Zhifeng, Davis, Andy,
+  Dean, Jeffrey, Devin, Matthieu, Ghemawat, Sanjay, Irving, Geoffrey, Isard,
+  Michael, Kudlur, Manjunath, Levenberg, Josh, Monga, Rajat, Moore, Sherry,
+  Murray, Derek~Gordon, Steiner, Benoit, Tucker, Paul~A., Vasudevan, Vijay,
+  Warden, Pete, Wicke, Martin, Yu, Yuan, and Zheng, Xiaoqiang.
+\newblock Tensorflow: {A} system for large-scale machine learning.
+\newblock In \emph{12th {USENIX} Symposium on Operating Systems Design and
+  Implementation, {OSDI}}, 2016.
+
+\bibitem[Andrychowicz et~al.(2016)Andrychowicz, Denil, Colmenarejo, Hoffman,
+  Pfau, Schaul, and de~Freitas]{l2l}
+Andrychowicz, Marcin, Denil, Misha, Colmenarejo, Sergio~Gomez, Hoffman,
+  Matthew~W., Pfau, David, Schaul, Tom, and de~Freitas, Nando.
+\newblock Learning to learn by gradient descent by gradient descent.
+\newblock In \emph{Advances in Neural Information Processing Systems, {NIPS}},
+  2016.
+
+\bibitem[Angluin \& Laird(1988)Angluin and Laird]{noisytheory}
+Angluin, Dana and Laird, Philip.
+\newblock Learning from noisy examples.
+\newblock \emph{Machine Learning}, 2\penalty0 (4):\penalty0 343--370, Apr 1988.
+\newblock ISSN 1573-0565.
+
+\bibitem[Azadi et~al.(2016)Azadi, Feng, Jegelka, and Darrell]{azadi16air}
+Azadi, Samaneh, Feng, Jiashi, Jegelka, Stefanie, and Darrell, Trevor.
+\newblock Auxiliary image regularization for deep cnns with noisy labels.
+\newblock In \emph{Proceedings of the 4th International Conference on Learning
+  Representation, {ICLR}}, 2016.
+
+\bibitem[Bengio et~al.(2009)Bengio, Louradour, Collobert, and
+  Weston]{bengio09curriculum}
+Bengio, Yoshua, Louradour, J{\'{e}}r{\^{o}}me, Collobert, Ronan, and Weston,
+  Jason.
+\newblock Curriculum learning.
+\newblock In \emph{Proceedings of the 26th Annual International Conference on
+  Machine Learning, {ICML}}, 2009.
+
+\bibitem[Chang et~al.(2017)Chang, Learned{-}Miller, and
+  McCallum]{chang17activebias}
+Chang, Haw{-}Shiuan, Learned{-}Miller, Erik~G., and McCallum, Andrew.
+\newblock Active bias: Training more accurate neural networks by emphasizing
+  high variance samples.
+\newblock In \emph{Advances in Neural Information Processing Systems, {NIPS}},
+  2017.
+
+\bibitem[Chawla et~al.(2002)Chawla, Bowyer, Hall, and Kegelmeyer]{smote}
+Chawla, Nitesh~V., Bowyer, Kevin~W., Hall, Lawrence~O., and Kegelmeyer,
+  W.~Philip.
+\newblock {SMOTE:} synthetic minority over-sampling technique.
+\newblock \emph{J. Artif. Intell. Res.}, 16:\penalty0 321--357, 2002.
+
+\bibitem[Chen \& Gupta(2015)Chen and Gupta]{webly}
+Chen, Xinlei and Gupta, Abhinav.
+\newblock Webly supervised learning of convolutional networks.
+\newblock In \emph{Proceedings of the 2015 IEEE International Conference on
+  Computer Vision, {ICCV}}, 2015.
+
+\bibitem[Cordts et~al.(2016)Cordts, Omran, Ramos, Rehfeld, Enzweiler, Benenson,
+  Franke, Roth, and Schiele]{cityscapes}
+Cordts, Marius, Omran, Mohamed, Ramos, Sebastian, Rehfeld, Timo, Enzweiler,
+  Markus, Benenson, Rodrigo, Franke, Uwe, Roth, Stefan, and Schiele, Bernt.
+\newblock The cityscapes dataset for semantic urban scene understanding.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition, {CVPR}}, 2016.
+
+\bibitem[Dong et~al.(2017)Dong, Gong, and Zhu]{dong17imbalance}
+Dong, Qi, Gong, Shaogang, and Zhu, Xiatian.
+\newblock Class rectification hard mining for imbalanced deep learning.
+\newblock In \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision, {ICCV}}, 2017.
+
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{maml}
+Finn, Chelsea, Abbeel, Pieter, and Levine, Sergey.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning, {ICML}}, 2017.
+
+\bibitem[Freund \& Schapire(1997)Freund and Schapire]{adaboost}
+Freund, Yoav and Schapire, Robert~E.
+\newblock A decision-theoretic generalization of on-line learning and an
+  application to boosting.
+\newblock \emph{J. Comput. Syst. Sci.}, 55\penalty0 (1):\penalty0 119--139,
+  1997.
+
+\bibitem[Goldberger \& Ben-Reuven(2017)Goldberger and
+  Ben-Reuven]{goldberger17noise}
+Goldberger, Jacob and Ben-Reuven, Ehud.
+\newblock Training deep neural-networks using a noise adaptation layer.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representation, {ICLR}}, 2017.
+
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{resnet}
+He, Kaiming, Zhang, Xiangyu, Ren, Shaoqing, and Sun, Jian.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition, {CVPR}}, 2016.
+
+\bibitem[Hendrycks et~al.(2018)Hendrycks, Mazeika, Wilson, and Gimpel]{glc}
+Hendrycks, Dan, Mazeika, Mantas, Wilson, Duncan, and Gimpel, Kevin.
+\newblock Using trusted data to train deep networks on labels corrupted by
+  severe noise.
+\newblock \emph{CoRR}, abs/1802.05300, 2018.
+
+\bibitem[Huang et~al.(2016)Huang, Li, Loy, and Tang]{lmle}
+Huang, Chen, Li, Yining, Loy, Chen~Change, and Tang, Xiaoou.
+\newblock Learning deep representation for imbalanced classification.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition, {CVPR}}, 2016.
+
+\bibitem[Jiang et~al.(2015)Jiang, Meng, Zhao, Shan, and Hauptmann]{spcl}
+Jiang, Lu, Meng, Deyu, Zhao, Qian, Shan, Shiguang, and Hauptmann, Alexander~G.
+\newblock Self-paced curriculum learning.
+\newblock In \emph{Proceedings of the 29th {AAAI} Conference on Artificial
+  Intelligence}, 2015.
+
+\bibitem[Jiang et~al.(2017)Jiang, Zhou, Leung, Li, and
+  Fei{-}Fei]{jiang17mentornet}
+Jiang, Lu, Zhou, Zhengyuan, Leung, Thomas, Li, Li{-}Jia, and Fei{-}Fei, Li.
+\newblock Mentornet: Regularizing very deep neural networks on corrupted
+  labels.
+\newblock \emph{CoRR}, abs/1712.05055, 2017.
+
+\bibitem[Kahn \& Marshall(1953)Kahn and Marshall]{importantsample}
+Kahn, Herman and Marshall, Andy~W.
+\newblock Methods of reducing sample size in monte carlo computations.
+\newblock \emph{Journal of the Operations Research Society of America},
+  1\penalty0 (5):\penalty0 263--278, 1953.
+
+\bibitem[Khan et~al.(2015)Khan, Bennamoun, Sohel, and
+  Togneri]{costsensitivedeep}
+Khan, Salman~Hameed, Bennamoun, Mohammed, Sohel, Ferdous~Ahmed, and Togneri,
+  Roberto.
+\newblock Cost sensitive learning of deep feature representations from
+  imbalanced data.
+\newblock \emph{CoRR}, abs/1508.03422, 2015.
+
+\bibitem[Koh \& Liang(2017)Koh and Liang]{kohL17influence}
+Koh, Pang~Wei and Liang, Percy.
+\newblock Understanding black-box predictions via influence functions.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning, {ICML}}, 2017.
+
+\bibitem[Kumar et~al.(2010)Kumar, Packer, and Koller]{kumar10selfpaced}
+Kumar, M.~Pawan, Packer, Benjamin, and Koller, Daphne.
+\newblock Self-paced learning for latent variable models.
+\newblock In \emph{Advances in Neural Information Processing Systems, {NIPS}},
+  2010.
+
+\bibitem[Lake et~al.(2017)Lake, Ullman, Tenenbaum, and Gershman]{lakemetalearn}
+Lake, Brenden~M., Ullman, Tomer~D., Tenenbaum, Joshua~B., and Gershman,
+  Samuel~J.
+\newblock {B}uilding machines that learn and think like people.
+\newblock \emph{Behav Brain Sci}, 40:\penalty0 e253, Jan 2017.
+
+\bibitem[Li et~al.(2017)Li, Yang, Song, Cao, Luo, and Li]{li17noisydistill}
+Li, Yuncheng, Yang, Jianchao, Song, Yale, Cao, Liangliang, Luo, Jiebo, and Li,
+  Li{-}Jia.
+\newblock Learning from noisy labels with distillation.
+\newblock In \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision, {ICCV}}, 2017.
+
+\bibitem[Lin et~al.(2017)Lin, Goyal, Girshick, He, and Doll{\'{a}}r]{focal}
+Lin, Tsung{-}Yi, Goyal, Priya, Girshick, Ross~B., He, Kaiming, and
+  Doll{\'{a}}r, Piotr.
+\newblock Focal loss for dense object detection.
+\newblock In \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision, {ICCV}}, 2017.
+
+\bibitem[Lorraine \& Duvenaud(2018)Lorraine and Duvenaud]{hpernet}
+Lorraine, Jonathan and Duvenaud, David.
+\newblock Stochastic hyperparameter optimization through hypernetworks.
+\newblock \emph{CoRR}, abs/1802.09419, 2018.
+
+\bibitem[Ma et~al.(2017)Ma, Meng, Xie, Li, and Dong]{spaco}
+Ma, Fan, Meng, Deyu, Xie, Qi, Li, Zina, and Dong, Xuanyi.
+\newblock Self-paced co-training.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning, {ICML}}, 2017.
+
+\bibitem[Malisiewicz et~al.(2011)Malisiewicz, Gupta, and Efros]{hardneg}
+Malisiewicz, Tomasz, Gupta, Abhinav, and Efros, Alexei~A.
+\newblock Ensemble of exemplar-svms for object detection and beyond.
+\newblock In \emph{Proceedings of the {IEEE} International Conference on
+  Computer Vision, {ICCV}}, 2011.
+
+\bibitem[Mu{\~{n}}oz{-}Gonz{\'{a}}lez et~al.(2017)Mu{\~{n}}oz{-}Gonz{\'{a}}lez,
+  Biggio, Demontis, Paudice, Wongrassamee, Lupu, and Roli]{datapoison}
+Mu{\~{n}}oz{-}Gonz{\'{a}}lez, Luis, Biggio, Battista, Demontis, Ambra, Paudice,
+  Andrea, Wongrassamee, Vasin, Lupu, Emil~C., and Roli, Fabio.
+\newblock Towards poisoning of deep learning algorithms with back-gradient
+  optimization.
+\newblock In \emph{Proceedings of the 10th {ACM} Workshop on Artificial
+  Intelligence and Security, AISec@CCS}, 2017.
+
+\bibitem[Natarajan et~al.(2013)Natarajan, Dhillon, Ravikumar, and
+  Tewari]{natarajan13noisy}
+Natarajan, Nagarajan, Dhillon, Inderjit~S., Ravikumar, Pradeep, and Tewari,
+  Ambuj.
+\newblock Learning with noisy labels.
+\newblock In \emph{Advances in Neural Information Processing Systems, {NIPS}},
+  2013.
+
+\bibitem[Ravi \& Larochelle(2017)Ravi and Larochelle]{ravi2017oneshot}
+Ravi, Sachin and Larochelle, Hugo.
+\newblock Optimization as a model for few-shot learning.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations, {ICLR}}, 2017.
+
+\bibitem[Reddi et~al.(2016)Reddi, Hefny, Sra, P{\'{o}}czos, and Smola]{svrg}
+Reddi, Sashank~J., Hefny, Ahmed, Sra, Suvrit, P{\'{o}}czos, Barnab{\'{a}}s, and
+  Smola, Alexander~J.
+\newblock Stochastic variance reduction for nonconvex optimization.
+\newblock In \emph{Proceedings of the 33rd International Conference on Machine
+  Learning, {ICML}}, 2016.
+
+\bibitem[Reed et~al.(2014)Reed, Lee, Anguelov, Szegedy, Erhan, and
+  Rabinovich]{reed14noisy}
+Reed, Scott~E., Lee, Honglak, Anguelov, Dragomir, Szegedy, Christian, Erhan,
+  Dumitru, and Rabinovich, Andrew.
+\newblock Training deep neural networks on noisy labels with bootstrapping.
+\newblock \emph{CoRR}, abs/1412.6596, 2014.
+
+\bibitem[Ren et~al.(2018)Ren, Triantafillou, Ravi, Snell, Swersky, Tenenbaum,
+  Larochelle, and Zemel]{metafewshot}
+Ren, Mengye, Triantafillou, Eleni, Ravi, Sachin, Snell, Jake, Swersky, Kevin,
+  Tenenbaum, Joshua~B., Larochelle, Hugo, and Zemel, Richard~S.
+\newblock Meta learning for few-shot semi-supervised classification.
+\newblock In \emph{Proceedings of the 6th International Conference on Learning
+  Representations, {ICLR}}, 2018.
+
+\bibitem[Russakovsky et~al.(2015)Russakovsky, Deng, Su, Krause, Satheesh, Ma,
+  Huang, Karpathy, Khosla, Bernstein, Berg, and Fei-Fei]{ILSVRC15}
+Russakovsky, Olga, Deng, Jia, Su, Hao, Krause, Jonathan, Satheesh, Sanjeev, Ma,
+  Sean, Huang, Zhiheng, Karpathy, Andrej, Khosla, Aditya, Bernstein, Michael,
+  Berg, Alexander~C., and Fei-Fei, Li.
+\newblock {ImageNet Large Scale Visual Recognition Challenge}.
+\newblock \emph{International Journal of Computer Vision, {IJCV}}, 115\penalty0
+  (3):\penalty0 211--252, 2015.
+
+\bibitem[Sukhbaatar \& Fergus(2014)Sukhbaatar and
+  Fergus]{sukhbaatar14convnoise}
+Sukhbaatar, Sainbayar and Fergus, Rob.
+\newblock Learning from noisy labels with deep neural networks.
+\newblock \emph{CoRR}, abs/1406.2080, 2014.
+
+\bibitem[Thrun \& Pratt(1998)Thrun and Pratt]{metalearn}
+Thrun, Sebastian and Pratt, Lorien.
+\newblock \emph{Learning to Learn}.
+\newblock Springer, 1998.
+
+\bibitem[Ting(2000)]{costsensitive}
+Ting, Kai~Ming.
+\newblock A comparative study of cost-sensitive boosting algorithms.
+\newblock In \emph{Proceedings of the 17th International Conference on Machine
+  Learning, {ICML}}, 2000.
+
+\bibitem[Vahdat(2017)]{vahdat17crf}
+Vahdat, Arash.
+\newblock Toward robustness against label noise in training deep discriminative
+  neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems, {NIPS}},
+  2017.
+
+\bibitem[Wang et~al.(2017)Wang, Kucukelbir, and Blei]{wang17reweight}
+Wang, Yixin, Kucukelbir, Alp, and Blei, David~M.
+\newblock Robust probabilistic modeling with bayesian data reweighting.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning, {ICML}}, 2017.
+
+\bibitem[Wu et~al.(2018)Wu, Ren, Liao, and Grosse]{shorthorizon}
+Wu, Yuhuai, Ren, Mengye, Liao, Renjie, and Grosse, Roger~B.
+\newblock Understanding short-horizon bias in stochastic meta-optimization.
+\newblock In \emph{Proceedings of the 6th International Conference on Learning
+  Representations, {ICLR}}, 2018.
+
+\bibitem[Xiao et~al.(2015)Xiao, Xia, Yang, Huang, and Wang]{xiao15noisy}
+Xiao, Tong, Xia, Tian, Yang, Yi, Huang, Chang, and Wang, Xiaogang.
+\newblock Learning from massive noisy labeled data for image classification.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition, {CVPR}}, 2015.
+
+\bibitem[Zagoruyko \& Komodakis(2016)Zagoruyko and Komodakis]{wrn}
+Zagoruyko, Sergey and Komodakis, Nikos.
+\newblock Wide residual networks.
+\newblock In \emph{Proceedings of the British Machine Vision Conference,
+  {BMVC}}, 2016.
+
+\bibitem[Zhang et~al.(2017)Zhang, Bengio, Hardt, Recht, and Vinyals]{rethink}
+Zhang, Chiyuan, Bengio, Samy, Hardt, Moritz, Recht, Benjamin, and Vinyals,
+  Oriol.
+\newblock Understanding deep learning requires rethinking generalization.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations, {ICLR}}, 2017.
+
+\end{thebibliography}

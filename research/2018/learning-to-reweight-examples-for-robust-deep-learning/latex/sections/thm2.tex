@@ -1,0 +1,8 @@
+% !TEX root = ../main.tex
+Suppose $G$, $f_i$ and $\alpha_t$ satisfy the aforementioned conditions, then
+Algorithm~\ref{alg:ad} achieves $\EE{\lVert \nabla G(\theta_t) \rVert^2} \leq \epsilon$ in
+$O(1/\epsilon^2)$ steps. More specifically,
+\begin{align}
+\min\limits_{0 < t < T} \EE{\lVert \nabla G(\theta_t) \rVert^2} \leq \frac{C}{\sqrt{T}},
+\end{align}
+where $C$ is some constant independent of the convergence process.

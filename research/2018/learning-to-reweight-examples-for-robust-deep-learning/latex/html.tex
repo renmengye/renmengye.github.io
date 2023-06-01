@@ -1,0 +1,79 @@
+\documentclass{article}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{amsthm}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\usepackage{latexml}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{natbib}
+%\usepackage{color}
+%\usepackage{fancyhdr}
+%\usepackage{eso-pic}
+%\usepackage{forloop}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\newcommand{\EE}[1]{\mathbb{E} \left[ #1 \right]}
+\newcommand{\EEsub}[2]{\mathop{\mathbb{E}}_{#2} \left[ #1 \right]}
+
+\newcommand{\argmin}{\arg\,\min}
+\DeclareMathOperator*{\vecc}{vec}
+\DeclareMathOperator*{\diag}{diag}
+
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{lem*}{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{deff}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{examp}{Example}
+
+\newcommand{\mengye}[1]{{\bf \color{blue} [MR: #1]}}
+\newcommand{\wenyuan}[1]{{\bf \color{red} [WY: #1]}}
+
+\usepackage[accepted]{icml2018}
+\hyphenpenalty=1000
+\begin{document}
+\title{Learning to Reweight Examples for Robust Deep Learning}
+\author{
+  Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun\\
+  Uber Advanced Technologies Group, University of Toronto\\
+  \small{\texttt{\{mren3, byang10, wenyuan, urtasun\}@uber.com}}
+}
+\maketitle
+\def\arxiv{1}
+
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/model}
+\input{sections/experiment}
+\input{sections/conclusion}
+
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\oldbibliography{#1}
+\setlength{\itemsep}{7pt}} %Reducing spacing in the bibliography.
+
+% \newpage
+\bibliography{our_ref}
+\bibliographystyle{icml2018}
+% \bibliographystyle{iclr2023_conference}
+
+\if\arxiv1
+\newpage
+\input{sections/appendix}
+\fi
+
+\end{document}

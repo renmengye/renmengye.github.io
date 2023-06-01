@@ -1,0 +1,16 @@
+% !TEX root = ../main.tex
+\begin{figure}[t]
+\centering
+\iflatexml
+\includegraphics[width=3\columnwidth]{figures/uncondition.png}
+\includegraphics[width=3\columnwidth]{figures/condition.png}
+\else
+\includegraphics[width=0.45\columnwidth,trim={0cm 0 0cm 0},clip]{figures/uncondition.pdf}
+\includegraphics[width=0.45\columnwidth,trim={0cm 0 0cm 0},clip]{figures/condition.pdf}
+\fi
+\vspace{-0.1in}
+\caption{Example weights distribution on \textsc{BackgroundFlip}. Left: a hyper-validation batch,
+with randomly flipped background noises. Right: a hyper-validation batch containing only on a single
+label class, with flipped background noises, averaged across all non-background classes.}
+\label{fig:dist}
+\end{figure}

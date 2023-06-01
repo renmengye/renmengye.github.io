@@ -1,0 +1,35 @@
+% !TEX root = ../main.tex
+
+\begin{table}[t]
+\begin{center}
+\caption{CIFAR \textsc{UniformFlip} under 40\% noise ratio using a WideResNet-28-10 model. Test
+accuracy shown in percentage. Top rows use only noisy data, and bottom uses additional 1000 clean
+images. ``FT'' denotes fine-tuning on clean data.}
+\label{tab:uniformflip}
+\vskip 0.1in
+\begin{small}
+\begin{sc}
+\begin{tabular}{ccc}
+\toprule
+Model              &  CIFAR-10                    & CIFAR-100                     \\
+\midrule
+Baseline           & 67.97 $\pm$ 0.62             & 50.66 $\pm$ 0.24              \\
+Reed-Hard          & 69.66 $\pm$ 1.21             & 51.34 $\pm$  0.17             \\
+S-Model            & 70.64 $\pm$ 3.09             & 49.10 $\pm$ 0.58              \\
+MentorNet          & 76.6                         & 56.9                          \\
+Random             & 86.06 $\pm$ 0.32.            & 58.01 $\pm$ 0.37              \\
+\midrule
+\multicolumn{3}{c}{Using 1,000 clean images} \\
+\midrule
+Clean Only         & 46.64 $\pm$ 3.90             & 9.94 $\pm$ 0.82               \\
+Baseline +FT       & 78.66 $\pm$ 0.44             & 54.52 $\pm$ 0.40              \\
+MentorNet +FT      & 78                           & 59                            \\
+Random +FT         & 86.55 $\pm$ 0.24             & 58.54 $\pm$ 0.52              \\
+Ours               & \textbf{86.92 $\pm$ 0.19}    & \textbf{61.34 $\pm$ 2.06}     \\
+\bottomrule
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}

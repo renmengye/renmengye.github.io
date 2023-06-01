@@ -295,12 +295,13 @@ Chris Zhang, Mengye Ren, Raquel Urtasun.
 *ICLR*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.05749)]
 
-* Learning to reweight examples for robust deep learning.
+* [Learning to reweight examples for robust deep learning](research/2018/learning-to-reweight-examples-for-robust-deep-learning).
 Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 *ICML*, 2018.
 [[arxiv](https://arxiv.org/abs/1803.09050)]
 [[code](https://github.com/uber-research/learning-to-reweight-examples)]
 [[video](https://vimeo.com/287808016)]
+[[html](research/2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
 * Meta-learning for semi-supervised few-shot classification.
 Mengye Ren, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin

@@ -1,0 +1,52 @@
+% !TEX root = ../main.tex
+
+\section{Introduction}
+
+Deep neural networks (DNNs) have been widely used for machine learning applications due to their
+powerful capacity for modeling complex input patterns. Despite their  success, it has been shown
+that DNNs are prone to training set biases, i.e. the training set  is drawn from a joint
+distribution $p(x, y)$ that is different from the distribution $p(x^v, y^v)$ of the evaluation set.
+This distribution mismatch could have many different forms.  Class imbalance in the training set is
+a very common example. In applications such as object detection in the context of autonomous
+driving, the vast majority of the training data is composed of standard  vehicles but models also
+need to recognize rarely seen classes such as emergency vehicles or animals with very high accuracy.
+This will sometime lead to biased training models that do not perform well in practice.
+
+Another popular type of training set bias is label noise. To train a reasonable supervised deep
+model, we ideally need a large dataset with high-quality labels, which require many passes of
+expensive human quality assurance (QA). Although coarse labels are cheap and of high availability,
+the presence of noise will hurt the model performance, e.g. \citet{rethink} has shown that a standard
+CNN can fit any ratio of label flipping noise in the training set and eventually leads to poor
+generalization performance.
+
+Training set biases and misspecification can sometimes be addressed with dataset resampling
+\cite{smote}, i.e. choosing the correct proportion of labels to train a network on, or more
+generally by assigning a weight to each example and minimizing a weighted training loss. The example
+weights are typically calculated based on the training loss, as in many classical algorithms such as
+AdaBoost \cite{adaboost}, hard negative mining \cite{hardneg}, self-paced learning
+\cite{kumar10selfpaced}, and other more recent work \cite{chang17activebias,jiang17mentornet}.
+
+However, there exist two contradicting ideas in training loss based approaches. In noisy label
+problems, we prefer examples with smaller training losses as they are more likely to be clean
+images; yet in class imbalance problems, algorithms such as hard negative mining \cite{hardneg}
+prioritize examples with higher training loss since they are more likely to be the minority class.
+In cases when the training set is both imbalanced and noisy, these existing methods would have the
+wrong model assumptions. In fact, without a proper definition of an unbiased test set, solving the
+training set bias problem is inherently ill-defined. As the model cannot distinguish the right from
+the wrong, stronger regularization can usually work surprisingly well in certain synthetic noise
+settings. Here we argue that in order to learn general forms of training set biases, it is necessary
+to have a small unbiased validation to guide training. It is actually not uncommon to construct a
+dataset with two parts - one relatively small but very accurately  labeled, and another massive but
+coarsely labeled. Coarse labels can come from inexpensive crowdsourcing services   or weakly
+supervised data \cite{cityscapes,ILSVRC15,webly}.
+
+Different from existing training loss based approaches, we follow a meta-learning paradigm and model
+the most basic assumption instead: \textit{the best example weighting should minimize the loss of a
+set of unbiased clean validation examples that are consistent with the evaluation procedure}.
+Traditionally, validation is performed at the end of training, which can be prohibitively expensive
+if we treat the example weights as some hyperparameters to optimize; to circumvent this, we perform
+validation at \textit{every} training iteration to dynamically determine the example weights of the
+current batch. Towards this goal, we propose  an online reweighting method that leverages an
+additional small validation set and adaptively assigns importance weights to examples in every
+iteration. We experiment with both class imbalance and corrupted label problems and find that our
+approach significantly increases the robustness to training set biases.

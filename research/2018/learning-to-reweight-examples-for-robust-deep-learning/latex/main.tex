@@ -1,0 +1,92 @@
+\documentclass{article}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{amsthm}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\newcommand{\EE}[1]{\mathbb{E} \left[ #1 \right]}
+\newcommand{\EEsub}[2]{\mathop{\mathbb{E}}_{#2} \left[ #1 \right]}
+
+
+% \DeclareMathOperator*{\argmin}{argmin}
+% \DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\argmin}{\arg\,\min}
+\DeclareMathOperator*{\vecc}{vec}
+\DeclareMathOperator*{\diag}{diag}
+
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{lem*}{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{deff}{Definition}
+\newtheorem{rem}{Remark}
+\newtheorem{examp}{Example}
+
+\newcommand{\mengye}[1]{{\bf \color{blue} [MR: #1]}}
+\newcommand{\wenyuan}[1]{{\bf \color{red} [WY: #1]}}
+
+\usepackage[accepted]{icml2018}
+\icmltitlerunning{Learning to Reweight Examples for Robust Deep Learning}
+\hyphenpenalty=1000
+\begin{document}
+
+\twocolumn[
+\icmltitle{Learning to Reweight Examples for Robust Deep Learning}
+\icmlsetsymbol{equal}{*}
+
+\begin{icmlauthorlist}
+\icmlauthor{Mengye Ren}{atg,to}
+\icmlauthor{Wenyuan Zeng}{atg,to}
+\icmlauthor{Bin Yang}{atg,to}
+\icmlauthor{Raquel Urtasun}{atg,to}
+\end{icmlauthorlist}
+
+\icmlaffiliation{atg}{Uber Advanced Technologies Group, Toronto ON, CANADA}
+\icmlaffiliation{to}{Department of Computer Science, University of Toronto, Toronto ON, CANADA}
+
+\icmlcorrespondingauthor{Mengye Ren}{mren3@uber.com}
+% \icmlcorrespondingauthor{Wenyuan Zeng}{wenyuan@uber.com}
+% \icmlcorrespondingauthor{Bin Yang}{byang10@uber.com}
+% \icmlcorrespondingauthor{Raquel Urtasun}{urtasun@uber.com}
+
+\icmlkeywords{Example reweighting, meta-Learning, deep learning, machine learning}
+\vskip 0.3in
+]
+\def\arxiv{1}
+
+\printAffiliationsAndNotice{}  % leave blank if no need to mention equal contribution
+% \printAffiliationsAndNotice{\icmlEqualContribution} % otherwise use the standard text.
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/model}
+\input{sections/experiment}
+\input{sections/conclusion}
+
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{\oldbibliography{#1}
+\setlength{\itemsep}{7pt}} %Reducing spacing in the bibliography.
+
+% \newpage
+\bibliography{our_ref}
+\bibliographystyle{icml2018}
+
+\if\arxiv1
+\newpage
+\input{sections/appendix}
+\fi
+
+\end{document}

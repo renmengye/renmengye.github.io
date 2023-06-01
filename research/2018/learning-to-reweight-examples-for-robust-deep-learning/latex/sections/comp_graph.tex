@@ -1,0 +1,12 @@
+% !TEX root = ../main.tex
+\begin{figure}[t]
+\centering
+\iflatexml
+\includegraphics[width=6\columnwidth]{figures/comp_graph.png}
+\else
+\includegraphics[width=\columnwidth,trim={0cm 8.9cm 15cm 0},clip]{figures/comp_graph.pdf}
+\fi
+\vspace{-0.1in}
+\caption{Computation graph of our algorithm in a deep neural network, which can be efficiently implemented using second order automatic differentiation.}
+\label{fig:comp_graph}
+\end{figure}

@@ -1,0 +1,45 @@
+% !TEX root = ../main.tex
+
+\begin{table}[t]
+\begin{center}
+
+\caption{CIFAR \textsc{BackgroundFlip} under 40\% noise ratio using a ResNet-32 model. Test accuracy
+shown in percentage. Top rows use only noisy data, and bottom rows use additional 10 clean images
+per class. ``+ES'' denotes early stopping; ``FT'' denotes fine-tuning.}
+
+\label{tab:backgroundflip}
+
+\resizebox{\columnwidth}{!}{
+\begin{small}
+\begin{sc}
+\begin{tabular}{ccc}
+\toprule
+Model                             & CIFAR-10                    & CIFAR-100                     \\
+\midrule
+Baseline                          & 59.54 $\pm$ 2.16            & 37.82 $\pm$ 0.69              \\
+Baseline +ES                      & 64.96 $\pm$ 1.19            & 39.08 $\pm$ 0.65              \\
+Random                            & 69.51 $\pm$ 1.36            & 36.56 $\pm$ 0.44              \\
+Weighted                          & 79.17 $\pm$ 1.36            & 36.56 $\pm$ 0.44              \\
+Reed Soft +ES                     & 63.47 $\pm$ 1.05            & 38.44 $\pm$ 0.90              \\
+Reed Hard +ES                     & 65.22 $\pm$ 1.06            & 39.03 $\pm$ 0.55              \\
+S-Model                           & 58.60 $\pm$ 2.33            & 37.02 $\pm$ 0.34              \\
+S-Model +Conf                     & 68.93 $\pm$ 1.09            & 46.72 $\pm$ 1.87              \\
+S-Model +Conf +ES                 & 79.24 $\pm$ 0.56            & 54.50 $\pm$ 2.51              \\
+\midrule
+\multicolumn{3}{c}{Using 10 clean images per class} \\
+\midrule
+Clean Only                        & 15.90 $\pm$ 3.32            & 8.06  $\pm$ 0.76              \\
+Baseline +FT                      & 82.82 $\pm$ 0.93            & 54.23 $\pm$ 1.75              \\
+Baseline +ES +FT                  & 85.19 $\pm$ 0.46            & 55.22 $\pm$ 1.40              \\
+Weighted +FT                      & 85.98 $\pm$ 0.47            & 53.99 $\pm$ 1.62              \\
+S-Model +Conf +FT                 & 81.90 $\pm$ 0.85            & 53.11 $\pm$ 1.33              \\
+S-Model +Conf +ES +FT             & 85.86 $\pm$ 0.63            & 55.75 $\pm$ 1.26              \\
+Ours                              & \textbf{86.73 $\pm$ 0.48}   & \textbf{59.30 $\pm$ 0.60}     \\
+\bottomrule
+\end{tabular}
+\end{sc}
+\end{small}
+}
+\end{center}
+\vskip -0.1in
+\end{table}

@@ -1,0 +1,214 @@
+% !TEX root = ../main.tex
+\appendix
+
+\section{Reweighting in an MLP}
+\label{sec:mlp_derive}
+We show the complete derivation below on calculating the example weights in an MLP network.
+\begin{align}
+&\frac{\partial}{\partial \epsilon_{i,t}} \EE{f^v(\theta_{t+1}(\epsilon))}
+\Bigr|_{\epsilon_{i,t}=0}\\
+=&\frac{1}{m}\sum_{j=1}^m \frac{\partial}{\partial \epsilon_{i,t}} f_j^v(\theta_{t+1}(\epsilon))
+\Bigr|_{\epsilon_{i,t}=0}\\
+=&\frac{1}{m}\sum_{j=1}^m \frac{\partial f_j^v(\theta)}{\partial \theta}\Bigr|_{\theta=\theta_t}^\top
+\frac{\partial \theta_{t+1}(\epsilon_{i,t})} {\partial \epsilon_{i,t}}\Bigr|_{\epsilon_{i,t}=0}\\
+\propto&-\frac{1}{m}\sum_{j=1}^m \frac{\partial f_j^v(\theta)}{\partial \theta}\Bigr|_{\theta=\theta_t}^\top
+\frac{\partial f_i(\theta)}{\partial \theta}\Bigr|_{\theta=\theta_t}\\
+=&-\frac{1}{m}\sum_{j=1}^m \sum_{l=1}^L
+\frac{\partial f_j^v}{\partial \theta_l}\Bigr|_{\theta_l=\theta_{l,t}}^\top
+\frac{\partial f_i}{\partial \theta_{l}}\Bigr|_{\theta_l=\theta_{l,t}}\\
+=&-\frac{1}{m}\sum_{j=1}^m \sum_{l=1}^L
+\vecc \left( \tilde{z}_{j,l-1}^v {g_{j,l}^v}^\top \right)^\top
+\vecc \left( \tilde{z}_{i,l-1} g_{i,l}^\top \right)\\
+=&-\frac{1}{m}\sum_{j=1}^m \sum_{l=1}^L \sum_{p=1}^{D_1} \sum_{q=1}^{D_2}
+\tilde{z}_{j,l-1,p}^v g_{j,l,q}^v \tilde{z}_{i,l-1,p} g_{i,l,q}\\
+=&-\frac{1}{m}\sum_{j=1}^m \sum_{l=1}^L
+\sum_{p=1}^{D_1} \tilde{z}_{j,l-1,p}^v \tilde{z}_{i,l-1,p}
+\sum_{q=1}^{D_2} g_{j,l,q}^v g_{i,l,q}\\
+=&-\frac{1}{m}\sum_{j=1}^m \sum_{l=1}^L
+(\tilde{z}^v_{j,l-1}{}^\top
+\tilde{z}_{i,l-1})
+(g^v_{j,l}{}^\top g_{i,l}).
+\end{align}
+
+\section{Convergence of our method}
+\label{sec:lemproof}
+This section provides the proof for Lemma~\ref{lem:convergence}.
+
+\begin{lem*}
+\input{sections/lemma1_appendix}
+\end{lem*}
+
+\begin{proof}
+Suppose we have a small validation set with $M$ clean data $\{x_1, x_2, \cdots, x_M\}$, each
+associating with a validation loss function $f_i(\theta)$, where $\theta$ is the parameter of the
+model. The overall validation loss would be,
+\begin{align}
+  G(\theta) = \frac{1}{M} \sum_{i=1}^M f_i(\theta).
+\end{align}
+Now, suppose we have another $N-M$ training data, $\{x_{M+1}, x_{M+2}, \cdots, x_N\}$, and we add
+those validation data into this set to form our large training dataset $T$, which has $N$ data in
+total. The overall training loss would be,
+\begin{align}
+  F(\theta) = \frac{1}{M} \sum_{i=1}^N f_i(\theta).
+\end{align}
+
+For simplicity, since $M \ll N$, we assume that the validation data is a subset of the training
+data. During training, we take a mini-batch $B$ of training data at each step, and $|B| = n$.
+Following some similar derivation as Appendix \ref{sec:mlp_derive}, we have the following update
+rules:
+\begin{align}
+\theta_{t+1} = \theta_t - \frac{\alpha_t}{n} \sum_{i \in B} \max \left\{\nabla G^\top \nabla f_i, 0
+\right\} \nabla f_i,
+\label{eq:updaterule}
+\end{align}
+where $\alpha_t$ is the learning rate at time-step $t$. Since all gradients are taken at $\theta_t$,
+we omit $\theta_t$ in our notations.
+
+Since the validation loss $G(\theta)$ is Lipschitz-smooth, we have
+\begin{align}
+G(\theta_{t+1}) \leq G(\theta_t) + \nabla G^\top\Delta \theta + \frac{L}{2} \lVert \Delta \theta \rVert^2.
+\end{align}
+
+Plugging our updating rule (Eq. \ref{eq:updaterule}),
+\begin{align}
+G(\theta_{t+1}) \leq G(\theta_t) - I_1 + I_2,
+\end{align}
+where,
+\begin{align}
+%\begin{split}
+I_1 &=  \frac{\alpha_t}{n} \sum_{i \in B} \max \{\nabla G^\top \nabla f_i, 0 \}\nabla G^\top \nabla f_i\\
+&=  \frac{\alpha_t}{n} \sum_{i \in B} \max \{\nabla G^\top \nabla f_i, 0 \}^2,\\
+%\end{split}
+\end{align}
+and,
+\begin{align}
+I_2 &= \frac{L}{2} \lVert \frac{\alpha_t}{n} \sum_{i \in B} \max \{\nabla
+G^\top \nabla f_i, 0 \}\nabla f_i \rVert^2\\
+    &\le  \frac{L}{2} \frac{\alpha^2_t}{n^2} \sum_{i \in B} \lVert
+          \max \left \{\nabla G^\top \nabla f_i, 0 \right \}\nabla f_i \right \rVert^2\label{eq:firstineq}\\
+    &=    \frac{L}{2} \frac{\alpha^2_t}{n^2} \sum_{i \in B}
+          \max \left \{\nabla G^\top \nabla f_i, 0 \right \}^2
+          \left \lVert \nabla f_i \rVert^2\\
+    &\le  \frac{L}{2} \frac{\alpha^2_t}{n^2} \sum_{i \in B}
+          \max \left \{\nabla G^\top \nabla f_i, 0 \right \}^2 \sigma^2\label{eq:secondieq}.
+\end{align}
+
+The first inequality (Eq.~\ref{eq:firstineq}) comes from the triangle inequality. The second
+inequality (Eq.~\ref{eq:secondieq}) holds since $f_i$ has $\sigma$-bounded gradients. If we denote
+$\mathcal{T}_t = \sum_{i \in B} \max
+\{\nabla G^\top \nabla f_i, 0 \}^2$, where $t$ stands for the time-step $t$, then
+\begin{align}
+\label{eq:decreasingvalid}
+G(\theta_{t+1}) \leq G(\theta_t) - \frac{\alpha_t}{n} \mathcal{T}_t
+                     \left(1 - \frac{L \alpha_t \sigma^2}{2 n } \right).
+\end{align}
+
+Note that by definition, $\mathcal{T}_t$ is non-negative, and since $\alpha_t \le
+\frac{2n}{L\sigma^2}$, if follows that that $G(\theta_{t+1}) \le G(\theta_t)$ for any $t$.
+
+Next, we prove $\EEsub{\mathcal{T}_t}{t}= 0$ if and only if $\nabla G = 0$, and
+$\EEsub{\mathcal{T}_t}{t} > 0$ if and only if $\nabla G \neq 0$, where the expectation is taken over
+all possible training batches at time step $t$. %For simplicity, we assume the training batch size $n$
+%is equal to the validation size $M$. For other cases, the proof will be similiar.
+%Given this assumption, there is a non-zero probability
+%$p$ that the sampled training batch is happened to be the validation set $\{x_1, x_2, \cdots,
+%x_M\}$.
+It is obvious that when $\nabla G = 0$, $\EEsub{\mathcal{T}_t}{t} = 0$. If $\nabla G \neq
+0$, from the inequality below, we firstly know that there must exist a validation example $x_{j, 0 \leq j \leq M}$ such
+that $\nabla G^\top \nabla f_j > 0$,
+\begin{align}
+\label{eq:positivedotprodexist}
+0 < \lVert \nabla G \rVert^2 = \nabla G^\top \nabla G = \frac{1}{M} \sum_{i=1}^M \nabla G^\top \nabla f_i.
+\end{align}
+Secondly, there is a non-zero possibility $p$ to sample a training batch $B$ such that it contains this data $x_j$.
+Also noticing that $\mathcal{T}_t$ is a non-negative random variable, we have,
+\begin{align}
+\label{eq:EETlargerzero}
+%\begin{split}
+\EEsub{\mathcal{T}_t}{t} &\geq p \sum_{i \in B} \max\{\nabla G^\top \nabla f_i, 0\}^2\\
+&\geq p \max\{\nabla G^\top \nabla f_j, 0\}^2 \\
+&= p \left( \nabla G^\top \nabla f_j \right)^2 > 0.
+%\end{split}
+\end{align}
+
+Therefore, if we take expectation over the training batch on both sides of Eq. \ref{eq:decreasingvalid},
+we can conclude that,
+\begin{align}
+\EEsub{G(\theta_{t+1})}{t} \leq G(\theta_{t}),
+\end{align}
+where the equality holds if and only if $\nabla G = 0$. This finishes our proof for Lemma 1.
+\end{proof}
+
+\section{Convergence rate of our method}
+\label{sec:thmproof}
+This section provides proof for Theorem 2.
+
+\begin{thm*}
+\input{sections/thm2}
+\end{thm*}
+
+\begin{proof}
+From the proof of Lemma~\ref{lem:convergence}, we have
+\begin{align}
+%\begin{split}
+&\frac{\alpha_t}{n} \left(1 - \frac{L \alpha_t \sigma^2}{2n} \right) \EEsub{\mathcal{T}_t}{0 \sim t} \\
+\leq& \EEsub{G(\theta_t)}{0 \sim t-1} - \EEsub{G(\theta_{t+1})}{0 \sim t}.
+%\end{split}
+\end{align}
+
+If we let $\alpha_t$ to be a constant $\alpha < \frac{2n}{L\sigma^2}$ (or a decay positive sequence
+upper bounded by $\alpha$), and let $\kappa = \left(1 - \frac{L \alpha \sigma^2}{2n} \right)\alpha/n
+> 0$, then we have,
+\begin{align}
+%\begin{split}
+ \kappa \sum_{t=0}^T \EEsub{\mathcal{T}_t}{0 \sim t} &\leq \EEsub{G(\theta_0)}{0} - \EEsub{G(\theta_{T+1})}{0 \sim T}\\
+  &\leq G(\theta_0) - G(\theta^*),
+%\end{split}
+\end{align}
+
+where $G(\theta^*)$ is the global minimum of function $G$. Therefore, it is obvious to see that
+there exist a time-step $ 0 \leq \tau \leq T$ such that,
+\begin{align}
+\EEsub{\mathcal{T}_{\tau}}{0 \sim \tau} \leq \frac{G(\theta_0) - G(\theta^*)}{\kappa T}.
+\end{align}
+
+We next prove that for this time-step $\tau$, the gradient square $\EEsub{\lVert \nabla G(\theta_{\tau})
+\rVert^2}{0 \sim \tau-1}$ is smaller than $O(1/\sqrt{T})$. %We know that there is a positive
+%probability $p$ that the sampled training batch is happened to be the validation set $\{x_1, x_2,
+%\cdots, x_M\}$, and this probability $p$ is only determined by constants $M$, $N$, and $n$.
+Considering such $M$ training batches $B_1, B_2, \cdots, B_M$ such that $B_i$ is guaranteed to contain $x_i$. We know that those batches have non-zero sampling probability, denoted as $p_1, p_2, \cdots, p_M$. We also denote $p = \min\{p_1, p_2, \cdots, p_M\}$.
+Now, we have,
+\begin{align}
+M\EEsub{\mathcal{T}_{\tau}}{0 \sim \tau}
+&= \EEsub{M\EEsub{\mathcal{T}_{\tau}}{\tau}}{0 \sim \tau-1}\\
+&\geq \EEsub{\sum_{k = 1}^M p_k \sum_{i \in B_k} \max\{\nabla G^\top \nabla f_i, 0\}^2}{0 \sim \tau-1} \label{ineq:first} \\
+&\geq p\EEsub{\sum_{k = 1}^M \sum_{i \in B_k} \max\{\nabla G^\top \nabla f_i, 0\}^2}{0 \sim \tau-1} \\
+&\geq p\EEsub{\sum_{i=1}^M \max\{\nabla G^\top \nabla f_i, 0\}^2}{0 \sim \tau-1} \\
+&= p \sum_{i=1}^M \EEsub{\max\{\nabla G^\top \nabla f_i, 0\}^2}{0 \sim \tau-1}       \\
+&\geq p \sum_{i=1}^M \left (\EEsub{\max\{\nabla G^\top \nabla f_i, 0\}}{0 \sim \tau-1} \right)^2 \label{ineq:second}     \\
+&\geq \frac{p}{M} \left ( \sum_{i=1}^M \EEsub{\max\{\nabla G^\top \nabla f_i, 0\}}{0 \sim \tau-1} \right)^2\label{ineq:third}.
+\end{align}
+The inequality in Eq.~\ref{ineq:first} comes from the non-negativeness of $\mathcal{T}_t$, the
+inequality in Eq.~\ref{ineq:second} comes from the property of expectation, and the final inequality
+in Eq.~\ref{ineq:third} comes from the Cauchy-Schwartz inequality. Therefore,
+\begin{align}
+%\begin{split}
+&\sum_{i=1}^M \EEsub{\max\{\nabla G^\top \nabla f_i, 0\}}{0 \sim \tau-1} \\
+\leq& M\sqrt{\frac{(G(\theta_0) - G(\theta^*))}{p \kappa}} \sqrt{\frac{1}{T}},
+%\end{split}
+\end{align}
+and so,
+\begin{align}
+\label{eq:finalequa}
+%\begin{split}
+&\EEsub{\lVert \nabla G(\theta_{\tau}) \rVert^2}{0 \sim \tau-1}\\
+=& \EEsub{\nabla G^\top \nabla G}{0 \sim \tau-1}\\
+=& \EEsub{\nabla G^\top \left( \frac{\sum_{i=0}^M \nabla f_i}{M} \right)}{0 \sim \tau-1}\\
+\leq&  \frac{1}{M} \sum_{i=1}^M \EEsub{\max\{\nabla G^\top \nabla f_i, 0\}}{0 \sim \tau-1}\\
+\leq&  \sqrt{\frac{G(\theta_0) - G(\theta^*)}{p \kappa}} \sqrt{\frac{1}{T}}.
+%\end{split}
+\end{align}
+Therefore, we can conclude that conclude that our algorithm can always achieve $\min \limits_{0 < t < T} \EE{\lVert
+\nabla G(\theta_t)\rVert^2} \leq O(\sqrt{1/T})$ in $T$ steps, and this finishes our proof of
+Theorem~\ref{thm:convergencerate}.
+\end{proof}

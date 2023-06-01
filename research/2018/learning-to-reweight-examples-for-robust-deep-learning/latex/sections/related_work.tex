@@ -1,0 +1,43 @@
+% !TEX root = ../main.tex
+
+\section{Related Work}
+The idea of weighting each training example has been well studied in the literature. Importance
+sampling \cite{importantsample}, a classical method in statistics, assigns weights to samples in
+order to match one distribution to another. Boosting algorithms such as AdaBoost \cite{adaboost},
+select harder examples to train subsequent classifiers. Similarly, hard example mining
+\cite{hardneg}, downsamples the majority class and exploits the most difficult examples. Focal loss
+\cite{focal} adds a soft weighting scheme that emphasizes harder examples.
+
+Hard examples are not always preferred in the presence of outliers and noise processes. Robust loss
+estimators typically downweigh examples with high loss. In self-paced learning
+\cite{kumar10selfpaced}, example weights are obtained through optimizing the weighted training loss
+encouraging learning easier examples first. In each step, the learning algorithm jointly solves a
+mixed integer program that iterates optimizing over model parameters and binary example weights.
+Various regularization terms  on the example weights have since been proposed to prevent overfitting
+and trivial solutions of assigning weights to be all zeros \cite{kumar10selfpaced,spaco,spcl}.
+\citet{wang17reweight} proposed a Bayesian method that infers the example weights as latent
+variables. More recently, \citet{jiang17mentornet} proposed to use a meta-learning LSTM to output
+the weights of the examples based on the training loss. Reweighting examples is also related to
+curriculum learning \cite{bengio09curriculum}, where the model reweights among many available tasks.
+Similar to self-paced learning, typically it is beneficial to start with easier examples.
+
+One crucial advantage of reweighting examples is robustness against training set bias. There has
+also been a multitude of prior studies on class imbalance problems, including using dataset
+resampling \cite{smote,dong17imbalance}, cost-sensitive weighting
+\cite{costsensitive,costsensitivedeep}, and structured margin based objectives \cite{lmle}.
+Meanwhile, the noisy label problem has been thoroughly studied by the learning theory community
+\cite{natarajan13noisy,noisytheory} and practical methods have also been proposed
+\cite{reed14noisy,sukhbaatar14convnoise,xiao15noisy,azadi16air,goldberger17noise,
+li17noisydistill,jiang17mentornet,vahdat17crf,glc}.  In addition to corrupted data,
+\citet{kohL17influence,datapoison} demonstrate the possibility of a dataset adversarial attack (i.e.
+dataset poisoning).
+
+Our method improves the training objective through a weighted loss rather than an average loss and
+is an instantiation of meta-learning \cite{metalearn,lakemetalearn,l2l}, i.e. learning to learn
+better. Using validation loss as the meta-objective has been explored in recent meta-learning
+literature for few-shot learning \cite{ravi2017oneshot,metafewshot,hpernet}, where only a handful of
+examples are available for each class. Our algorithm also resembles MAML \cite{maml} by taking one
+gradient descent step on the meta-objective for each iteration. However, different from these
+meta-learning approaches, our reweighting method does not have any additional hyper-parameters and
+circumvents an expensive offline training stage. Hence, our method can work in an online fashion
+during regular training.

@@ -244,12 +244,13 @@ Chris Zhang, **Mengye Ren**, Raquel Urtasun.
 
 ## 2018
 
-* Learning to reweight examples for robust deep learning.
+* [Learning to reweight examples for robust deep learning](2018/learning-to-reweight-examples-for-robust-deep-learning).
 **Mengye Ren**, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 *ICML*, 2018.
 [[arxiv](https://arxiv.org/abs/1803.09050)]
 [[code](https://github.com/uber-research/learning-to-reweight-examples)]
 [[video](https://vimeo.com/287808016)]
+[[html](2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
 * SBNet: Sparse blocks network for fast inference.
 **Mengye Ren**``*``, Andrei Pokrovsky``*``, Bin Yang``*``, Raquel Urtasun.
@@ -267,13 +268,13 @@ Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.
 [[arxiv](https://arxiv.org/abs/1803.00676)]
 [[code](https://github.com/renmengye/few-shot-ssl-public)]
 
-* Understanding short-horizon bias in stochastic meta-optimization.
+* [Understanding short-horizon bias in stochastic meta-optimization](2018/understanding-short-horizon-bias-in-stochastic-meta-optimization).
 Yuhuai Wu``*``, **Mengye Ren**``*``, Renjie Liao, Roger B. Grosse.
 *ICLR*, 2018.
 [[link](metaoptim/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.02021)]
 [[code](https://github.com/renmengye/meta-optim-public)]
-[[html](2018/understanding-short-horizon-bias-in-stochastic-meta-optimization/)]
+[[html](2018/understanding-short-horizon-bias-in-stochastic-meta-optimization)]
 
 ----------------------------------------------------------------------------
 

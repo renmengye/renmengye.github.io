@@ -1,0 +1,18 @@
+
+Suppose the validation loss function is Lipschitz-smooth with constant $L$, and the train loss
+function $f_i$ of training data $x_i$ have $\sigma$-bounded gradients. Let the learning rate
+$\alpha_t$ satisfies $\alpha_t \leq \frac{2n}{L\sigma^2}$, where $n$ is the training batch size.
+Then, following our algorithm, the validation loss always monotonically decreases for any sequence of
+training batches, namely,
+\begin{align}
+\label{eq:converge2}
+G(\theta_{t+1}) \leq G(\theta_{t}),
+\end{align}
+where $G(\theta)$ is the total validation loss
+\begin{align}
+G(\theta) = \frac{1}{M} \sum_{i=1}^M f^v_i(\theta_{t+1}(\epsilon)).
+\end{align}
+Furthermore, in expectation, the equality in Eq. \ref{eq:converge2} holds only when the gradient of
+validation loss becomes 0 at some time step $t$, namely $\EEsub{G(\theta_{t+1})}{t} = G(\theta_t)$
+if and only if $\nabla G(\theta_t) = 0$, where the expectation is taking over possible training
+batches at time step $t$.
