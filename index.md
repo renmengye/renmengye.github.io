@@ -120,6 +120,8 @@ Some recent research highlights include:
 
 ## <a name="news">News</a>
 
+* 2023/06: I am co-organizing [Localized Learning Workshop](https://sites.google.com/view/localized-learning-workshop) at ICML 2023.
+
 * 2023/04: One paper is accepted at CogSci 2023.
 
 * 2023/02: One paper is accepted at CVPR 2023.
