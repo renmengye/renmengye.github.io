@@ -252,13 +252,14 @@ Chris Zhang, **Mengye Ren**, Raquel Urtasun.
 [[video](https://vimeo.com/287808016)]
 [[html](2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
-* SBNet: Sparse blocks network for fast inference.
+* [SBNet: Sparse blocks network for fast inference](2018/sbnet-sparse-blocks-network-for-fast-inference).
 **Mengye Ren**``*``, Andrei Pokrovsky``*``, Bin Yang``*``, Raquel Urtasun.
 *CVPR*, 2018.
-[[link](sbnet/index.html)]
+<!-- [[link](sbnet/index.html)] -->
 [[arxiv](https://arxiv.org/abs/1801.02108)]
 [[blog](https://eng.uber.com/sbnet)]
 [[code](https://github.com/uber/sbnet)]
+[[html](2018/sbnet-sparse-blocks-network-for-fast-inference)]
 
 * Meta-learning for semi-supervised few-shot classification.
 **Mengye Ren**, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin
