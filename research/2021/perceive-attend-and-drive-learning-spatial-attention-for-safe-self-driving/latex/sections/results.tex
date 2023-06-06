@@ -1,0 +1,50 @@
+% !TEX root = ../main.tex
+
+\input{sections/tab_main}
+
+\subsection{Results}
+
+\textbf{Quantitative results:} With a sparse attention mask learned towards motion planning, we can leverage the sparsity in the network backbone to greatly reduce computational costs, while not only maintaining but improving model performance. In our experimental results, we use theoretical FLOPs to show the efficiency of our network, but this also translates to realtime gains as SBNet \cite{sbnet} has been shown to leverage sparsity to achieve real speed-ups.
+The increase in efficiency from leveraging sparsity is shown in Table~\ref{tab:main}, where our learned attention model uses $\sim80\%$ fewer FLOPs than \textit{Dense SA-NMP} thanks to its 95\% sparse attention mask. Also, even with an identical SA-NMP backbone as the baselines (except \textit{NMP}), our model with
+learned attention performs better in all motion planning metrics, which indicates that focused backbone computation is greatly advantageous to the overall goal of safe planning. \textit{NMP+Road} performs slightly better in \textit{Lane Violation} due to the road mask attention focusing on all road/lane markings. However, this baseline uses more than double the FLOPs since its attention mask looks at the entire road surface at only 68.9\% sparsity. From Fig.~\ref{fig:mainresult}, our learned attention model clearly outperforms other baselines in collision rate and planning L2, across all computational budgets, by varying the depth and width of the backbone network.
+
+\begin{figure*}[t]
+\centering
+  \iflatexml
+  \includegraphics[width=6\textwidth]{figures/viz.png}
+  \else
+  \includegraphics[width=\linewidth]{figures/viz.pdf}
+  \vspace{-0.2in}
+  \fi
+  \caption{\small Visualization of the attention masks and planned trajectory comparing dense, road mask, vehicle mask, proximity mask, and our learned attention. %Each is applied to SA-NMP. 
+  \textbf{Col A:} baselines turn too fast and collide with vehicle ahead. \textbf{B:} baselines collide with the future position of a left-turning vehicle. \textbf{C:} a tight left-turn where all models collide with or nearly miss parked vehicles. \textbf{D:} a
+  rear-end collision for all models.}
+  \label{fig:joint_vis}
+  \vspace{-0.1in}
+\end{figure*}
+
+\textbf{Qualitative results:}
+In Figure~\ref{fig:joint_vis}, we show examples of our learned attention compared to baselines.
+As expected, our model focuses on the road and vehicles directly ahead; however,
+it also diverts some amount of attention to distant vehicles and road markings. This ability
+to dynamically distribute attention is likely why our model outperforms the baselines,
+which attend either indiscriminately (Dense and Road) or too selectively (Vehicle and Proximity). From the visualizations, we can better understand our model's improved collision avoidance. Since the attention is dynamic, our model is more effective at anticipating other vehicles resulting in more cautious planning. This is illustrated by Columns A, B in Fig.~\ref{fig:joint_vis}, where our planned trajectory avoids future collisions with others. 
+The failure cases mostly arise from rear-end collisions, one of which is Column D where all models are hit by the trailing vehicle. Note that this arises as we evaluate in open-loop. Our model focuses on surrounding vehicles and not enough on the open road to its right, which would give the option of making a right turn.
+
+\textbf{Sparsity of learned attention:} Table~\ref{tab:ablation_sparse} shows the result of varying $\lambda_A$ from Eq.~\ref{eq:joint}, which weights the $\ell_1$ regularization term from Eq.~\ref{eq:regularize}, with other settings held constant. We found that overall motion planning performance improves with increased sparsity, or essentially more focused computation, and peaks at 95\% sparsity. 
+
+\input{sections/tab_ablation}
+
+\textbf{Perception and prediction (PnP) loss reweighting:} Table~\ref{tab:ablation_reweight} shows results with varying $\gamma_1$ and $\gamma_0 = 1 - \gamma_1$ from Eq.~\ref{eq:reweight} which control the weighting of the PnP loss computed on actors inside vs. outside the attention mask. All other variables are fixed, including sparsity at 95\%. 
+As $\gamma_1$ increases, the learned attention is less restricted by detection performance on all actors, and is able to focus on only the most important actors and parts of the road, distributing attention towards improving motion planning performance. Note that $\gamma_1=1.0$ is an extreme case where PnP loss is computed only on actors within attention mask: the model learns to cheat by generating attention that avoids all actors resulting in no PnP learning signal, hence the poor performance. For our main experiments, we fix $\gamma_1=0.9$.
+
+\textbf{Detection performance:}
+Since the overall goal is improved motion-planning with lighter computation, focusing on accurately detecting all actors indiscriminately would contradict the purpose of our learned sparse attention. 
+We should not care as much about far away or irrelevant actors that have no effect on safe planning, and should instead focus our computation on important input regions.
+Table~\ref{tab:perception} compares detection performance between our learned attention and the baseline dense model evaluated on different subsets of actors in the scene. 
+\textit{Full} includes all actors in the input, while 
+\textit{Attended Region} is the subset of actors that lie within the attention mask. For evaluating the dense model, we use the attention mask generated by our learned model to get the \textit{Attended Region}, ensuring that both models are evaluated on the same actor subsets in both settings. 
+The results show that our 95\% sparse, learned attention model is better than the dense model at detecting actors within the attention mask, meaning that its performance is better focused on actors that it believes are important. 
+This may explain the overall improved planning performance of our attention-driven models as demonstrated in the main quantitative and qualitative results.
+
+\input{sections/tab_perception}

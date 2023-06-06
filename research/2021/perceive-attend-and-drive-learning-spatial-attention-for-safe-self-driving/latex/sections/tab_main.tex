@@ -1,0 +1,41 @@
+% !TEX root = ../main.tex
+\setlength{\tabcolsep}{6pt}
+\begin{table*}[t]
+\centering
+\caption{\small Performance and efficiency of our learned attention model vs. dense and simple attention baselines.
+}
+\resizebox{0.7\linewidth}{!}{
+\begin{tabular}{lccccc}
+\hline
+
+\multirow{2}{*}{\bf{\ourdata{}}} & \bf{Backbone} & \bf{Sparsity} & \bf{Planning L2} & \bf{Collision Rate} & \bf{Lane Violation}\\
+& \bf{FLOPS} & & \bf{at 3s (m)} & \bf{over 3s (\%)} & \bf{over 3s (\%)} \\
+\hline
+NMP \cite{nmp}            & 39.18B      &  0.0\%      & 2.279      & 0.657      & 2.780      \\
+Dense SA-NMP              & 22.73B      &  0.0\%      & 2.207      & 0.639      & 1.350      \\
+\hline
+SA-NMP+Vehicle Mask        & 5.43B       & 93.6\%      & 2.297      & 0.639      & 1.387      \\
+SA-NMP+Proximity Mask      & 5.31B       & 94.0\%      & 2.276      & 0.584      & 1.387      \\
+SA-NMP+Road Mask           & 12.85B      & 68.9\%      & 2.194      & 0.548      & \bf{1.296} \\
+SA-NMP+Learned Attn (Ours) & \bf{5.22B}  & \bf{95.0\%} & \bf{2.102} & \bf{0.511} & 1.338      \\
+\hline
+\end{tabular}}
+\\
+\resizebox{0.63\linewidth}{!}{
+\begin{tabular}{lccccc}
+& & & & & \\
+\hline
+\multirow{2}{*}{\bf{nuScenes}} & \bf{Backbone} & \bf{Sparsity} & \bf{Planning L2} & \bf{Collision Rate} \\
+ & \bf{FLOPS} & & \bf{at 3s (m)} & \bf{over 3s (\%)} \\
+\hline
+NMP \cite{nmp}             & 39.18B      &  0.0\%      & 2.310      & 1.918      \\
+Dense SA-NMP               & 22.73B      &  0.0\%      & 2.271      & 2.198      \\
+\hline
+SA-NMP+Vehicle Mask        & 5.44B       & 94.0\%      & 2.263      & 2.234      \\
+SA-NMP+Proximity Mask      & \bf{5.31B} & 94.0\% & 2.103      & 2.073      \\
+SA-NMP+Learned Attn (Ours) & 5.34B      & 94.0\% & \bf{2.052} & \bf{1.588} \\
+\hline
+\end{tabular}}
+\label{tab:main}
+\vspace{-0.2cm}
+\end{table*}

@@ -1,0 +1,21 @@
+% !TEX root = ../main.tex
+\setlength{\tabcolsep}{6pt}
+\captionsetup[table]{skip=10pt}
+\begin{table}[t]
+\centering
+\begin{small}
+\resizebox{0.9\columnwidth}{!}{
+\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c|c}
+\multirow{2}{*}{\bf{Model}} & \bf{Backbone} & \multirow{2}{*}{\bf{Sparsity}} & \bf{Planning L2} & \bf{Lane Violation} & \multicolumn{3}{c|}{\bf{mAP @ IOU}} \\
+& \bf{FLOPS} & & \bf{over 3s (m)} & \bf{over 3s (\%)} & \bf{0.3} & \bf{0.5} & \bf{0.7} \\\hline
+
+Original NMP            & 39.18B      &  0.0\%      & 2.310      & 1.918      & \bf{81.7} & \bf{77.6} & \bf{60.6} \\
+Dense NMP               & 22.73B      &  0.0\%      & 2.271      & 2.198      & 78.2      & 73.7      & 53.7 \\
+\hline
+NMP+Proximity Mask      & 5.41B       & \bf{94.0}\%      & 2.103      & 2.073      & 61.4      & 55.2      & 40 \\
+NMP+Learned Attn (Ours) & \bf{5.34B}  & \bf{94.0\%} & \bf{2.052} & \bf{1.588} & 76.9      & 71.4      & 54.7 \\
+\end{tabular}}
+\end{small}
+\caption{Motion planning performance and computational efficiency of our learned sparse attention model vs. other baselines}
+\label{tab:mainnusc}
+\end{table}

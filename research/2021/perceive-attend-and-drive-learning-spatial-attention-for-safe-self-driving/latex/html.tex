@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+% \documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+\documentclass[10pt,letterpaper]{article}
+
+
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+% \IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+% \overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+% The following packages can be found on http:\\www.ctan.org
+\usepackage{graphics} % for pdf, bitmapped graphics files
+\usepackage{epsfig} % for postscript graphics files
+\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage{latexml}
+
+\title{\LARGE \bf Perceive, Attend, and Drive: \\Learning Spatial Attention for Safe Self-Driving}
+
+\author{
+Bob Wei$^{*,1,2}$, Mengye Ren$^{*,1,3}$, Wenyuan Zeng$^{1, 3}$, Ming Liang$^{1}$, Bin Yang$^{1,3}$, Raquel Urtasun$^{1, 2}$%
+\thanks{$^{*}$Equal contribution $^{1}$Uber ATG $^{2}$University of Waterloo $^{3}$University of Toronto. Correspondence: {\tt\small q25wei@uwaterloo.ca, [mren3, wenyuan, ming.liang, byang10, urtasun]@uber.com}}}
+
+\input{sections/defs}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{sections/abstract}
+\input{sections/intro}
+\input{sections/related}
+\input{sections/model}
+\input{sections/experiments}
+\input{sections/conclusion}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

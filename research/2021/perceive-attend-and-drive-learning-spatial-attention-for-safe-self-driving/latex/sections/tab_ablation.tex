@@ -1,0 +1,47 @@
+% !TEX root = ../main.tex
+\setlength{\tabcolsep}{6pt}
+\begin{table}
+\centering
+    \caption{\small Varying learned attention sparsity with $\lambda_A$.}
+    \vspace{-0.1in}
+    \resizebox{0.48\textwidth}{!}{
+    \begin{tabular}{lcccc}
+      \hline
+      \multirow{2}{*}{\bf{Sparsity}}  & \multirow{2}{*}{$\lambda_A$}  & \bf{Planning L2} & \bf{Collision Rate} & \bf{Lane Violation}\\
+      & & \bf{at 3s (m)} & \bf{over 3s (\%)} & \bf{over 3s (\%)} \\
+    \hline
+      Dense 0\% & -           & 2.207      & 0.639      & 1.350      \\
+      \hline
+      Ours 20\% & $1.0 \times 10^{-8}$ & 2.179      & 0.547      & 1.352      \\
+      Ours 50\% & $1.0 \times 10^{-7}$ & 2.138      & 0.620      & 1.361      \\
+      Ours 75\% & $5.0 \times 10^{-7}$ & 2.132      & 0.584      & 1.387      \\
+      Ours 95\% & $1.0 \times 10^{-6}$ & \bf{2.102} & \bf{0.511} & \bf{1.338} \\
+      Ours 99\% & $5.0 \times 10^{-6}$ & 2.211      & 0.566      & 1.367      \\
+    \hline
+    \end{tabular}
+    }
+    \label{tab:ablation_sparse}
+  \vspace{-0.1in}
+\end{table}
+\begin{table}
+
+  \centering
+    \caption{\small Influence of loss reweighting ratio $\gamma_1$.}
+    \vspace{-0.1in}
+    \resizebox{0.4\textwidth}{!}{
+      \begin{tabular}{lccc}
+      \hline
+        \multirow{2}{*}{\bf{Ratio}} 
+        & \bf{Planning L2} & \bf{Collision Rate} & \bf{Lane Violation}\\
+        & \bf{at 3s (m)} & \bf{over 3s (\%)} & \bf{over 3s (\%)} \\
+        \hline
+        $\gamma_1=1.00$   & 2.210      & 0.548      & 1.378      \\
+        $\gamma_1=0.90$   & \bf{2.102} & \bf{0.511} & \bf{1.338} \\
+        $\gamma_1=0.75$ & 2.230      & 0.621      & 1.393      \\
+        $\gamma_1=0.50$   & 2.194      & 0.637      & 1.405      \\
+        $\gamma_1=0.00$   & 2.188 & 0.633 & 1.397 \\
+        \hline
+      \end{tabular}}
+    \label{tab:ablation_reweight}
+  \vspace{-0.25in}
+\end{table}

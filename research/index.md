@@ -127,11 +127,12 @@ James Lucas, **Mengye Ren**, Irene Kameni, Toniann Pitassi, Richard Zemel.
 [[video](https://slideslive.com/38954221/theoretical-bounds-on-estimation-error-for-metalearning)]
 [[html](2021/theoretical-bounds-on-estimation-error-for-meta-learning)]
 
-* Perceive, attend, and drive: Learning spatial attention for safe self-driving.
+* [Perceive, attend, and drive: Learning spatial attention for safe self-driving](2021/perceive-attend-and-drive-learning-spatial-attention-for-safe-self-driving).
 Bob Wei``*``, **Mengye Ren**``*``, Wenyuan Zeng, Ming Liang, Bin Yang, Raquel Urtasun.
 *ICRA*, 2021.
 [[arxiv](https://arxiv.org/abs/2011.01153)]
 [[video](https://youtu.be/3ffaQ2PIQCM)]
+[[html](2021/perceive-attend-and-drive-learning-spatial-attention-for-safe-self-driving)]
 
 * AdvSim: Generating safety-critical scenarios for self-driving vehicles.
 Jingkang Wang, Ava Pun, James Tu, Sivabalan Manivasagam, Abbas Sadat, Sergio Casas, **Mengye Ren**, Raquel Urtasun.

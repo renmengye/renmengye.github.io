@@ -1,0 +1,37 @@
+% !TEX root = ../main.tex
+\begin{figure*}[t]
+\centering
+\iflatexml
+\includegraphics[width=6\textwidth]{figures/mainresult.pdf}
+\else
+\includegraphics[width=0.95\textwidth]{figures/mainresult.pdf}
+\caption{\small Planning performance of our learned sparse attention model compared to other baselines at varying computation budgets (lower is better on both metrics). \textbf{Left}: \ourdata{}; \textbf{Right}: nuScenes. Note that all models except for \textit{NMP} use the same SA-NMP backbone, which can be scaled by changing the depth and width, allowing the computation of \textit{Dense SA-NMP} and \textit{SA-NMP+Learned Attention} to be varied.
+}
+\label{fig:mainresult}
+\end{figure*}
+
+\section{Experimental Evaluation}
+We evaluated on a 
+real-world driving dataset (\ourdata{}), training on over 1 million frames from 5,000 scenarios and validating on 5,000 frames from 500 scenarios, using both LiDAR and HD-maps.
+We also evaluated on  nuScenes v1.0~\cite{nuscenes}, a large-scale public dataset, with a
+training set of over 200,000 frames and a test set of 5,000 frames. Due to the inaccurate localization they provide, we omitted HDMaps and only used LiDAR~\cite{pnpnet}.
+
+\subsection{Implementation Details and Metrics}
+\label{sec:impl}
+
+\textbf{Training:}
+To jointly train SA-NMP with attention, we use pretrained
+weights for the backbone and headers from training a SA-NMP
+without attention (dense) for two epochs. 
+We train all our models with batch size 5 across 16 GPUs in parallel using the Adam \cite{adam} optimizer. We use an initial learning rate of $1 \times 10^{-4}$, and decay of 0.1 at 1.0 and 1.6 epoch(s), for a total of 2.0 epochs.
+
+\textbf{Evaluation:}
+To evaluate driving and safety performance, we focus on the following planning metrics which are accumulated over all 6 future timesteps (3s): \textit{Planning L2} is the L2 distance between waypoints of the predicted future ego trajectory and those of the ground-truth trajectory (characterized by human driving). \textit{Collision rate} is the frequency of collisions between the planned ego trajectory and the ground truth trajectories of other actors in the scene. \textit{Lane violation rate} measures the number of lane boundary violations by the planned ego trajectory. 
+We do not evaluate this on nuScenes due to the inaccurate localization they provide,
+
+\textbf{Baselines:}
+We compare our learned attention to baselines that are end-to-end trained using static attention masks obtained from priors. 
+\textit{Road Mask} covers the entire road as provided from the map data. \textit{Vehicle Mask} strictly covers all detections in the input space, obtained from a PSPNet \cite{pspnet} trained for segmentation. \textit{Proximity Mask} is a circular radius around the ego vehicle. \textit{Dense} is
+not using sparse attention.
+
+\input{sections/results}

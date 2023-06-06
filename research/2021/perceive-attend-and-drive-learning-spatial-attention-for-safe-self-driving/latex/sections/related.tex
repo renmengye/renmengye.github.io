@@ -1,0 +1,52 @@
+% !TEX root = ../main.tex
+\section{Related Work}
+\textbf{Attention mechanism in deep learning:}
+Human and other primate visual perception systems feature visual attention to reduce the complexity
+of the scene and speed-up inference~\cite{neurobiology,saliencyvisattend}. Earlier studies in visual
+saliency aimed to predict human gaze with no particular task in mind~\cite{predicthuman}. Attention
+mechanisms nowadays are built in as  part of  end-to-end models to optimize towards specific tasks.
+The attention modules are typically implemented as multiplicative gates to select features. This
+schema has shown to improve performance and interpretability on downstream tasks such as object
+recognition~\cite{visattend,attendrbm,resattn}, instance segmentation~\cite{recattend}, image
+captioning~\cite{showattendtell}, question answering~\cite{coattend,san}, as well as other natural language processing applications~\cite{machinetrans,transformer,bert}. The visualization of
+the end-to-end learned attention suggests that deep attention-based models have an intelligent
+understanding of the inputs by focusing on the most informative parts of the input.
+
+\textbf{Sparse activation in neural networks:}
+Sparse coding models~\cite{sparsecoding} use an
+overcomplete dictionary to achieve sparse activation in the feature space. In modern convolutional neural networks (CNNs), sparsity
+is typically brought by the widespread use of ReLU activation functions, but these
+are rather unstructured, and speed-up has only been shown on specially designed
+hardware~\cite{cnvlutin,relusparse}. Structured spatial sparsity, on the other hand, can be made
+efficient by using a sparse convolution operator~\cite{perforatedcnn,sbnet,submanifold}, which in turn allows the
+network to shift its focus on more difficult parts of the
+inputs~\cite{adaptivecomp,nopixelequal,sbnet,pag}. In self-driving, \cite{prioritize} proposed a ranking
+function to prioritize computations that would have the most impact on motion planning. Weight
+pruning~\cite{sparsecnn,netslim} is another popular way to achieve sparsity in the parameter space,
+which is an orthogonal direction to our  method.
+
+\textbf{Attention and loss weighting in multi-task learning:}
+Our end-to-end self-driving network is an instance of multi-task learning as all three
+tasks---perception, prediction and motion planning---are simultaneously solved by individual output
+branches with shared features. It is common to use a summation of all the loss functions, but
+sometimes there are conflicting objectives among the tasks. Prior literature in multi-task learning
+has studied dynamic weighting towards different loss components, by using training signals such as
+uncertainty~\cite{mtluncertain}, gradient norm~\cite{gradnorm}, difficulty
+level~\cite{dynamicprioritize}, or entirely data-driven objectives~\cite{adaptiveweight,l2rw}. In
+\cite{adaptiveweight,l2rw}, task and example weights are learned by optimizing the performance of the
+main task. The attention mechanism has also been used in multi-task learning: in \cite{e2emtl}, a
+network applies task-specific attention masks on shared features to encourage the outputs to be more
+selective. Similar to dynamic loss weighting models~\cite{adaptiveweight}, we exploit the learned
+attention towards weighting instance detection losses. Instead of using multiple attentions, as was
+done in~\cite{e2emtl}, we use one single attention mask to optimize our main task: driving.
+
+\textbf{Safety-driven learnable motion planning:}
+One of the primary motivations of introducing attention into an end-to-end motion planning network is
+to improve safety. Traditionally, safety for self-driving models was done in terms of
+formal model checking and validation~\cite{formalsafety,combinatorialsafe,setsafety,failsafe,pnpsim}. More
+recently, with the widely available driving data, imitation learning has been introduced in
+self-driving to learn from cautious human driving~\cite{nmp,baidu,jointplt,pthree,dsdnet}. Safety has also been
+considered in terms of explicitly learning a risk-sensitive measure from human
+demonstration~\cite{riskirl,riskgail}. In our work, although safety is not explicitly encoded in our
+loss function, we have experimentally verified that the sparse attention models are significantly
+better at avoiding collisions.

@@ -1,0 +1,25 @@
+% !TEX root = ../main.tex
+\setlength{\tabcolsep}{6pt}
+\begin{table}[t]
+\caption{\small Detection performance on different input regions.}
+\centering
+\begin{small}
+\begin{center}
+\resizebox{0.98\columnwidth}{!}{
+\begin{tabular}{lccc|ccc}
+% \bf{Model} 
+\hline
+& \multicolumn{3}{c|}{\bf{mAP on Full}} &\multicolumn{3}{c}{\bf{mAP on Attended Region}}\\
+             & \bf{IoU@0.3}   & \bf{IoU@0.5}   & \bf{IoU@0.7}   & \bf{IoU@0.3}   & \bf{IoU@0.5}   & \bf{IoU@0.7}     \\
+\hline
+Dense SA-NMP         & 
+\bf{97.8} & \bf{94.7} & \bf{80.3} & 94.1      & 93.3      & 87.9        \\
+Ours 95\% Sparse  & 96.3      & 92.1      & 74.9      & \bf{94.2} & \bf{93.8} & \bf{88.5}   \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{small}
+\vspace{-0.3in}
+\label{tab:perception}
+\end{table}
