@@ -2,6 +2,13 @@
 
 # Talks by Year
 
+## 2023
+
+* Biologically plausible learning using local activity perturbation. University of British Columbia. Vancouver, BC, Canada. 2023/06.
+
+* Scaling forward gradient with local losses. Baylor College of Medicine, Journal Club Invited Talk. Houston, TX, USA. 2023/06.
+[[slides](https://drive.google.com/file/d/1-sWBTjUcoE2ZbrSJSBXRE0B1Kwj22hCN/view?usp=sharing)]
+
 ----------------------------------------------------------------------------
 
 ## 2022
