@@ -20,7 +20,7 @@ New York University</p>
 <a href="https://twitter.com/mengyer">Twitter</a>&nbsp;
 <!-- <a href="https://github.com/renmengye">GitHub</a>&nbsp; -->
 <a href="https://www.youtube.com/@mengyetalks">YouTube</a>&nbsp;
-<a href="https://mengyeren.substack.com">Substack</a>&nbsp;
+<!-- <a href="https://mengyeren.substack.com">Substack</a>&nbsp; -->
 <a href="https://scholar.google.com/citations?user=XcQ9WqMAAAAJ">Google
 Scholar</a>&nbsp;
 <a href="cv/cv_mengye_ren.pdf">CV</a>&nbsp;
