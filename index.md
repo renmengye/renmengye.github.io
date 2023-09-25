@@ -12,7 +12,7 @@ Courant Institute of Mathematical Sciences
 Center for Data Science (joint)
 <br/>
 New York University</p>
-<p>Email: mengye@cs.nyu.edu
+<p>Email: mengye@nyu.edu
 <br/>Tel: +1 (212) 998-3369
 <br/>Office: 60 5th Ave, Rm 508, New York, NY, 10011</p>
 <p>
