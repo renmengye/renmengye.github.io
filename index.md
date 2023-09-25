@@ -108,6 +108,8 @@ Some recent research highlights include:
 
 ## <a name="teaching">Teaching</a>
 
+* NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning (2024 spring)
+
 * NYU CSCI-GA 2565: Machine Learning (2023 fall)
 
 * NYU DS-GA 1003: Machine Learning (2023 spring) [[website](https://nyu-ds1003.github.io/spring2023)]
