@@ -74,11 +74,20 @@ learning, self-driving vehicles
 
 My key research question is: how do we enable human-like, agent-based machine
 intelligence to continually learn, adapt, and reason in naturalistic
-environments? Towards this goal of building a more general and flexible AI, my
-research has centered on developing *representation learning* and
-*meta-learning* algorithms.
+environments? I am interested in the emergence of intelligence by learning from
+a point-of-view experience. Current research topics in my group are:
 
-Some recent research highlights include:
+* Memorization and forgetting in sequential and continual learning
+
+* Visual representation learning in the wild using egocentric videos
+
+* Few-shot learning, reasoning, and abstraction in vision and language
+
+<!-- Towards this goal of building a more general and flexible AI, my
+research has centered on developing *representation learning* and
+*meta-learning* algorithms. -->
+
+<!-- Some recent research highlights include:
 
 * Naturalistic paradigms for learning representations, classes, and attributes
   in an online continual data stream and very few labeled examples (few-shot 
@@ -102,7 +111,7 @@ Some recent research highlights include:
   [self-supervised learning from video](https://arxiv.org/abs/2101.06553),
   [recurrent attention](https://arxiv.org/abs/1605.09410),
   [learning to imitate drawing](https://arxiv.org/abs/2009.04806),
-  [divisive normalization](https://arxiv.org/abs/1611.04520)
+  [divisive normalization](https://arxiv.org/abs/1611.04520) -->
 
 -------------------------------------------------------------------------------
 
@@ -110,7 +119,7 @@ Some recent research highlights include:
 
 * NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning (2024 spring)
 
-* NYU CSCI-GA 2565: Machine Learning (2023 fall)
+* NYU CSCI-GA 2565: Machine Learning (2023 fall) [[website](https://nyu-cs2565.github.io/2023-fall)]
 
 * NYU DS-GA 1003: Machine Learning (2023 spring) [[website](https://nyu-ds1003.github.io/spring2023)]
 
