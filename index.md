@@ -77,7 +77,7 @@ intelligence to continually learn, adapt, and reason in naturalistic
 environments? I am interested in the emergence of intelligence by learning from
 a point-of-view experience. Current research topics in my group are:
 
-* Memorization and forgetting in sequential and continual environments
+* Memorization and forgetting in sequentially changing environments
 
 * Visual representation learning in the wild using egocentric videos
 
