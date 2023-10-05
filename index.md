@@ -83,6 +83,8 @@ a point-of-view experience. Current research topics in my group are:
 
 * Few-shot learning, reasoning, and abstraction in vision and language
 
+* Human-AI alignment in personalized and customized AI
+
 <!-- Towards this goal of building a more general and flexible AI, my
 research has centered on developing *representation learning* and
 *meta-learning* algorithms. -->
