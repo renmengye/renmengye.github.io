@@ -5,6 +5,7 @@
 ## 2023
 
 * Lifelong learning in structured environments. American Statistical Association, Statistical Learning and Data Science Webinar. Virtual. 2023/10.
+[[slides](https://drive.google.com/file/d/11vaeustbBEDfFpc9LH_M2Ke3M6UJuJ68/view?usp=sharing)]
 
 * Biologically plausible learning using local activity perturbation. University of British Columbia. Vancouver, BC, Canada. 2023/06.
 [[slides](https://drive.google.com/file/d/1301oth8RCRoulsC0ds80ABOdwuKrKz3Q/view?usp=sharing)]
