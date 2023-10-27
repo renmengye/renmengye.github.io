@@ -365,7 +365,7 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 [[Full List](talks)]
 
 * Lifelong learning in structured environments.
-    * American Statistics Association. Statistical Learning and Data Science Webinar. 2023/10.
+    * American Statistical Association. Statistical Learning and Data Science Webinar. 2023/10.
     [[slides](https://drive.google.com/file/d/11vaeustbBEDfFpc9LH_M2Ke3M6UJuJ68/view?usp=sharing)]
     [[video](https://youtu.be/XRro25Am0JE)]
 
