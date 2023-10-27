@@ -364,9 +364,15 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 
 [[Full List](talks)]
 
+* Lifelong learning in structured environments.
+    * American Statistics Association. Statistical Learning and Data Science Webinar. 2023/10.
+    [[slides](https://drive.google.com/file/d/11vaeustbBEDfFpc9LH_M2Ke3M6UJuJ68/view?usp=sharing)]
+    [[video](https://youtu.be/XRro25Am0JE)]
+
 * Visual learning in the open world / meta-learning within a lifetime.
     * NeurIPS 2022 MetaLearn. New Orleans, LA, USA. 2022/12.
-    [[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)] [[video](https://youtu.be/bYZ_lO8nNf0)]
+    [[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)]
+    [[video](https://youtu.be/bYZ_lO8nNf0)]
     * University of Oxford. Oxford, UK. 2021/11.
     [[slides](https://drive.google.com/file/d/10_vWl_ETc_dNXFNcyt6Ft-4uvRyxaLAM/view?usp=sharing)]
     * Google Brain. Toronto, ON, Canada. 2021/11.
