@@ -235,6 +235,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="group">Group</a>
 
+* [Chris Hoang](https://2016choang.github.io/) (2023-)
+* [Jack Lu]() (2023-)
 * [Ryan Teehan](https://rteehas.github.io/) (2022-)
 * [Alex Wang](https://www.cs.toronto.edu/~alexw/) (2022-)
 * [Yanlai Yang](https://yanlai00.github.io/) (2022-)
