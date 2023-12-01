@@ -119,16 +119,16 @@ research has centered on developing *representation learning* and
 
 ## <a name="teaching">Teaching</a>
 
-* NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning (2024 spring)
+* NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning [2024 spring]
 
-* NYU CSCI-GA 2565: Machine Learning (2023 fall) [[website](https://nyu-cs2565.github.io/2023-fall)]
+* NYU CSCI-GA 2565: Machine Learning [[2023 fall](https://nyu-cs2565.github.io/2023-fall)]
 
-* NYU DS-GA 1003: Machine Learning (2023 spring) [[website](https://nyu-ds1003.github.io/spring2023)]
+* NYU DS-GA 1003: Machine Learning [[2023 spring](https://nyu-ds1003.github.io/spring2023)]
 
-* Vector Institute: Deep Learning II (2020 fall)
+* Vector Institute: Deep Learning II [2020 fall]
 
-* UofT CSC 411: Machine Learning and Data Mining (2019 winter)
-[[website](teach/csc411_19s)]
+* UofT CSC 411: Machine Learning and Data Mining 
+[[2019 winter](teach/csc411_19s)]
 
 -------------------------------------------------------------------------------
 
