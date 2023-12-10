@@ -113,7 +113,7 @@ Alexander Wang``*``, **Mengye Ren**``*``, Richard Zemel.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
 [[html](2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
-* Wandering within a world: Online contextualized few-shot learning.
+* [Wandering within a world: Online contextualized few-shot learning](2021/wandering-within-a-world-online-contextualized-few-shot-learning).
 **Mengye Ren**, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
