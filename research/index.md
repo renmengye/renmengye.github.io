@@ -119,6 +119,7 @@ Alexander Wang``*``, **Mengye Ren**``*``, Richard Zemel.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
 [[code](https://github.com/renmengye/oc-fewshot-public)]
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
+[[html](2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
 
 * Theoretical bounds on estimation error for meta-learning.
 James Lucas, **Mengye Ren**, Irene Kameni, Toniann Pitassi, Richard Zemel.

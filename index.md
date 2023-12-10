@@ -282,6 +282,7 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
 [[code](https://github.com/renmengye/oc-fewshot-public)]
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
+[[html](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
 
 * Probing few-shot generalization with attributes.
 Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
