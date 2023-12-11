@@ -7,12 +7,11 @@
 ----------------------------------------------------------------------------
 
 ## Preprints
-<!-- * Scaling forward gradient with local losses.
-**Mengye Ren**, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
-*arXiv preprint 2210.03310*, 2022.
-[[arxiv](https://arxiv.org/abs/2210.03310)]
-[[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
- -->
+
+* BIM: Block-wise self-supervised learning with masked image modeling.
+Yixuan Luo, **Mengye Ren**, Sai Qian Zhang. 
+*arXiv preprint 2311.17218*, 2023.
+[[arxiv](https://arxiv.org/abs/2311.17218)]
 
 * Learning to reason with relational abstractions.
 Andrew J. Nam``*``, **Mengye Ren**``*``, Chelsea Finn, James L. McClelland.
@@ -39,12 +38,20 @@ Renjie Liao, Simon Kornblith, **Mengye Ren**, David J. Fleet, Geoffrey Hinton.
 * Learning in temporally structured environments.
 Matt Jones, Tyler R. Scott, **Mengye Ren**, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
 *ICLR*, 2023.
+[[pdf](https://openreview.net/pdf?id=z0_V5O9cmNw)]
 
 * Multitask learning via interleaving: A neural network investigation. David Mayo, Tyler Scott, **Mengye Ren**, Gamaleldin Elsayed, Katherine Hermann, Matt Jones, Michael Mozer. *CogSci*, 2023.
+[[pdf](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/d1d16eaa3fcf3364c75dc63190ded45877acb575.pdf)]
 
 * Towards unsupervised object detection from LiDAR point clouds.
 Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, **Mengye Ren**, Raquel Urtasun.
 *CVPR*, 2023.
+[[arxiv](https://arxiv.org/abs/2311.02007)]
+
+* Egocentric video comprehension via large language model inner speech.
+Ying Wang, Dongdong Sun, Rui Chen, Yanlai Yang, **Mengye Ren**.
+*3rd International Ego4D Workshop at CVPR*, 2023.
+[[pdf](https://yanlai00.github.io/data/cvpr2023_ego4d_nlq.pdf)]
 
 ----------------------------------------------------------------------------
 
