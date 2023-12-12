@@ -8,6 +8,12 @@
 
 ## Preprints
 
+* LifelongMemory: Leveraging LLMs for answering queries in egocentric videos.
+Ying Wang, Yanlai Yang, **Mengye Ren**.
+*arXiv preprint 2312.05269*, 2023.
+[[webpage](https://lifelongmemory.github.io/)]
+[[arxiv](https://arxiv.org/abs/2312.05269)]
+
 * BIM: Block-wise self-supervised learning with masked image modeling.
 Yixuan Luo, **Mengye Ren**, Sai Qian Zhang. 
 *arXiv preprint 2311.17218*, 2023.
