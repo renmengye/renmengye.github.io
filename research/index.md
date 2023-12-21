@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* Learning and forgetting unsafe examples in large language models.
+Jiachen Zhao, Zhun Deng, David Madras, James Zou, **Mengye Ren**.
+*arXiv preprint 2312.12736*, 2023.
+[[arxiv](https://arxiv.org/abs/2312.12736)]
+
 * LifelongMemory: Leveraging LLMs for answering queries in egocentric videos.
 Ying Wang, Yanlai Yang, **Mengye Ren**.
 *arXiv preprint 2312.05269*, 2023.
