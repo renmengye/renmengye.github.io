@@ -88,10 +88,12 @@ Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai,
 **Mengye Ren**. *Ph.D. Thesis, University of Toronto*, 2022.
 [[pdf](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)]
 
-* Probing few-shot generalization with attributes.
+* [Probing few-shot generalization with attributes](2020/probing-few-shot-generalization-with-attributes).
 **Mengye Ren**``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
+[[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
+[[html](2020/probing-few-shot-generalization-with-attributes)]
 
 * [Online unsupervised learning of visual representations and categories](2022/online-unsupervised-learning-of-visual-representations-and-categories).
 **Mengye Ren**, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.

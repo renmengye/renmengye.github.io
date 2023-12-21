@@ -267,7 +267,6 @@ Yixuan Luo, Mengye Ren, Sai Qian Zhang.
 
 * [Scaling forward gradient with local losses](research/2023/scaling-forward-gradient-with-local-losses).
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
-<!-- *arXiv preprint 2210.03310*, 2022. -->
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
@@ -301,11 +300,12 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
 [[html](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
 
-* Probing few-shot generalization with attributes.
+* [Probing few-shot generalization with attributes](research/2020/probing-few-shot-generalization-with-attributes).
 Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
 [[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
+[[html](research/2020/probing-few-shot-generalization-with-attributes)]
 
 * LoCo: Local contrastive representation learning.
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
