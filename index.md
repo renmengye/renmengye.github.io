@@ -52,7 +52,7 @@ Mengye Ren is an assistant professor of computer science and data science at
 New York University (NYU). Before joining NYU, he was a visiting faculty
 researcher at Google Brain Toronto working with Prof. [Geoffrey
 Hinton](https://www.cs.toronto.edu/~hinton/). He received B.A.Sc. in
-Engineering Science (2015), and M.Sc. (2017) and Ph.D. (2021) in Computer
+Engineering Science (2015), and M.Sc. (2017) and Ph.D. (2022) in Computer
 Science from the University of Toronto, advised by Prof. [Richard
 Zemel](http://www.cs.toronto.edu/~zemel/) and Prof. [Raquel
 Urtasun](http://www.cs.toronto.edu/~urtasun/). From 2017 to 2021, he was also a
