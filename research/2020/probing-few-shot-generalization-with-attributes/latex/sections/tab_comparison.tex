@@ -1,0 +1,58 @@
+% !TEX root = ../arxiv.tex
+\begin{table*}
+\iflatexml
+    \begin{tabular}{cll}
+    \toprule
+    \bf Paradigm                  & \bf Test time task                                   & \bf Task specification     \\
+    \hline                                                                                                                  ZSL~\citep{attributezsl}      & Novel semantic classes of existing attributes        & Attribute IDs         \\
+    CZSL~\citep{czsl}             & Novel combinations of existing attributes \& classes & Attribute IDs \\
+    FSL~\citep{lake2011oneshot}   & Novel semantic classes                        & Support examples           \\   
+    \midrule
+    \taskname{} (Ours)             & Novel (previously unlabeled) attributes      & Support examples           \\
+    \bottomrule
+    \end{tabular}
+\else
+    \savespacefig
+    \savespacefig
+    \savespacefig
+    \savespacefig
+    \begin{center}
+    \begin{small}
+    \ifarxiv
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cll}
+    \toprule
+    \bf Paradigm                  & \bf Test time task                                   & \bf Task specification     \\
+    \hline                                                                                                                  ZSL~\citep{attributezsl}      & Novel semantic classes of existing attributes        & Attribute IDs         \\
+    CZSL~\citep{czsl}             & Novel combinations of existing attributes \& classes & Attribute IDs \\
+    FSL~\citep{lake2011oneshot}   & Novel semantic classes                        & Support examples           \\   
+    \midrule
+    \taskname{} (Ours)             & Novel (previously unlabeled) attributes      & Support examples           \\
+    \bottomrule
+    \end{tabular}
+    }
+    \else
+    \resizebox{0.8\textwidth}{!}{
+    \begin{tabular}{cll}
+    \toprule
+    \bf Paradigm                  & \bf Test time task                                   & \bf Task specification     \\
+    \hline                       
+    ZSL~\citep{attributezsl}      & Novel semantic classes of existing attributes        & Attribute IDs         \\
+    CZSL~\citep{czsl}             & Novel combinations of existing attributes \& classes & Attribute IDs \\
+    FSL~\citep{lake2011oneshot}   & Novel semantic classes                        & Support examples           \\   
+    \midrule
+    \taskname{} (Ours)             & Novel (previously unlabeled) attributes      & Support examples           \\
+    \bottomrule
+    \end{tabular}
+    }
+    \fi
+    \end{small}
+    \end{center}
+    \savespacebeforesection
+\fi
+\caption{\textbf{Differences between  zero-shot learning (ZSL), compositional ZSL (CZSL), few-shot
+learning (FSL), and our newly proposed \titlelower{} (\taskname{}).} Our task requires the model to
+generalize to new attributes.}
+\label{tab:benchmarkdiff}
+\savespacebeforesection
+\end{table*}

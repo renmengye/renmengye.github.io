@@ -1,0 +1,101 @@
+% !TEX root = ../arxiv.tex
+\savespacebeforesection
+\section{Related Work}
+\savespacebeforesection
+\paragraph{Few-shot learning:}
+Few-shot learning (FSL)~\citep{fei2006one,lake2011oneshot,matchingnet} entails
+learning new tasks with only a few examples. With an abundance of training
+data, FSL is closely related to the general meta-learning or learning to learn
+paradigm~\citep {Thrun1998}, as a few-shot learning algorithm can be developed
+on training tasks and run on novel tasks at test time. In standard few-shot
+classification, each image only has a single unambiguous class label, whereas
+in our few-shot attribute learning, the target attributes can vary depending on
+how the support set is presented. We show in this paper that this is a more
+challenging problem as it requires the model to be more flexible and
+generalizable. In early benchmarks, a set of semantic classes was randomly
+split into a training and test set. We hypothesize that this often leads to a
+common set of attributes that span (most of) the training and test classes,
+thus causing high transferability between these two sets, which allows simple
+solutions based on feature re-use \citep{closerlook,anil} to work well. Later
+benchmarks explicitly attempt to vary the separation between train and test
+classes, based on varying the distances in the underlying WordNet classes
+(\textit{tiered}-ImageNet \citep{fewshotssl}), or in different image domains
+(Meta-Dataset \citep{triantafillou2019meta}). However, we argue that reasoning
+about the underlying attributes directly offers a more systematic framework to
+measure the relatedness and transferability between the train and test set. We
+expect our analysis to open the door to such studies in the future. Few-shot
+attribute learning is also related to multi-label few-shot
+learning~\citep{alfassy2019laso,li2021compositional} and compositional few-shot learning~\citep{tokmakov2019learning}. These prior works
+emphasize on the compositional aspect, whereas we propose models that address
+the transferability of the learned representations.
+Additionally,
+\citet{xiang2019incremental} explored combining incremental few-shot learning
+and attribute learning for pedestrian images.
+
+\savespacebeforesection
+\paragraph{Attribute learning:}
+In the past, there have been a number of works that aim to predict attribute
+information from raw
+inputs~\citep{ferrari2007attribute,farhadi2009describe,farhadi2010attribute,wang2010discriminative}.
+A related model is later proposed by \citet{koh2020concept} to achieve better
+causal interpretability.% \citet{escorcia2015relationship} found that certain
+% hidden units of a deep neural network predicts attributes very well. 
+There have also been a number of datasets that have been collected with visual
+attributes annotated
+\citep{cub,zappos,celeba,patterson2016coco,pham2021attribute}. One key
+difference between our work and these attribute learning approaches is that at
+test time we aim to learn a classifier on novel attributes that are previously
+not labeled in the training set, and this brings additional challenges of
+transfer learning and learning with limited labeled data.
+
+\savespacebeforesection
+\paragraph{Zero-shot learning:} In zero-shot learning
+(ZSL)~\citep{farhadi2009describe,labelembed,goodbadugly,attributezsl,ezzsl,evaluateoutput},
+a model is asked to recognize classes not present in the training set,
+supervised only by some auxiliary description~\citep{descriptionzsl} or
+attribute values~\citep{farhadi2009describe} (see~\citet{wang2019survey} for a
+survey). \citet{attributezsl} studied the \textit{direct attribute prediction}
+method, similar to the Supervised Attribute baseline described in
+Section~\ref{sec:baselines}. Compositional ZSL aims at learning
+classes~\citep{czsl,taskdriven,taskaware,unseencomposition} defined by a novel
+composition of labeled attributes and object classes. An important distinction
+between ZSL and our few-shot attribute learning task is that ZSL uses the same
+set of attributes for both training and testing; by contrast, our task asks the
+model to learn attributes for which there are no labels during training, and
+they may not be relevant to any of the training attributes or episodes. We
+summarize the relationships between ZSL, FSL and our task in
+Table~\ref{tab:benchmarkdiff}.
+
+% \savespacebeforesection
+% \paragraph{Context dependent similarity:} Unlike standard few-shot learning, in
+% our learning episodes, the context information is essential for discovering the
+% relevant attribute shared among the set of positive examples. The idea of
+% context dependent similarity of features explored in the present work takes one
+% step towards a more human-like decision maker. As an example provided by
+% \citet{tversky1977features}, Cuba is similar to Jamaica in terms of geographic
+% proximity, but similar to (Soviet) Russia when speaking of political
+% viewpoints. Conditional similarity networks~\citep{condsimnet} proposed
+% learning a feature mask for different pre-defined contexts such as colors or
+% styles, using the triplet objective~\citep{finegrainsim}. Similarly,
+% \citet{contextvissim} proposed to learn a different linear matrix for each
+% context. In this paper, we study learning \textit{novel} contextual
+% similarities in the form of attributes using only a few training examples.
+
+\savespacebeforesection
+\paragraph{Generalization to novel tasks:}
+\looseness=-1 
+One key component of our work is an attempt to understand the generalization
+behavior of learning novel concepts at test time. Relevant theoretical studies
+consider novel task generalization, casting it in a transfer learning and
+learning to learn
+framework~\citep{baxter2000model,ben2008notion,ben2010theory,pentina2014,amit2018meta,lucas2020lb}.
+A common theme in these studies is in characterizing task relatedness, and the
+role that it plays in generalization to novel tasks.
+\citet{arnold2021embedding} studied task clustering for few-shot learning in
+the embedding space and found class splits that are of different difficulty
+levels. \citet{sariyildiz2021} use the WordNet hierarchy to compute semantic
+distances. In our paper, we instead split the data in the attribute space, and
+if we assume that semantic classes are combinations of attributes, then a
+disjoint attribute split will imply further semantic distances.  In our work,
+we investigate the role of task relatedness empirically by investigating
+generalization performance under different splits of the attribute space.

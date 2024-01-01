@@ -1,0 +1,10 @@
+% !TEX root = ../main.tex
+\section{Conclusion}
+We have presented {\ours}, a local learning algorithm for unsupervised contrastive learning. We show
+that by introducing implicit gradient feedback between the gradient isolation blocks and properly
+deepening the decoders, we can largely close the gap between local contrastive learning and
+state-of-the-art end-to-end contrastive learning frameworks. Experiments on ImageNet and downstream
+tasks show that {\ours} can learn good visual representations for both object recognition and
+instance segmentation just like end-to-end approaches can. Meanwhile, it can benefit from nice
+properties of local learning, such as lower peak memory footprint and faster model parallel
+training.

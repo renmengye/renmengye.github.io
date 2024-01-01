@@ -1,0 +1,48 @@
+\section{Introduction}
+
+While deep learning has led to numerous impressive success stories in recent
+years, generalizing far beyond the training distribution is a lingering
+challenge. Few-shot learning is a growing research area that aims at studying
+and improving upon a model's ability to learn, for instance, new object
+classes, from only a few examples. However, traditional few-shot learning
+benchmarks are simplistic: while the test classes are disjoint from the
+training classes, they often represent visually and semantically similar
+concepts~\citep{lake2011oneshot,matchingnet}. Therefore it is difficult to
+measure whether performance on these benchmarks is indicative of generalization
+ability more broadly. Some recent benchmarks attempt to further separate train
+and test classes, by splitting at a higher semantic level when a class
+hierarchy is available \citep{fewshotssl} or holding out entire datasets
+\cite{closerlook,broadstudy,triantafillou2019meta}, thus creating tougher
+generalization problems, but we are still lacking a comprehensive study of what
+underlies the ability to generalize better to some classes than to others.
+
+\looseness=-10000
+In this work, we study this question through the lens of representation
+learning. We propose a new paradigm---\titlelower{} (\taskname{})--for probing
+models' few-shot generalization ability, based on \emph{attributes}: simple
+building blocks that can be used to define class concepts, \eg, \emph{birds}
+are warm-blooded vertebrates that lay eggs and have feathers. Humans also
+leverage similarity in the attribute space to recognize classes, which are
+``information-rich bundles of attributes that form natural
+discontinuities''~\citep{roschmervis1975family}. We use the relationship
+between attributes and classes to design a framework to measure generalization
+difficulty. Intuitively, if novel classes rely on attributes that were relevant
+for training classes, albeit perhaps different combinations of them, then it
+seems natural that those novel classes can be readily recognized with just a
+few labeled examples. But what if novel classes rely on attributes that are
+undefined or irrelevant during training? Will these classes be hard to learn?
+
+Earlier empirical studies have examined the difficulty of few-shot learning
+based on other notions of similarity that, for instance, relies on the WordNet
+hierarchy \cite{sariyildiz2021}, or similarity of classes in the features space
+of pre-trained models \cite{arnold2021embedding}. Compared to these works, we
+directly leverage attributes to enable a more controlled study of
+tranferability and few-shot generalization. Empirically, we also explore both
+unsupervised and supervised approaches, revealing notably that a hybrid
+self-supervised and supervised approach achieves stronger generalization
+compared to other alternatives.
+
+To summarize, our primary contributions are: 1) A new paradigm, FSAL, for
+studying generalization in few-shot learning; 2) Three new datasets serving as
+benchmarks for FSAL; 3) A study and analysis of different representation
+learning methods and their generalization capabilities in these tasks.

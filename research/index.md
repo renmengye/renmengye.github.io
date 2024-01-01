@@ -170,11 +170,12 @@ Raquel Urtasun.
 
 ## 2020
 
-* LoCo: Local contrastive representation learning.
+* [LoCo: Local contrastive representation learning](2020/loco-local-contrastive-representation-learning).
 Yuwen Xiong, **Mengye Ren**, Raquel Urtasun.
 *NeurIPS*, 2020.
 [[arxiv](https://arxiv.org/abs/2008.01342)]
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
+[[html](2020/loco-local-contrastive-representation-learning)]
 
 * Multi-label incremental few-shot learning for medical image pathology classifiers.
 Laleh Seyyed-Kalantari, Karsten Roth, **Mengye Ren**, Parsa Torabian, Joseph P. Cohen, Marzyeh Ghassemi.

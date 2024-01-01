@@ -1,0 +1,83 @@
+% !TEX root = ../icml2022.tex
+
+\savespacebeforesection
+\section{Few-Shot Attribute Learning}
+\savespacebeforesection
+
+In this section, we define our \titlelower{} (\taskname{}) paradigm and
+highlight the additional challenges of \taskname{} compared to the standard
+few-shot learning of semantic classes.
+% \MR{We need to talk about what information is available during training, instead of just covering the test episodic setup}
+
+Similar to standard few-shot learning (FSL), at test time, the learner is presented
+with an episode of data. The support set consists of $N$ positive and negative
+examples of the target attributes
+\ifarxiv
+\begin{align}
+\gS = \{ (\rvx^{S+}_1, 1), \dots, (\rvx^{S+}_N, 1), (\rvx^{S-}_1, 0), \dots,
+(\rvx^{S-}_N, 0) \},
+\end{align}
+\else
+$\gS = \{ (\rvx^{S+}_1, 1), \dots, (\rvx^{S+}_N, 1), (\rvx^{S-}_1, 0), \dots,
+(\rvx^{S-}_N, 0) \},$
+\fi
+where the  $+$ or $-$ superscript suffix denotes whether the input is a
+positive or negative example. 
+% \KCW{if we have the superscripts, we don't need the 0/1's.}
+% \MR{But this is trying to say it's a tuple of x-y} 
+After rapid learning on the support set, the
+model is then evaluated on the binary classification performance of the query
+set:
+\ifarxiv
+\begin{align}
+\gQ = \{ (\rvx^{Q+}_1, 1), \dots, (\rvx^{Q+}_M, 1), (\rvx^{Q-}_1, 0), \dots,
+(\rvx^{Q-}_M, 0) \}.
+\end{align}
+\else
+$\gQ = \{ (\rvx^{Q+}_1, 1), \dots, (\rvx^{Q+}_M, 1), (\rvx^{Q-}_1, 0), \dots,
+(\rvx^{Q-}_M, 0) \}.$
+\fi
+
+\looseness=-1000
+As is standard in FSL, before the test episodes, 
+%For \taskname{} training (or meta-training), 
+we allow methods to learn a representation.
+In \taskname, this involves a labeled set of training attributes, but these must be disjoint from test attributes. For example, the model can learn attributes such as hair color and mustache during training, and will be tested on eyeglasses at test time.
+Similar to standard representation learning in FSL,
+training labels can be presented in the form of \textit{episodic labels} for meta-learning methods, or \textit{absolute labels} for pretraining-based methods. In \taskname{}, episodic labels refer to binary attribute labels in each episode, and absolute labels refer to attribute IDs. 
+%Since episodic and absolute labels contain different amount of information, we annotate methods with E for episodic labels and A for attribute/absolute labels in our experiment section.
+
+At test time, the target binary label may concern a novel attribute that was
+previously unlabeled in the training set. For example, in one test episode, a
+smiling face with \emph{eyeglasses} is positively labeled alongside other faces
+with eyeglasses. The task here is to learn the attribute of ``wearing
+eyeglasses''. However, while the learner might have seen training images with
+eyeglasses, it was never a relevant feature for the purpose of predicting the
+positively labeled instances. For simplicity, each test episode is a binary classification problem. It can be easily extended to multiple new attributes by considering a few binary classification problems at the same time.
+
+Furthermore, suppose that in another test episode, the same \emph{smiling} face
+is positively labeled alongside other smiling faces. The target attribute here
+has now changed from ``wearing eyeglasses'' to ``smiling.'' This highlights a
+critical difference between few-shot attribute learning and standard few-shot
+learning of semantic classes: in standard FSL, each instance can belong to only
+one class regardless of the episode. In FSAL, due to the multi-label nature of
+the attribute space, one instance could have different labels depending on the
+context of the support set examples. Furthermore, there may be a large amount
+of ambiguity when the support set is small. Figure~\ref{fig:sample} shows a few
+examples of our attribute learning episodes. Note that in order to create task
+diversity, we allow both unary and binary attributes, where binary attributes
+are conjunctions of two unary attributes.
+
+In order to solve the \taskname{} task, the learner must correctly determine
+the context. Just like in zero-shot learning, one natural way to solve this
+problem would be to learn to predict the underlying attributes of each image.
+Given the attributes, you could then estimate the context in each
+episode~\citep{attributezsl}. However, methods that accurately predict
+attributes relevant to training episodes may not generalize well, since at test
+time \taskname{} introduces novel attributes. Instead, we explore methods that
+allow more general representations to be learned.
+
+% \ignore{
+% For \taskname{} training (or meta-training), we allow methods to learn from a set of training attributes, but they need to be disjoint from test attributes. For example, the model can learn attributes such as hair color and mustache during training, and will be tested on eyeglasses at test time.
+% Similar to standard few-shot learning, this label can be presented in the form of \textit{episodic labels} for meta-learning methods, or \textit{absolute labels} for pretraining-based methods. In \taskname{}, episodic labels refer to binary attribute labels in each episode, and absolute labels refer to attribute IDs. Since episodic and absolute labels contain different amount of information, we annotate methods with E for episodic labels and A for attribute/absolute labels in our experiment section.
+% }

@@ -1,0 +1,73 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2020
+
+% ready for submission
+% \usepackage{neurips_2020}
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+     \usepackage[final,nonatbib]{neurips_2020}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2020}
+
+% to avoid loading the natbib package, add option nonatbib:
+%     \usepackage[nonatbib]{neurips_2020}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amsmath}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{latexml}
+
+% \newcommand{\ours}{\textcolor{blue}{LoCo}}
+\newcommand{\ours}{LoCo}
+\newcommand{\yuwen}[1]{\textcolor{blue}{Yuwen: #1}}
+\newcommand{\mengye}[1]{\textcolor{orange}{[Mengye: #1]}}
+\newcommand{\medit}[1]{\textcolor{orange}{#1}}
+\newcommand{\raquel}[1]{\textcolor{red}{Raquel: #1}}
+\definecolor{darkgreen}{rgb}{0.0, 0.7, 0.13}
+
+\title{LoCo: Local Contrastive Representation Learning}
+
+\author{
+  Yuwen Xiong, Mengye Ren, Raquel Urtasun\\\\
+  Uber ATG, University of Toronto\\
+  \texttt{\{yuwen,mren3,urtasun\}@uber.com}
+}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/intro}
+\input{sections/related}
+\input{sections/background}
+\input{sections/model}
+\input{sections/experiments}
+\input{sections/conclusion}
+
+%\newpage
+% \input{sections/impact}
+
+{
+\bibliography{ref}
+\bibliographystyle{abbrv}
+}
+\appendix
+\input{sections/supp}
+\end{document}

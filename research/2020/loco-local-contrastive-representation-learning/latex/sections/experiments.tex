@@ -1,0 +1,608 @@
+% !TEX root = ../main.tex
+% \vspace{-0.1in}
+\section{Experiments}
+\label{sec:exp}
+
+In this section, we conduct experiments to test the  hypotheses we made in Section~\ref{sec:method}
+and verify our design choices. Following previous works~\cite{colorization, cpc,
+bachman2019learning, kolesnikov2019revisiting, moco}, we first evaluate the quality of the learned
+representation using ImageNet~\cite{deng2009imagenet}, followed by results on MS-COCO~\cite{mscoco}
+and Cityscapes~\cite{cityscapes}. We use SimCLR~\cite{simclr} and GIM~\cite{e2e2e} as our main
+baselines, and  consider both ResNet-50~\cite{he2016deep} and ShuffleNet
+v2-50~\cite{ma2018shufflenet} backbone architectures as the encoder network.
+
+\subsection{ImageNet-1K} 
+\paragraph{Implementation details:} Unless otherwise specified, we train with a batch size of 4096
+using the LARS optimizer~\cite{you2017large}. We train models 800 epochs to show that \ours{} can
+perform well on very long training schedules and match state-of-the-art performance; we use a
+learning rate of 4.8 with a cosine decay schedule without restart~\cite{loshchilov2016sgdr}; linear
+warm-up is used for the first 10 epochs. Standard data augmentations such as random cropping, random
+color distortion, and random Gaussian blurring are used. For local learning algorithms (i.e., GIM 
+and {\ours}), 2-layer MLPs with global average pooling are used to project the intermediate features
+into a 128-dim latent space, unless otherwise specified in ablation studies.
+Following~\cite{colorization, cpc, bachman2019learning, kolesnikov2019revisiting, moco}, we evaluate
+the quality of the learned representation by freezing the encoder and training a linear classifier
+on top of the trained encoders. SGD without momentum is used as the optimizer for 100 training
+epochs with a learning rate of 30 and decayed by a factor of 10 at epoch 30, 60 and 90, the same
+procedure done in~\cite{moco}.
+
+\paragraph{Main results:} As shown in Table~\ref{tab:main_results}, SimCLR achieves favorable
+results compared to other previous contrastive learning methods. For instance, CPC~\cite{cpc}, the
+contrastive learning algorithm which Greedy InfoMax (GIM) was originally based on, performs much
+worse. By applying GIM on top of SimCLR, we see a significant drop of 5\% on the top 1 accuracy. Our
+method clearly outperforms GIM by a large margin, and is even slightly better than the end-to-end
+SimCLR baseline, possibly caused by the fact that better representations are obtained via multiple
+training losses applied at different local decoders.
+
+
+\iflatexml
+
+\begin{table}
+\begin{tabular}{lccc}
+     \toprule
+     Method           & Architecture          & Acc.         &  Local      \\
+     \midrule     
+     Local Agg.       & ResNet-50             & 60.2         &             \\
+     MoCo             & ResNet-50             & 60.6         &             \\
+     PIRL             & ResNet-50             & 63.6         &             \\
+     CPC v2           & ResNet-50             & 63.8         &             \\
+     SimCLR*          & ResNet-50             & 69.3         &             \\
+     \midrule
+     SimCLR           & ResNet-50             & {\bf 69.8}   &             \\ % &  $1\times$\\
+     GIM              & ResNet-50             & 64.7         & \checkmark  \\
+     \ours{} (Ours)   & ResNet-50             & 69.5         & \checkmark  \\
+     \midrule
+     SimCLR           & ShuffleNet v2-50      & 69.1         &             \\
+     GIM              & ShuffleNet v2-50      & 63.5         & \checkmark  \\
+     \ours{} (Ours)   & ShuffleNet v2-50      & {\bf 69.3}   & \checkmark  \\
+     \bottomrule
+\end{tabular}
+\caption{ImageNet accuracies of linear classifiers trained on representations learned with different
+unsupervised methods, SimCLR* is the result from the SimCLR paper with 1000 training epochs. }
+\label{tab:main_results}
+\end{table}
+
+\begin{table}
+\begin{tabular}{lc|ll|ll}
+     \toprule
+     \multirow{2}*{Method} & \multirow{2}*{Arch} & \multicolumn{2}{c|}{COCO} & \multicolumn{2}{c}{Cityscapes}\\
+     ~ & ~ & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c|}{AP} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c}{AP}  \\
+     \midrule
+     Supervised          & R-50              & 33.9    & 31.3    & 33.2 & 27.1\\
+     \midrule
+     \multicolumn{6}{c}{Backbone weights with 100 Epochs}\\
+     \midrule
+     SimCLR         & R-50              & 32.2    & 29.9    & 33.2 & 28.6\\
+     GIM            & R-50              & 27.7 \color{red}{(-4.5)}    & 25.7 \color{red}{(-4.2)}    & 30.0 \color{red}{(-3.2)} & 24.6 \color{red}{(-4.0)}\\
+     Ours           & R-50              & 32.6 \color{black}{(+0.4)}  & 30.1 \color{black}{(+0.2)}  & 33.2 \color{black}{(+0.0)} & 28.4 \color{black}{(-0.2)}\\
+     \midrule
+     SimCLR         & Sh-50   & 32.5    & 30.1    & 33.3 & 28.0\\
+     GIM            & Sh-50   & 27.3 \color{red}{(-5.2)}    & 25.4 \color{red}{(-4.7)}    & 29.1 \color{red}{(-4.2)} & 23.9 \color{red}{(-4.1)}\\
+     Ours           & Sh-50   & 31.8 \color{black}{(-0.7)}       & 29.4 \color{black}{(-0.7)}  & 33.1 \color{black}{(-0.2)} & 27.7 \color{black}{(-0.3)}\\
+     \midrule
+     \multicolumn{6}{c}{Backbone weights with 800 Epochs}\\
+     \midrule
+     SimCLR         & R-50              & 34.8    & 32.2    & 34.8 & 30.1 \\
+     GIM            & R-50              & 29.3 \color{red}{(-5.5)}    & 27.0 \color{red}{(-5.2)}    & 30.7 \color{red}{(-4.1)} & 26.0 \color{red}{(-4.1)} \\
+     Ours           & R-50              & 34.5 \color{black}{(-0.3)}  & 32.0 \color{black}{(-0.2)}  & 34.2 \color{black}{(-0.6)} & 29.5 \color{black}{(-0.6)} \\
+     \midrule
+     SimCLR         & Sh-50   & 33.4    & 30.9    & 33.9 & 28.7 \\
+     GIM            & Sh-50   & 28.9 \color{red}{(-4.5)}    & 26.9 \color{red}{(-4.0)}    & 29.6 \color{red}{(-4.3)} & 23.9 \color{red}{(-4.8)} \\
+     Ours           & Sh-50   & 33.6 \color{black}{(+0.2)}  & 31.2 \color{black}{(+0.3)}  & 33.0 \color{black}{(-0.9)} & 28.1 \color{black}{(-0.6)} \\ \bottomrule
+\end{tabular}
+\caption{Mask R-CNN results on COCO and Cityscapes. Backbone networks are frozen. ``R-50'' denotes
+ResNet-50 and ``Sh-50'' denotes ShuffleNet v2-50.}
+\label{tab:det_results}  
+\end{table}
+\else
+
+\begin{table}
+\vspace{-0.4in}
+\begin{minipage}[t]{0.42\linewidth}
+\resizebox{1\linewidth}{!}{
+\centering
+\begin{tabular}{lccc}
+     \toprule
+     Method                         & Architecture 		& Acc. 	&  Local           \\
+     \midrule     
+     Local Agg. ~\cite{localagg}    & ResNet-50			& 60.2         &             \\
+     MoCo~\cite{moco}               & ResNet-50			& 60.6         &             \\
+	PIRL~\cite{pirl}               & ResNet-50			& 63.6         &             \\
+     CPC v2~\cite{cpc}              & ResNet-50			& 63.8         &             \\
+     SimCLR*~\cite{simclr}			& ResNet-50			& 69.3		   &			 \\
+     \midrule
+     SimCLR~\cite{simclr}           & ResNet-50 			& {\bf 69.8}         &             \\ % &  $1\times$\\
+     GIM~\cite{e2e2e}	           & ResNet-50 			& 64.7         & \checkmark  \\
+     \ours{} (Ours)                 & ResNet-50 			& 69.5         & \checkmark  \\
+     \midrule
+     SimCLR~\cite{simclr} 		 & ShuffleNet v2-50 	& 69.1         &             \\
+     GIM~\cite{e2e2e}			 & ShuffleNet v2-50 	& 63.5         & \checkmark  \\
+     \ours{} (Ours)                 & ShuffleNet v2-50 	& {\bf 69.3}         & \checkmark  \\
+     \bottomrule
+\end{tabular}	
+}
+\vspace{0.1in}
+\caption{ImageNet accuracies of linear classifiers trained on representations learned with different
+unsupervised methods, SimCLR* is the result from the SimCLR paper with 1000 training epochs. }
+\label{tab:main_results}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.55\linewidth}
+\resizebox{1\linewidth}{!}{
+\centering
+\begin{tabular}{lc|ll|ll}
+     \toprule
+     \multirow{2}*{Method} & \multirow{2}*{Arch} & \multicolumn{2}{c|}{COCO} & \multicolumn{2}{c}{Cityscapes}\\
+     ~ & ~ & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c|}{AP} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c}{AP}  \\
+     \midrule
+     Supervised		& R-50			& 33.9  	& 31.3	& 33.2 & 27.1\\
+     \midrule
+     \multicolumn{6}{c}{Backbone weights with 100 Epochs}\\
+     \midrule
+     SimCLR 		& R-50 			& 32.2  	& 29.9 	& 33.2 & 28.6\\
+     GIM            & R-50 			& 27.7 \color{red}{(-4.5)}	& 25.7 \color{red}{(-4.2)}	& 30.0 \color{red}{(-3.2)} & 24.6 \color{red}{(-4.0)}\\
+     Ours     		& R-50 			& 32.6 \color{black}{(+0.4)}	& 30.1 \color{black}{(+0.2)}	& 33.2 \color{black}{(+0.0)} & 28.4 \color{black}{(-0.2)}\\
+     \midrule
+     SimCLR 		& Sh-50 	& 32.5 	& 30.1	& 33.3 & 28.0\\
+     GIM            & Sh-50 	& 27.3 \color{red}{(-5.2)}  	& 25.4 \color{red}{(-4.7)}	& 29.1 \color{red}{(-4.2)} & 23.9 \color{red}{(-4.1)}\\
+     Ours     		& Sh-50 	& 31.8 \color{black}{(-0.7)}  	& 29.4 \color{black}{(-0.7)} 	& 33.1 \color{black}{(-0.2)} & 27.7 \color{black}{(-0.3)}\\
+     \midrule
+     \multicolumn{6}{c}{Backbone weights with 800 Epochs}\\
+     \midrule
+     SimCLR 		& R-50 			& 34.8  	& 32.2 	& 34.8 & 30.1 \\
+     GIM            & R-50 			& 29.3 \color{red}{(-5.5)}	& 27.0 \color{red}{(-5.2)}	& 30.7 \color{red}{(-4.1)} & 26.0 \color{red}{(-4.1)} \\
+     Ours     		& R-50 			& 34.5 \color{black}{(-0.3)}	& 32.0 \color{black}{(-0.2)}	& 34.2 \color{black}{(-0.6)} & 29.5 \color{black}{(-0.6)} \\
+     \midrule
+     SimCLR 		& Sh-50 	& 33.4 	& 30.9	& 33.9 & 28.7 \\
+     GIM            & Sh-50 	& 28.9 \color{red}{(-4.5)}  	& 26.9 \color{red}{(-4.0)}	& 29.6 \color{red}{(-4.3)} & 23.9 \color{red}{(-4.8)} \\
+     Ours     		& Sh-50 	& 33.6 \color{black}{(+0.2)} 	& 31.2 \color{black}{(+0.3)}	& 33.0 \color{black}{(-0.9)} & 28.1 \color{black}{(-0.6)} \\ \bottomrule
+\end{tabular}	
+}
+\caption{Mask R-CNN results on COCO and Cityscapes. Backbone networks are frozen. ``R-50'' denotes
+ResNet-50 and ``Sh-50'' denotes ShuffleNet v2-50.}
+\label{tab:det_results}	
+\end{minipage}
+\vspace{-0.2in}
+\end{table}
+
+\fi
+
+
+\subsection{Performance on Downstream Tasks}
+In order to further verify the quality and generalizability of the learned representations, we use
+the trained encoder from previous section as pre-trained models to perform downstream tasks, We use
+Mask R-CNN~\cite{maskrcnn} on Cityscapes~\cite{cityscapes} and COCO~\cite{mscoco} to evaluate object
+detection and instance segmentation performance. Unlike what has been done in MoCo~\cite{moco},
+where the whole network is finetuned on downstream task, here we freeze the pretrained backbone
+network, so that we better distinguish the differences in quality of different unsupervised learning
+methods.
+
+\paragraph{Implementation details:}  To mitigate the distribution gap between features from the
+supervised pre-training model and contrastive learning model, and reuse the same hyperparameters
+that are selected for the supervised pre-training model~\cite{moco}, we add
+SyncBN~\cite{peng2018megdet} after all newly added layers in FPN and bbox/mask heads. The two-layer
+MLP box head is replaced with a {\em 4conv-1fc} box head to better leverage
+SyncBN~\cite{wu2018group}. We conduct the downstream task experiments using
+mmdetection~\cite{mmdetection}. Following~\cite{moco}, we use the same hyperparameters as the
+ImageNet supervised counterpart for all experiments, with $1\times$ ($\sim$12 epochs) schedule for 
+COCO and 64 epochs for Cityscapes, respectively. Besides SimCLR and GIM, we provide one more 
+baseline using weights pretrained on ImageNet via supervised learning provided by
+PyTorch\footnote{\url{https://download.pytorch.org/models/resnet50-19c8e357.pth}} for reference.
+
+\paragraph{Results:} From the Table~\ref{tab:det_results} we can clearly see that the conclusion is
+consistent on downstream tasks. Better accuracy on ImageNet linear evaluation also translates to
+better instance segmentation quality on both COCO and Cityscapes. {\ours} not only closes the gap
+with end-to-end baselines on object classification in the training domain but also on downstream
+tasks in new domains.
+
+\looseness=-1
+Surprisingly, even though SimCLR and \ours{} cannot exactly match ``Supervised'' on ImageNet, they
+are 1 -- 2 points AP better than ``Supervised'' on downstream tasks. This shows unsupervised
+representation learning can learn more generalizable features that are more transferable to new
+domains.
+
+\iflatexml
+\begin{table}
+\begin{tabular}{l|ll|ll}
+     \toprule
+     \multicolumn{1}{c|}{Pretrain} & \multicolumn{2}{c|}{COCO-10K} & \multicolumn{2}{c}{COCO-1K} \\
+     \multicolumn{1}{c|}{Method} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c|}{AP} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c}{AP} \\
+     \midrule
+     Random Init    & 23.5 & 22.0 & 2.5 & 2.5 \\
+     Supervised          & 26.0 & 23.8 & 10.4 & 10.1 \\
+     \midrule
+     \multicolumn{5}{c}{Pretrained weights with 100 Epochs}\\
+     \midrule
+     SimCLR         & 25.6 & 23.9 & 11.3 & 11.4 \\
+     GIM            & 22.6  \color{red}{(-3.0)} & 20.8  \color{red}{(-3.1)} & \ \  9.7  \color{red}{(-1.6)} & \ \  9.6  \color{red}{(-1.8)} \\
+     Ours           & 26.1  \color{black}{(+0.3)} & 24.2  \color{black}{(+0.5)} & 11.7  \color{black}{(+0.4)}& 11.8  \color{black}{(+0.4)} \\
+     \midrule
+     \multicolumn{5}{c}{Pretrained weights with 800 Epochs}\\
+     \midrule
+     SimCLR         & 27.2 & 25.2 & 13.9 & 14.1 \\
+     GIM            & 24.4 \color{red}{(-2.8)} & 22.4 \color{red}{(-2.8)} & 11.5 \color{red}{(-2.4)} & 11.7 \color{red}{(-2.4)}\\
+     Ours           & 27.8 \color{black}{(+0.6)} & 25.6 \color{black}{(+0.4)} & 13.9 \color{black}{(+0.0)} & 13.8 \color{black}{(-0.3)} \\
+     \bottomrule
+\end{tabular}
+\caption{Mask R-CNN results on 10K COCO images and 1K COCO images}
+\label{tab:semi_det_results}
+
+\end{table}
+\else
+
+\begin{table}
+\vspace{-0.4in}
+\begin{minipage}[t]{1.0\linewidth}
+\centering
+\resizebox{0.6\linewidth}{!}{
+\begin{tabular}{l|ll|ll}
+     \toprule
+     \multicolumn{1}{c|}{Pretrain} & \multicolumn{2}{c|}{COCO-10K} & \multicolumn{2}{c}{COCO-1K} \\
+     \multicolumn{1}{c|}{Method} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c|}{AP} & \multicolumn{1}{c}{AP$^\text{bb}$} & \multicolumn{1}{c}{AP} \\
+     \midrule
+     Random Init	& 23.5 & 22.0 & 2.5 & 2.5 \\
+     Supervised		& 26.0 & 23.8 & 10.4 & 10.1 \\
+     \midrule
+     \multicolumn{5}{c}{Pretrained weights with 100 Epochs}\\
+     \midrule
+     SimCLR 		& 25.6 & 23.9 & 11.3 & 11.4 \\
+     GIM 			& 22.6  \color{red}{(-3.0)} & 20.8  \color{red}{(-3.1)} & \ \  9.7  \color{red}{(-1.6)} & \ \  9.6  \color{red}{(-1.8)} \\
+     Ours     		& 26.1  \color{black}{(+0.3)} & 24.2  \color{black}{(+0.5)} & 11.7  \color{black}{(+0.4)}& 11.8  \color{black}{(+0.4)} \\
+     \midrule
+     \multicolumn{5}{c}{Pretrained weights with 800 Epochs}\\
+     \midrule
+     SimCLR 		& 27.2 & 25.2 & 13.9 & 14.1 \\
+     GIM 			& 24.4 \color{red}{(-2.8)} & 22.4 \color{red}{(-2.8)} & 11.5 \color{red}{(-2.4)} & 11.7 \color{red}{(-2.4)}\\
+     Ours     		& 27.8 \color{black}{(+0.6)} & 25.6 \color{black}{(+0.4)} & 13.9 \color{black}{(+0.0)} & 13.8 \color{black}{(-0.3)} \\
+     \bottomrule
+\end{tabular}
+}
+\vspace{0.1in}
+\caption{Mask R-CNN results on 10K COCO images and 1K COCO images}
+\label{tab:semi_det_results}
+\vspace{-0.3in}
+\end{minipage}
+\end{table}
+
+\fi
+
+\subsection{Downstream Tasks with Limited Labeled Data} 
+With the power of unsupervised representation learning, one can learn a deep model with much less
+amount of labeled data on downstream tasks. Following~\cite{he2019rethinking}, we randomly sample
+10k and 1k  COCO images for training, namely COCO-10K and COCO-1K. These are 10\% and 1\% of the
+full COCO train2017 set. We report AP on the official val2017 set. Besides SimCLR and GIM, we also
+provide two baselines for reference: ``Supervised'' as mentioned in previous subsection, and
+``Random Init'' does not use any pretrained weight but just uses random initialization for all
+layers and trains from scratch.
+
+Hyperparameters are kept the same as ~\cite{he2019rethinking} with multi-scale training except for
+adjusted learning rate and decay schedules. We train models for 60k iterations (96 epochs) on
+COCO-10K and 15k iterations (240 epochs) on COCO-1K with a batch size of 16. All models use
+ResNet-50 as the backbone and are finetuned with SyncBN~\cite{peng2018megdet}, {\em conv1} and {\em
+res2} are frozen except ``Random Init" entry. We make 5 random splits for both COCO-10K/1K and run
+all entries on these 5 splits and take the average. The results are very stable and the variance is
+very small ($<0.2$).
+
+\paragraph{Results:} 
+Experimental results are shown in Table~\ref{tab:semi_det_results}. Random initialization is
+significantly worse than other models that are pretrained on ImageNet, in agreement with the results
+reported by~\cite{he2019rethinking}. With weights pretrained for 100 epochs, both SimCLR and \ours{}
+get sometimes better performance compared to supervised pre-training, especially toward the regime
+of limited labels (i.e., COCO-1K). This shows that the unsupervised features are more general as
+they do not aim to solve the ImageNet classification problem. Again, GIM does not perform well and
+cannot match the randomly initialized baseline. Since we do not finetune early stages, this suggests
+that GIM does not learn generalizable features in its early stages. We conclude that our proposed
+{\ours} algorithm is able to learn generalizable features for downstream tasks, and is especially
+beneficial when limited labeled data are available.
+
+Similar to the previous subsection, we run pretraining longer until 800 epochs, and observe
+noticeable improvements on both tasks and datasets. This results seem different from the one
+reported in~\cite{chen2020improved} that longer iterations help improve the ImageNet accuracy but do
+not improve downstream VOC detection performance. Using 800 epoch pretraining, both \ours{} and
+SimCLR can outperform the supervised baseline by 2 points AP on COCO-10K and 4 points AP on COCO-1K.
+
+\subsection{Influence of the Decoder Depth}
+In this section, we study the influence of the decoder depth. First, we investigate the
+effectiveness of the convolutional layers we add in the decoder. The results are shown in
+Table~\ref{tab:ablation_conv_blocks}. As we can see from the ``1 conv block without local and
+sharing property'' entry in the table, adding one more residual convolution block at the end of the
+encoder, i.e. the beginning of the decoder, in the original SimCLR does not help. One possible
+reason is that the receptive field is large enough at the very end of the encoder. However, adding
+one convolution block with downsampling before the global average pooling operation in the decoder
+will significantly improve the performance of local contrastive learning. We argue that such a
+convolution block will enlarge the receptive field as well as the capacity of the local decoders and
+lead to better representation learning even with gradient isolation. If the added convolution block
+has no downsampling factor (denoted as ``w/o ds''), the improvement is not be as significant.
+ 
+We also try adding more convolution layers in the decoder, including adding two convolution
+blocks (denoted as ``2 conv blocks''), adding one stage to make the decoder as deep as the
+next residual stage of the encoder (denoted as ``one stage''), as well as adding layers to make each
+decoder as deep as the full Res-50 encoder (denoted as ``full network''). The results of these
+entries show that adding more convolution layers helps, but the improvement will eventually diminish
+and these entries achieve the same performance as SimCLR.
+
+Lastly, we show that by adding two more layers in the MLP decoders, i.e. four layers in total, we
+can observe the same amount of performance boost on all of methods, as shown in the 4th to 6th row
+of Table~\ref{tab:ablation_conv_blocks}. However, increasing MLP decoder depth cannot help us bridge
+the gap between local and end-to-end contrastive learning.
+
+To reduce the overhead we introduce in the decoder, we decide to add one residual convolution block
+only and keep the MLP depth to 2, as was done the original SimCLR. It is also worth noting that by
+sharing one stage of the encoder, our method can already closely match SimCLR without deeper
+decoders, as shown in the third row of Table~\ref{tab:ablation_conv_blocks}.
+
+\iflatexml
+\begin{table}
+\begin{tabular}{l|cc|c}
+     \toprule
+     Extra Layers before MLP Decoder & Local & Sharing    & Acc. \\
+     \midrule
+     None                     & &  & 65.7                                                               \\
+      None                         & \checkmark    &   & 60.9                                            \\
+%     None                         & \checkmark              & \checkmark           & 64.9             \\
+      \midrule
+     1 conv block             & &  & 65.6                                                               \\
+      1 conv block (w/o ds)   & \checkmark &     & 63.6                \\
+      1 conv block           & \checkmark &       & 65.1              \\
+      \midrule
+      2 conv blocks           & \checkmark &     & 65.8                \\
+      1 stage                      & \checkmark & & 65.8               \\
+      full network            & \checkmark &     & 65.8            \\
+      \midrule
+     2-layer MLP              & &  & 67.1                                                          \\
+      2-layer MLP             & \checkmark &      & 62.3                                 \\
+      \midrule
+      Ours          & \checkmark         & \checkmark           & 66.2             \\
+      Ours + 2-layer MLP & \checkmark & \checkmark & {\bf 67.5} \\
+     \bottomrule
+\end{tabular}
+\caption{ImageNet accuracies of models with different decoder architecture. All entries are trained
+with 100 epochs. }
+\label{tab:ablation_conv_blocks}
+\end{table}
+
+\begin{table}
+\begin{tabular}{l|c}
+     \toprule
+     Sharing description      & Acc.       \\
+     \midrule
+      No sharing              & 65.1      \\
+      Upper layer grad only   &  65.3     \\
+     \midrule
+     L2 penalty (1e-4)        & 65.5      \\
+     L2 penalty (1e-3)        & 66.0      \\
+     L2 penalty (1e-2)        & 65.9      \\
+     \midrule
+     Sharing 1 block          & 64.8      \\
+     Sharing 2 blocks         & 65.3      \\
+     Sharing 1 stage          & {\bf 66.2}\\     
+     \bottomrule
+\end{tabular}
+\caption{ImageNet accuracies of models with different sharing strategies. All entries are trained
+with 100 epochs.}
+\label{tab:ablation_sharing}
+\end{table}
+\else
+\begin{table}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\resizebox{1.0\linewidth}{!}{
+\begin{tabular}{l|cc|c}
+     \toprule
+\begin{tabular}[l]{@{}l@{}} Extra Layers \\
+     before MLP Decoder 	\end{tabular} & \multirow{1}*{Local} & \multirow{1}*{Sharing} 	& \multirow{1}*{Acc.} \\
+     \midrule
+     None		 			& & 	& 65.7 			                                                 \\
+	 None 					& \checkmark	 &	& 60.9  	                                        \\
+%	 None 			          & \checkmark			 & \checkmark  	    & 64.9             \\
+	 \midrule
+     1 conv block			& & 	& 65.6 			                                                 \\
+	 1 conv block (w/o ds) 	& \checkmark &     & 63.6                \\
+	 1 conv block		    & \checkmark &	     & 65.1              \\
+	 \midrule
+	 2 conv blocks		    	& \checkmark &     & 65.8  	           \\
+	 1 stage   				& \checkmark & & 65.8  	  	      \\
+	 full network			& \checkmark &     & 65.8  	  	  \\
+	 \midrule
+     2-layer MLP		 	& & 	& 67.1 			                                            \\
+	 2-layer MLP			& \checkmark & 	& 62.3   			                   \\
+	 \midrule
+	 Ours 	     & \checkmark 	      & \checkmark   	    & 66.2             \\
+	 Ours + 2-layer MLP & \checkmark & \checkmark & {\bf 67.5} \\
+     \bottomrule
+\end{tabular}	
+}
+
+\vspace{0.1in}
+\caption{ImageNet accuracies of models with different decoder architecture. All entries are trained
+with 100 epochs. }
+\label{tab:ablation_conv_blocks}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\centering
+\resizebox{0.7\linewidth}{!}{
+\begin{tabular}{l|c}
+     \toprule
+     Sharing description		& Acc.       \\
+     \midrule
+	 No sharing			& 65.1 	  \\
+	 Upper layer grad only   &  65.3     \\
+     \midrule
+     L2 penalty (1e-4)		& 65.5      \\
+     L2 penalty (1e-3)		& 66.0      \\
+     L2 penalty (1e-2)		& 65.9      \\
+     \midrule
+     Sharing 1 block		& 64.8      \\
+     Sharing 2 blocks		& 65.3      \\
+     Sharing 1 stage		& {\bf 66.2}\\     
+     \bottomrule
+\end{tabular}	
+}
+\vspace{0.1in}
+\caption{ImageNet accuracies of models with different sharing strategies. All entries are trained
+with 100 epochs.}
+\label{tab:ablation_sharing}
+\end{minipage}
+\vspace{-0.2in}
+\end{table}
+\fi
+
+\subsection{Influence of the Sharing Strategy} 
+As we argued in Sec.~\ref{sec:gradient_isolation} that local contrastive learning may suffer from
+gradient isolation, it is important to verify this situation and know how to build a feedback
+mechanism properly. In Table~\ref{tab:ablation_sharing}, we explore several sharing strategies to
+show their impact of the performance. All entries are equipped with 1 residual convolution block +
+2-layer MLP decoders.
+
+We would like to study what kind of sharing can build implicit feedback. In {\ours} the shared stage
+between two local learning modules is updated by gradients associated with losses from both lower
+and upper local learning modules. Can implicit feedback be achieved by another way? To answer this
+question, we try to discard part of the gradients of a block shared in both local and upper local
+learning modules. Only the gradients calculated from the loss associated with the upper module will
+be kept to update the weights. This control is denoted as ``Upper layer grad only'' in
+Table~\ref{tab:ablation_sharing} and the result indicates that although the performance is slightly
+improved compared to not sharing any encoder blocks, it is worse than taking gradients from both
+sides.
+
+We also investigate soft sharing, i.e. weights are not directly shared in different local learning
+modules but are instead softly tied using L2 penalty on the differences. For each layer in the
+shared stage, e.g., layers in {\em res3}, the weights are identical in different local learning
+modules upon initialization, and they will diverge as the training progress goes on. We add an L2
+penalty on the difference of the weights in each pair of local learning modules, similar to L2
+regularization on weights during neural network training. We try three different coefficients from
+1e-2 to 1e-4 to control the strength of soft sharing. The results in
+Table~\ref{tab:ablation_sharing} show that soft sharing also brings improvements but it is slightly
+worse than hard sharing.  Note that with this strategy the forward computation cannot be shared and
+the computation cost is increased. Thus we believe that soft sharing is not an ideal way to achieve
+good performance.
+
+Finally, we test whether sharing can be done with fewer residual convolution blocks between local
+learning modules rather than a whole stage, in other words, we vary the size of the local learning
+modules to observe any differences. We try to make each module contain only one stage plus a few
+residual blocks at the beginning of the next stage instead of two entire stages. Therefore, only the
+blocks at the beginning of stages are shared between different modules. This can be seen as a smooth
+transition between GIM and {\ours}. We try only sharing the first block or first two blocks of each
+stage, leading to ``Sharing 1 block'' and ``Sharing 2 blocks'' entries in
+Table~\ref{tab:ablation_sharing}. The results show that sharing fewer blocks of each stage will not
+improve performance and sharing only 1 block will even hurt.
+
+\subsection{Memory Saving}
+
+Although local learning saves GPU memory, we find that the original ResNet-50 architecture prevents
+{\ours} to further benefit from local learning, since ResNet-50 was designed with balanced
+computation cost at each stage and memory footprint was not taken into consideration. In ResNet,
+when performing downsampling operations at the beginning of each stage, the spatial dimension is
+reduced by $1/4$ but the number of channels only doubles, therefore the memory usage of the lower
+stage will be twice as much as the upper stage. Such design choice makes {\em conv1} and {\em res2}
+almost occupy 50\% of the network memory footprint. When using ResNet-50, the memory saving ratio
+of GIM is $1.81\times$ compared to the original, where the memory saving ratio is defined as the
+reciprocal of peak memory usage between two models. {\ours} can achieve $1.28\times$ memory saving
+ratio since it needs to store one extra stage.
+
+We also show that by properly designing the network architecture, we can make training benefit more
+from local learning. We change the 4-stage ResNet to a 6-stage variant with a more progressive
+downsampling mechanism. In particular, each stage has 3 residual blocks, leading to a Progressive
+ResNet-50 (PResNet-50). Table~\ref{tbl:structures} compares memory footprint and computation of each
+stage for PResNet-56 and ResNet-50 in detail. The number of base channels for each stage are 56, 96,
+144, 256, 512, 1024, respectively. After {\em conv1} and {\em pool1}, we gradually downsample the
+feature map resolution from 56x56 to 36x36, 24x24, 16x16, 12x12, 8x8 at each stage with bilinear
+interpolation instead of strided convolution~\cite{he2016deep}. Grouped convolution~\cite{alexnet}
+with 2, 16, 128 groups is used in the last three stages respectively to reduce the computation cost.
+The difference between PResNet-56 and ResNet-50 and block structures are illustrated in
+ appendix.
+
+By simply making this modification without other new techniques~\cite{he2019bag, hu2018squeeze,
+li2019selective}, we can get a network that matches the ResNet-50 performance with similar
+computation costs. More importantly, it has balanced memory footprint at each stage. As shown in
+Table~\ref{tab:memory_saving}, SimCLR using PResNet-50 gets 66.8\% accuracy, slightly better
+compared to the ResNet-50 encoder. Using PResNet-50, our method performs on par with SimCLR while
+still achieving remarkable memory savings of 2.76 $\times$. By contrast, GIM now has an even larger
+gap (14 points behind SimCLR) compared to before with ResNet-50, possibly due to the receptive field
+issue we mentioned in Sec.~\ref{sec:deeper_decoder}.
+
+
+\iflatexml
+\begin{table}
+\begin{tabular}{c|c|c|c|c}
+\bottomrule
+\multirow{2}{*}{Stage}     &  \multicolumn{2}{c|}{PResNet-50} & \multicolumn{2}{c}{ResNet-50}\\ 
+\cline{2-5} & \begin{tabular}[c]{@{}c@{}}Mem. \\ (\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}FLOPS \\ (\%)\end{tabular}& \begin{tabular}[c]{@{}c@{}}Mem. \\ (\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}FLOPS \\ (\%)\end{tabular} \\
+\hline
+res2& 15.46 & 13.50 & 43.64 & 19.39 \\
+res3 & 10.96 & 14.63 & 29.09 & 25.09\\
+res4 & 19.48 & 14.77 & 21.82 & 35.80\\
+res5 & 17.31 & 16.62 & 5.45 & 19.73\\
+res6 & 19.48 & 20.45 & - & - \\
+res7 & 17.31 & 20.04 & - & - \\
+\hline
+FLOPs & \multicolumn{2}{c|}{4.16G} & \multicolumn{2}{c}{4.14G}\\
+\toprule
+\end{tabular}
+\caption{Memory footprint and computation percentages for PResNet-50 and ResNet-50 on stage level.}
+\label{tbl:structures}
+\end{table}
+
+\begin{table}
+\begin{tabular}{l|c|c}
+     \toprule
+     Method         & Acc. & Memory Saving Ratio  \\
+     \midrule
+      SimCLR        & 66.8 & 1$\times$            \\
+      GIM           & 52.6 & 4.56$\times$         \\
+      \ours         & 66.6 & 2.76$\times$         \\
+     \bottomrule
+\end{tabular}
+\caption{ImageNet accuracies and memory saving ratio of Progressive ResNet-50 with balanced memory
+footprint at each stage. All entries are trained with 100 epochs.}
+\label{tab:memory_saving}
+\end{table}
+
+\else
+\begin{table}
+\begin{minipage}[htbp]{0.5\linewidth}
+\centering
+\resizebox{0.9\linewidth}{!}{
+\begin{tabular}{c|c|c|c|c}
+\bottomrule
+\multirow{2}{*}{Stage}     &  \multicolumn{2}{c|}{PResNet-50} & \multicolumn{2}{c}{ResNet-50}\\ 
+\cline{2-5} & \begin{tabular}[c]{@{}c@{}}Mem. \\ (\%)\end{tabular}  & \begin{tabular}[c]{@{}c@{}}FLOPS \\ (\%)\end{tabular}& \begin{tabular}[c]{@{}c@{}}Mem. \\ (\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}FLOPS \\ (\%)\end{tabular} \\
+\hline
+res2& 15.46 & 13.50 & 43.64 & 19.39 \\
+res3 & 10.96 & 14.63 & 29.09 & 25.09\\
+res4 & 19.48 & 14.77 & 21.82 & 35.80\\
+res5 & 17.31 & 16.62 & 5.45 & 19.73\\
+res6 & 19.48 & 20.45 & - & - \\
+res7 & 17.31 & 20.04 & - & - \\
+\hline
+FLOPs & \multicolumn{2}{c|}{4.16G} & \multicolumn{2}{c}{4.14G}\\
+\toprule
+\end{tabular}
+}
+\vspace{0.1in}
+\caption{Memory footprint and computation percentages for PResNet-50 and ResNet-50 on stage level.}
+\label{tbl:structures}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{-0.8in}
+\centering
+\resizebox{0.7\linewidth}{!}{
+\begin{tabular}{l|c|c}
+     \toprule
+     Method		& Acc. & \begin{tabular}[c]{@{}c@{}}Memory \\ Saving Ratio\end{tabular}  \\
+     \midrule
+	 SimCLR				& 66.8     & $1\times$ 			\\
+	 GIM &  52.6     & $4.56\times$\\
+	 \ours &  66.6     & $2.76\times$\\
+     \bottomrule
+\end{tabular}	
+}
+\vspace{0.1in}
+\caption{ImageNet accuracies and memory saving ratio of Progressive ResNet-50 with balanced memory
+footprint at each stage. All entries are trained with 100 epochs.}
+\label{tab:memory_saving}
+\end{minipage}
+\vspace{-0.2in}
+\end{table}
+\fi

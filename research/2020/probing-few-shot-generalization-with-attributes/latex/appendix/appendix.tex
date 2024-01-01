@@ -1,0 +1,169 @@
+% !TEX root = ../main.tex
+\appendix
+\ifarxiv
+\clearpage
+\fi
+\section{Attribute Readout}
+In Tab.~\ref{tab:attrreadout} and \ref{tab:attrreadout-imageneta}, we provide
+attribute readout performance with different learned representations. This is a
+similar task that measures the generalizability, but it does not evaluate the
+rapid learning aspect brought by few-shot learning.
+
+\begin{table}[t]
+\begin{small}
+\begin{center}
+\begin{tabular}{lccccccc|c}
+\toprule
+{\bf Mean AUC}  & {\bf RND} & {\bf PN}  & {\bf ID}  & {\bf SA}  & {\bf U}   & \gr {\bf \uftpn} & \gr {\bf \uftsa}   & {\bf SA*}  \\
+\hline      
+% \midrule
+All (40)        &  79.18    &  88.80      & 91.29     & 90.27     & 92.80   & \gr {\bf 93.34}  & \gr {\bf 93.33}      & 94.46      \\
+Train+Test (27) &  82.27    &  93.38      & 94.31     & 94.23     & 95.78   & \gr {\bf 96.53}  & \gr {\bf 96.52}      & 97.18      \\
+Train (14)      &  84.40    &  96.04      & 95.34     & 96.04     & 96.43   & \gr {\bf 97.23}  & \gr {\bf 97.23}      & 97.50      \\
+Test  (13)      &  79.96    &  90.52      & 93.19     & 92.63     & 95.08   & \gr {\bf 95.78}  & \gr {\bf 95.76}      & 96.84      \\
+% \hline
+\bottomrule
+\end{tabular}
+% }
+\end{center}
+\end{small}
+% \savespacebeforesection
+\caption{\textbf{Celeb-A attribute readout} performance of different
+representations, measured in mean AUC. RND denotes using a randomly initialized
+CNN; PN denotes ProtoNet.}
+\label{tab:attrreadout}
+% \savespacebeforesection
+\end{table}
+
+\section{Ablation studies}
+Table~\ref{tab:l1} studies the effect of the L1 regularization. The benefit is
+especially noticeable on SA* and GT, since it allows the few-shot learner to
+have a sparse selection of disentangled feature dimensions.
+
+\iflatexml
+\begin{table}
+\begin{small}
+\begin{center}
+\begin{tabular}{cllll|ll}
+\toprule
+                & {\bf SA}              & {\bf U}                & {\bf \uftpn}         & {\bf \uftsa}           & {\bf SA*}            & {\bf GT}            \\
+\hline  
+LR              & 77.4                  & 79.2                   & 82.2                 & 83.1                   & 87.1                 & 95.8                \\
+\gr +L1 (1e-4)  & \gr 77.6 (+0.2)       & \gr 79.4 (+1.2)        & \gr 82.3 (+0.1)      & \gr 83.2 (+0.1)        & \gr 87.4 (+0.3)      & \gr 96.1 (+0.3)     \\
+\gr +L1 (1e-3)  & \gr {\bf78.2} (+0.8)  & \gr {\bf80.2} (+1.0)   & \gr {\bf 82.4} (+0.2)& \gr {\bf83.8} (+0.7)   & \gr {\bf88.4} (+1.3) & \gr 97.1 (+1.3)     \\
+\gr +L1 (1e-2)  & \gr 75.7 (\gt{--1.7}) & \gr 78.3 (\gt{--0.9})  & \gr 78.8 (\gt{--3.5})      & \gr 79.5 (\gt{--3.6})  & \gr 87.6 (+0.5)      & \gr {\bf98.2} (+2.4)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{small}
+\caption{\textbf{Effect of the L1 regularizer} on different representations for
+the validation set of Celeb-A 20-shot.}
+\label{tab:l1}
+\end{table}
+\else
+\begin{table}
+\begin{small}
+\begin{center}
+\resizebox{0.8\columnwidth}{!}{
+\begin{tabular}{cllll|ll}
+\toprule
+                & {\bf SA}              & {\bf U}                & {\bf \uftpn}         & {\bf \uftsa}           & {\bf SA*}            & {\bf GT}            \\
+\hline  
+LR              & 77.4                  & 79.2                   & 82.2                 & 83.1                   & 87.1                 & 95.8                \\
+\gr +L1 (1e-4)  & \gr 77.6 (+0.2)       & \gr 79.4 (+1.2)        & \gr 82.3 (+0.1)      & \gr 83.2 (+0.1)        & \gr 87.4 (+0.3)      & \gr 96.1 (+0.3)     \\
+\gr +L1 (1e-3)  & \gr {\bf78.2} (+0.8)  & \gr {\bf80.2} (+1.0)   & \gr {\bf 82.4} (+0.2)& \gr {\bf83.8} (+0.7)   & \gr {\bf88.4} (+1.3) & \gr 97.1 (+1.3)     \\
+\gr +L1 (1e-2)  & \gr 75.7 (\gt{--1.7}) & \gr 78.3 (\gt{--0.9})  & \gr 78.8 (\gt{--3.5})      & \gr 79.5 (\gt{--3.6})  & \gr 87.6 (+0.5)      & \gr {\bf98.2} (+2.4)\\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\caption{\textbf{Effect of the L1 regularizer} on different representations for
+the validation set of Celeb-A 20-shot.}
+\label{tab:l1}
+\end{table}
+\fi
+
+\begin{table}
+\begin{small}
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+{\bf Mean AUC}             & {\bf SA}  & {\bf SA*}  & {\bf U}   & {\bf UFTA}   \\
+\hline
+
+\hline
+ All (25 attributes)        & 72.01 & 73.02 & 81.08 & \textbf{82.49} \\
+ Train+Test (21 attributes) & 73.43 & 78.98 & 80.14 & \textbf{82.37} \\
+ Train (11 attributes)      & 72.69 & 75.86 & 80.63 & \textbf{82.43} \\
+ Test (10 attributes)       & 72.01 & 74.98 & 81.08 & \textbf{83.30} \\
+\hline
+\end{tabular}
+\end{center}
+% \fi
+\end{small}
+% \savespacebeforesection
+\caption{ImageNet-with-Attributes attribute readout binary prediction
+performance of different representations, measured in mean AUC. }
+\label{tab:attrreadout-imageneta}
+% \savespacebeforesection
+\end{table}
+
+\section{Additional heatmap visualization}
+
+We provide additional visualization results in
+Figure~\ref{fig:additional_combo}, \ref{fig:celeb-a-additional}, and
+\ref{fig:zappos-additional}, and we plot the heat map to visualize the LR
+classifier weights. Figure~\ref{fig:additional_combo} includes SA*, U, and UFTE
+which are omitted in the main paper due to space limitations.
+Figure~\ref{fig:celeb-a-additional} and \ref{fig:zappos-additional} visualize
+more information including both support and query examples in the episode, and
+some of the episodes are challenging to solve given just a few examples.
+
+\begin{figure*}[t]
+\centering
+\iflatexml
+\includegraphics[width=6\linewidth]{figures/vis_cam_iccv_supp.png}
+\else
+\includegraphics[width=0.9\linewidth]{figures/vis_cam_iccv_supp.pdf}
+\fi
+\caption{Additional visualization results, on 20-shot episodes, including more
+methods for comparison.}
+\label{fig:additional_combo}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\iflatexml
+\includegraphics[width=6\linewidth]{figures/additional_viz_celeb.png}
+\else
+\includegraphics[width=0.9\linewidth]{figures/additional_viz_celeb_1.pdf}\\
+\quad \\
+\includegraphics[width=0.9\linewidth]{figures/additional_viz_celeb_2.pdf}
+\fi
+\caption{\textbf{Visualization of Celeb-A 20-shot LR classifiers using CAM on
+top of UFTA representations.} Context attributes that define the episode are
+shown above. Classifier sigmoid confidence scores are shown at the bottom. Red
+numbers denote wrong classification and green denote correct. }
+\label{fig:celeb-a-additional}
+\end{figure*}
+\begin{figure*}[t]
+\centering
+\iflatexml
+\includegraphics[width=6\linewidth]{figures/additional_viz_zappos.png}
+\else
+\includegraphics[width=0.9\linewidth]{figures/additional_viz_zappos_1.pdf}\\
+\quad \\
+\includegraphics[width=0.9\linewidth]{figures/additional_viz_zappos_2.pdf}
+\fi
+\caption{\textbf{Visualization of Zappos-50K 20-shot LR classifiers using CAM
+on top of UFTA representations.} Context attributes that define the episode are
+shown above. Classifier sigmoid confidence scores are shown at the bottom. Red
+numbers denote wrong classification and green denote correct. }
+\label{fig:zappos-additional}
+\end{figure*}
+
+\input{appendix/celeb_a_split}
+\input{appendix/zappos_split}
+\input{appendix/imageneta_split}
+\input{appendix/linear_toy_problem}

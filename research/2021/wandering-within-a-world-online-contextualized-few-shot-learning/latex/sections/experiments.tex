@@ -1,0 +1,126 @@
+% !TEX root = ../main.tex
+\section{Experiments}
+\vspace{-0.1in}
+In this section, we show experimental results for our online contextualized few-shot learning
+paradigm, using \ourchar{} and \ourroom{} (see Sec.~\ref{sec:benchmark}) to evaluate our model, CPM,
+and other state-of-the-art methods. For Omniglot, we apply an 8$\times$8 CutOut~\citep{cutout} to
+each image to make the task more challenging. 
+% Details about the split information can be found in
+% Appendix~\ref{app:data}.
+
+\vspace{-0.1in} \paragraph{Implementation details:} For \ourchar{}, we use the common
+4-layer CNN for few-shot learning with 64 channels in each layer. For \ourimg{}, we also use ResNet-12 
+with input resolution 84$\times$84~\citep{tadam}. For the \ourroom{}, we resize the input to 
+120$\times$160 and use ResNet-12. To represent
+the feature of the input image with an attention mask, we concatenate the global average pooled
+feature with the attention ROI feature, resulting in a 512d feature vector. For the contextual RNN,
+in both experiments we used an LSTM~\citep{lstm} with a 256d hidden state. The best CPM model is
+equipped using GAU and cosine similarity for querying prototypes. Logits based on cosine similarity
+are multiplied with a learned scalar initialized at 10.0~\citep{tadam}. We include additional
+training details in Appendix~\ref{app:exp}.
+
+\vspace{-0.1in}
+\paragraph{Evaluation metrics:}
+In order to compute a single number that characterizes the learning ability over sequences, we
+propose to use \textit{average precision} (AP) to evaluate
+both with respect to old versus new and the
+specific class predictions.
+Concretely, all predictions are sorted by their old vs. new scores, and we compute AP using the area
+under the precision-recall curve. A true positive is defined as the correct prediction of a
+multi-class classification among known classes. We also compute the ``$N$-shot'' accuracy; i.e., the
+average accuracy after seeing the label $N$ times in the sequence. Note that these accuracy scores
+only reflect the performance on {\it known} class predictions. All numbers are reported with an
+average over 2,000 sequences and for $N$-shot accuracy standard error is also included.
+Further explanation of these metrics is in Appendix~\ref{sec:metrics}. 
+
+\vspace{-0.1in}
+\paragraph{Comparisons:}
+To evaluate the merits of our proposed model, we implement classic few-shot learning and online
+meta-learning methods. More implementation and training details of these baseline methods can be
+found in Appendix~\ref{app:exp}.
+\input{sections/fig_acctime_full}
+\input{sections/fig_spatiotemporal}
+\vspace{-0.1in}
+\iflatexml
+\begin{itemize}
+    \item \textbf{OML}~\citep{oml}: This is an online version of MAML~\citep{maml}. It performs one
+    gradient descent step for each labeled input image, and slow weights are learned via
+    backpropagation through time. On top of OML, we added an unknown predictor $\hat{u}_t = 1 -
+    \max_k \hat{y}_{t,k}$ \footnote{We tried a few other ways and this is found to be the
+    best.} (\textbf{OML-U}). We also found that using cosine classifier without the last layer ReLU
+    is usually better than using the original dot-product classifier, and this improvement is denoted
+    as \textbf{OML-U++}.
+    \item \textbf{LSTM}~\citep{lstm} \& \textbf{DNC}~\citep{dnc}: We include RNN methods for
+    comparison as well. Differentiable neural computer (DNC) is an improved version of memory
+    augmented neural network (MANN)~\citep{mann}.
+    \item \textbf{Online MatchingNet (\OnlineMatchingNet{})}~\citep{matchingnet}, 
+    \textbf{IMP (\OnlineIMP{})}~\citep{imp} \&
+    \textbf{ProtoNet (\OnlineProtoNet{})}~\citep{protonet}: We used\ the same negative Euclidean distance as the
+    similarity function for these three metric learning based approaches.  In particular,
+    MatchingNet stores all examples and performs nearest neighbor matching, which can be memory
+    inefficient. Note that Online ProtoNet is a variant of our method without the contextual RNN.
+\end{itemize}
+\else
+\begin{itemize}[leftmargin=*]
+    \item \textbf{OML}~\citep{oml}: This is an online version of MAML~\citep{maml}. It performs one
+    gradient descent step for each labeled input image, and slow weights are learned via
+    backpropagation through time. On top of OML, we added an unknown predictor $\hat{u}_t = 1 -
+    \max_k \hat{y}_{t,k}$ \footnote{We tried a few other ways and this is found to be the
+    best.} (\textbf{OML-U}). We also found that using cosine classifier without the last layer ReLU
+    is usually better than using the original dot-product classifier, and this improvement is denoted
+    as \textbf{OML-U++}.
+    \item \textbf{LSTM}~\citep{lstm} \& \textbf{DNC}~\citep{dnc}: We include RNN methods for
+    comparison as well. Differentiable neural computer (DNC) is an improved version of memory
+    augmented neural network (MANN)~\citep{mann}.
+    \item \textbf{Online MatchingNet (\OnlineMatchingNet{})}~\citep{matchingnet}, 
+    \textbf{IMP (\OnlineIMP{})}~\citep{imp} \&
+    \textbf{ProtoNet (\OnlineProtoNet{})}~\citep{protonet}: We used\ the same negative Euclidean distance as the
+    similarity function for these three metric learning based approaches.  In particular,
+    MatchingNet stores all examples and performs nearest neighbor matching, which can be memory
+    inefficient. Note that Online ProtoNet is a variant of our method without the contextual RNN.
+\end{itemize}
+\fi
+\input{tables/effect_forget}
+\input{tables/omniglot_ablation}
+
+\vspace{-0.1in}
+\paragraph{Main results:} Our main results are shown in Table~\ref{tab:omniglot}, 
+\ref{tab:matterport} and \ref{tab:imagenet}, including both supervised and semi-supervised settings. Our approach achieves
+the best performance on AP consistently across all settings. Online ProtoNet is a direct comparison
+without our contextual RNN and it is clear that CPM is significantly better. Our method is slightly
+worse than Online MatchingNet in terms of 3-shot accuracy on the \ourroom{} semisupervised
+benchmark. This can be explained by the fact that MatchingNet stores all past seen examples, whereas
+CPM only stores one prototype per class. Per timestep accuracy is plotted in
+Figure~\ref{fig:acctimefull}, and the decaying accuracy is due to the increasing number of classes
+over time. In \ourchar{}, CPM is able to closely match or even sometimes surpass the offline
+classifier, which re-trains at each step and uses all images in a sequence except the current one. This is
+reasonable as our model is able to leverage information from the current context.
+
+\vspace{-0.1in}
+\paragraph{Effect of spatiotemporal context:} To answer the question whether the gain in performance
+is due to spatiotemporal reasoning, we conduct the following experiment comparing CPM with online
+ProtoNet. We allow the CNN to have the ability to recognize the context in \ourchar{} by adding a
+texture background image using the Kylberg texture dataset~\citep{uppsala} (see
+Figure~\ref{fig:spatiotemporal} left). As a control, we can also destroy the temporal context by
+shuffling all the images in a sequence. We train four different models on dataset controls with or
+without the presence of spatial or temporal context, and results are shown in
+Figure~\ref{fig:spatiotemporal}. First, both online ProtoNet and CPM benefit from the inclusion of a
+spatial context. This is understandable as the CNN has the ability to learn spatial cues, which
+re-confirms our  main hypothesis that successful inference of the current context is beneficial to
+novel object recognition. Second, only our CPM model benefits from the presence of temporal context,
+and it receives distinct gains from spatial and temporal contexts.
+
+\vspace{-0.1in}
+\paragraph{Effect of forgetting:} As the number of learned classes increases, we expect the average accuracy to drop. To further investigate this forgetting effect, we measure the average accuracy in terms of the number of time steps the model has last seen the label of a particular class. It is reported in Table~\ref{tab:forgetomniglot} and in Appendix~\ref{sec:additionalresults} Table~\ref{tab:forgetroom}, \ref{tab:forgetimagenet}, where we directly compare CPM and OPN to see the effect of temporal context.
+CPM is significantly better than OPN on 1-shot within a short interval, which suggests that the contextual RNN 
+makes the recall of the recent past much easier. On \ourimg{}, OPN eventually surpasses CPM on longer horizon, and this can be explained by the fact that OPN has more stable prototypes, whereas prototypes in CPM could potentially be affected by the fluctuation of the contextual RNN over a longer horizon.
+
+\vspace{-0.1in}
+\paragraph{Ablation studies:} We ablate each individual module we introduce. Results are shown in
+Tables~\ref{tab:ablation} and~\ref{tab:ablationssl}. Table~\ref{tab:ablation} studies different ways
+we use the RNN, including the context vector $\bh^{\text{RNN}}$, the predicted threshold parameters
+$\beta_t^*,\gamma_t^*$, and the predicted metric scaling vector $\bmm_{t}$. Table~\ref{tab:ablationssl}
+studies various ways to learn from unlabeled examples, where we separately disable the RNN update,
+prototype update, and distinct write-threshold parameters $\beta^w_t, \gamma^w_t$ (vs. using
+read-threshold parameters), which makes it robust to potential mistakes made in
+semi-supervised learning. We verify that each component has a positive impact on the performance.

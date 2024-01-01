@@ -1,0 +1,63 @@
+% !TEX root = ../main.tex
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Neural network local learning rules:} Early neural networks literature, inspired by
+biological neural networks, makes use of local associative learning rules, where the change in
+synapse weights only depends on the pre- and post-activations. One classic example is the Hebbian
+rule~\cite{hebb}, which strengthens the connection whenever two neurons fire together. As this can
+result in numerical instability, various modifications were also proposed~\cite{oja,bcm}. These
+classic learning rules can be empirically observed through long-term potentiation (LTP) and long
+term depression (LTD) events during spike-timing-dependent plasticity
+(STDP)~\cite{stdp,caporale2008spike}, and various computational learning models have also been
+proposed~\cite{ystdp}. Local learning rules are also seen in learning algorithms such as restricted
+Boltzmann machines (RBM) ~\cite{bm,hinton2012practical,dbn}, greedy layer-wise
+training~\cite{greedypretrain,belilovsky2018greedy} and TargetProp~\cite{targetprop}. More recently,
+it is also shown to be possible to use a network to predict the weight changes of another
+network~\cite{synthetic,metaunsup,learn2remember}, as well as to learn the meta-parameters of a
+plasticity rule~\cite{diffplasticity,backpropamine}. Direct feedback alignment~\cite{dfa} on the
+other hand proposed to directly learn the weights from the loss to each layer by using a random
+backward layer. Despite numerous attempts at bringing biological plausibility to deep neural 
+networks, the performances of these learning algorithms are still far behind state-of-the-art 
+networks that are trained via end-to-end backpropagation on large scale datasets. A major difference
+from prior literature is that, both GIM~\cite{e2e2e} and our LoCo use an entire downsampling stage
+as a unit of local computation, instead of a single convolutional layer. In fact, different
+downsampling stages have been found to have rough correspondence with the primate visual
+cortex~\cite{brainscore,contrastivebrain}, and therefore they can probably be viewed as better
+modeling tools for local learning. Nevertheless, we do not claim to have solved the local learning
+problem on a more granular level.
+
+
+\paragraph{Unsupervised \& self-supervised representation learning:} Since the success of
+AlexNet~\cite{alexnet}, tremendous progress has been made in terms of learning representations
+without class label supervision. One of such examples is self-supervised training
+objectives~\cite{selfsupbench}, such as predicting context~\cite{context,jigsaw}, predicting
+rotation~\cite{rotation}, colorization~\cite{colorization} and counting~\cite{counting}.
+Representations learned from these tasks can be further decoded into class labels by just training a
+linear layer. Aside from predicting parts of input data, clustering objectives are also
+considered~\cite{localagg,deepcluster}. Unsupervised contrastive learning has recently emerged as a
+promising direction for representation learning~\cite{cpc,cmc,moco,pirl,simclr}, achieving
+state-of-the-art performance on ImageNet, closing the gap between supervised training and
+unsupervised training with wider networks~\cite{simclr}. Building on top of the InfoMax contrastive
+learning rule~\cite{cpc}, Greedy InfoMax (GIM)~\cite{e2e2e} proposes to learn each local stage with
+gradient blocks in the middle, effectively removing the backward dependency. This is similar to
+block-wise greedy training~\cite{belilovsky2018greedy} but in an unsupervised fashion. 
+%Recent research has shown that representations learned with the contrastive learning rule in different
+%network stages can predict activations in their corresponding primate visual cortex areas V1-V4 and IT
+%with high accuracy~\cite{brainscore,contrastivebrain}.
+
+\paragraph{Memory saving and model parallel computation:} By removing the data dependency in the
+backward pass, our method can perform model parallel learning, and activations do not need to be
+stored all the time to wait from the top layer. GPU memory can be saved by recomputing the
+activations at the cost of longer training time~\cite{sublinear,dp,revnet}, whereas local learning
+algorithms do not have such trade-off. Most parallel trainings of deep neural networks are achieved
+by using data parallel training, with each GPU taking a portion of the input examples and then the
+gradients are averaged. Although in the past model parallelism has also been used to vertically
+split the network~\cite{alexnet,weirdtrick}, it soon went out of favor since the forward pass needs
+to be synchronized. Data parallel training, on the other hand, can reach generalization bottleneck
+with an extremely large batch size~\cite{dataparallel}. Recently, \cite{huang2019gpipe,pipedream}
+proposed to make a pipeline design among blocks of neural networks, to allow more forward passes
+while waiting for the top layers to send gradients back. However, since they use end-to-end
+backpropagation, they need to save previous activations in a data buffer to avoid numerical errors
+when computing the gradients. By contrast, our local learning algorithm is a natural fit for model
+parallelism, without the need for extra activation storage and wait time.

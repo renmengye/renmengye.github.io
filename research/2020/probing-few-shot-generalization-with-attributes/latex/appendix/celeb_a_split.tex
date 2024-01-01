@@ -1,0 +1,62 @@
+% !TEX root = ../iccv2021_supp.tex
+\begin{table*}[t]
+\centering
+% \vspace{-0.5in}
+\begin{center}
+\begin{small}
+% \resizebox{0.98\textwidth}{!}{
+\begin{tabular}{ccccc}
+% \toprule
+\hline
+\mr{4}{\textbf{Train}} &
+5\_o\_Clock\_Shadow & 
+Black\_Hair & 
+Blond\_Hair & 
+Chubby\\
+& 
+Double\_Chin & 
+Eyeglasses & 
+Goatee & 
+Gray\_Hair\\
+& 
+Male & 
+No\_Beard & 
+Pale\_Skin & 
+Receding\_Hairline\\
+& 
+Rosy\_Cheeks & 
+Smiling &  &  \\
+% \midrule
+\hline
+\mr{4}{\textbf{Val/Test}} &
+Bald & 
+Bangs & 
+Brown\_Hair & 
+Heavy\_Makeup\\
+& 
+High\_Cheekbones & 
+Mouth\_Slightly\_Open & 
+Mustache & 
+Narrow\_Eyes\\
+& 
+Sideburns & 
+Wearing\_Earrings & 
+Wearing\_Hat & 
+Wearing\_Lipstick\\
+& 
+Wearing\_Necktie & &  &  \\
+% \bottomrule
+\hline
+\end{tabular}
+% }
+\end{small}
+\end{center}
+\caption{Attribute Splits for Celeb-A}
+\label{tab:celebasplit}
+\end{table*}
+
+\section{Attribute splits of Celeb-A}
+\label{app:split}
+We include the attribute split for Celeb-A in Table~\ref{tab:celebasplit}. There are 14 attributes
+in training and 13 attributes in val/test. We discarded the rest of the 13 attributes in the
+original datasets since they are either hard to classify with the oracle classifier (e.g. big lips, oval face) or simply ambiguous (e.g. young, attractive).

@@ -1,0 +1,50 @@
+% !TEX root = ../main.tex
+%\vspace{-0.3in}
+\section{Introduction}
+
+Most deep learning algorithms nowadays are trained using backpropagation in an end-to-end fashion:
+training losses are computed at the top layer and weight updates are computed based on the gradient
+that flows from the very top. Such an algorithm requires lower layers to ``wait'' for upper layers,
+a synchronization constraint that seems very unnatural in truly parallel distributed processing.
+Indeed, there are evidences that weight synapse updates in the human brain are achieved through
+local learning, without waiting for neurons in other parts of the brain to finish their jobs
+\cite{caporale2008spike,ystdp}. In addition to biological plausibility aims, local learning
+algorithms can also significantly reduce memory footprint during training, as they do not require
+saving the intermediate activations after each local module finish its calculation. With these synchronization constraints removed, one can further
+enable model parallelism in many deep network architectures \cite{pipedream} for faster parallel
+training and inference.
+
+One main objection against local learning algorithms has always been the need for supervision from
+the top layer. This belief has  recently been challenged by the success of numerous self-supervised
+contrastive learning algorithms~\cite{cmc,moco,pirl,simclr}, some of which can achieve matching
+performance compared to supervised counterparts, meanwhile using zero class labels during the
+representation learning phase. Indeed, L{\"{o}}we et al. \cite{e2e2e} show that they can separately
+learn each block of layers using local contrastive learning by putting gradient stoppers in between
+blocks. While the authors show matching or even sometimes superior performance using local
+algorithms, we found that their gradient isolation blocks still result in degradation in accuracy in
+state-of-the-art self-supervised learning frameworks, such as SimCLR~\cite{simclr}. We hypothesize
+that, due to gradient isolation, lower layers are unaware of the existence of upper layers, and thus
+failing to deliver the full capacity of a deep network when evaluating on large scale datasets such
+as ImageNet~\cite{deng2009imagenet}.
+
+To bridge the gradient isolation blocks and allow upper layers to influence lower layers while
+maintaining localism, we propose to group two blocks into one local unit and share the middle block
+simultaneously by two units. As shown in the right part of Fig.~\ref{fig:prev_model}. Thus, the
+middle blocks will receive gradients from both the lower portion and the upper portion, acting like
+a gradient ``bridge''. We found that such a simple scheme significantly bridges the performance gap
+between Greedy InfoMax~\cite{e2e2e} and the original end-to-end algorithm~\cite{simclr}.
+
+
+On ImageNet unsupervised representation learning benchmark, we evaluate  our new local learning
+algorithm, named {\ours},  on both ResNet~\cite{he2016deep} and ShuffleNet~\cite{ma2018shufflenet}
+architectures and found the conclusion to be the same. Aside from ImageNet object classification, we
+further validate the generalizability of locally learned features on other downstream tasks such as
+object detection and semantic segmentation, by only training the readout headers. On all benchmarks,
+our local learning algorithm once again closely matches the more costly end-to-end trained models.
+
+We first review related literature in local learning rules and unsupervised representation learning
+in Section~\ref{sec:related}, and further elaborate the background and the two main baselines
+SimCLR~\cite{simclr} and Greedy InfoMax~\cite{e2e2e} in Section~\ref{sec:gim}.
+Section~\ref{sec:method} describes our {\ours} algorithm in detail. Finally, in
+Section~\ref{sec:exp}, we present ImageNet-1K~\cite{deng2009imagenet} results, followed by instance
+segmentation results on MS-COCO~\cite{mscoco} and Cityscapes~\cite{cityscapes}.

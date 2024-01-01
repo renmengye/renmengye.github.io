@@ -307,11 +307,12 @@ Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*`
 [[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
 [[html](research/2020/probing-few-shot-generalization-with-attributes)]
 
-* LoCo: Local contrastive representation learning.
+* [LoCo: Local contrastive representation learning](research/2020/loco-local-contrastive-representation-learning).
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 *NeurIPS*, 2020.
 [[arxiv](https://arxiv.org/abs/2008.01342)]
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
+[[html](research/2020/loco-local-contrastive-representation-learning)]
 
 * Multi-agent routing value iteration networks.
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
@@ -364,19 +365,6 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 [[dataset](research/imageqa/data/cocoqa)]
 [[code](https://github.com/renmengye/imageqa-public)]
 [[question generation](https://github.com/renmengye/imageqa-qgen)]
-
-
-<!--
-## <a name="soft">Software</a>
-* Forward-mode automatic differentiation for TensorFlow.
-[[github]](https://github.com/renmengye/tensorflow-forward-ad)
-
-* Python-based light weight pipeline scheduler for slurm jobs.
-[[github]](https://github.com/renmengye/pysched)
-
-* Deep Dashboard: Visualize training process in real time.
-[[github](https://github.com/renmengye/deep-dashboard)]
--->
 
 -------------------------------------------------------------------------------
 

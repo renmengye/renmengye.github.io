@@ -1,0 +1,48 @@
+% !TEX root = ../main.tex
+\section{Background: Unsupervised Contrastive Learning}
+
+In this section, we introduce relevant background on unsupervised contrastive learning using the
+InfoNCE loss~\cite{cpc}, as well as  Greed InfoMax~\cite{e2e2e}, a local learning algorithm that
+aims to learn each neural network stage with a greedy objective.
+
+\subsection{Unsupervised Contrastive Learning \& SimCLR}
+
+Contrastive learning~\cite{cpc} learns representations from data organized in similar or dissimilar
+pairs. During  learning, an encoder is used to learn meaningful representations and a decoder is
+used to distinguish the positives from the negatives through the InfoNCE loss function~\cite{cpc},
+\begin{equation}
+\mathcal{L}_{q, k^+, \{k^-\}} = -\log \frac{\exp(q{\cdot}k^+ / \tau)}{\exp(q{\cdot}k^+ / \tau) +
+{\displaystyle\sum_{k^-}}\exp(q{\cdot}k^-  / \tau)}.
+\label{eq:infonce}
+\end{equation}
+As shown above, the InfoNCE loss is essentially cross-entropy loss for classification with a
+temperature scale factor $\tau$, where $q$ and $\{k\}$ are normalized representation vectors from
+the encoder. The positive pair $(q, k^+)$ needs to be classified among all $(q, k)$ pairs. Note that
+since the positive samples are defined as augmented version of the same example, this learning
+objective does not need any class label information. After learning is finished, the decoder part
+will be discarded and the encoder's outputs will be served as learned representations.
+
+Recently, Chen et al. proposed SimCLR~\cite{simclr}, a state-of-the-art framework for contrastive
+learning of visual representations. It proposes many useful techniques for closing the gap between
+unsupervised and supervised representation learning. First, the learning benefits from a larger
+batch size (\textasciitilde 2k to 8k) and stronger data augmentation. Second, it uses a non-linear
+MLP projection head instead of a linear layer as the decoder, making the representation more general
+as it is further away from the contrastive loss function. With 4$\times$ the channel size, it is
+able to match the performance of a fully supervised ResNet-50. In this paper, we use the SimCLR
+algorithm as our end-to-end baseline as it is the current state-of-the-art. We believe that our
+modifications can transfer to other contrastive learning algorithms as well.
+
+\subsection{Greedy InfoMax}
+\label{sec:gim}
+As unsupervised learning has achieved tremendous progress, it is natural to ask whether we can
+achieve the same from a local learning algorithm. Greedy InfoMax (GIM)~\cite{e2e2e} proposed to
+learn representation locally in each stage of the network, shown in the middle part of
+Fig.~\ref{fig:prev_model}. It divides the encoder into several stacked modules, each with a
+contrastive loss at the end. The input is forward-propagated in the usual way, but the gradients do
+not propagate backward between modules. Instead, each module is trained greedily using a local
+contrastive loss. This work was proposed prior to SimCLR and achieved comparable results to
+CPC~\cite{cpc}, an earlier work, on a small scale dataset STL-10~\cite{coates2011analysis}. In this
+paper, we used SimCLR as our main baseline, since it has superior performance on ImageNet, and we
+apply the changes proposed in GIM on top of SimCLR as our local learning baseline. In our
+experiments, we find that simply applying GIM on SimCLR results in a significant loss in performance
+and in the next section we will explain our techniques to bridge the performance gap.

@@ -1,0 +1,65 @@
+% !TEX root = ../main.tex
+\begin{table}[t]
+\vspace{-0.3in}
+\begin{minipage}[t]{0.45\textwidth}
+\begin{small}
+\begin{center}
+\caption{\small Comparison of past FSL and CL tasks vs. our online contextualized FSL}
+\label{tab:benchmark}
+\vspace{-0.1in}
+\resizebox{!}{1.3cm}{% <------ Don't forget this %
+\begin{tabular}{ccccccc}
+\toprule
+                                      % & \mc{2}{c|}{\bf Supervision Type}  & \mc{2}{c|}{\bf Continual}       & \mc{2}{c|}{\bf Output \& Context} &    \mc{2}{c}{\bf Context}       \\
+\mr{2}{\tb{Tasks}}                    & \tb{Few}  & \tb{Semi-supv. } & \mr{2}{\tb{Cont'}} & \tb{Online} & \tb{Predict}& \tb{Soft Ctx.}  \\
+                                      & \tb{Shot} & \tb{Supp. Set}   &                    & \tb{Eval.}  & \tb{New}    & \tb{Switch}     \\
+\midrule                                                                                                                                                                       
+Inc. Learning (IL)                    & \xm       & \xm              & \cm                & \hx         & \xm         & \xm             \\
+Few-shot (FSL) \citep{matchingnet}     & \cm       & \xm              & \xm                & \xm         & \xm         & \xm             \\
+Incremental FSL \citep{attnattractor}  & \cm       & \xm              & \hx                & \xm         & \xm         & \xm             \\
+% Cls. Inc. FSL \cite{fscil}          & \cm       & \xm              & \cm                & \hx         & \xm         & \xm             \\
+Semi-supv. FSL \citep{fewshotssl}      & \cm       & \cm              & \xm                & \xm         & \cm         & \xm             \\
+% Continual Meta-Learning             & \mr{2}{\cm} & \mr{2}{\xm}    & \mr{2}{\cm}        & \mr{2}{\xm} & \mr{2}{\xm} & \mr{2}{\hx}     \\
+% w/o Tasks \cite{moca}                 &                       &                      &                        &                  &                    &                                        \\
+Online Mixture \citep{onlinemixture}   & \cm       & \xm              & \cm                & \xm         & \xm         & \hx                                    \\
+Online Meta \citep{oml}                & \cm                   & \xm                  & \cm                    & \xm              & \xm                & \xm                                    \\
+Continual FSL \citep{contfsl}          &\mr{2}{\cm}            &  \mr{2}{\xm}         & \mr{2}{\cm}            & \mr{2}{\xm}      & \mr{2}{\xm}        & \mr{2}{\xm}                            \\
+ (Concurrent Work)                    &                       &                      &                        &                  &                    &                                        \\
+\midrule                                                                                                                                                                                         
+OC-FSL (Ours)      & \cm                   & \cm                  & \cm                    & \cm              & \cm                & \cm                                    \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.53\textwidth}
+\begin{small}
+\begin{center}
+\caption{\small Common continual \& few-shot learning datasets vs. the new MP3D OC-FSL dataset}
+\label{tab:dataset_stats}
+\vspace{-0.1in}
+\resizebox{!}{1.3cm}{% <------ Don't forget this %
+\begin{tabular}{ccccccc}
+\toprule
+                              & {\bf Img.} & {\bf Sess.} & {\bf Cls.} & {\bf Content}                  \\
+\midrule                                                                     
+Permuted MNIST~\citep{mnist}   & 60K          & -           & -          & Hand written digits          \\
+Omniglot~\citep{omniglot}      & 32.4K        & -           & 1.6K       & Hand written characters      \\
+CIFAR-100~\citep{cifar}        & 50K          & -           & 100        & Common objects               \\
+mini-ImageNet~\citep{matchingnet}& 50K        & -           & 100        & Common objects               \\
+tiered-ImageNet~\citep{fewshotssl}& 779K      & -           & 608        & Common objects               \\
+% ImageNet                      & 1.3M         & -           & 1K         & Common objects                  \\
+OpenLORIS  \citep{openloris}   & 98K          & -           & 69         & Small table-top obj.         \\ 
+CORe50  \citep{core50}         & 164.8K       & 11          & 50         & Hand-held obj.               \\
+\midrule                                                                                                          
+MP3D OC-FSL (Ours)            & 1.2K         & 6.9K        & 7.0K       & General indoor instances     \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\end{minipage}
+\vspace{-0.2in}
+\end{table}

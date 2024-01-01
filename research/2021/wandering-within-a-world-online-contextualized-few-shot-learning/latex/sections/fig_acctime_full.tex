@@ -1,0 +1,27 @@
+% !TEX root = ../main.tex
+\begin{figure}[t]
+\vspace{-0.5in}
+\centering
+\iflatexml
+\includegraphics[width=6\linewidth]{figures/acctime_full.png}
+\else
+\setlength{\tabcolsep}{0pt}
+\begin{tabular}{cccc}
+\includegraphics[height=2.4cm,trim={0.3cm 0cm 0.5cm 0},clip]{figures/omniglot-nossl-time.pdf}
+&
+\includegraphics[height=2.4cm,trim={2cm 0cm 0cm 0},clip]{figures/omniglot-ssl-time.pdf}
+&
+\includegraphics[height=2.4cm,trim={1cm 0cm 0.5cm 0},clip]{figures/matterport-nossl-time.pdf}
+&
+\includegraphics[height=2.4cm,trim={2cm 0cm 0cm 0},clip]{figures/matterport-ssl-time.pdf}
+\\
+\end{tabular}
+\vspace{-0.25in}
+\fi
+\caption{\textbf{Few-shot classification accuracy over time.} \textbf{Left:} \ourchar{}.
+\textbf{Right:} \ourroom{}. \textbf{Top:} Supervised. \textbf{Bottom:} Semi-supervised. An offline
+logistic regression (Offline LR) baseline is also included, using pretrained ProtoNet features. It
+is trained on all labeled examples except for the one at the current time step.}
+\label{fig:acctimefull}
+% \vspace{-0.25in}
+\end{figure}
