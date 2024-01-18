@@ -1,0 +1,52 @@
+\begin{table}[t]
+\vspace{-0.5in}
+\caption{\textbf{\ourimg{} OC-FSL results.} Max 150 images and 50 classes. * denotes CNN pretrained using regular classification.}
+\begin{center}
+\iflatexml
+    \begin{tabular}{cccc|ccc}
+    \toprule
+    \mr{2}{\tb{Method}}  & \mc{3}{c|}{\tb{Supervised}}                                &  \mc{3}{c}{\tb{Semi-supervised}}                          \\
+                         & AP         & 1-shot Acc.           & 3-shot Acc.           & AP         & 1-shot Acc.           & 3-shot Acc.          \\
+    \midrule
+    % LSTM                 & 7.73       & 11.60 $\pm$ 0.12      & 43.93 $\pm$ 0.27      & 4.03       & 22.53 $\pm$ 0.18      & 41.34 $\pm$ 0.55     \\
+    LSTM*                & 22.54      & 28.14 $\pm$ 0.20      & 52.07 $\pm$ 0.27      & 13.50      & 30.02 $\pm$ 0.20      & 46.95 $\pm$ 0.56     \\
+    % DNC                  & 7.20       & 10.55 $\pm$ 0.11      & 42.22 $\pm$ 0.27      & 3.66       & 22.37 $\pm$ 0.18      & 37.83 $\pm$ 0.54     \\
+    DNC*                 & 26.80      & 33.45 $\pm$ 0.19      & 55.78 $\pm$ 0.27      & 16.50      & 39.53 $\pm$ 0.19      & 54.10 $\pm$ 0.54     \\
+    OML-U                & 21.89      & 15.06 $\pm$ 0.14      & 52.52 $\pm$ 0.27      & 10.16      & 22.74 $\pm$ 0.17      & 55.81 $\pm$ 0.55     \\
+    % OML-U Cos            & 10.87      & 24.45 $\pm$ 0.18      & 30.89 $\pm$ 0.24      & 5.65       & 23.37 $\pm$ 0.16      & 32.79 $\pm$ 0.50     \\
+    \OnlineMatchingNet{} & 13.05      & 20.61 $\pm$ 0.15      & 38.73 $\pm$ 0.24      & 9.32       & 25.96 $\pm$ 0.16      & 55.32 $\pm$ 0.51     \\
+    \OnlineIMP{}         & 14.25      & 22.92 $\pm$ 0.16      & 41.01 $\pm$ 0.25      & 4.55       & 20.70 $\pm$ 0.15      & 51.23 $\pm$ 0.53     \\
+    % \OnlineProtoNet{}    & 15.51      & 22.95 $\pm$ 0.17      & 44.98 $\pm$ 0.25      & 7.10       & 26.87 $\pm$ 0.16      & 42.40 $\pm$ 0.52     \\
+    \OnlineProtoNet{}*   & 23.10      & 32.82 $\pm$ 0.19      & 49.98 $\pm$ 0.25      & 15.76      & 36.69 $\pm$ 0.18      & 55.47 $\pm$ 0.53     \\
+    CPM (Ours)           & \tb{34.43} & \tb{40.40} $\pm$ 0.21 & \tb{60.29} $\pm$ 0.26 & \tb{24.75} & \tb{44.58} $\pm$ 0.21 & \tb{58.72} $\pm$ 0.53\\
+    \bottomrule
+    \end{tabular}
+    \label{tab:imagenet}
+\else
+    \begin{small}
+    \resizebox{.75\textwidth}{!}{
+    \begin{tabular}{cccc|ccc}
+    \toprule
+    \mr{2}{\tb{Method}}  & \mc{3}{c|}{\tb{Supervised}}                                &  \mc{3}{c}{\tb{Semi-supervised}}                          \\
+                         & AP         & 1-shot Acc.           & 3-shot Acc.           & AP         & 1-shot Acc.           & 3-shot Acc.          \\
+    \midrule
+    % LSTM                 & 7.73       & 11.60 $\pm$ 0.12      & 43.93 $\pm$ 0.27      & 4.03       & 22.53 $\pm$ 0.18      & 41.34 $\pm$ 0.55     \\
+    LSTM*                & 22.54      & 28.14 $\pm$ 0.20      & 52.07 $\pm$ 0.27      & 13.50      & 30.02 $\pm$ 0.20      & 46.95 $\pm$ 0.56     \\
+    % DNC                  & 7.20       & 10.55 $\pm$ 0.11      & 42.22 $\pm$ 0.27      & 3.66       & 22.37 $\pm$ 0.18      & 37.83 $\pm$ 0.54     \\
+    DNC*                 & 26.80      & 33.45 $\pm$ 0.19      & 55.78 $\pm$ 0.27      & 16.50      & 39.53 $\pm$ 0.19      & 54.10 $\pm$ 0.54     \\
+    OML-U                & 21.89      & 15.06 $\pm$ 0.14      & 52.52 $\pm$ 0.27      & 10.16      & 22.74 $\pm$ 0.17      & 55.81 $\pm$ 0.55     \\
+    % OML-U Cos            & 10.87      & 24.45 $\pm$ 0.18      & 30.89 $\pm$ 0.24      & 5.65       & 23.37 $\pm$ 0.16      & 32.79 $\pm$ 0.50     \\
+    \OnlineMatchingNet{} & 13.05      & 20.61 $\pm$ 0.15      & 38.73 $\pm$ 0.24      & 9.32       & 25.96 $\pm$ 0.16      & 55.32 $\pm$ 0.51     \\
+    \OnlineIMP{}         & 14.25      & 22.92 $\pm$ 0.16      & 41.01 $\pm$ 0.25      & 4.55       & 20.70 $\pm$ 0.15      & 51.23 $\pm$ 0.53     \\
+    % \OnlineProtoNet{}    & 15.51      & 22.95 $\pm$ 0.17      & 44.98 $\pm$ 0.25      & 7.10       & 26.87 $\pm$ 0.16      & 42.40 $\pm$ 0.52     \\
+    \OnlineProtoNet{}*   & 23.10      & 32.82 $\pm$ 0.19      & 49.98 $\pm$ 0.25      & 15.76      & 36.69 $\pm$ 0.18      & 55.47 $\pm$ 0.53     \\
+    CPM (Ours)           & \tb{34.43} & \tb{40.40} $\pm$ 0.21 & \tb{60.29} $\pm$ 0.26 & \tb{24.75} & \tb{44.58} $\pm$ 0.21 & \tb{58.72} $\pm$ 0.53\\
+    \bottomrule
+    \end{tabular}
+    }
+    \vspace{-0.2in}
+    \label{tab:imagenet}
+    \end{small}
+\fi
+\end{center}
+\end{table}

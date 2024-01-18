@@ -1,0 +1,74 @@
+\pdfoutput=1
+\documentclass{article}
+
+\usepackage{iclr2021_conference,times}
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+\input{math_commands.tex}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage{xcolor}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{enumitem}
+% \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{sidecap}
+\usepackage{latexml}
+\iclrfinalcopy
+\input{sections/defs}
+
+\newcommand{\MR}[1]{{\color{orange}MR: #1}}
+\newcommand{\MRedit}[1]{{#1}}
+\newcommand{\MCM}[1]{{\color{blue} #1}}
+\newcommand{\RZ}[1]{{\color{magenta}RZ: #1}}
+
+\title{
+Wandering Within a World: \\Online Contextualized Few-Shot Learning
+}
+
+\author{
+  Mengye Ren${}^{1,3}$ \quad Michael L. Iuzzolino${}^{2}$ \quad Michael C. Mozer${}^{2,4}$ \quad Richard S. Zemel${}^{1,3,5}$\\\\
+  ${}^1$University of Toronto \quad
+  ${}^2$Google Research \quad
+  ${}^3$Vector Institute \quad \\
+  ${}^4$University of Colorado, Boulder \quad
+  ${}^5$CIFAR \\
+  \texttt{\{mren,zemel\}@cs.toronto.edu}\\ \texttt{\{michael.iuzzolino,mozer\}@colorado.edu}
+}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/intro}
+\input{sections/fig_setup}
+\input{sections/related}
+\input{sections/benchmark}
+\input{sections/model}
+\input{sections/experiments}
+\input{sections/conclusion}
+\input{sections/acknowledgements}
+{
+% \setstretch{0.93}
+\bibliography{ref}
+\bibliographystyle{iclr2021_conference}
+}
+\setstretch{1.0}
+
+\newpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

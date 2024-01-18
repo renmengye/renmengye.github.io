@@ -1,0 +1,68 @@
+% !TEX root = ../main.tex
+\section{Introduction}
+\vspace{-0.1in}
+In machine learning, many paradigms exist for training and evaluating models: standard
+train-then-evaluate, few-shot learning, incremental learning, continual learning, and so forth. None
+of these paradigms well approximates the naturalistic conditions that humans and artificial agents
+encounter as they wander within a physical environment. Consider, for example, learning and
+remembering peoples' names in the course of daily life. We tend to see people in a given
+environment---work, home, gym, etc. We tend to repeatedly revisit those environments, with different
+environment base rates, nonuniform environment transition probabilities, and nonuniform base rates
+of encountering a given person in a given environment. We need to recognize when we do not know a
+person, and we need to learn to recognize them the next time we encounter them. We are not always
+provided with a name, but we can learn in a semi-supervised manner. And every training trial is
+itself an evaluation trial as we repeatedly use existing knowledge and acquire new knowledge. In
+this article, we propose a novel paradigm, \emph{online contextualized few-shot learning}, that
+approximates these naturalistic conditions, and we develop deep-learning architectures well suited
+for this paradigm.
+
+In traditional few-shot learning (FSL)~\citep{omniglot,matchingnet}, training is episodic. Within an
+isolated episode, a set of new classes is introduced with a limited number of labeled examples per
+class---the \textit{support}  set---followed by evaluation on an unlabeled \textit{query} set. While
+this setup has inspired the development of a multitude of meta-learning algorithms which can be
+trained to rapidly learn novel classes with a few labeled examples, the algorithms are focused
+solely on the few classes introduced in the current episode; the classes learned are not carried
+over to future episodes. Although incremental learning and continual learning
+methods~\citep{icarl,rebalance} address the case where classes are carried over, the episodic
+construction of these frameworks seems artificial: in our daily lives, we do not learn new objects
+by grouping them with five other new objects, process them together, and then move on.
+
+To break the rigid, artificial structure of continual and few-shot learning, we propose a new
+continual few-shot learning setting where environments are revisited and the total number of novel
+object classes increases over time. Crucially, model evaluation happens on each trial, very much
+like the setup in online learning. When encountering a new class, the learning algorithm is expected
+to indicate that the class is ``new,'' and it is then expected to recognize subsequent instances of
+the class once a label has been provided.
+
+When learning continually in such a dynamic environment, contextual information can guide learning
+and remembering. Any structured sequence provides \emph{temporal context}: the instances encountered
+recently are predictive of instances to be encountered next. In natural environments, \emph{spatial
+context}---information in the current input weakly correlated with the occurrence of a particular
+class---can be beneficial for retrieval as well. For example, we tend to see our  boss in an office
+setting, not in a bedroom setting. Human memory retrieval benefits from both  spatial and temporal
+context~\citep{Howard2017, foundationsmemory}. In our online few-shot learning setting, we provide
+spatial context in the presentation of each instance and temporal structure to sequences, enabling
+an agent to learn from both spatial and temporal context. Besides developing and experimenting on a
+toy benchmark using handwritten characters~\citep{omniglot}, we also propose a new large-scale
+benchmark for online contextualized few-shot learning derived from indoor panoramic
+imagery~\citep{matterport}. In the toy benchmark, temporal context can be defined by the
+co-occurrence of character classes. In the indoor environment, the context---temporal and
+spatial---is a natural by-product as the agent wandering in between different rooms.
+
+We propose a model that can exploit contextual information, called \emph{\ourmodel{}}
+(\emph{\ourmodelshort{}}), which incorporates an RNN to encode contextual information and a separate
+prototype memory to remember previously learned classes (see Figure~\ref{fig:mainmodel}). This model
+obtains significant gains on few-shot classification performance compared to models that do not
+retain a memory of the recent past. We compare to classic few-shot algorithms extended to an online
+setting, and
+\ourmodelshort{} consistently achieves the best performance.
+
+\looseness=-1000
+The main contributions of this paper are as follows. First, we define an \emph{online contextualized
+few-shot learning (OC-FSL)} setting to mimic naturalistic human learning. Second, we build three
+datasets: 1) {\it \ourchar{}} is based on handwritten characters from
+Omniglot~\citep{omniglot}; 2) {\it \ourimg{}} is based on images from ImageNet~\citep{imagenet}; and 3) {\it \ourroom{}} is our new few-shot learning dataset
+based on indoor imagery~\citep{matterport}, which resembles the visual experience of a wandering
+agent. Third, we benchmark classic FSL methods and also explore our \ourmodelshort{} model, which
+combines the strengths of RNNs for modeling temporal context and Prototypical Networks
+\citep{protonet} for memory consolidation  and rapid learning.
