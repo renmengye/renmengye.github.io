@@ -8,6 +8,10 @@
 
 ## Preprints
 
+* Self-supervised learning of video representations from a child's perspective.
+Emin Orhan, Wentao Wang, Alex N. Wang, **Mengye Ren**, Brenden M. Lake.
+[[arxiv](https://arxiv.org/abs/2402.00300)]
+
 * Learning and forgetting unsafe examples in large language models.
 Jiachen Zhao, Zhun Deng, David Madras, James Zou, **Mengye Ren**.
 *arXiv preprint 2312.12736*, 2023.
