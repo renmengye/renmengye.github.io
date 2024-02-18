@@ -1,0 +1,18 @@
+% !TEX root = marvin.tex
+\vspace{-0.1in}
+\section{Conclusion}
+
+In this paper we proposed a novel approach to perform online routing of a swarm of agents in the
+realistic domain where dynamic challenges are present. By making use of learned value iteration
+transitions and an attention based communication protocol, our model is able to outperform the
+state-of-the-art on real road graphs. Furthermore, it is able to do so in a scalable manner and can generalize well to different number of agents and nodes without re-training.
+%trained using graphs of 25 nodes and two agents, it can generalize to much larger graphs with more than five agents.
+Future work include performing a more in-depth analysis on the
+information encoded in the communication and its semantic meaning.
+There is also future exploration to be done into techniques to enable this system to run on massive
+graphs, as the
+memory usage during evaluation is still $O(n^2)$ due to the pairwise adjacency matrix.
+% \raquel{Please add this paragrpah as a setence in the previous paragraph}
+
+\section*{Acknowledgement} We thank Siva Manivasagam and Abbas Sadat for helpful discussions.
+% \raquel{as discussed I will rmove this to make sure you dont forget anyone}

@@ -1,0 +1,26 @@
+% !TEX root = ../marvin.tex
+\begin{table}[t]
+\centering
+\begin{small}
+\resizebox{0.65\columnwidth}{!}{%
+\begin{tabular}{ccc}
+\toprule
+Name                                   & Dim. & Type             \\
+\midrule
+Sum of in/out edge weights             & 2    & float            \\
+\# of in/out edges                     & 2    & integer          \\
+Agent at $v$                           & 1    & binary           \\
+$v$ is unexplored                      & 1    & binary           \\
+$v$ is fully covered                   & 1    & binary           \\
+Dist. from cur. pos. to $v$            & 1    & float            \\
+Traffic at $v$                         & 1    & float            \\
+$v$ is adjacent                        & 1    & binary           \\
+Communication vector                   & 16   & float            \\
+\bottomrule
+\end{tabular}
+}
+\end{small}
+\caption{Graph input feature representation for node $v$}
+\vspace{-0.25in}
+\label{tab:node_feature}
+\end{table}

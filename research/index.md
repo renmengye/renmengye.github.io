@@ -199,12 +199,13 @@ Nicholas Vadivelu, Mengye Ren, James Tu, Jingkang Wang, Raquel Urtasun.
 [[arxiv](https://arxiv.org/abs/2011.05289)]
 [[video](https://www.youtube.com/watch?v=Qu5KJofLRvs)]
 
-* Multi-agent routing value iteration networks.
+* Multi-agent routing value iteration network.
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 *ICML*, 2020.
 [[arxiv](https://arxiv.org/abs/2007.05096)]
 [[code](https://github.com/uber-research/MARVIN)]
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
+[[html](2020/multi-agent-routing-value-iteration-network)]
 
 * Cost-efficient online hyperparameter optimization.
 Jingkang Wang``*``, Mengye Ren``*``, Ilija Bogunovic, Yuwen Xiong, Raquel Urtasun.

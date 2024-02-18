@@ -1,0 +1,249 @@
+% !TEX root = marvin.tex
+\section{Problem Definition}
+
+In this section we first provide a precise definition of the multi-agent mapping problem. We then
+propose in the next section a decentralized deep neural network for coordinating a fleet of vehicles
+to solve this mapping problem. Formally, given a strongly connected directed  graph $G(V,E)$
+representing the road connectivity, we would like to produce a routing path for a set of $L$ agents
+$\{p^{(i)}\}_{i=1}^L$ such that each vertex $v$ in $V$ is covered $M_v$ times in total across all
+agents. We  consider the real-world  setting where 1) $M_v$ is unknown to all agents until the
+number has been reached (i.e., only success/failure is revealed upon each action) and 2) only local
+traffic information can be observed.
+
+We consider a decentralized setting, where each agent gathers local observations and
+information communicated from other agents, and outputs the route it needs to take in the next step.
+Here we assume that each agent can broadcast to the rest of the fleet as this is possible with
+today's communication technology. We also constrain  the policy of
+each agent to be the same, making the system more robust to failure.
+
+Let $a_t^{(i)}$ be the routing action taken by agent $i$ at time $t$, indicating the next node to
+traverse. We define a  {\it route} as the sequence of actions $p^{(i)} = [a_0^{(i)}, \dots,
+a_N]$, where each action represents an intermediate destination.
+We refer the reader to
+Table~\ref{tab:notation} for our notation.
+
+The policy of a single agent $i$ can be formulated as a function of 1) the road network graph $G$; 2) local
+environment observation $o_t^{(i)}$; 3) the communication messages sent by other agents
+$\{\bc_t^{(j)}\}$; and 4) the state of the agent $s_t^{(i)}$.
+Thus,
+\begin{align}
+\{a_t^{(i)}, \bc_t^{(i)}\} = f(G, o_t^{(i)}, \{\bc_{t-1}^{(j)}\}_{j=1}^L; s_t^{(i)}),
+\end{align}
+
+\input{tables/notation}
+
+Assuming that a traffic model $F$ produces the time needed to traverse a route, we would like our
+multi-agent system to minimize the following objective:
+\begin{align}
+\min_{p^(i)}      &&& \sum_{i=1 \dots L} F(p^{(i)}), \\
+\text{subject to} &&& \nonumber \sum_i M(p^{(i)}, v) \ge M_v, \ \ \forall v,
+\end{align}
+where $M(p, v)$ is the number of times node $v$ is visited in a route $p$.
+
+\section{Multi-Agent Routing Value Iteration Network}
+
+In this section, we describe our proposed approach to the multi-vehicle routing problem. Note that the model is running locally in each individual agent,
+as this makes it scale well with the number of agents and be more robust to failures. There are two
+main components of our approach.  First, the \textbf{communication module} (Fig.~\ref{fig:mainfig}C) works asynchronously to save
+messages sent from other agents in a temporary memory unit, and retrieves the content based on an
+attention mechanism at the agent level.
+% \raquel{We now need to say that at each iteration of planning for this agent...}
+Each time an agent needs to select a new destination,
+% \raquel{this is each time it needs to select each action, not when it selects, as it makes it seem like the selection already happened}
+this information is then sent to the value iteration module for
+future planning. Second, the \textbf{value iteration module} (Fig.~\ref{fig:mainfig}B)
+runs locally on each agent
+% and exchanges information among nodes on the road network graph
+and iteratively estimates the value of traveling to each node in the
+road network graph for its next route
+(Figure~\ref{fig:mainfig}A).
+% \raquel{shouldnt this be a route, not an acction? and a route is selected at each time?}
+% \raquel{previous sentence of "exchanging information, is  confusing". Rephrase}
+Then an attention LSTM planning module iteratively refines the node
+features for a fixed number of iterations, and outputs the value function for each node. The node
+with the highest value will be considered as the next destination for the agent. We now describe the
+value iteration module followed by the communication module.
+% As opposed to conventional methods, we
+% attempt to include the distance matrix as an explicit input in our architecture, thereby ensuring
+% more meaningful information is encoded.
+% \raquel{I'll not talk about the distance stuff here... as this is the high level paragraph, but do it when you talk about it}
+
+\input{tables/node_features}
+
+\subsection{Value Iteration Module}
+Our model operates on a strongly connected graph $G(V,E)$ representing the topology of the road
+network. As shown in Fig.~\ref{fig:mainfig}, each street segment forms a node in the graph, and the goal for
+each agent is to pick a node to be its next destination. % \raquel{I modified, its not each lane, but each street segment}
+Given some
+initial node features, our approach refines them for a fixed
+number of  iterations of the graph neural network,  decodes the features into a scalar value function for
+each node, and then selects the node with the maximum value to be our next destination (see
+Fig.~\ref{fig:mainfig}). We now provide more details on each of these steps.
+%Thus, the
+%value iteration module computs the   ``value function'' of each node, and picks the node with the maximum value.
+
+
+Let $\bX = \{\bx_1, \bx_2, ... , \bx_n\}$ be the set of initial node feature vectors with $n$ being the
+total number of nodes and let $\bU = \{u_1, u_2, ... , u_n\}$ represent the input communication node features.
+% \raquel{its odd to talk about processed here...} \raquel{shouldnt last row in table 2 be U? if yes, add it to the notation. Is U 16 D? }
+We encode the node input features (see Table~\ref{tab:node_feature}) through a linear layer to serve as
+initial features for the value iteration network:
+\begin{align}
+\bX^{(0)} &= (\bX \mathbin\Vert \bU) W_{\mathrm{enc}} + \bb_\mathrm{enc}.
+\end{align}
+% \raquel{this is the place to explain why you use a dense distance matrix, and how it is computed}
+
+
+
+At each planning iteration $t$, we perform the following iterative update through an LSTM with an
+attention module across neighboring nodes:
+\begin{equation}
+  \bX^{(k+1)} = \bX^{(k)} + \lstm(\mathrm{Att}(\bX^{(k)}, A); \bH^{(k)}),
+\end{equation}
+for $t=1 \dots K$ and $K$ is the total number of value iteration steps. $\bH^{(t)}$ is the hidden
+state of the LSTM, which contains one state vector per node, and $A$ is the adjacency matrix.
+As opposed to conventional methods where the binary adjacency matrix is used as the primary input to
+the network, we use the Floyd-Warshall algorithm to compute the dense
+distance matrix as an explicit input in our architecture, thereby ensuring
+more meaningful information can be utilized by our model. In particular, the matrix produced by the Floyd-Warshall
+algorithm encodes the pairwise minimum path
+distance between any pair of nodes, $D_{i,j} = d(v_i,v_j)$, which we normalize to form our dense
+adjacency matrix %. Let $A$ represent said dense distance matrix for the graph.
+$A = \frac{D - \mu}{\sigma}$, where $\mu$ is the element-wise mean of $D$, and
+$\sigma$ is the element-wise standard deviation. As shown in our experiments, using our dense adjacency
+matrix results in significantly better planning than the binary connectivity matrix of GVIN~\cite{gvin}).
+
+\paragraph{Graph attention layer:} Information exchange on the graph level happens in the attention
+module ``$\mathrm{Att}$'' which is a transformer layer~\cite{gtn}, that takes in the node features
+and the adjacency matrix, and outputs the transformed features. Specifically, we first compute the
+key, query, and value vectors for each node:
+\begin{align}
+  \bQ^{(k)} &= \bX^{(k)} W_q + \bb_q, \\
+  \bK^{(k)} &= \bX^{(k)} W_k + \bb_k, \\
+  \bV^{(k)} &= \bX^{(k)} W_v + \bb_v.
+\end{align}
+We then compute the attention between each node and every other node to create an attention matrix
+$A_{\text{att}} \in \mathbb{R}^{n \times n}$,
+\begin{equation}
+  A_{\text{att}} = \bQ^{(k)} \bK^{(k)\top}.
+\end{equation}
+We combine the graph adjacency matrix $A$ with the attention matrix $A_{\text{att}}$ to represent
+edge features as follows:
+\begin{equation}
+  \tilde{A}^{(k)} = \softmax(g(A_{\text{att}}^{(k)}, A)),
+\end{equation}
+where $g$ is a learned multi-layer neural network.
+
+% In the equation above, instead of using the graph binary adjacency matrix $A$, we propose to use a
+% \textit{dense adjacency matrix} to encode more edge information in order to speed up the information
+% exchange process for sparse graphs.  \raquel{this shoudl be said when you first define the A, which is before the equation. All this paragraph}
+% Towards this goal, we first compute the pairwise minimum path
+% distance between any pair of nodes. $D_{i,j} = d(v_i,v_j)$. We then normalize it to form our dense
+% adjacency matrix. $A = \frac{D - \mu}{\sigma}$, where $\mu$ is the element-wise mean of $D$, and
+% $\sigma$ is the element-wise standard deviation. As shown in our experiments, using our dense adjacency
+% matrix results in significantly better planning than the binary connectivity matrix of GVIN~\cite{gvin}).
+
+The new node values are computed by combining the values produced by all other nodes
+according to the attention in the fused attention matrix. The output of the graph attention layer is
+then fed to an LSTM module:
+\begin{equation}
+  \bX^{(k+1)} = \bX^{(k)} + \lstm(\tilde{A}^{(k)} \mathbf{V}^{(k)}; \bH^{(k)}).
+\end{equation}
+
+This full process is repeated for a fix number of iterations $k=1, \cdots, K$ before decoding. % \raquel{added this sentence, as this was not clear}
+
+\paragraph{Value masking and decoding:}
+After iterating the attention LSTM module for $K$ iterations, we use a linear layer to project the
+features into a scalar value function for each node on the graph. We mask out the value of all nodes
+that no longer need to be visited since they have been fully mapped, and  take a softmax over
+all remaining nodes to get the action probabilities
+\begin{align}
+\pi(a_i; s_i) = \softmax(\bX^{(K)} W_{\mathrm{dec}} + \bb_{\mathrm{dec}}).
+\end{align}
+Finally, we take the node that has the maximum probability value to be the next destination. The full route
+will be formed by connecting the current node and the destination by using a shortest path algorithm on the weighted
+graph. Note that the weights are intended to represent the expected time required to travel from one road segment to the next,
+and therefore are computed by dividing the length of the street segment  by the average speed of the vehicles traversing it.
+% \raquel{we probably need to say something about how the weights are computed here}
+
+\subsection{Communication Module}
+Due to the partial observation nature of our realistic problem setup (\textit{e.g.,} traffic and
+multiple revisits), it is beneficial to let the agents communicate their intended trajectories, thereby
+encouraging more collaborative behaviours. % \raquel{their information is not just local. Why do you emphasize that? the observation is, but they have merge it with info of other agents, so its not local anymore}
+Towards this goal, our proposed model also features an
+attention-based communication module, where now  attention is performed over the agents, not the street segments. %\raquel{added clarification of street vs agent, to re-iterate teh difference}
+Whenever an agent performs an action, it uses
+$\bX^{(K)}$, the final encodings of the value iteration module,
+to output the communication vector
+% \raquel{this is the full communication, not the one ofr each node. Careful here. Instead talk about the dimensions, and why you pass something that has all the street nodes, e.g., to reflect the beliefs of each agent}
+: $\bc^{(i)}$, which is then broadcasted to all agents. We express the communication vector as a set of node
+features in order to reflect the structure of the street graph environment.
+% \raquel{maybe explain again $\bX^{(K)}$ was after the iterations. Actually I'll not talk about $\bX^{(K)}$ here, but wait until you define things mathematically}
+The most recent communication vector
+from each sender is temporarily saved on the receiver end. When an agent decides to take a new
+action, it applies an agent-level attention layer to aggregate information from its receiver inbox.
+
+Let  $\bC_{\mathrm{in}} = \{\bc^{(1)}, \dots, \bc^{(L)}\} \in \mathbb{R}^{L \times nd}$,  be the messages that an agent receives  from other agents concatenated together,  where $L$ is the number of agents,
+$n$ is the number of nodes and $d$ is the features dimension. The agent transforms the communication vectors
+to produce a query and a value vector:
+\begin{align}
+  \bQ_{\mathrm{comm}} &= \bC_{\mathrm{in}} W_{q,{\mathrm{comm}}} + \bb_{q,\mathrm{comm}}, \\
+  \bV_{\mathrm{comm}} &= \bC_{\mathrm{in}} W_{v,{\mathrm{comm}}} + \bb_{v,\mathrm{comm}}.
+\end{align}
+The communication vector last outputted by this given agent is also called upon to produce a key
+vector:
+\begin{equation}
+  \bk_{i,{\mathrm{comm}}} = \bC_{\mathrm{in}, i} W_{k,\mathrm{comm}} + \bb_{k,\mathrm{comm}}.
+\end{equation}
+This key vector is then similarly dotted with the query vectors from all other agents to form a
+learned linear combination of the communication vectors from all the other agents.
+% \raquel{why do you need to put this in particulary? just say in the statement above that this includes its own communication vector. This way you save one equation}
+%\quin{We phrase it in this way because the key vector is only computed for our current agent at each iteration }
+ We can then compute the aggregated communication as
+%communication features for the input to the model. We denote this aggregated communication as
+$\bU_{i}$:
+\begin{align}
+\bU_{i} &= \sum_j \alpha_{i,j} \mathbf{V}_j,  \\
+\mathbf{\alpha}_i   &= \softmax{(\mathbf{Q_{\mathrm{comm}}} \mathbf{k}_{i,{\mathrm{comm}}})}.
+\end{align}
+$\bU_{i}$ will then be used as part of the node feature inputs to the value iteration module for the
+next step.
+% \raquel{careful as this variable is not used in the equations above, and should be used. Go back and make notation compatible.}
+
+\subsection{Learning}
+Our proposed network can be trained end-to-end using either imitation learning or reinforcement
+learning. Here we explore both possibilities. For imitation learning, we assume there is an
+oracle that can solve these planning problems. Note that this relies on a fully observable
+environment, and oftentimes the oracle solver will slow down the training process since we generate
+a training graph for each rollout.
+Alternatively, we also consider training the network using
+reinforcement learning, which is more difficult to train but directly optimizes the final objective.
+We now describe the learning algorithms in more details.
+
+\paragraph{Imitation learning (IL):}
+To generate the ground-truth $a^\star$ that we seek to imitate, we firstly provide an LKH3 solver
+with global information about each problem to solve as a  fully observed environment. Based on the
+groundtruth past trajectory, each agent tries to predict the next move $a$.  We train the agent
+using ``teacher-forcing'' by minimizing the cross entropy loss for each action, summing across the
+rollout. In teacher forcing, the agents are forced to perform the same actions as the ground truth rollout at
+each timestep, and are penalized when their actions do not match that of their ``teacher''. The loss is averaged across a mini-batch.
+\begin{align}
+L = - \mathbb{E}[\sum_{t,i} \log \pi(a_t^{(i)\star}; s_t^{(i)}) ],
+\end{align}
+where $\pi(a; s)$ denotes the probability of taking action $a$ given state $s$.
+% \raquel{maybe explain teaching forcing when you mention it, for people starting in the field }
+% \raquel{shouldnt we take the - to be outside the expectation?}
+
+\paragraph{Reinforcement learning (RL):}
+While imitation learning is effective, expert demonstration may not always be available for realistic environments.  Instead, we can use
+reinforcement learning. We use REINFORCE~\cite{reinforce} to train
+the network using episodic reinforcement learning, and set the negative total cost of the fully
+rolled out traversal to be the reward function, normalized across a mini-batch.
+\begin{align}
+r &= - \sum_{i} F(p^{(i)}), \quad
+\tilde{r} = (r - \mu_r) / \sigma_r, \\
+L &= - \mathbb{E}_{\pi}\tilde{r}, \ \
+\nabla L = -\mathbb{E}_{\pi}[
+\tilde{r} \sum_{t, i} \nabla \log \pi (a_t^{(i)}; s_t^{(i)} )
+].
+\end{align}

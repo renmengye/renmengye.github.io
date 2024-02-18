@@ -1,0 +1,31 @@
+% !TEX root = ../marvin.tex
+\begin{table}[t]
+\centering
+\begin{small}
+      \resizebox{0.8\columnwidth}{!}{%
+\begin{tabular}{ccc}
+\toprule
+Symbol                 & Description                                              \\
+\midrule
+$t$                    & Current timestep                                         \\
+$G$                    & Map graph                                                \\
+$L$                    & Number of agents                                         \\
+$n$                    & Number of graph nodes                                    \\
+$f$                    & Routing + communication policy                           \\
+$\pi$                  & Routing policy                                           \\
+$F$                    & Time cost given a route $p$                              \\
+$o_t^{(i)}$            & Observation by agent $i$ at time $t$                     \\
+$s_t^{(i)}$            & State of agent $i$ at time $t$                           \\
+$a_t^{(i)}$            & Action taken by agent $i$ at time $t$                    \\
+$\bc_t^{(i)}$          & Message vector sent by agent $i$ at time $t$             \\
+$M_v$                  & Number of times node $v$ needs to be covered             \\
+$\bX^{(i,k)}_t$        & Agent $i$'s node features at $k$-th value iteration      \\
+$\bU_i$                & The input communication features for agent i             \\
+\bottomrule
+\end{tabular}}
+\end{small}
+\vspace{-0.1in}
+\caption{Notation}
+\label{tab:notation}
+\vspace{-0.2in}
+\end{table}

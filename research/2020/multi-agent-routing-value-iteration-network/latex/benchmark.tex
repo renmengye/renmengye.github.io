@@ -1,0 +1,74 @@
+% !TEX root = marvin.tex
+\section{Autonomous Mapping Benchmark}
+In this section we describe our novel autonomous mapping benchmark
+% \footnote{Released at \url{https://drive.google.com/file/d/1lg-kQzorfkc0uTlOiU4ouR0tqmCBcO9w} \raquel{this is not how to release data}}
+. The dataset contains
+22,814 directed road graphs collected from 18 cities around the world from different continents.
+We refer the reader to Table~\ref{tab:stats} for  statistics of our dataset. We use a separate city for testing
+purposes and 10\% of the training set for validation. We also augment this benchmark with realistic
+traffic conditions and realistic mapping challenges. These extra challenges fall into the following
+categories: random revisits, realistic traffic and asynchronous execution.
+
+\vspace{-0.1in}
+\paragraph{Random revisits:}
+When mapping a road in the real world, it is possible that our initial mapping attempt
+could fail, due to occlusion, sensor uncertainty, etc. Therefore we would have to revisit that
+street an unknown number of times before it is fully mapped. In order to simulate this,
+at the beginning of each run, we assign each node in the street graph a hidden variable
+that corresponds to how many times it will have to be visited before it is fully mapped.
+During training, we sample this value uniformly from one to three. We also randomly sample
+this value uniformly from one to three during evaluation, except for when we specifically
+test for an alternate distribution (see Table~\ref{tab:multipass}).
+
+\vspace{-0.1in}
+\paragraph{Traffic simulation:}
+We also simulate unknown traffic congestion for each street. To find the equilibrium
+congestion at each node, we use the flow equations proposed in~\citet{macroscopicsim}. This
+method simulates traffic as a flow problem wherein we wish to maximize the total movement of
+vehicles given a set of junction constraints. We use the number of incoming and outgoing lanes
+multiplied by the speed limit of those lanes to establish the flow constraints, and initialize
+the congestion randomly using a uniform distribution from 0 to 1. Once we find an approximation
+for the equilibrium congestion, following ~\citet{continuum} we define the velocity at each
+street $v$ to be:
+$v = v_{\max} * (1 - \rho ^ {\gamma})$,
+where $v_{\max}$ represents the speed limit of that road, $\rho$ is the traffic congestion on that
+road and $\gamma$ is a hyperparameter (that we set to 3) that helps smooth out the effect of traffic.
+The effect of this is that whenever an agent travels to a particular node, the cost of performing
+this traversal is increased by $\frac{1}{(1 - \rho ^ {\gamma})}$.
+%\raquel{the way its written it seems that thi s is fix, meaning every time we visit this node, we pay the same cost. But I thought you have dynamic simulation}
+%\quin{We changed this a while ago so that the dynamic part was the multiple passes and that the traffic just had to be discovered at each node}
+We cap this factor to a maximum
+value of 4 to ensure that the cost of traveling to nodes with maximum congestion does not extend to
+infinity. This allows the cost of an edge traversal to vary between 1 to 4 times its
+original value depending on the equilibrium congestion. Note that the congestion value of each node
+is unknown until the node is visited by an agent.
+
+\begin{table}[t]
+\begin{small}
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Set     & \# Graphs & \# Nodes    \\
+\midrule
+Train  & 22,814    & 420,452  \\
+Test   & 373       & 14,284      \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{small}
+\vspace{-0.1in}
+\caption{Realistic autonomous mapping benchmark statistics}
+\label{tab:stats}
+\vspace{-0.2in}
+\end{table}
+% \vspace{-0.2in}
+\paragraph{Asynchronous execution:}
+
+During the training phase the agents act in a synchronous manner, where
+% \raquel{this sentence is not grammatical}.
+each agent is
+called sequentially to perform an action until the graph has been entirely mapped.
+This however does not take into account the time required to perform each action.
+ During the
+evaluation phase, we instead simulate the time required to complete  each action. Agents
+therefore act in an asynchronous way based on how long each action takes to complete.

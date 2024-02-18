@@ -1,0 +1,26 @@
+% !TEX root = marvin.tex
+\begin{table}[t]
+\begin{center}
+\begin{small}
+\resizebox{0.9\columnwidth}{!}{%
+\begin{tabular}{c|c|ccc}
+\toprule
+Multi-pass distribution & Oracle & LKH3  & Ours (RL)     & Ours (IL)     \\
+\midrule
+Uniform 1 - 3           & 1.28   & 1.80  & \textbf{1.32} & 1.42          \\
+Uniform 1 - 5           & 1.92   & 3.05  & \textbf{2.11} & 2.20          \\
+Uniform 1 - 10          & 3.50   & 5.72  & \textbf{3.82} & 4.24          \\
+TruncGaussian 1 - 3     & 1.51   & 2.52  & \textbf{1.75} & 1.79          \\
+Either 2 or 4           & 1.72   & 2.49  & \textbf{1.84} & 2.01          \\
+Only 3                  & 1.52   & 1.92  & \textbf{1.68} & \textbf{1.68} \\
+Exp (mean = 2)          & 1.67   & 3.26  & \textbf{1.73} & 1.84          \\
+\bottomrule
+\end{tabular}
+}
+\end{small}
+\vspace{-0.1in}
+\caption{Model performance on different multi-pass distributions}
+\vspace{-0.2in}
+\label{tab:multipass}
+\end{center}
+\end{table}

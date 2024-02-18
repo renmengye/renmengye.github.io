@@ -319,12 +319,13 @@ Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
 [[html](research/2020/loco-local-contrastive-representation-learning)]
 
-* Multi-agent routing value iteration networks.
+* [Multi-agent routing value iteration network](research/2020/multi-agent-routing-value-iteration-network).
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 *ICML*, 2020.
 [[arxiv](https://arxiv.org/abs/2007.05096)]
 [[code](https://github.com/uber-research/MARVIN)]
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
+[[html](research/2020/multi-agent-routing-value-iteration-network)]
 
 * Incremental few-shot learning with attention attractor networks.
 Mengye Ren, Renjie Liao, Ethan Fetaya, Richard S. Zemel.

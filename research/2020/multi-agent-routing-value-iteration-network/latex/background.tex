@@ -1,0 +1,80 @@
+% !TEX root = marvin.tex
+\section{Related Work}
+
+In this section, we discuss previous attempts to solve vehicle routing problems. Background on
+%related neural network designs such as
+graph neural networks and value iteration networks is also
+provided.
+
+\paragraph{Vehicle routing problem:}
+
+Existing VRP solvers can be broken down into two categories: conventional iterative solvers and deep
+learning methods. Conventional solvers are usually iterative and designed to eventually converge to
+the true optimal of the system~\citep{concorde, branchandcut,lkh3}.  Some solvers are only designed
+towards 2D planar graphs~\citep{spreadsheetvrp, gavrp, ilpvrp}. Structured for offline planning,
+they are generally  unable to adapt their solutions online. Moreover, they are not capable of any
+online communication between agents to incorporate local observations.
+
+In contrast to conventional solvers, deep learning methods have recently emerged as efficient
+approximate solutions to combinatorial problems, thanks to the wide-spread success of attention
+mechanisms~\citep{pointer,transformer} and graph neural networks~\citep{gcn,combinatorialgraph}.
+Crucially, deep learning methods have powerful learning capabilities that can adapt easily to more
+complex and realistic problem definitions. While some simply try to improve subproblems of the VRP
+task~\citep{marl,coopmasvrp, masterslave}, others produce  end-to-end vehicle routes~\citep{am,
+ean}. However, these deep learning solutions tend to assume that each node has a pair of 2D
+coordinates that can be used to identify its global position, and edges are connected using
+Euclidean distances, an unrealistic approximation of real road network graphs.
+% In terms of
+% multi-agent capabilities, whereas PointerNet~\citep{pointer,onlineroutenn}, Encode-Attend-Navigate
+% (EAN)~\citep{ean} are TSP solvers and do not address multi-agent aspects \raquel{non-grammatical sentence. Not sure if you wanted to add something else. So leave only comment here}, Attention Model
+Furthermore, PointerNet~\citep{pointer,onlineroutenn} and Encode-Attend-Navigate(EAN)~\citep{ean},
+two prominent deep learning TSP solvers, are restricted to the single agent domain, whereas
+(AM)~\citep{am}, another deep learning solver which is able to operate in the multi-agent domain,
+only does so by creating a route for one agent after another, and thus is unable to control the
+exact number of agents being dispatched in each traversal. %in total. \raquel{not sure what you mean by in total here}
+Moreover, none of these methods were designed
+to handle dynamic environments where one can benefit significantly from online communication.
+
+\paragraph{Value iteration networks:}
+Deep learning based methods have also shown promising performance in path planning. One classical
+example is the value iteration network~\citep{vin}, which embeds structural biases inspired from
+value iteration~\citep{bellman} in a neural network. Gated path planning networks~\citep{gppn}
+changed the max-pooling layer with a generic long short-term memory (LSTM)~\citep{lstm}
+significantly improving training stability which helps extend the number of iterations. These
+networks can naturally be translated to a graph domain by replacing the transitions with the edges
+in the graph, as is shown in the generalized value iteration network (GVIN)~\citep{gvin}. However,
+they are developed to solve simple path planning environments such as 2D mazes and small graphs with
+weighted edges, and Dijkstra's shortest path algorithm is already efficient and effective at solving these
+ problems. %\raquel{not clear what you mean by the shortest path already efficient. Also odd grammar}
+Compared to the design of GVIN, our method features a dense adjacency matrix that is very
+effective at solving sparse graph coverage problems, where long range information exchange is
+needed.
+% Again, none of these methods are designed for multi-agent communication and cooperation,
+% while our approach is.
+% \raquel{this tlast sentence is sort of repetitive, as first you say for GVIN and then for all in general. Change this}
+
+\paragraph{Graph neural networks:}
+Graph neural networks~\cite{gnn,gnnsurvey} provide a way to learn graph representations that are
+both agnostic to the number of nodes in the graph and permutation invariant in the local
+neighborhood. Information from node neighborhood can be aggregated using graph
+convolutions~\citep{gcn}, recurrent neural networks~\cite{ggnn}, and more recently via attention
+mechanisms~\cite{gtn,gat}. Graph attention modules also appear in deep learning based VRP/TSP solvers such
+as AM~\cite{am} and EAN~\cite{ean}. %, both of which are able to achieve near state-of-the-art performance.
+Inspired by prior literature, we make use of graph attention in two ways: 1) a
+map-level road network augmented with graph attention within the planning module of each agent, and 2) an agent-level attention
+to aggregate messages received from other agents.
+
+\paragraph{Multi-agent communication:}
+Traditional multi-agent communication in robotics has focused  on heuristic and algorithmic
+approaches to improve communication efficiency~\citep{dynamicroute, maretrieval, commefficiency}. In
+contrast, CommNet~\citep{commnet}  demonstrated that a swarm of agents can autonomously
+learn their own communication protocol. This has led to a focus on the nature of learned language
+protocols. Some studies \citep{commnet, coop, attcomm} propose ways to combine information
+among agents. \citet{commnet} use a simple summation across the messages, whereas \citet{attcomm}
+leverage the attention mechanism to identify useful information. Other works focus more on the
+difference between cooperative swarms, greedy individuals, and competing swarms with learned
+communication~\citep{emergence, multiagentrl}. Finally, there is  a large body of work on the
+scalability of robotic swarms~\citep{graphpolicygrad}, and the necessity of explicit communication
+to infer the actions of other agents~\citep{macontrol}.
+
+

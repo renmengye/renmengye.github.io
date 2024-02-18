@@ -1,0 +1,6 @@
+PWD /Users/mren3/papers/icml-2020-multi-agent-map-new/ICML/icml2019_marvin
+INPUT /usr/local/texlive/2017/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT trained_sizes.tex
+OUTPUT trained_sizes.log

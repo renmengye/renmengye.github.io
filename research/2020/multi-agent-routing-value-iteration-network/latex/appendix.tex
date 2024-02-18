@@ -1,0 +1,64 @@
+
+% !TEX root = marvin.tex
+% \cleardoublepage
+\clearpage
+\appendix
+
+\input{heatmap_cluster}
+\input{heatmap_sporadic}
+
+\section{Model Action Visualization}
+
+We firstly perform a qualitative analysis as to what kind of decisions each agent makes, and what
+these decisions look like at the value function level. We then we visualize the paths that a fleet of
+agents takes when mapping a large portion of Chicago from a bird's-eye-view perspective. We use this to
+again qualitatively compare the strategies exploited by MARVIN trained with RL, MARVIN trained with IL,
+and the GVIN.
+
+\subsection{Value Function Heat Map}
+
+Upon performing an analysis of the value function, we find that two main behaviors are observed. The
+first is that the agent localizes the highest points in its value function to a small region of
+unvisited streets. This is equivalent to having this small cluster assigned to the agent
+by the collective swarm, and then it sequentially visiting all the streets until they recieve a new
+objective or finish with this cluster, as can be see in Figure~\ref{fig:heatmap_cluster}.
+
+
+The secondary observed behavior, as seen in Figure~\ref{fig:heatmap_sporadic}, is that the agents
+occasionally begin increasing their value function at far away nodes. This can be interpreted
+as the exploration phase, where the agents are encouraged to travel longer
+distances in order to reach new subclusters that need to be
+mapped. The peaks of the value function also appear to be relatively sporadic, indicating the
+ability of the agents to consider a wide variety of potential routes.
+
+
+\subsection{Overall Swarm Strategy}
+
+We qualitatively compare our model's overall strategy to that of the generalized value iteration
+network (GVIN) and observe that in general, the GVIN network tends to promote exploration.
+We also observe that this high level strategy fails to cover all streets in a reliable
+manner. There are small sections throughout the graph that remain unvisited, and
+in order to perform a full traversal the agents must eventually
+return to these small unvisited sections, often covering significant distances in
+the process. This stands in contrast to what we observe with MARVIN, where the network prioritizes
+covering each street in a region before moving on to the next area. This ultimately results in less
+of a need for revisited regions that have incomplete mapping.
+
+\input{vin_gvin}
+
+Next, we compare the high level strategy of MARVIN when trained with reinforcement learning to that
+when trained with imitation learning. We observe that in this context, both methods prioritize a
+thorough traversal, but that the agents trained using imitation learning are more efficient and
+therefore are able to expand to new regions much quicker than the agents trained with reinforcement
+learning. This matches the trend we noted when comparing training procedures and the scalability of
+the models that they produce.
+
+\input{il_rl}
+
+\section{Sample Graph Visualization}
+
+We visualize a few of the graphs that are used in the training process seen in Figure \ref{fig:example_graphs}.
+While each one can be represented by a strongly connected graph, they nevertheless posess distinct
+features which enable a higher degree of generalization during the training process.
+
+\input{example_graphs}

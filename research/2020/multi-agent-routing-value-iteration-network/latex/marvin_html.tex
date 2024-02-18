@@ -1,0 +1,68 @@
+
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{diagbox}
+\usepackage{tikz}
+
+\usepackage{hyperref}
+\usepackage[accepted]{icml2020}
+\usepackage{latexml}
+\input{defs}
+
+\newcommand{\raquel}[1]{\textcolor{red}{Raquel: #1}}
+\newcommand{\quin}[1]{\textcolor{blue}{Quinlan: #1}}
+
+\icmltitlerunning{MARVIN}
+
+\begin{document}
+
+\icmlsetsymbol{equal}{*}
+
+\twocolumn[
+\icmltitle{Multi-Agent Routing Value Iteration Network}
+
+% \begin{icmlauthorlist}
+% \icmlauthor{Quinlan Sykora}{equal}
+% \icmlauthor{Mengye Ren}{equal}
+% \icmlauthor{Raquel Urtasun}{}
+% \end{icmlauthorlist}
+\author{Quinlan Sykora$^{*}$, Mengye Ren$^{*}$, Raquel Urtasun\\
+\\
+Uber Advanced Technologies Group and University of Toronto\\
+\texttt{\{quinlan.sykora, mren3, urtasun\}@uber.com}
+}
+
+
+% \icmlcorrespondingauthor{Quinlan Sykora}{quinlan.sykora@uber.com}
+% \icmlcorrespondingauthor{Mengye Ren}{mren3@uber.com}
+% \icmlcorrespondingauthor{Raquel Urtasun}{urtasun@uber.com}
+
+% \icmlkeywords{vehicle routing, planning, value iteration, multi-agent}
+% \vskip 0.3in
+]
+
+% \printAffiliationsAndNotice{\icmlEqualContribution}
+
+\input{abstract}
+\input{intro}
+\input{background}
+\input{main_fig}
+\input{model}
+\input{benchmark}
+\input{experiments}
+\input{conclusion}
+
+\bibliography{marvin}
+\bibliographystyle{icml2020}
+
+
+\input{appendix}
+
+\end{document}

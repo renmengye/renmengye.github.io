@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: marvin.aux
+The style file: icml2020.bst
+Database file #1: marvin.bib
+You've used 40 entries,
+            2773 wiz_defined-function locations,
+            800 strings with 11910 characters,
+and the built_in function-call counts, 19430 in all, are:
+= -- 1612
+> -- 1339
+< -- 15
++ -- 451
+- -- 411
+* -- 1604
+:= -- 3006
+add.period$ -- 123
+call.type$ -- 40
+change.case$ -- 256
+chr.to.int$ -- 40
+cite$ -- 80
+duplicate$ -- 900
+empty$ -- 1570
+format.name$ -- 459
+if$ -- 4047
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 38
+newline$ -- 209
+num.names$ -- 160
+pop$ -- 570
+preamble$ -- 1
+purify$ -- 217
+quote$ -- 0
+skip$ -- 657
+stack$ -- 0
+substring$ -- 437
+swap$ -- 86
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 435
+warning$ -- 0
+while$ -- 151
+width$ -- 0
+write$ -- 510

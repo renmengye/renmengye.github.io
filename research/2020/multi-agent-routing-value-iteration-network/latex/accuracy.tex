@@ -1,0 +1,23 @@
+% !TEX root = marvin.tex
+\begin{table}[t]
+    \begin{center}
+    \begin{small}
+    \resizebox{0.85\columnwidth}{!}{%
+    \begin{tabular}{c|ccc|c}
+    \toprule
+    Variant                &  Attn. & Dense adj. & LSTM         & Action Acc.    \\
+    \midrule
+    GVIN                   &             &            &             & 65.4\%          \\
+    GAT                    & \checkmark  &            &             & 23.5\%          \\
+    No LSTM                & \checkmark  & \checkmark &             & 71.7\%          \\
+    Full                   & \checkmark  & \checkmark & \checkmark  & \textbf{75.8\%} \\
+    \bottomrule
+    \end{tabular}
+    }
+    \end{small}
+    \caption{Action prediction accuracy on different value iteration module designs.
+    All models are trained using imitation learning.}
+    \vspace{-0.25in}
+    \label{tab:accuracy}
+    \end{center}
+\end{table}
