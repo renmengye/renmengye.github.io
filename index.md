@@ -327,11 +327,12 @@ Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
 [[html](research/2020/multi-agent-routing-value-iteration-network)]
 
-* Incremental few-shot learning with attention attractor networks.
+* [Incremental few-shot learning with attention attractor networks](research/2019/incremental-few-shot-learning-with-attention-attractor-networks).
 Mengye Ren, Renjie Liao, Ethan Fetaya, Richard S. Zemel.
 *NeurIPS*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.07218)]
 [[code](https://github.com/renmengye/inc-few-shot-attractor-public)]
+[[html](research/2019/incremental-few-shot-learning-with-attention-attractor-networks)]
 
 * Graph hypernetworks for neural architecture search.
 Chris Zhang, Mengye Ren, Raquel Urtasun.

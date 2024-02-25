@@ -1,0 +1,177 @@
+% !TEX root = ../main.tex
+\section{Model}
+In this section, we first define the setup of incremental few-shot learning, and then we introduce
+our new model, the Attention Attractor Network, which attends to the set of base classes according
+to the few-shot training data by using the attractor regularizing term. Figure~\ref{fig:model}
+illustrates the high-level model diagram of our method.
+\subsection{\ourproblem}
+The outline of our meta-learning approach to incremental few-shot learning is: (1) We learn a fixed
+feature representation and a classifier on a set of base classes; (2) In each training and testing
+episode we train a novel-class classifier with our meta-learned regularizer; (3) We optimize our
+meta-learned regularizer on combined novel and base classes classification, adapting it to perform
+well in conjunction with the base classifier. Details of these stages follow.
+
+\paragraph{Pretraining Stage:} We learn a base model for the regular supervised classification task
+on dataset $\{(x_{a,i},y_{a,i})\}_{i=1}^{N_a}$ where $x_{a,i}$ is the $i$-th example from dataset
+$\mathcal{D}_a$ and its labeled class $y_{a,i}\in\{1,2,...,K\}$. The purpose of this stage is to
+learn both a good base classifier and a good representation. The parameters of the base classifier
+are learned in this stage and will be fixed after pretraining. We denote the parameters of the top
+fully connected layer of the base classifier $W_a \in \mathbb{R}^{D\times K}$ where $D$ is the
+dimension of our learned representation.
+\paragraph{Incremental Few-Shot Episodes:} A few-shot dataset $\mathcal{D}_b$ is presented, from
+which we can sample few-shot learning episodes $\mathcal{E}$. Note that this can be the same data
+source as the pretraining dataset $\mathcal{D}_a$, but sampled episodically. For each $N$-shot
+$K'$-way episode, there are $K'$ novel classes disjoint from the base classes. Each novel class has
+$N$ and $M$ images from the support set $S_b$ and the query set $Q_b$ respectively. Therefore, we
+have $\mathcal{E} = (S_b, Q_b), S_b = (x_{b,i}^S, y_{b,i}^S)_{i=1}^{N \times K'}, Q_b = (x_{b,i}^Q,
+y_{b,i}^Q)_{i=1}^{M
+\times K'}$ where $y_{b,i} \in \{K+1,...,K+K'\}$. $S_b$ and $Q_b$ can be regarded as this episodes
+training and validation sets. Each episode we learn a classifier on the support set $S_b$ whose
+learnable parameters $W_b$ are called the \textit{fast weights} as they are only used during this
+episode. To evaluate the performance on a joint prediction of both base and novel classes, i.e., a
+$(K+K')$-way classification, a mini-batch $Q_a=\{(x_{a,i}, y_{a,i})\}_{i=1}^{M \times K}$ sampled
+from $\mathcal{D}_a$ is also added to $Q_b$ to form $Q_{a+b} = Q_a \cup Q_b$. This means that the
+learning algorithm, which only has access to samples from the novel classes $S_b$, is evaluated on
+the \emph{joint} query set $Q_{a+b}$.
+\paragraph{Meta-Learning Stage:} In meta-training, we iteratively sample few-shot episodes
+$\mathcal{E}$ and try to learn the meta-parameters in order to minimize the joint prediction loss on
+$Q_{a+b}$. In particular, we design a regularizer $R(\cdot, \theta)$ such that the \textit{fast
+weights} are learned via minimizing the loss $\ell(W_b,S_b)+R(W_b, \theta)$ where $\ell(W_b,S_b)$ is
+typically cross-entropy loss for few-shot classification. The meta-learner tries to learn
+meta-parameters $\theta$ such that the optimal \textit{fast weights} $W_b^*$ w.r.t. the above loss
+function performs well on $Q_{a+b}$. In our model, meta-parameters $\theta$ are encapsulated in our
+attention attractor network, which produces regularizers for the fast weights in the few-shot
+learning objective.
+
+\paragraph{Joint Prediction on Base and Novel Classes:} We now introduce the details of our joint
+prediction framework performed in each few-shot episode. First, we construct an episodic classifier,
+\eg, a logistic regression (LR) model or a multi-layer perceptron (MLP), which takes the learned
+image features as inputs and classifies them according to the few-shot classes.
+
+During training on the support set $S_b$, we learn the \textit{fast weights} $W_{b}$ via minimizing
+the following regularized cross-entropy objective, which we call the {\it episodic objective}:
+\begin{equation}
+\label{eq:general_form}
+L^{S}(W_{b}, \theta) = - \frac{1}{NK'}\sum_{i=1}^{N K'} \sum_{c=K+1}^{K+K'}
+y_{b,i,c}^S \log \hat{y}_{b,i,c}^S  + R(W_b,\theta).
+\end{equation}
+This is a general formulation and the specific functional form of the regularization term
+$R(W_b,\theta)$ will be specified later. The predicted output $\hat{y}_{b,i}^S$ is obtained via,
+$\hat{y}_{b,i}^S = \softmax(\left[W_{a}^\top x_{b,i}, h(x_{b,i}; W_b^\ast) \right])$, where
+$h(x_{b,i})$ is our classification network and $W_{b}$ is the fast weights in the network. In the
+case of LR, $h$ is a linear model: $h(x_{b,i}; W_{b}) = W_b^\top x_{b,i}$. $h$ can also be an MLP
+for more expressive power.
+
+During testing on the query set $Q_{a+b}$, in order to predict both base and novel classes, we
+directly augment the softmax with the fixed base class weights $W_a$, $\hat{y}_{i}^Q =
+\softmax(\left[W_{a}^\top x_{i}, h(x_{i}; W_b^\ast) \right])$, where ${W}_{b}^{\ast}$ are the
+optimal parameters that minimize the regularized classification objective in
+Eq.~(\ref{eq:general_form}).
+
+\subsection{\ourmodel}
+Directly learning the few-shot episode, e.g., by setting $R(W_b,\theta)$ to be zero or simple
+weight decay, can cause catastrophic forgetting on the base classes. This is because $W_b$ which is
+trained to maximize the correct novel class probability can dominate the base classes in the joint
+prediction. In this section, we introduce the Attention Attractor Network to address this problem.
+The key feature of our attractor network is the regularization term $R(W_b, \theta)$:
+% \vskip -5mm
+\begin{equation}
+R(W_b, \theta) = 
+\sum_{k^{\prime} = 1}^{K^{\prime}} 
+(W_{b,k^{\prime}} - u_{k^{\prime}})^\top \diag(\exp(\gamma)) (W_{b,k^{\prime}} - u_{k^{\prime}}),
+\end{equation}
+where $u_{k^{\prime}}$ is the so-called \textit{attractor} and $W_{b,k^{\prime}}$ is the
+$k^{\prime}$-th column of $W_b$. This sum of squared Mahalanobis distances from the attractors adds
+a bias to the learning signal arriving solely from novel classes. Note that for a classifier such as
+an MLP, one can extend this regularization term in a layer-wise manner. Specifically, one can have
+separate attractors per layer, and the number of attractors equals the number of output dimension
+of that layer.
+
+To ensure that the model performs well on base classes, the attractors $u_{k^{\prime}}$ must contain
+some information about examples from base classes. Since we can not directly access these base
+examples, we propose to use the \textit{slow weights} to encode such information. Specifically, each
+base class has a learned attractor vector $U_k$ stored in the memory matrix $U=[U_1,...,U_K]$. It is
+computed as, $U_k = f_{\phi}(W_{a, k})$, where $f$ is a MLP of which the learnable parameters are
+$\phi$. For each novel class $k^{\prime}$ its classifier is regularized towards its attractor
+$u_{k^{\prime}}$ which is a weighted sum of $U_k$ vectors. Intuitively the weighting is an attention
+mechanism where each novel class attends to the base classes according to the level of interference,
+i.e. how prediction of new class $k'$ causes the forgetting of base class $k$.
+
+For each class in the support set, we compute the cosine similarity between the average
+representation of the class and  base weights $W_a$ then normalize using a softmax function
+\begin{align}
+a_{k^{\prime}, k} = 
+\frac{\exp \left(\tau A(\frac{1}{N}\sum_{j} h_j \mathbbm{1}[y_{b,j} = 
+k^{\prime}], W_{a, k}) \right)}
+{\sum_{k} \exp \left(\tau A(\frac{1}{N}\sum_{j} h_j \mathbbm{1}[y_{b,j} = 
+k^{\prime}], W_{a, k}) \right)},
+\end{align}
+where $A$ is the cosine similarity function, $h_j$ are the representations of the inputs in the
+support set $S_b$ and $\tau$ is a learnable temperature scalar. $a_{k^{\prime},k}$ encodes a
+normalized pairwise attention matrix between the novel classes and the base classes. The attention
+vector is then used to compute a linear weighted sum of entries in the memory matrix $U$,
+$u_{k^{\prime}} = \sum_k a_{k^{\prime}, k} U_k + U_0$, where $U_0$ is an embedding vector and serves
+as a bias for the attractor.
+
+\input{sections/algo}
+
+Our design takes inspiration from attractor networks~\citep{attractor,localist}, where for each base
+class one learns an ``attractor" that stores the relevant memory regarding that class. We call our
+full model  ``dynamic attractors" as they may vary with each episode even after meta-learning. In
+contrast if we only have the bias term $U_0$, i.e. a single attractor which is shared by all novel
+classes, it will not change after meta-learning from one episode to the other. We call this model
+variant the ``static attractor".
+
+In summary, our meta parameters $\theta$ include $\phi$, $U_0$, $\gamma$ and $\tau$, which is on
+ the same scale as as the number of paramters in $W_a$. It is important to note that $R(W_b,
+ \theta)$ is convex w.r.t. $W_b$. Therefore, if we use the LR model as the classifier, the overall
+ training objective on episodes in Eq. (\ref{eq:general_form}) is convex which implies that the
+ optimum $W_b^*(\theta,S_b)$ is guaranteed to be unique and achievable. Here we emphasize that the
+ optimal parameters $W_b^*$ are functions of parameters $\theta$ and few-shot samples $S_b$.
+
+During meta-learning, $\theta$ are updated to minimize an expected loss of the query set $Q_{a+b}$
+which contains both base and novel classes, averaging over all few-shot learning episodes,
+\begin{equation}
+\min_{\theta} ~~ \mathop{\mathbb{E}}_{\mathcal{E}} \left[ L^Q(\theta,S_b) \right] =
+\mathop{\mathbb{E}}_{\mathcal{E}}\left[\sum_{j=1}^{M(K+K')} \sum_{c=1}^{K+K'} y_{j,c} \log
+\hat{y}_{j,c}(\theta,S_b)\right],
+\end{equation}
+where the predicted class is
+$
+\hat{y}_{j}(\theta,S_b) = \softmax\left(\left[W_{a}^{\top} x_j, h \left( x_j;
+W_{b}^{\ast}(\theta,S_b) \right) \right] \right)$.
+
+\subsection{Learning via Recurrent Back-Propagation}
+As there is no closed-form solution to the episodic objective (the optimization problem in Eq.
+\ref{eq:general_form}), in each episode we need to minimize $L^S$ to obtain $W^*_b$ through an
+iterative optimizer. The question is how to efficiently compute $\frac{\partial W_b^*}{\partial
+\theta}$, \ie, back-propagating through the optimization. One option is to unroll the iterative
+optimization process in the computation graph and use back-propagation through time (BPTT)~\citep{bptt}. 
+However, the number of iterations for a gradient-based optimizer to converge can be on
+the order of thousands, and BPTT can be computationally prohibitive. Another way is to use the
+truncated BPTT~\citep{tbptt} (T-BPTT) which optimizes for $T$ steps of gradient-based optimization,
+and is commonly used in meta-learning problems. However, when $T$ is small the training objective
+could be significantly biased.
+
+Alternatively, the recurrent back-propagation (RBP) algorithm~\citep{rbp2,rbp3,rbp} allows us to
+back-propagate through the fixed point efficiently without unrolling the computation graph and
+storing intermediate activations. Consider a vanilla gradient descent process on $W_b$ with step
+size $\alpha$. The difference between two steps $\Phi$ can be written as $\Phi(W_b^{(t)}) =
+W_b^{(t)} - F(W_b^{(t)})$, where $F(W_b^{(t)}) =W_b^{(t+1)} = W_b^{(t)} - \alpha \nabla
+L^S(W_b^{(t)})$. Since $\Phi(W_b^{*}(\theta))$ is identically zero as a function of $\theta$,
+using the implicit function theorem we have $\frac{\partial W_b^*}{\partial \theta} =
+(I-J_{F,W_b^*}^\top)^{-1} \frac{\partial F}{\partial \theta}$, where $J_{F,W_b^*}$ denotes the
+Jacobian matrix of the mapping $F$ evaluated at $W_b^*$. Algorithm~\ref{alg:energy} outlines the key
+steps for learning the episodic objective using RBP in the incremental few-shot learning setting.
+Note that the RBP algorithm implicitly inverts $(I-J^\top)$ by computing the matrix inverse vector
+product, and has the same time complexity compared to truncated BPTT given the same number of
+unrolled steps, but meanwhile RBP does not have to store intermediate activations.
+
+\paragraph{Damped Neumann RBP}
+To compute the matrix-inverse vector product $(I - J^\top)^{-1} v$, \citet{rbp} propose to use the
+Neumann series: $(I-J^\top)^{-1}v  = \sum_{n=0}^\infty (J^\top)^{n}v \equiv \sum_{n=0}^\infty
+v^{(n)}$. Note that $J^\top v$ can be computed by standard back-propagation. However, directly
+applying the Neumann RBP algorithm sometimes leads to numerical instability. Therefore, we propose
+to add a damping term $0 < \epsilon < 1$ to $I-J^\top$. This results in the following update:
+$\tilde{v}^{(n)} = (J^\top - \epsilon I)^{n}v$. In practice, we found the damping term with
+$\epsilon = 0.1$ helps alleviate the issue significantly.

@@ -1,0 +1,1 @@
+./run.sh 1 python visualize_attractor.py --dataset mini-imagenet2 --data_root /mnt/local/data --results /mnt/local/results/fewshot-rbp-new/ --config configs/mini-imagenet-resnet-snail-static-attr.prototxt --nshot 1 --ntest 5 --tag plot --pretrain /mnt/local/results/fewshot-rbp-new/mini-imagenet2/n1w5/mini-imagenet-resnet-snail-static-attr --eval --retest

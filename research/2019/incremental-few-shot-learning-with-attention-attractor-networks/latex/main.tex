@@ -1,0 +1,90 @@
+\documentclass{article}
+\pdfoutput=1
+
+% Recommended, but optional, packages for figures and better typesetting:
+% \usepackage{array}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+\usepackage[final,nonatbib]{neurips_2019}
+
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{todonotes}
+\usepackage{url}
+\usepackage{algorithm,algorithmic}
+\usepackage{bbm}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{xspace}
+\usepackage{eqparbox}
+\usepackage{setspace}
+
+% \usepackage{authblk}
+\input{macros/math_commands.tex}
+\renewcommand{\algorithmiccomment}[1]{\eqparbox{COMMENT}{// #1}}
+\newcommand{\mengye}[1]{\textcolor{red}{Mengye: #1}}
+\newcommand{\renjie}[1]{\textcolor{orange}{Renjie: #1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+% hyperref makes hyperlinks in the resulting PDF.
+% If your build breaks (sometimes temporarily if a hyperlink spans a page)
+% please comment out the following usepackage line and replace
+% \usepackage{icml2019} with \usepackage[nohyperref]{icml2019} above.
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\usepackage{hyperref}
+\newcommand{\ourmodel}{Attention Attractor Networks}
+\newcommand{\ourmodelsmall}{attention attractor networks}
+\newcommand{\ourproblem}{Incremental Few-Shot Learning}
+\newcommand{\ourproblemsmall}{incremental few-shot learning}
+\newcommand{\ua}{\uparrow}
+\newcommand{\da}{\downarrow}
+\newcommand{\D}{$\Delta \da$}
+\newcommand{\Da}{$\Delta_a \da$}
+\newcommand{\Db}{$\Delta_b \da$}
+
+\newcommand{\rich}[1]{\textcolor{magenta}{Rich: #1}}
+
+\hyphenpenalty=5000
+
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\aka{a.k.a\onedot} \def\Aka{A.k.a\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\def\arxiv{1}
+\makeatother
+\begin{document}
+\title{{\ourproblem} with {\ourmodel}}
+\author{Mengye Ren$^{1,2,3}$, Renjie Liao$^{1,2,3}$, Ethan Fetaya$^{1,2}$, Richard S. Zemel$^{1,2}$\\
+${}^1$University of Toronto, ${}^2$Vector Institute, ${}^3$Uber ATG\\
+\texttt{\{mren, rjliao, ethanf, zemel\}@cs.toronto.edu}}
+\maketitle
+\vspace{-0.2in}
+\input{sections/abstract}
+\vspace{-0.1in}
+\input{sections/intro}
+\input{sections/related}
+\input{sections/model}
+\input{sections/experiments}
+\input{sections/conclusion}
+\input{sections/acknowledgment}
+{
+\setstretch{0.93}
+\bibliography{ref}
+\bibliographystyle{abbrv}
+}
+\setstretch{1.0}
+\appendix
+\if\arxiv1
+\input{sections/appendix}
+\fi
+\end{document}

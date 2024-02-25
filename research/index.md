@@ -238,11 +238,12 @@ Yuwen Xiong``*``, Mengye Ren``*``, Raquel Urtasun.
 *arXiv preprint 1910.04650*, 2019.
 [[arxiv](https://arxiv.org/abs/1910.04650)]
 
-* Incremental few-shot learning with attention attractor networks.
+* [Incremental few-shot learning with attention attractor networks](2019/incremental-few-shot-learning-with-attention-attractor-networks).
 Mengye Ren, Renjie Liao, Ethan Fetaya, Richard S. Zemel.
 *NeurIPS*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.07218)]
 [[code](https://github.com/renmengye/inc-few-shot-attractor-public)]
+[[html](2019/incremental-few-shot-learning-with-attention-attractor-networks)]
 
 * Information-theoretic limitations on novel task generalization.
 James Lucas, Mengye Ren, Richard S. Zemel.

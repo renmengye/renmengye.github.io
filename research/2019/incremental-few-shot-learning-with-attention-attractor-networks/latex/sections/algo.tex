@@ -1,0 +1,83 @@
+% !TEX root = ../main.tex
+\iflatexml
+% \begin{wrapfigure}{R}{0.55\textwidth}
+% \vspace{-0.25in}
+% \begin{minipage}[t]{0.55\textwidth}
+\begin{algorithm}
+% \begin{small}
+\caption{Meta Learning for {\ourproblem}}
+\label{alg:energy}
+\begin{algorithmic}[1]
+\REQUIRE $\theta_0$, $\mathcal{D}_a$, $\mathcal{D}_b$, $h$
+\ENSURE $\theta$
+\STATE $\theta \gets \theta_0$;
+\FOR{$t=1$ ... $T$}
+\STATE $\{(x_b^S, y_b^S)\}, \{(x_b^Q,y_b^Q)\} \gets \text{GetEpisode}(\mathcal{D}_b)$;
+\STATE $\{x_{a+b}^Q, y_{a+b}^Q\} \gets \text{GetMiniBatch}(\mathcal{D}_a) \cup \{(x_b^Q, y_b^Q)\}$;
+\STATE $ $
+\REPEAT
+    \STATE $L^S \gets \frac{1}{NK'} \sum_i y_{b,i}^S \log \hat{y}_{b,i}^S + R(W_b; \theta)$;
+    \STATE $W_b \gets \text{OptimizerStep}(W_b, \nabla_{W_b} L^S)$;
+\UNTIL{$W_b$ \text{converges}}
+
+\STATE $\hat{y}_{a+b,j}^Q \gets \softmax([W_a^\top x_{a+b, j}^Q, h( x_{a+b, j}^Q;W_b) ])$;
+\STATE $L^Q \gets \frac{1}{2NK'} \sum_j y_{a+b,j}^Q \log \hat{y}_{a+b,j}^Q$;
+\STATE \COMMENT{Backprop through the above optimization via RBP}
+\STATE \COMMENT{A dummy gradient descent step}
+\STATE $W_b' \gets W_b - \alpha \nabla_{W_b} L^S$;% \ \ \ \COMMENT{A dummy gradient descent step}
+\STATE $J \gets \frac{\partial W_b'}{\partial W_b}$; $v \gets \frac{\partial L^Q}{\partial W_b}$; $g \gets v$;
+
+\REPEAT
+\STATE $v \gets J^\top v - \epsilon v$; $g \gets g + v$;
+\UNTIL{$g$ \text{converges}}
+\STATE ~\\
+\STATE $\theta \gets \text{OptimizerStep}(\theta, g^\top \frac{\partial W_b^{\prime}}{\partial \theta})$
+\ENDFOR
+\end{algorithmic}
+% \end{small}
+\end{algorithm}
+% \end{minipage}
+% \vspace{-0.1in}
+% \end{wrapfigure}
+\else
+\begin{wrapfigure}{R}{0.55\textwidth}
+\vspace{-0.25in}
+\begin{minipage}[t]{0.55\textwidth}
+\begin{algorithm}[H]
+\begin{small}
+\caption{Meta Learning for {\ourproblem}}
+\label{alg:energy}
+\begin{algorithmic}[1]
+\REQUIRE $\theta_0$, $\mathcal{D}_a$, $\mathcal{D}_b$, $h$
+\ENSURE $\theta$
+\STATE $\theta \gets \theta_0$;
+\FOR{$t=1$ ... $T$}
+\STATE $\{(x_b^S, y_b^S)\}, \{(x_b^Q,y_b^Q)\} \gets \text{GetEpisode}(\mathcal{D}_b)$;
+\STATE $\{x_{a+b}^Q, y_{a+b}^Q\} \gets \text{GetMiniBatch}(\mathcal{D}_a) \cup \{(x_b^Q, y_b^Q)\}$;
+\STATE $ $
+\REPEAT
+    \STATE $L^S \gets \frac{1}{NK'} \sum_i y_{b,i}^S \log \hat{y}_{b,i}^S + R(W_b; \theta)$;
+    \STATE $W_b \gets \text{OptimizerStep}(W_b, \nabla_{W_b} L^S)$;
+\UNTIL{$W_b$ \text{converges}}
+
+\STATE $\hat{y}_{a+b,j}^Q \gets \softmax([W_a^\top x_{a+b, j}^Q, h( x_{a+b, j}^Q;W_b) ])$;
+\STATE $L^Q \gets \frac{1}{2NK'} \sum_j y_{a+b,j}^Q \log \hat{y}_{a+b,j}^Q$;
+\STATE ~\\
+\COMMENT{Backprop through the above optimization via RBP}\\
+\COMMENT{A dummy gradient descent step}
+\STATE $W_b' \gets W_b - \alpha \nabla_{W_b} L^S$;% \ \ \ \COMMENT{A dummy gradient descent step}
+\STATE $J \gets \frac{\partial W_b'}{\partial W_b}$; $v \gets \frac{\partial L^Q}{\partial W_b}$; $g \gets v$;
+
+\REPEAT
+\STATE $v \gets J^\top v - \epsilon v$; $g \gets g + v$;
+\UNTIL{$g$ \text{converges}}
+\STATE ~\\
+\STATE $\theta \gets \text{OptimizerStep}(\theta, g^\top \frac{\partial W_b^{\prime}}{\partial \theta})$
+\ENDFOR
+\end{algorithmic}
+\end{small}
+\end{algorithm}
+\end{minipage}
+\vspace{-0.1in}
+\end{wrapfigure}
+\fi

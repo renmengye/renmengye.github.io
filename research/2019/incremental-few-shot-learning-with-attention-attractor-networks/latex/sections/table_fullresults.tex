@@ -1,0 +1,53 @@
+% !TEX root = ../supp.tex
+\begin{table}[H]
+\centering
+\small
+\caption{Full ablation results on 64+5-way {\it mini}-ImageNet}
+\label{tab:full1}
+% \resizebox{0.8\textwidth}{!}{
+\begin{tabular}{c|cccc|cccc}
+% \hline
+\toprule
+          & \multicolumn{4}{c|}{1-shot}           & \multicolumn{4}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & \Da    &\Db     & Acc. $\ua$            & \D         & \Da    & \Db     \\
+% \hline\hline       
+\midrule                                                                                                         
+LR        & 52.74 $\pm$ 0.24      & -13.95     & -8.98  & -24.32 & 60.34 $\pm$ 0.20      & -13.60     & -10.81 & -15.97  \\
+LR +S     & 53.63 $\pm$ 0.30      & -12.53     & -9.44  & -15.62 & 62.50 $\pm$ 0.30      & -11.29     & -13.84 & -8.75   \\
+LR +A     & \tb{55.31} $\pm$ 0.32 & \tb{-11.72}& -12.72 & -10.71  & 63.00 $\pm$ 0.29      & -10.80     & -13.59 & -8.01   \\
+% \hline      
+\midrule                                                                                                                        
+MLP       & 49.36 $\pm$ 0.29      & -16.78     & -8.95  & -24.61 & 60.85 $\pm$ 0.29      & -12.62     & -11.35 & -13.89  \\
+MLP +S    & 54.46 $\pm$ 0.31      & -11.74     & -12.73 & -10.74 & 62.79 $\pm$ 0.31      & -10.77     & -12.61 & -8.80   \\
+MLP +A    & 54.95 $\pm$ 0.30      & -11.84     & -12.81 & -10.87 & \tb{63.04} $\pm$ 0.30 & \tb{-10.66}& -12.55 & -8.77   \\
+% \hline
+\bottomrule
+\end{tabular}
+% }
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Full ablation results on 200+5-way {\it tiered}-ImageNet}
+\label{tab:full2}
+% \resizebox{0.8\textwidth}{!}{
+\begin{tabular}{c|cccc|cccc}
+% \hline
+\toprule
+          & \multicolumn{4}{c|}{1-shot}           & \multicolumn{4}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & \Da    & \Db    & Acc. $\ua$            & \D         & \Da    & \Db     \\
+% \hline\hline
+\midrule                                                                                                              
+LR        & 48.84 $\pm$ 0.23      & -10.44     & -11.65 & -9.24  & 62.08 $\pm$ 0.20      & -8.00      & -5.49  & -10.51  \\
+LR +S     & 55.36 $\pm$ 0.32      & -6.88      & -7.21  & -6.55  & 65.53 $\pm$ 0.30      & -4.68      & -4.72  & -4.63   \\
+LR +A     & 55.98 $\pm$ 0.32      & \tb{-6.07} & -6.64  & -5.51  & 65.58 $\pm$ 0.29      & \tb{-4.39} & -4.87  & -3.91   \\
+% \hline     
+\midrule                                                                                                                                        
+MLP       & 41.22 $\pm$ 0.35      & -10.61     & -11.25 & -9.98  & 62.70 $\pm$ 0.31      & -7.44      & -6.05  & -8.82   \\
+MLP +S    & \tb{56.16} $\pm$ 0.32 & -6.28      & -6.83  & -5.73  & \tb{65.80} $\pm$ 0.31 & -4.58      & -4.66  & -4.51   \\
+MLP +A    & 56.11 $\pm$ 0.33      & 6.11       & -6.79  & -5.43  & 65.52 $\pm$ 0.31      & -4.48      & -4.91  & -4.05   \\
+% \hline
+\bottomrule
+\end{tabular}
+% }
+\end{table}

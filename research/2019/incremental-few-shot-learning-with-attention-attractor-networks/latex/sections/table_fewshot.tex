@@ -1,0 +1,118 @@
+% !TEX root = ../main.tex
+\iflatexml
+\begin{table}[t]
+\vspace{-0.3in}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{\textit{mini}-ImageNet 64+5-way results}
+\vspace{-0.1in}
+\label{tab:fewshot1}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|cc|cc}
+\toprule
+\multirow{2}{*}{Model} & \multicolumn{2}{c|}{1-shot}           & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\uparrow$ & $\Delta \downarrow$ & Acc. $\uparrow$ & $\Delta \downarrow$ \\
+\midrule
+ProtoNet  & 42.73 $\pm$ 0.15      & -20.21      & 57.05 $\pm$ 0.10      & -31.72      \\
+Imprint   & 41.10 $\pm$ 0.20      & -22.49      & 44.68 $\pm$ 0.23      & -27.68      \\
+LwoF      & 52.37 $\pm$ 0.20      & -13.65      & 59.90 $\pm$ 0.20      & -14.18      \\
+Ours      & \tb{54.95} $\pm$ 0.30 & -11.84      & \tb{63.04} $\pm$ 0.30 & \tb{-10.66} \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{\textit{tiered}-ImageNet 200+5-way results}
+\vspace{-0.1in}
+\label{tab:fewshot2}
+% \resizebox{\columnwidth}{!}{
+\begin{tabular}{c|cc|cc}
+% \hline
+\toprule
+\multirow{2}{*}{Model} & \multicolumn{2}{c|}{1-shot} & \multicolumn{2}{c}{5-shot}  \\
+ & Acc. $\uparrow$ & $\Delta \downarrow$ & Acc. $\uparrow$ & $\Delta \downarrow$    \\
+% \hline\hline
+\midrule
+ProtoNet  & 30.04 $\pm$ 0.21 & -29.54 & 41.38 $\pm$ 0.28 & -26.39      \\
+Imprint   & 39.13 $\pm$ 0.15 & -22.26 & 53.60 $\pm$ 0.18 & -16.35 \\
+LwoF      & 52.40 $\pm$ 0.33 & -8.27  & 62.63 $\pm$ 0.31 & -6.72            \\
+Ours      &  \tb{56.11} $\pm$ 0.33 & \tb{-6.11}  & \tb{65.52} $\pm$ 0.31 & \textbf{-4.48} \\
+\bottomrule
+\end{tabular}
+% }
+\end{center}
+\end{small}
+\end{minipage}
+% \begin{center}
+{$\Delta=$ average decrease in acc. caused by  \emph{joint} prediction within base and novel classes ($\Delta = \frac{1}{2} (\Delta_a+\Delta_b)$)\\
+$\uparrow\, (\downarrow)$ represents higher (lower) is better.}
+% \end{center}
+\vspace{-0.2in}
+\end{table}
+\else
+\begin{table}[t]
+\vspace{-0.3in}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{\textit{mini}-ImageNet 64+5-way results}
+\vspace{-0.1in}
+\label{tab:fewshot1}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|cc|cc}
+\toprule
+\multirow{2}{*}{Model} & \multicolumn{2}{c|}{1-shot}           & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\uparrow$ & $\Delta \downarrow$ & Acc. $\uparrow$ & $\Delta \downarrow$ \\
+\midrule
+ProtoNet \citep{proto}
+          & 42.73 $\pm$ 0.15      & -20.21      & 57.05 $\pm$ 0.10      & -31.72      \\
+Imprint \citep{qi2018imprinting}
+          & 41.10 $\pm$ 0.20      & -22.49      & 44.68 $\pm$ 0.23      & -27.68      \\
+LwoF \citep{lwof}
+          & 52.37 $\pm$ 0.20      & -13.65      & 59.90 $\pm$ 0.20      & -14.18      \\
+Ours      & \tb{54.95} $\pm$ 0.30 & -11.84      & \tb{63.04} $\pm$ 0.30 & \tb{-10.66} \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{\textit{tiered}-ImageNet 200+5-way results}
+\vspace{-0.1in}
+\label{tab:fewshot2}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|cc|cc}
+% \hline
+\toprule
+\multirow{2}{*}{Model} & \multicolumn{2}{c|}{1-shot} & \multicolumn{2}{c}{5-shot}  \\
+ & Acc. $\uparrow$ & $\Delta \downarrow$ & Acc. $\uparrow$ & $\Delta \downarrow$    \\
+% \hline\hline
+\midrule
+ProtoNet \citep{proto} & 30.04 $\pm$ 0.21 & -29.54 & 41.38 $\pm$ 0.28 & -26.39      \\
+Imprint \citep{qi2018imprinting}
+& 39.13 $\pm$ 0.15 & -22.26 & 53.60 $\pm$ 0.18 & -16.35 \\
+LwoF \citep{lwof} & 52.40 $\pm$ 0.33 & -8.27  & 62.63 $\pm$ 0.31 & -6.72            \\
+Ours        &  \tb{56.11} $\pm$ 0.33 & \tb{-6.11}  & \tb{65.52} $\pm$ 0.31 & \textbf{-4.48} \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\end{small}
+\end{minipage}
+\begin{center}
+{\footnotesize $\Delta=$ average decrease in acc. caused by  \emph{joint} prediction within base and novel classes ($\Delta = \frac{1}{2} (\Delta_a+\Delta_b)$)\\
+$\uparrow\, (\downarrow)$ represents higher (lower) is better.}
+\end{center}
+\vspace{-0.2in}
+\end{table}
+\fi

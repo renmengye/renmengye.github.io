@@ -1,0 +1,24 @@
+% !TEX root = ../main.tex
+\begin{table}
+\centering
+\caption{Comparison of our proposed model with other methods}
+\renewcommand{\arraystretch}{1.2}
+\label{}
+\begin{small}
+% \begin{tabular}{l|p{2.8cm}|p{2.5cm}|p{2.8cm}}
+\begin{tabular}{lp{3.2cm}p{2.5cm}p{3.8cm}}
+\toprule
+Method           & Few-shot learner     & Episodic objective      & Attention mechanism \\
+% \hline\hline
+\midrule
+Imprint 
+\citep{qi2018imprinting}         
+                 & Prototypes          & N/A                     & N/A                \\
+\hline
+LwoF \citep{lwof} & Prototypes + base classes & N/A         & Attention on base classes      \\
+\hline
+Ours             & A fully trained classifier & Cross entropy on novel classes & Attention on learned attractors \\
+\bottomrule
+\end{tabular}
+\end{small}
+\end{table}

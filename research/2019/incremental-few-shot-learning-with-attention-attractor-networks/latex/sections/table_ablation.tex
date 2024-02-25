@@ -1,0 +1,96 @@
+% !TEX root = ../main.tex
+\begin{table}[t]
+\vspace{-0.3in}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{Ablation studies on {\it mini}-ImageNet}
+\vspace{-0.1in}
+\label{tab:mini-ablation}
+\iflatexml
+\begin{tabular}{c|cc|cc}
+\toprule
+          & \multicolumn{2}{c|}{1-shot}        & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & Acc. $\ua$            & \D          \\    
+\midrule
+LR        & 52.74 $\pm$ 0.24      & -13.95     & 60.34 $\pm$ 0.20      & -13.60      \\
+LR +S     & 53.63 $\pm$ 0.30      & -12.53     & 62.50 $\pm$ 0.30      & -11.29      \\
+LR +A     & \tb{55.31} $\pm$ 0.32 & \tb{-11.72}& 63.00 $\pm$ 0.29      & -10.80      \\
+\midrule                                                                                        
+MLP       & 49.36 $\pm$ 0.29      & -16.78     & 60.85 $\pm$ 0.29      & -12.62      \\
+MLP +S    & 54.46 $\pm$ 0.31      & -11.74     & 62.79 $\pm$ 0.31      & -10.77      \\
+MLP +A    & 54.95 $\pm$ 0.30      & -11.84     & \tb{63.04} $\pm$ 0.30 & \tb{-10.66} \\
+\bottomrule
+\end{tabular}
+\else
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|cc|cc}
+\toprule
+          & \multicolumn{2}{c|}{1-shot}        & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & Acc. $\ua$            & \D          \\    
+\midrule
+LR        & 52.74 $\pm$ 0.24      & -13.95     & 60.34 $\pm$ 0.20      & -13.60      \\
+LR +S     & 53.63 $\pm$ 0.30      & -12.53     & 62.50 $\pm$ 0.30      & -11.29      \\
+LR +A     & \tb{55.31} $\pm$ 0.32 & \tb{-11.72}& 63.00 $\pm$ 0.29      & -10.80      \\
+\midrule                                                                                        
+MLP       & 49.36 $\pm$ 0.29      & -16.78     & 60.85 $\pm$ 0.29      & -12.62      \\
+MLP +S    & 54.46 $\pm$ 0.31      & -11.74     & 62.79 $\pm$ 0.31      & -10.77      \\
+MLP +A    & 54.95 $\pm$ 0.30      & -11.84     & \tb{63.04} $\pm$ 0.30 & \tb{-10.66} \\
+\bottomrule
+\end{tabular}
+}
+\fi
+\end{center}
+\end{small}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.49\textwidth}
+\begin{small}
+\begin{center}
+\caption{Ablation studies on {\it tiered}-ImageNet}
+\vspace{-0.1in}
+\label{tab:tiered-ablation}
+\iflatexml
+\begin{tabular}{c|cc|cc}
+\toprule
+          & \multicolumn{2}{c|}{1-shot}        & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & Acc. $\ua$            & \D          \\
+\midrule                                                                          
+LR        & 48.84 $\pm$ 0.23      & -10.44     & 62.08 $\pm$ 0.20      & -8.00       \\
+LR +S     & 55.36 $\pm$ 0.32      & -6.88      & 65.53 $\pm$ 0.30      & -4.68       \\
+LR +A     & 55.98 $\pm$ 0.32      & \tb{-6.07} & 65.58 $\pm$ 0.29      & \tb{-4.39}  \\
+\midrule                                                                                                       
+MLP       & 41.22 $\pm$ 0.35      & -10.61     & 62.70 $\pm$ 0.31      & -7.44       \\
+MLP +S    & \tb{56.16} $\pm$ 0.32 & -6.28      & \tb{65.80} $\pm$ 0.31 & -4.58       \\
+MLP +A    & 56.11 $\pm$ 0.33      & 6.11       & 65.52 $\pm$ 0.31      & -4.48       \\
+\bottomrule
+\end{tabular}
+\else
+\resizebox{\textwidth}{!}{
+\begin{tabular}{c|cc|cc}
+\toprule
+          & \multicolumn{2}{c|}{1-shot}        & \multicolumn{2}{c}{5-shot} \\
+          & Acc. $\ua$            & \D         & Acc. $\ua$            & \D          \\
+\midrule                                                                          
+LR        & 48.84 $\pm$ 0.23      & -10.44     & 62.08 $\pm$ 0.20      & -8.00       \\
+LR +S     & 55.36 $\pm$ 0.32      & -6.88      & 65.53 $\pm$ 0.30      & -4.68       \\
+LR +A     & 55.98 $\pm$ 0.32      & \tb{-6.07} & 65.58 $\pm$ 0.29      & \tb{-4.39}  \\
+\midrule                                                                                                       
+MLP       & 41.22 $\pm$ 0.35      & -10.61     & 62.70 $\pm$ 0.31      & -7.44       \\
+MLP +S    & \tb{56.16} $\pm$ 0.32 & -6.28      & \tb{65.80} $\pm$ 0.31 & -4.58       \\
+MLP +A    & 56.11 $\pm$ 0.33      & 6.11       & 65.52 $\pm$ 0.31      & -4.48       \\
+\bottomrule
+\end{tabular}
+}
+\fi
+\end{center}
+\end{small}
+\end{minipage}
+\iflatexml
+{``+S'' stands for static attractors, and ``+A'' for attention attractors.}
+\else
+\begin{center}
+{\footnotesize ``+S'' stands for static attractors, and ``+A'' for attention attractors.}
+\end{center}
+\fi
+\end{table}

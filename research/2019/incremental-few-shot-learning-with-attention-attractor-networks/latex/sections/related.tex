@@ -1,0 +1,63 @@
+% !TEX root = ../main.tex
+\section{Related Work}
+Recently, there has been a surge in interest in few-shot learning
+\citep{koch2015siamese,matching,proto,lake2011oneshot}, where a model for novel classes is learned
+with only a few labeled examples. One family of approaches for few-shot learning, including Deep
+Siamese Networks~\citep{koch2015siamese}, Matching Networks~\citep{matching} and Prototypical
+Networks~\citep{proto}, follows the line of metric learning. In particular, these approaches use deep
+neural networks to learn a function that maps the input space to the embedding space where examples
+belonging to the same category are close and those belonging to different categories are far apart.
+Recently, \citet{garcia2017few} propose a graph neural networks based method which captures the
+information propagation from the labeled support set to the query set. \citet{fewshotssl} extend
+Prototypical Networks to leverage unlabeled examples while doing few-shot learning. Despite their
+simplicity, these methods are very effective and often competitive with the state-of-the-art.
+
+Another class of approaches aims to learn models which can adapt to the episodic tasks. In
+particular, \citet{metalstm} treat the long short-term memory (LSTM) as a meta learner such that it
+can learn to predict the parameter update of a base learner, e.g., a convolutional neural network
+(CNN). MAML~\citep{maml} instead learns the hyperparameters or the initial parameters of the base
+learner by back-propagating through the gradient descent steps. \citet{santoro2016one} use a
+read/write augmented memory, and \citet{mishra2017meta} combine soft attention with temporal
+convolutions which enables retrieval of information from past episodes.
+
+Methods described above belong to the general class of meta-learning models. First proposed in
+\citet{Schmidhuber1987evolutionary,naik1992meta,Thrun1998}, meta-learning is a machine learning
+paradigm where the meta-learner tries to improve the base learner using the learning experiences
+from multiple tasks. Meta-learning methods typically learn the update policy yet lack an overall
+learning objective in the few-shot episodes. Furthermore, they could potentially suffer from
+short-horizon bias~\citep{shorthorizon}, if at test time the model is trained for longer steps. To
+address this problem, \citet{diffsolver} propose to use fast convergent models like logistic
+regression (LR), which can be back-propagated via a closed form update rule. Compared to 
+\citet{diffsolver}, our proposed method using recurrent back-propagation~\citep{rbp,rbp2,rbp3} is more
+general as it does not require a closed-form update, and the inner loop solver can employ any
+existing continuous optimizers.
+
+Our work is also related to incremental learning, a setting where information is arriving
+continuously while prior knowledge needs to be transferred. A key challenge is \textit{catastrophic
+forgetting}~\citep{mccloskey1989catastrophic,mcclelland1995there}, i.e., the model forgets the
+learned knowledge. Various memory-based models have since been proposed, which store training
+examples explicitly~\citep{icarl,mbpa,castro2018end,varcontinual}, regularize the parameter 
+updates~\citep{kirkpatrick2017overcoming}, or learn a generative model~\citep{fearnet}. However, in these
+studies, incremental learning typically starts from scratch, and usually performs worse than a
+regular model that is trained with all available classes together since it needs to learned a good
+representation while dealing with catastrophic forgetting.
+
+Incremental few-shot learning is also known as low-shot learning. To leverage a good representation,
+\citet{hariharan2017lowshot,wang2018lowshot,lwof} start off with a pre-trained network on a set of
+base classes, and tries to augment the classifier with a batch of new classes that has not been seen
+during training. \citet{hariharan2017lowshot} propose the squared gradient magnitude loss, which
+makes the learned classifier from the low-shot examples have a smaller gradient value when learning
+on all examples. \citet{wang2018lowshot} propose the prototypical matching networks, a combination of
+prototypical network and matching network. The paper also adds hallucination, which generates new
+examples. \citet{lwof} propose an attention based model which generates weights for novel
+categories. They also promote the use of cosine similarity between feature representations and
+weight vectors to classify images.
+
+In contrast, during each few-shot episode, we directly learn a classifier network that is randomly
+initialized and solved till convergence, unlike \citet{lwof} which directly output the prediction.
+Since the model cannot see base class data within the support set of each few-shot learning episode,
+it is challenging to learn a classifier that jointly classifies both base and novel categories.
+Towards this end, we propose to add a learned regularizer, which is predicted by a meta-network, the
+``attention attractor network''. The network is learned by differentiating through few-shot learning
+optimization iterations. We found that using an iterative solver with the learned regularizer
+significantly improves the classifier model on the task of incremental few-shot learning.

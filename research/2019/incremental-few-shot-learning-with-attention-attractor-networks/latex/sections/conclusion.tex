@@ -1,0 +1,16 @@
+% !TEX root = ../main.tex
+% \vspace{-0.1in}
+\section{Conclusion}
+% \vspace{-0.1in}
+Incremental few-shot learning, the ability to jointly predict based on a set of pre-defined concepts
+as well as additional novel concepts, is an important step towards making machine learning models
+more flexible and usable in everyday life. In this work, we propose an attention attractor model,
+which regulates a per-episode training objective by attending to the set of base classes. We show
+that our iterative model that solves the few-shot objective till convergence is better than
+baselines that do one-step inference, and that recurrent back-propagation is an effective and
+modular tool for learning in a general meta-learning setting, whereas truncated back-propagation
+through time fails to learn functions that converge well. %During evaluation of few-shot episodes,
+% our attention attractor network learns to remember the base classes without needing to review
+% examples from the original training set. 
+Future directions of this work include sequential iterative
+learning of few-shot novel concepts, and hierarchical memory organization.
