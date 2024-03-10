@@ -48,9 +48,9 @@ Renjie Liao, Simon Kornblith, Mengye Ren, David J. Fleet, Geoffrey Hinton.
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
+[[pdf](2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](2023/scaling-forward-gradient-with-local-losses)]
-[[pdf](2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
 
 * Learning in temporally structured environments.
 Matt Jones, Tyler R. Scott, Mengye Ren, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
