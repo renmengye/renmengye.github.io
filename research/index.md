@@ -50,24 +50,26 @@ Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](2023/scaling-forward-gradient-with-local-losses)]
+[[pdf](2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
 
 * Learning in temporally structured environments.
 Matt Jones, Tyler R. Scott, Mengye Ren, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
 *ICLR*, 2023.
-[[pdf](https://openreview.net/pdf?id=z0_V5O9cmNw)]
+[[pdf](2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)]
 
 * Multitask learning via interleaving: A neural network investigation. David Mayo, Tyler Scott, Mengye Ren, Gamaleldin Elsayed, Katherine Hermann, Matt Jones, Michael Mozer. *CogSci*, 2023.
-[[pdf](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/d1d16eaa3fcf3364c75dc63190ded45877acb575.pdf)]
-bol
+[[pdf](2023/multitask-learning-via-interleaving-a-neural-network-investigation/mayo-2023-multitask.pdf)]
+
 * Towards unsupervised object detection from LiDAR point clouds.
 Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, Mengye Ren, Raquel Urtasun.
 *CVPR*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.02007)]
+[[pdf](2023/towards-unsupervised-object-detection-from-lidar-point-clouds/zhang-2023-towards.pdf)]
 
 * Egocentric video comprehension via large language model inner speech.
 Ying Wang, Dongdong Sun, Rui Chen, Yanlai Yang, Mengye Ren.
 *3rd International Ego4D Workshop at CVPR*, 2023.
-[[pdf](https://yanlai00.github.io/data/cvpr2023_ego4d_nlq.pdf)]
+[[pdf](2023/egocentric-video-comprehension-via-large-language-model-inner-speech/wang-2023-egocentric.pdf)]
 
 ----------------------------------------------------------------------------
 
