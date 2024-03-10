@@ -1,0 +1,267 @@
+\begin{thebibliography}{40}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Baker et~al.(2017{\natexlab{a}})Baker, Gupta, Naik, and
+  Raskar]{baker2016designing}
+Bowen Baker, Otkrist Gupta, Nikhil Naik, and Ramesh Raskar.
+\newblock Designing neural network architectures using reinforcement learning.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations ({ICLR})}, 2017{\natexlab{a}}.
+
+\bibitem[Baker et~al.(2017{\natexlab{b}})Baker, Gupta, Raskar, and
+  Naik]{baker2017accelerating}
+Bowen Baker, Otkrist Gupta, Ramesh Raskar, and Nikhil Naik.
+\newblock Accelerating neural architecture search using performance prediction.
+\newblock In \emph{NIPS Workshop on Meta-Learning}, 2017{\natexlab{b}}.
+
+\bibitem[Bender et~al.(2018)Bender, Kindermans, Zoph, Vasudevan, and
+  Le]{bender2018understanding}
+Gabriel Bender, Pieter-Jan Kindermans, Barret Zoph, Vijay Vasudevan, and Quoc
+  Le.
+\newblock Understanding and simplifying one-shot architecture search.
+\newblock In \emph{Proceedings of the 35th International Conference on Machine
+  Learning ({ICML})}, 2018.
+
+\bibitem[Brock et~al.(2018)Brock, Lim, Ritchie, and Weston]{brock2017smash}
+Andrew Brock, Theodore Lim, James~M Ritchie, and Nick Weston.
+\newblock Smash: one-shot model architecture search through hypernetworks.
+\newblock In \emph{Proceedings of the 6th International Conference on Learning
+  Representations ({ICLR})}, 2018.
+
+\bibitem[Cho et~al.(2014)Cho, van Merrienboer, G{\"{u}}l{\c{c}}ehre, Bahdanau,
+  Bougares, Schwenk, and Bengio]{cho14gru}
+Kyunghyun Cho, Bart van Merrienboer, {\c{C}}aglar G{\"{u}}l{\c{c}}ehre, Dzmitry
+  Bahdanau, Fethi Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using {RNN} encoder-decoder for
+  statistical machine translation.
+\newblock In \emph{Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing ({EMNLP})}, 2014.
+
+\bibitem[Deng et~al.(2017)Deng, Yan, and Lin]{deng2017peephole}
+Boyang Deng, Junjie Yan, and Dahua Lin.
+\newblock Peephole: Predicting network performance before training.
+\newblock \emph{arXiv preprint arXiv:1712.03351}, 2017.
+
+\bibitem[Devries \& Taylor(2017)Devries and Taylor]{devriescutout17}
+Terrance Devries and Graham~W. Taylor.
+\newblock Improved regularization of convolutional neural networks with cutout.
+\newblock \emph{arXiv preprint arXiv:1708.04552}, 2017.
+
+\bibitem[Dong et~al.(2018)Dong, Cheng, Juan, Wei, and Sun]{dong2018dpp}
+Jin-Dong Dong, An-Chieh Cheng, Da-Cheng Juan, Wei Wei, and Min Sun.
+\newblock Dpp-net: Device-aware progressive search for pareto-optimal neural
+  architectures.
+\newblock In \emph{European Conference on Computer Vision ({ECCV})}, 2018.
+
+\bibitem[Elsken et~al.(2018)Elsken, Metzen, and Hutter]{elsken2018multi}
+Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
+\newblock Multi-objective architecture search for cnns.
+\newblock \emph{arXiv preprint arXiv:1804.09081}, 2018.
+
+\bibitem[Grubb \& Bagnell(2012)Grubb and Bagnell]{grubb2012speedboost}
+Alexander Grubb and Drew Bagnell.
+\newblock Speedboost: Anytime prediction with uniform near-optimality.
+\newblock In \emph{Proceedings of the 15th International Conference on
+  Artificial Intelligence and Statistics ({AISTATS})}, 2012.
+
+\bibitem[Ha et~al.(2017)Ha, Dai, and Le]{ha2016hypernetworks}
+David Ha, Andrew Dai, and Quoc~V Le.
+\newblock Hypernetworks.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations ({ICLR})}, 2017.
+
+\bibitem[He et~al.(2016{\natexlab{a}})He, Zhang, Ren, and Sun]{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition ({CVPR})}, 2016{\natexlab{a}}.
+
+\bibitem[He et~al.(2016{\natexlab{b}})He, Zhang, Ren, and Sun]{he2016resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition ({CVPR})}, 2016{\natexlab{b}}.
+
+\bibitem[Hochreiter \& Schmidhuber(1997)Hochreiter and
+  Schmidhuber]{hochreiter97lstm}
+Sepp Hochreiter and J{\"{u}}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock \emph{Neural Computation}, 9\penalty0 (8):\penalty0 1735--1780, 1997.
+
+\bibitem[Hsu et~al.(2018)Hsu, Chang, Juan, Pan, Chen, Wei, and
+  Chang]{hsu2018monas}
+Chi-Hung Hsu, Shu-Huan Chang, Da-Cheng Juan, Jia-Yu Pan, Yu-Ting Chen, Wei Wei,
+  and Shih-Chieh Chang.
+\newblock Monas: Multi-objective neural architecture search using reinforcement
+  learning.
+\newblock \emph{arXiv preprint arXiv:1806.10332}, 2018.
+
+\bibitem[Huang et~al.(2017)Huang, Liu, Van Der~Maaten, and
+  Weinberger]{huang2017densely}
+Gao Huang, Zhuang Liu, Laurens Van Der~Maaten, and Kilian~Q Weinberger.
+\newblock Densely connected convolutional networks.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition ({CVPR})}, 2017.
+
+\bibitem[Huang et~al.(2018)Huang, Chen, Li, Wu, van~der Maaten, and
+  Weinberger]{huang2017multi}
+Gao Huang, Danlu Chen, Tianhong Li, Felix Wu, Laurens van~der Maaten, and
+  Kilian~Q Weinberger.
+\newblock Multi-scale dense networks for resource efficient image
+  classification.
+\newblock In \emph{Proceedings of the 6th International Conference on Learning
+  Representations ({ICLR})}, 2018.
+
+\bibitem[Kingma \& Ba(2015)Kingma and Ba]{kingma2015adam}
+Diederik~P Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock In \emph{Proceedings of the 3rd International Conference on Learning
+  Representations ({ICLR})}, 2015.
+
+\bibitem[Kipf \& Welling(2017)Kipf and Welling]{KipfW16}
+Thomas~N. Kipf and Max Welling.
+\newblock Semi-supervised classification with graph convolutional networks.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations ({ICLR})}, 2017.
+
+\bibitem[Krizhevsky \& Hinton(2009)Krizhevsky and Hinton]{krizhevsky2009cifar}
+Alex Krizhevsky and Geoffrey Hinton.
+\newblock Learning multiple layers of features from tiny images.
+\newblock Technical report, University of Toronto, 2009.
+
+\bibitem[Li et~al.(2016)Li, Tarlow, Brockschmidt, and Zemel]{li2015gated}
+Yujia Li, Daniel Tarlow, Marc Brockschmidt, and Richard~S. Zemel.
+\newblock Gated graph sequence neural networks.
+\newblock In \emph{Proceedings of the 4th International Conference on Learning
+  Representations ({ICLR})}, 2016.
+
+\bibitem[Liao et~al.(2018)Liao, Brockschmidt, Tarlow, Gaunt, Urtasun, and
+  Zemel]{liao2018graph}
+Renjie Liao, Marc Brockschmidt, Daniel Tarlow, Alexander~L. Gaunt, Raquel
+  Urtasun, and Richard~S. Zemel.
+\newblock Graph partition neural networks for semi-supervised classification.
+\newblock In \emph{ICLR Workshop}, 2018.
+
+\bibitem[Liu et~al.(2018{\natexlab{a}})Liu, Zoph, Shlens, Hua, Li, Fei-Fei,
+  Yuille, Huang, and Murphy]{liu2017progressive}
+Chenxi Liu, Barret Zoph, Jonathon Shlens, Wei Hua, Li-Jia Li, Li~Fei-Fei, Alan
+  Yuille, Jonathan Huang, and Kevin Murphy.
+\newblock Progressive neural architecture search.
+\newblock In \emph{European Conference on Computer Vision ({ECCV})},
+  2018{\natexlab{a}}.
+
+\bibitem[Liu et~al.(2018{\natexlab{b}})Liu, Simonyan, Vinyals, Fernando, and
+  Kavukcuoglu]{liu2017hierarchical}
+Hanxiao Liu, Karen Simonyan, Oriol Vinyals, Chrisantha Fernando, and Koray
+  Kavukcuoglu.
+\newblock Hierarchical representations for efficient architecture search.
+\newblock In \emph{Proceedings of the 6th International Conference on Learning
+  Representations ({ICLR})}, 2018{\natexlab{b}}.
+
+\bibitem[Liu et~al.(2018{\natexlab{c}})Liu, Simonyan, and Yang]{liu2018darts}
+Hanxiao Liu, Karen Simonyan, and Yiming Yang.
+\newblock Darts: Differentiable architecture search.
+\newblock \emph{arXiv preprint arXiv:1806.09055}, 2018{\natexlab{c}}.
+
+\bibitem[Luo et~al.(2018)Luo, Tian, Qin, and Liu]{luo2018neural}
+Renqian Luo, Fei Tian, Tao Qin, and Tie-Yan Liu.
+\newblock Neural architecture optimization.
+\newblock \emph{arXiv preprint arXiv:1808.07233}, 2018.
+
+\bibitem[Miikkulainen et~al.(2017)Miikkulainen, Liang, Meyerson, Rawal, Fink,
+  Francon, Raju, Shahrzad, Navruzyan, Duffy, and
+  Hodjat]{miikkulainen2017evolving}
+Risto Miikkulainen, Jason~Zhi Liang, Elliot Meyerson, Aditya Rawal, Daniel
+  Fink, Olivier Francon, Bala Raju, Hormoz Shahrzad, Arshak Navruzyan, Nigel
+  Duffy, and Babak Hodjat.
+\newblock Evolving deep neural networks.
+\newblock \emph{arXiv preprint arXiv:abs/1703.00548}, 2017.
+
+\bibitem[Pham et~al.(2018)Pham, Guan, Zoph, Le, and Dean]{pham2018efficient}
+Hieu Pham, Melody Guan, Barret Zoph, Quoc Le, and Jeff Dean.
+\newblock Efficient neural architecture search via parameters sharing.
+\newblock In \emph{Proceedings of the 35th International Conference on Machine
+  Learning ({ICML})}, 2018.
+
+\bibitem[Real et~al.(2017)Real, Moore, Selle, Saxena, Suematsu, Tan, Le, and
+  Kurakin]{real2017large}
+Esteban Real, Sherry Moore, Andrew Selle, Saurabh Saxena, Yutaka~Leon Suematsu,
+  Jie Tan, Quoc~V. Le, and Alexey Kurakin.
+\newblock Large-scale evolution of image classifiers.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning}, 2017.
+
+\bibitem[Real et~al.(2018)Real, Aggarwal, Huang, and Le]{real2018regularized}
+Esteban Real, Alok Aggarwal, Yanping Huang, and Quoc~V Le.
+\newblock Regularized evolution for image classifier architecture search.
+\newblock \emph{arXiv preprint arXiv:1802.01548}, 2018.
+
+\bibitem[Russakovsky et~al.(2015)Russakovsky, Deng, Su, Krause, Satheesh, Ma,
+  Huang, Karpathy, Khosla, Bernstein, et~al.]{russakovsky2015imagenet}
+Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma,
+  Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, et~al.
+\newblock Imagenet large scale visual recognition challenge.
+\newblock \emph{International Journal of Computer Vision}, 115\penalty0
+  (3):\penalty0 211--252, 2015.
+
+\bibitem[Scarselli et~al.(2009)Scarselli, Gori, Tsoi, Hagenbuchner, and
+  Monfardini]{ScarselliGTHM09}
+Franco Scarselli, Marco Gori, Ah~Chung Tsoi, Markus Hagenbuchner, and Gabriele
+  Monfardini.
+\newblock The graph neural network model.
+\newblock \emph{{IEEE} Trans. Neural Networks}, 20\penalty0 (1):\penalty0
+  61--80, 2009.
+
+\bibitem[Schmidhuber(1992)]{Schmidhuber92Learning}
+J{\"{u}}rgen Schmidhuber.
+\newblock Learning to control fast-weight memories: An alternative to dynamic
+  recurrent networks.
+\newblock \emph{Neural Computation}, 4\penalty0 (1):\penalty0 131--139, 1992.
+
+\bibitem[Schmidhuber(1993)]{schmidhuber1993self}
+J{\"u}rgen Schmidhuber.
+\newblock A ‘self-referential’weight matrix.
+\newblock In \emph{International Conference on Artificial Neural Networks
+  ({ICANN})}. Springer, 1993.
+
+\bibitem[Tan et~al.(2018)Tan, Chen, Pang, Vasudevan, and Le]{tan2018mnasnet}
+Mingxing Tan, Bo~Chen, Ruoming Pang, Vijay Vasudevan, and Quoc~V Le.
+\newblock Mnasnet: Platform-aware neural architecture search for mobile.
+\newblock \emph{arXiv preprint arXiv:1807.11626}, 2018.
+
+\bibitem[Werbos(1990)]{bptt}
+Paul~J Werbos.
+\newblock Backpropagation through time: what it does and how to do it.
+\newblock \emph{Proceedings of the IEEE}, 78\penalty0 (10):\penalty0
+  1550--1560, 1990.
+
+\bibitem[Xie \& Yuille(2017)Xie and Yuille]{xie2017genetic}
+Lingxi Xie and Alan~L. Yuille.
+\newblock Genetic {CNN}.
+\newblock In \emph{{IEEE} International Conference on Computer Vision
+  ({ICCV})}, 2017.
+
+\bibitem[Zhou et~al.(2018)Zhou, Ebrahimi, Ar{\i}k, Yu, Liu, and
+  Diamos]{zhou2018resource}
+Yanqi Zhou, Siavash Ebrahimi, Sercan~{\"O} Ar{\i}k, Haonan Yu, Hairong Liu, and
+  Greg Diamos.
+\newblock Resource-efficient neural architect.
+\newblock \emph{arXiv preprint arXiv:1806.07912}, 2018.
+
+\bibitem[Zoph \& Le(2017)Zoph and Le]{zoph2016neural}
+Barret Zoph and Quoc~V. Le.
+\newblock Neural architecture search with reinforcement learning.
+\newblock In \emph{Proceedings of the 5th International Conference on Learning
+  Representations ({ICLR})}, 2017.
+
+\bibitem[Zoph et~al.(2018)Zoph, Vasudevan, Shlens, and Le]{zoph2017learning}
+Barret Zoph, Vijay Vasudevan, Jonathon Shlens, and Quoc~V Le.
+\newblock Learning transferable architectures for scalable image recognition.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition ({CVPR})}, 2018.
+
+\end{thebibliography}

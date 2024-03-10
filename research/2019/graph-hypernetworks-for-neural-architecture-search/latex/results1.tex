@@ -1,0 +1,21 @@
+\begin{table}[t]
+\vspace{-0.7cm}
+\caption{Comparison with image classifiers found by state-of-the-art NAS methods which employ a random search on CIFAR-10. Results shown are mean $\pm$ standard deviation.}
+\label{table:Results1}
+\footnotesize
+\begin{center}
+\begin{tabular}{ c c c c } 
+Method & Search Cost (GPU days) & Param $\times 10^6$ & Accuracy   \\ 
+\hline
+SMASHv1 \citep{brock2017smash} &? & 4.6 & 94.5 \\
+SMASHv2 \citep{brock2017smash} & 3 & 16.0 & 96.0\\
+One-Shot Top (F=32) \citep{bender2018understanding} & 4  & 2.7 $\pm$ 0.3 & 95.5 $\pm$ 0.1\\
+One-Shot Top (F=64) \citep{bender2018understanding} & 4 & 10.4 $\pm$ 1.0 & 95.9 $\pm$ 0.2\\
+\hline
+\hline
+Random (F=32) & - & 4.6 $\pm$ 0.6 & 94.6 $\pm$ 0.3\\ 
+GHN Top (F=32) &  0.42  & 5.1 $\pm$ 0.6 & 95.7 $\pm$ 0.1\\ 
+\end{tabular}
+\end{center}
+%\footnotesize{$^*$ \cite{bender2018understanding} 16 GPU hours training + 80 GPU hours evaluation. }
+\end{table}

@@ -1,0 +1,38 @@
+% !TEX root = top.tex
+\section{Related Work}
+Various search methods such as reinforcement learning~\citep{zoph2016neural,
+baker2016designing,zoph2017learning}, evolutionary
+methods~\citep{real2017large,miikkulainen2017evolving,xie2017genetic,liu2017hierarchical,real2018regularized}
+and gradient-based methods~\citep{liu2018darts,luo2018neural} have been proposed to address the
+outer optimization (Eq.~\ref{eq:outer}) of NAS, where an agent learns to sample architectures that
+are more likely to achieve higher accuracy. Different from these methods, this paper places its
+focus on the inner-loop: inferring the parameters of a given network (Eq.~\ref{eq:inner}). Following
+\cite{brock2017smash,bender2018understanding}, we opt for a simple random search algorithm to
+complete the outer loop.
+
+While initial NAS methods simply train candidate architectures for a brief period with SGD to obtain
+the search signal, recent approaches have proposed alternatives in the interest of computational
+cost. \cite{baker2017accelerating} propose directly predicting performance from the learning curve,
+and \cite{deng2017peephole} propose to predict performance directly from the architecture without
+learning curve information. However, training a performance predictor requires a ground truth, thus
+the expensive process of computing the inner optimization is not avoided.
+\cite{pham2018efficient,bender2018understanding,liu2018darts} use parameter sharing, where a
+``one-shot'' model containing all possible architectures in the search space is trained. Individual
+architectures are sampled by deactivating some nodes or edges in the one-shot model. In this case,
+predicting $w^*(a)$ can be seen as using a selection function from the set of parameters in the
+one-shot model.
+
+Prior work has shown the feasibility of predicting $w^*(a)$ with a function approximator.
+\cite{Schmidhuber92Learning,schmidhuber1993self} proposed ``fast-weights'', where one network
+produces weight changes for another. HyperNetworks \citep{ha2016hypernetworks} generate the weights
+of another network and show strong results in large-scale language modeling and image classification
+experiments. SMASH~\citep{brock2017smash} applied HyperNetworks to perform NAS, where an
+architecture is encoded as a 3D tensor using a memory channel scheme. In contrast, we encode a
+network as a computation graph and use a graph neural network. While SMASH predicts a subset of the
+weights, our graph model is able to predict \textit{all} the free weights.
+
+While earlier NAS methods focused on standard image classification and language modeling, recent
+literature has extended NAS to search for architectures that are computationally efficient
+~\citep{tan2018mnasnet,dong2018dpp,hsu2018monas,elsken2018multi,zhou2018resource}. In this work, we
+applied our GHN based search program on the task of anytime prediction, where we not only optimize
+for the final speed but the entire speed-accuracy trade-off curve.

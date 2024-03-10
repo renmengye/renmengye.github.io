@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][-]{section.3}{Background}{}% 3
+\BOOKMARK [1][-]{section.4}{Graph Hypernetworks for Neural Architectural Search}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Graphical Representation}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Graph Hypernetwork}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Architectural Motifs and Stacked GNNs}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Forward-backward GNN message passing}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Learning}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Experiments}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{NAS benchmarks}{section.5}% 11
+\BOOKMARK [3][-]{subsubsection.5.1.1}{CIFAR-10}{subsection.5.1}% 12
+\BOOKMARK [3][-]{subsubsection.5.1.2}{ImageNet-Mobile}{subsection.5.1}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Anytime Prediction}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Predicted performance correlation \(CIFAR-10\)}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.4}{Ablation Studies \(CIFAR-10\)}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 17
+\BOOKMARK [1][-]{section.7}{appendix}{}% 18
+\BOOKMARK [2][-]{subsection.7.1}{Search space}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.2}{Graph HyperNetwork details}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.3}{Final architecture training details}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.4}{Visualization of Final architectures}{section.7}% 22
+\BOOKMARK [3][-]{subsubsection.7.4.1}{CIFAR-10 and ImageNet Classification}{subsection.7.4}% 23
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Anytime Prediction}{subsection.7.4}% 24

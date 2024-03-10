@@ -1,0 +1,63 @@
+% !TEX root = top.tex
+\section{Introduction}
+The success of deep learning marks the transition from manual feature engineering to automated
+feature learning. However, designing effective neural network architectures requires expert domain
+knowledge and repetitive trial and error. Recently, there has been a surge of interest in {\it
+neural architecture search} (NAS), where neural network architectures are automatically optimized.
+
+One approach for architecture search is to consider it as a nested optimization problem, where the
+inner loop finds the optimal parameters $w^*$ for a given architecture $a$ w.r.t. the training loss
+$\gL_{train}$, and the outer loop searches the optimal architecture w.r.t. a validation loss
+$\gL_{val}$:
+\begin{equation}
+\label{eq:inner}
+w^*(a) = \argmin_w \gL_{train}(w, a)
+\end{equation}
+\begin{equation}
+\label{eq:outer}
+a^* = \argmin_a \gL_{val}(w^*(a),a)
+\end{equation}
+Traditional NAS is expensive since solving the  inner optimization in Eq.~\ref{eq:inner}  requires a
+lengthy optimization process (e.g. stochastic gradient descent (SGD)). Instead,  we propose to learn
+a parametric function approximation referred to as a hypernetwork
+\citep{ha2016hypernetworks,brock2017smash}, which attempts to \textit{generate} the network weights
+directly.  Learning a hypernetwork is an amortization of the cost of solving Eq.~\ref{eq:inner}
+repeatedly for multiple architectures. A trained hypernetwork is well correlated with SGD and can
+act as a much faster substitute.
+
+Yet, the architecture of the hypernet itself is still to be determined. Existing methods have
+explored a variety of tactics to represent architectures, such as an ingenious 3D tensor encoding
+scheme \citep{brock2017smash}, or a string serialization processed by an LSTM
+\citep{zoph2016neural,zoph2017learning,pham2018efficient}. In this work, we advocate for a
+\textit{computation graph} representation as it allows for the topology of an architecture to be
+explicitly modeled. Furthermore, it is intuitive to understand and can be easily extensible to
+various graph sizes.
+
+To this end, in this paper we propose the \textit{Graph HyperNetwork} (GHN), which can aggregate
+graph level information by directly learning on the graph representation. Using a hypernetwork to
+guide architecture search, our approach requires significantly less computation when compared to
+state-of-the-art methods. The computation graph representation allows GHNs to be the first
+hypernetwork to generate all the weights of arbitrary CNN networks rather than a subset (e.g.
+\cite{brock2017smash}), achieving stronger correlation and thus making the search more efficient and
+accurate.
+
+While the validation accuracy is often the primary goal in architecture search, networks must also
+be resource aware in real-world applications. Towards this goal, we exploit the flexibility of the
+GHN by extending it to the problem of \textit{anytime prediction}. Models capable of anytime
+prediction progressively update their predictions, allowing for a prediction at any time. This is
+desirable in settings such as real-time systems, where the computational budget available for each
+test case may vary greatly and cannot be known ahead of time. Although anytime models have
+non-trivial differences to classical models, we show the GHN is amenable to these changes.
+ 
+We summarize our main contributions of this work:
+\vspace{-0.1cm}
+\begin{enumerate}
+\setlength{\itemsep}{1pt}
+\item We propose Graph HyperNetwork that predicts the parameters of unseen neural networks by
+directly operating on their computational graph representations.
+\item Our approach achieves highly competitive results with state-of-the-art NAS methods on both
+CIFAR-10 and ImageNet-mobile and is 10$\times$ faster than other random search methods.
+\item We demonstrate that our approach can be generalized and applied in the domain of
+anytime-prediction, previously unexplored by NAS programs, outperforming the existing manually
+designed state-of-the-art models.
+\end{enumerate}

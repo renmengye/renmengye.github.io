@@ -334,10 +334,11 @@ Mengye Ren, Renjie Liao, Ethan Fetaya, Richard S. Zemel.
 [[code](https://github.com/renmengye/inc-few-shot-attractor-public)]
 [[html](research/2019/incremental-few-shot-learning-with-attention-attractor-networks)]
 
-* Graph hypernetworks for neural architecture search.
+* [Graph hypernetworks for neural architecture search](research/2019/graph-hypernetworks-for-neural-architecture-search).
 Chris Zhang, Mengye Ren, Raquel Urtasun.
 *ICLR*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.05749)]
+[[html](research/2019/graph-hypernetworks-for-neural-architecture-search)]
 
 * [Learning to reweight examples for robust deep learning](research/2018/learning-to-reweight-examples-for-robust-deep-learning).
 Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.

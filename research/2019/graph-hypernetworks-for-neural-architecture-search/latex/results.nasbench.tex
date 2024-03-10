@@ -1,0 +1,58 @@
+% !TEX root = top.tex
+\subsection{NAS benchmarks}
+\input{results1}
+\input{results2}
+\input{results3}
+
+\subsubsection{CIFAR-10}
+\label{section:cifar10}
+We conduct our initial set of experiments on CIFAR-10 \citep{krizhevsky2009cifar}, which contains 10
+object classes and 50,000 training images and 10,000 test images of size 32$\times$32$\times$3. We
+use 5,000 images split from the training set as our validation set.
+
+\vspace{-0.25cm}
+\paragraph{Search space:} 
+Following existing NAS methods, we choose to search for optimal blocks rather than the entire
+network. Each block contains 17 nodes, with 8 possible operations. The final architecture is formed
+by stacking 18 blocks. The spatial size is halved and the number of channels is doubled after blocks
+6 and 12. These settings are all chosen following recent NAS methods
+\citep{zoph2016neural,pham2018efficient,liu2018darts}, with details in the Appendix.
+
+\vspace{-0.25cm}
+\paragraph{Training:}
+For the GNN module, we use a standard GRU cell \citep{cho14gru} with hidden size 32 and 2
+layer MLP with hidden size 32 as the recurrent cell function $U$ and message function $M$
+respectively. The shared hypernetwork $H \left(\cdot; \vvphi\right)$ is a 2-layer MLP with hidden
+size 64. From the results of ablations studies in Section~\ref{section:ablations}, the GHN is
+trained with blocks with $N=7$ nodes and $T=5$ propagations under the forward-backward scheme, using
+the ADAM optimizer \citep{kingma2015adam}. Training details of the final selected architectures are
+chosen to follow existing works and can be found in the Appendix.
+\vspace{-0.25cm}
+\paragraph{Evaluation:}
+First, we compare to similar methods that use random search with a  hypernetwork or a one-shot model
+as a surrogate search signal. We randomly sample 10 architectures and train until convergence for
+our random baseline. Next, we randomly sample 1000 architectures, and select the top 10 performing
+architectures with GHN generated weights, which we refer to as GHN Top. Our reported search cost
+includes both the GHN training and evaluation phase. Shown in Table~\ref{table:Results1}, the GHN
+achieves competitive results with nearly an order of magnitude reduction in search cost.
+
+In Table~\ref{table:Results2}, we compare with methods which use more advanced search methods, such
+as reinforcement learning and evolution. Once again, we sample 1000 architectures and use the GHN to
+select the top 10. To make a fair comparison for random search, we train the top 10 for a short
+period before selecting the best to train until convergence. The accuracy reported for GHN Top-Best
+is the average of 5 runs  of the same final architecture. Note that all methods in
+Table~\ref{table:Results2} use CutOut~\citep{devriescutout17}. GHN achieves very competitive results
+with a simple random search algorithm, while only using a fraction of the total search cost. Using
+advanced search methods with GHNs may bring further gains.
+
+\subsubsection{ImageNet-Mobile}
+We also run our GHN algorithm on the ImageNet dataset \citep{russakovsky2015imagenet}, which
+contains 1.28 million training images. We report the top-1  accuracy on the 50,000 validation
+images. Following existing literature, we conduct the ImageNet experiments in the mobile setting,
+where the model is constrained to be under 600M FLOPS. We directly transfer the best architecture
+block found in the CIFAR-10 experiments, using an initial convolution layer of stride 2 before
+stacking 14 blocks with scale reduction at blocks 1, 2, 6 and 10. The total number of flops is
+constrained by choosing the initial number of channels. We follow existing NAS methods on the
+training procedure of the final architecture; details can be found in the Appendix. As shown in
+Table \ref{table:Results3} the transferred block is competitive with other NAS methods which require
+a far greater search cost.

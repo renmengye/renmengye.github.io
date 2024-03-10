@@ -1,0 +1,50 @@
+% !TEX root = top.tex
+\subsection{Predicted performance correlation (CIFAR-10)}
+\begin{table}[t]
+\caption{Benchmarking the correlation between the predicted and true performance of the GHN against SGD and a one-shot model baselines. Results are on CIFAR-10.}
+\vspace{-0.2cm}
+\label{table:correlation}
+\small
+\begin{center}
+\begin{tabular}{ c c c c c} 
+Method & \multicolumn{2}{c}{Computation cost}   & \multicolumn{2}{c}{Correlation}    \\ 
+%\hline
+ & Initial (GPU hours) & Per arch. (GPU seconds)  & Random-100 & Top-50   \\ 
+\hline
+SGD 10 Steps & - & 0.9 & 0.26 & -0.05\\
+SGD 100 Steps & - & 9 & 0.59 & 0.06\\
+SGD 200 Steps & - & 18 & 0.62 & 0.20 \\
+SGD 1000 Steps & - & 90 & 0.77 & 0.26 \\
+One-Shot & 9.8 & 0.06 & 0.58 & 0.31\\
+\hline
+\hline
+GHN & 6.1 & 0.08 & 0.68 & 0.48
+\end{tabular}
+\end{center}
+\end{table}
+
+In this section, we evaluate  whether the parameters generated from GHN can be indicative of the
+final performance. Our metric is the correlation between the accuracy of a model with trained
+weights vs. GHN generated weights. We use a fixed set of 100 random architectures that have not been
+seen by the GHN during training, and we train them for 50 epochs to obtain our ``ground-truth''
+accuracy, and finally compare with the accuracy obtained from GHN generated weights. We report the
+Pearson's R score on all 100 random architectures and the top 50 performing architectures (i.e.\
+above average architectures). Since we are interested in searching for the best architecture,
+obtaining a higher correlation on top performing architectures is more meaningful.
+
+To evaluate the effectiveness of GHN, we further consider two baselines: 1) training a network with
+SGD from scratch for a varying number of steps, and 2) our own implementation of the one-shot model
+proposed by \citet{pham2018efficient}, where nodes store a set of shared parameters for each
+possible operation. Unlike GHN, which is compatible with varying number of nodes, the one-shot model
+must be trained with $N=17$ nodes to match the evaluation. The GHN is trained with $N=7$, $T=5$
+using forward-backward propagation. These GHN parameters are selected based on the results found in
+Section~\ref{section:ablations}.
+
+Table \ref{table:correlation} shows performance correlation and search cost of SGD, the one-shot
+model, and our GHN. Note that GHN clearly outperforms the one-shot model, showing the effectiveness
+of dynamically predicting parameters based on graph topology. While it takes 1000 SGD steps to
+surpasses GHN in the ``Random-100'' setting, GHN is still the strongest in the ``Top-50'' setting,
+which is more important for architecture search. Moreover, compared to GHN, running 1000 SGD steps
+for every random architecture is over 1000 times more computationally expensive. In contrast, GHN
+only requires a pre-training stage of 6 hours, and afterwards, the trained GHN can be used to
+efficiently evaluate a massive number of random architectures of different sizes.

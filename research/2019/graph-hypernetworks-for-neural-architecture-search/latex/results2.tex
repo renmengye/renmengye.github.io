@@ -1,0 +1,23 @@
+\begin{table}[t]
+\vspace{-0.5cm}
+\caption{Comparison with image classifiers found by state-of-the-art NAS methods which employ advanced search methods on CIFAR-10. Results shown are mean $\pm$ standard deviation.}
+\label{table:Results2}
+\vspace{-0.2cm}
+\footnotesize
+\begin{center}
+\begin{tabular}{ c c c c } 
+Method & Search Cost (GPU days) & Param $\times 10^6$ & Accuracy   \\ 
+\hline
+NASNet-A  \citep{zoph2017learning} & 1800 & 3.3 & 97.35 \\
+%AmoebaNet-A  + CutOut \cite{real2018regularized} & 1 GPU, 0.45 days & 4.6 & 97.11 \\
+%AmoebaNet-B + CutOut \cite{real2018regularized} & 1 GPU, 0.45 days & 4.6 & 97.11 \\
+ENAS Cell search  \citep{pham2018efficient} & 0.45  & 4.6 & 97.11 \\
+DARTS (first order)  \citep{liu2018darts} &  1.5  & 2.9  & 97.06  \\
+DARTS (second order) \citep{liu2018darts} & 4  & 3.4 & 97.17 $\pm$ 0.06\\
+\hline
+\hline
+GHN Top-Best, 1K (F=32) & 0.84  & 5.7 & 97.16 $\pm$ 0.07 \\
+%GHN Top-Best, 20K (F=32) & 4.17 & 4.7 & 97.24 $\pm$ 0.05 \\
+\end{tabular}
+\end{center}
+\end{table}

@@ -265,10 +265,11 @@ Abbas Sadat``*``, Mengye Ren``*``, Andrei Pokrovsky, Yen-Chen Lin, Ersin Yumer, 
 *IROS*, 2019.
 [[arxiv](https://arxiv.org/abs/1910.04586)]
 
-* Graph hypernetworks for neural architecture search.
+* [Graph hypernetworks for neural architecture search](2019/graph-hypernetworks-for-neural-architecture-search).
 Chris Zhang, Mengye Ren, Raquel Urtasun.
 *ICLR*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.05749)]
+[[html](2019/graph-hypernetworks-for-neural-architecture-search)]
 
 ----------------------------------------------------------------------------
 

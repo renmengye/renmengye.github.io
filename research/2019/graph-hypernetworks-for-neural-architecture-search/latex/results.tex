@@ -1,0 +1,12 @@
+% !TEX root = top.tex
+\section{Experiments}
+In this section, we use our proposed GHN to search for the best CNN architecture for image
+classification. First, we evaluate the GHN on the standard CIFAR \citep{krizhevsky2009cifar} and
+ImageNet \citep{russakovsky2015imagenet} architecture search benchmarks. Next, we apply GHN on an
+``anytime prediction'' task where we optimize the speed-accuracy tradeoff that is key for many
+real-time applications. Finally, we benchmark the GHN's  predicted-performance correlation and
+explore various factors in an ablation study.
+\input{results.nasbench}
+\input{results.anytime}
+\input{results.correlation}
+\input{results.ablation}

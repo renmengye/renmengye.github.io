@@ -1,0 +1,29 @@
+% !TEX root = top.tex
+\begin{table}[t]
+\vspace{-0.5cm}
+\caption{Comparison with image classifiers found by state-of-the-art NAS methods which employ advanced search methods on ImageNet-Mobile.}
+\vspace{-0.2cm}
+\label{table:Results3}
+\footnotesize
+\begin{center}
+\begin{tabular}{ c c c c } 
+Method & Search Cost (GPU days) & Param $\times 10^6$ & Accuracy   \\ 
+\hline
+%One-Shot Top (F=24) \citep{bender2018understanding} & 3.3+? $^*$ & 6.8 $\pm$ 0.9 & 70.7 $\pm$ 0.6\\
+%One-Shot Top (F=32) \citep{bender2018understanding} & 3.3+? $^*$ & 11.9 $\pm$ 1.5 & 72.6 $\pm$ 0.4\\
+NASNet-A  \citep{zoph2017learning} & 1800 & 5.3 & 74.0 \\
+%NASNet-B  \citep{zoph2017learning} & 1800 & 5.3 & 72.8 \\
+NASNet-C  \citep{zoph2017learning} & 1800 & 4.9 & 72.5 \\
+AmoebaNet-A \citep{real2018regularized} & 3150 & 5.1 & 74.5  \\
+%AmoebaNet-B \citep{real2018regularized} & 3150 & 5.3 & 74.0  \\
+AmoebaNet-C \citep{real2018regularized} & 3150 & 6.4 & 75.7  \\
+PNAS \citep{liu2017progressive} & 225 & 	5.1 &  74.2\\
+DARTS (second order) \citep{liu2018darts} & 4  & 4.9 & 73.1\\
+\hline
+\hline
+GHN Top-Best, 1K & 0.84  & 6.1  & 73.0  \\
+%GHN Top-Best, 20K & 4.17  & 5.0  & 73.2  \\
+\end{tabular}
+\end{center}
+\vspace{-0.5cm}
+\end{table}
