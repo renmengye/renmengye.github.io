@@ -219,6 +219,23 @@ h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-ch
 h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
   text-decoration: none;
 }
+
+span.paper-title a:link{
+  color: #333;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: #FFA500;
+}
+
+span.paper-title a:active {
+  color: #FFA500;
+}
+
 /*h2 {
     font-size: 2.0em;
 }*/

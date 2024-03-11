@@ -270,7 +270,7 @@ Yixuan Luo, Mengye Ren, Sai Qian Zhang.
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
-* [Scaling forward gradient with local losses](research/2023/scaling-forward-gradient-with-local-losses).
+* <span class='paper-title'>[Scaling forward gradient with local losses](research/2023/scaling-forward-gradient-with-local-losses).</span>
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
@@ -278,7 +278,7 @@ Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](research/2023/scaling-forward-gradient-with-local-losses)]
 
-* [Online unsupervised learning of visual representations and categories](research/2022/online-unsupervised-learning-of-visual-representations-and-categories).
+* <span class='paper-title'>[Online unsupervised learning of visual representations and categories](research/2022/online-unsupervised-learning-of-visual-representations-and-categories).</span>
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2022.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
@@ -286,14 +286,14 @@ Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zeme
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
 [[html](research/2022/online-unsupervised-learning-of-visual-representations-and-categories)]
 
-* [Self-supervised representation learning from flow equivariance](research/2021/self-supervised-representation-learning-from-flow-equivariance).
+* <span class='paper-title'>[Self-supervised representation learning from flow equivariance](research/2021/self-supervised-representation-learning-from-flow-equivariance).</span>
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
 [[pdf](research/2021/self-supervised-representation-learning-from-flow-equivariance/xiong-2021-self.pdf)]
 [[html](research/2021/self-supervised-representation-learning-from-flow-equivariance)]
 
-* [SketchEmbedNet: Learning novel concepts by imitating drawings](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings).
+* <span class='paper-title'>[SketchEmbedNet: Learning novel concepts by imitating drawings](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings).</span>
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
@@ -301,7 +301,7 @@ Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 [[code](https://github.com/alexnwang/SketchEmbedNet-public)]
 [[html](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
-* [Wandering within a world: Online contextualized few-shot learning](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning).
+* <span class='paper-title'>[Wandering within a world: Online contextualized few-shot learning](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning).</span>
 Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
@@ -310,7 +310,7 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
 [[html](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
 
-* [Probing few-shot generalization with attributes](research/2020/probing-few-shot-generalization-with-attributes).
+* <span class='paper-title'>[Probing few-shot generalization with attributes](research/2020/probing-few-shot-generalization-with-attributes).</span>
 Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
@@ -318,7 +318,7 @@ Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*`
 [[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
 [[html](research/2022/probing-few-shot-generalization-with-attributes)]
 
-* [LoCo: Local contrastive representation learning](research/2020/loco-local-contrastive-representation-learning).
+* <span class='paper-title'>[LoCo: Local contrastive representation learning](research/2020/loco-local-contrastive-representation-learning).</span>
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 *NeurIPS*, 2020.
 [[arxiv](https://arxiv.org/abs/2008.01342)]
@@ -326,7 +326,7 @@ Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
 [[html](research/2020/loco-local-contrastive-representation-learning)]
 
-* [Multi-agent routing value iteration network](research/2020/multi-agent-routing-value-iteration-network).
+* <span class='paper-title'>[Multi-agent routing value iteration network](research/2020/multi-agent-routing-value-iteration-network).</span>
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 *ICML*, 2020.
 [[arxiv](https://arxiv.org/abs/2007.05096)]
@@ -335,20 +335,20 @@ Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
 [[html](research/2020/multi-agent-routing-value-iteration-network)]
 
-* [Incremental few-shot learning with attention attractor networks](research/2019/incremental-few-shot-learning-with-attention-attractor-networks).
+* <span class='paper-title'>[Incremental few-shot learning with attention attractor networks](research/2019/incremental-few-shot-learning-with-attention-attractor-networks).</span>
 Mengye Ren, Renjie Liao, Ethan Fetaya, Richard S. Zemel.
 *NeurIPS*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.07218)]
 [[code](https://github.com/renmengye/inc-few-shot-attractor-public)]
 [[html](research/2019/incremental-few-shot-learning-with-attention-attractor-networks)]
 
-* [Graph hypernetworks for neural architecture search](research/2019/graph-hypernetworks-for-neural-architecture-search).
+* <span class='paper-title'>[Graph hypernetworks for neural architecture search](research/2019/graph-hypernetworks-for-neural-architecture-search).</span>
 Chris Zhang, Mengye Ren, Raquel Urtasun.
 *ICLR*, 2019.
 [[arxiv](https://arxiv.org/abs/1810.05749)]
 [[html](research/2019/graph-hypernetworks-for-neural-architecture-search)]
 
-* [Learning to reweight examples for robust deep learning](research/2018/learning-to-reweight-examples-for-robust-deep-learning).
+* <span class='paper-title'>[Learning to reweight examples for robust deep learning](research/2018/learning-to-reweight-examples-for-robust-deep-learning).</span>
 Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 *ICML*, 2018.
 [[arxiv](https://arxiv.org/abs/1803.09050)]
@@ -356,24 +356,24 @@ Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 [[video](https://vimeo.com/287808016)]
 [[html](research/2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
-* Meta-learning for semi-supervised few-shot classification.
+* <span class='paper-title'>Meta-learning for semi-supervised few-shot classification.
 Mengye Ren, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin
-Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.
+Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.</span>
 *ICLR*, 2018.
 [[link](research/fewshotssl/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.00676)]
 [[code](https://github.com/renmengye/few-shot-ssl-public)]
 
-* End-to-end instance segmentation with recurrent attention.
-Mengye Ren, Richard S. Zemel.
+* <span class='paper-title'>End-to-end instance segmentation with recurrent attention.
+Mengye Ren, Richard S. Zemel.</span>
 *CVPR*, 2017.
 [[link](research/recattend/index.html)]
 [[arxiv](https://arxiv.org/abs/1605.09410)]
 [[code](https://github.com/renmengye/rec-attend-public)]
 [[video](https://www.youtube.com/watch?v=oHgUowLph7E)]
 
-* Exploring models and data for image question answering.
-Mengye Ren, Ryan Kiros, Richard S. Zemel.
+* <span class='paper-title'>Exploring models and data for image question answering.
+Mengye Ren, Ryan Kiros, Richard S. Zemel.</span>
 *NIPS*, 2015.
 [[link](research/imageqa/index.html)]
 [[arxiv](https://arxiv.org/abs/1505.02074)]
