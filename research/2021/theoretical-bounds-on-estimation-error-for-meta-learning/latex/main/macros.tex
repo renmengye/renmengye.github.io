@@ -1,0 +1,15 @@
+% Defines utility macros for paper writing
+
+\newif\ifcomments
+% \commentstrue
+% To remove comments
+\commentsfalse
+
+\newcommand{\authcomment}[3]{\ifcomments {\color{#2} [#1: #3]} \else \fi}
+
+% Pick your favorite color :)
+\newcommand{\JL}[1]{\authcomment{JL}{blue}{#1}}
+\newcommand{\RZ}[1]{\authcomment{RZ}{red}{#1}}
+\newcommand{\MR}[1]{\authcomment{MR}{orange}{#1}}
+\newcommand{\IK}[1]{\authcomment{IK}{green}{#1}}
+\newcommand{\change}[1]{{\color{red}{#1}}}

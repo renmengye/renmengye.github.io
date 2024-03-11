@@ -1,0 +1,276 @@
+% !TEX root = ../main.tex
+\subsection{Posterior estimate}
+\label{app:proofs:ubounds}
+
+For reference, we reproduce the posterior estimate for the true parameters $\thetaY$.  As a shorthand, we write $\allData = (\by_1,\ldots, \by_{M+1})$.
+\begin{align}
+p(\btau \vert \sourceData) &= \mathcal{N}(\mu_{\btau \vert \sourceData}, \Sigma_{\btau \vert \sourceData}),\\
+\CovPosXTau^{-1} &= \PrecPosXTauExpanded, \\
+\muPosXTau &= \muPosXTauExpanded
+\end{align}
+\begin{align}
+p(\thetaY \vert \sourceData, \novelData) &= \mathcal{N}(\muPosTheta, \CovPosTheta),\\
+\CovPosXThetaTau &= \CTheta + \CovPosXTau \\
+\CovPosTheta^{-1} &= \XTCYX + \CovPosXThetaTau^{-1}\\
+\muPosTheta &=
+\CovPosTheta (\XTCY\novelData + \CovPosXThetaTau^{-1} \muPosXTau)
+\end{align}
+
+\subsection{Upper bound for meta linear regression}
+
+In this section we prove the main upper bound result of our paper, Theorem~\ref{thm:lregression_bias_variance}.
+\mlrbv*
+
+\noindent Before proceeding with the proof, we introduce some additional notation and technical results.
+
+\paragraph{Additional notation} To alleviate (only a little of) the notational clutter, we will define the following quantities,
+\begin{itemize}
+\item $\CPos = \CovPosTheta$
+\item $\CPosT = \CovPosXThetaTau$.
+\item $\smin(\DX / \sqrt{\nX}) = \sminX$
+\item $\smin(\DY / \sqrt{\nY}) = \sminY$
+\item $\smax(\DX / \sqrt{\nX}) = \gamma_1 = \condX \sminX$
+\item $\smax(\DY / \sqrt{\nY}) = \gamma_2 = \condY \sminY$
+\item $\alphaX = \smaxCX / \smaxP$
+\item $\alphaY = \smaxCY / \smaxP$
+\item $\LConst = \frac{\alphaY}{(M + \condX^2)\sminY^2}$
+\item $\LLConst = \frac{\alphaX}{\sminX^2\sminY^2 \condY^2}$
+\item $\LLLConst = \frac{\condtC \condtau \alphaY}{2\sminY^2 \condY^2}$
+\item $\MConst = \frac{\sminY^2 \alphaX}{\sminX^2 \alphaY}$
+\item $\MMConst = \sminY^2 \condY^2$
+\item $\MMMConst = \frac{\alphaX \sminY^2 \condY^2}{\condtau^2 \sminX^2 \alphaY}$
+\end{itemize}
+
+As we have uniform bounds on the singular values of all design matrices, we introduced an auxillary matrix $X$ whose largest and smallest singular values are given by $\sqrt{n}\gamma_1$ and $\sqrt{n}s_1$ respectively.
+
+\noindent We will also write $S(A) = \Covop[A, A]$, and $\cond(A) = \smax(A) / \smin(a)$ throughout.
+
+\paragraph{Bias-Variance Decomposition}
+
+As is standard, we can decompose the risk into the bias and variance of the estimator:
+\begin{align}
+\bbE[\norm{ \thetaEst - \thetaY }^2]  
+&= \bbE[\tr( (\thetaEst - \thetaY) (\thetaEst - \thetaY)^\top)] \\
+&= \tr( \bbE [(\thetaEst - \thetaY) (\thetaEst - \thetaY)^\top] ) \\
+&= \tr( \Covop [\thetaEst, \thetaEst]) + 
+\tr( \bbE[(\thetaEst - \thetaY)] \bbE[(\thetaEst - \thetaY)]^\top )
+\end{align}
+
+\noindent In the next two sections, we will derive upper bounds on the bias and variance terms above.
+
+\subsubsection{Variance technical lemmas}
+
+We first decompose the variance into contributions from two sources: the variance from data in the novel task and the variance from data in the source tasks.
+
+\begin{lemma}(\textbf{Variance decomposition})\label{lemma:variance_decomp}
+Let $\thetaEst = \muPosTheta$ as defined above. Then the variance of the estimator can be written as
+\[\tr(S(\thetaEst)) = \tr(\CPos \XTCYX \CPos) + \tr(S(\CPos {\CPosT}^{-1} \muPosXTau)) \]
+\end{lemma}
+\begin{proof}
+\begin{align}
+\tr(\Covop [\thetaEst, \thetaEst]) &= \tr(S(\CPos (\XTCY \novelData + {\CPosT}^{-1} \muPosXTau)))\\
+&=\tr(S(\CPos \XTCY \novelData) + S(\CPos {\CPosT}^{-1}  \muPosXTau))\\
+&=\tr(\CPos \XTCY S(\novelData) \CYInv \DY \CPos + S(\CPos {\CPosT}^{-1} \muPosXTau))\\
+&=\tr(\CPos \XTCYX \CPos) + \tr(S(\CPos {\CPosT}^{-1} \muPosXTau))\label{eqn:variance_decomp}
+\end{align}
+\end{proof}
+
+We will now work towards a bound for each of the two variance terms in Lemma~\ref{lemma:variance_decomp} separately. To do so, we will need to produce bounds on the singular values of terms appearing in Lemma~\ref{lemma:variance_decomp}.
+
+\noindent We begin with the covariance term $\CPos$.
+
+\begin{lemma}(\textbf{Novel task covariance singular value bound})\label{lemma:novel_tasks_cov_bound}
+Let $\LConst$, $\MConst$ and $\sminY$ be as defined above. Then,
+\[\smax(\CPos) \leq \frac{\smaxCY}{\sminY^2}
+\left[ \nY + 
+\frac{\nX}{\frac{M\nX}{\LConst} + \MConst} \right]^{-1}. \]
+\end{lemma}
+
+\begin{proof}
+Using Lemma~\ref{lemma:sigma_sum_lemma}, we can bound $\smax(\CPos)$ as follows,
+\begin{align}
+\smax(\CPos) &= \smax(\CovPosTheta) \\
+&= \smax((\XTCYX + \CovPosXThetaTau^{-1})^{-1}) \\
+&= 1/\smin(\XTCYX + \CovPosXThetaTau^{-1}) \\
+&\leq 1/(\smin(\XTCYX) + \smin(\CovPosXThetaTau^{-1})) \\
+&= 1/(\smin(\XTCYX) + 1/\smax(\CovPosXThetaTau))
+\end{align}
+Now, using the auxillary matrix $X$,
+\begin{align}
+\smax(\CPos) &\le \left[ \smin(\XTCYX) + \frac{1}{\smaxP + \frac{1}{M}\smax((\DX^\top \posC{}^{-1} \DX)^{-1})}\right]^{-1}\\
+&= \left[ \frac{\smin(\DY^\top \DY)}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{1}{\smin(\DX^\top \posC{}^{-1} \DX)}} \right]^{-1}\\
+&\le \left[ \frac{\nY\smin^2(\DY/\sqrt{\nY})}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{1}{\smin(\DX^\top \posC{}^{-1} \DX)}} \right]^{-1} \\
+&\le \left[\frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{1}{\smin(\DX^\top (\DXP\DX^\top + \Ci{})^{-1} \DX)}} \right]^{-1}
+\end{align}
+
+Above we have used Lemma~\ref{lemma:sigma_sum_lemma} repeatedly, alongside the standard identity, $\smax(A^{-1}) = \smin(A)^{-1}$. We continue now, additionally using Lemma~\ref{lemma:sigma_prod_lemma},
+\begin{align}
+\smax(\CPos) &\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{1}{\smin(\DX^\top \DX) \smin((\DXP\DX^\top + \CX)^{-1})} } \right]^{-1} \\
+&= \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{\smax(\DXP\DX^\top + \CX)}{\smin(\DX^\top \DX)}} \right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{\smax(\DXP\DX^\top) +\smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP +\frac{\smaxP\smax(\DX\DX^\top) + \smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&= \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{M}\frac{\smaxP\nX \sminX^2 \condX^2 + \smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&=\smaxCY
+\left[ \nY\sminY^2 + 
+\frac{M\nX}{\frac{\nX (M +\condX^2)}{\alphaY} + \frac{\alphaX}{\sminX^2 \alphaY}} \right]^{-1} \\
+&=\frac{\smaxCY}{\sminY^2}
+\left[ \nY + 
+\frac{\nX}{\frac{M\nX}{\LConst} + \MConst} \right]^{-1}.
+\end{align}
+\end{proof}
+
+Next, we deal with terms appearing corresponding to the data from the source tasks.
+
+\begin{lemma}(\textbf{Source tasks covariance singular value bound})\label{lemma:source_tasks_cov_bound}
+Let $\posCX = \XPXT + \CX$, and write $\condtC = \cond(\posCX)$ and $\condtau = \cond(\CovPosXTau)$. Then,
+\[\smax^2(\CovPosXThetaTau^{-1} \CovPosXTau)
+\le \frac{1}{\frac{2M\sminP\nX \sminX^2}{\smax(\posCX) \condtau} + \frac{1}{\condtau^2}} =: D_1 \]
+and,
+\[\smax(\CXs \posCX^{-1}) \le \frac{1}{ \frac{\nX\sminX^2}{\alphaX} + 1} =: D_2 \]
+\end{lemma}
+
+\begin{proof}
+Using Lemma~\ref{lemma:sigma_sum_lemma} and Lemma~\ref{lemma:sigma_prod_lemma} we have,
+
+\begin{align}
+\smax^2(\CovPosXThetaTau^{-1} \CovPosXTau)
+&= \smax^2(\CovPosXThetaTau^{-1}\CovPosXTau) \\
+&\le \smax^2(\CovPosXThetaTau^{-1}) \smax^2(\CovPosXTau) \\
+&= \smin^{-2}(\CovPosXThetaTau) \smax^2(\CovPosXTau) \\
+&= \smin^{-2}(\CTheta + \CovPosXTau) \smax^2(\CovPosXTau) \\
+&\le \frac{\smax(\CovPosXTau)^2}{(\sminP + \smin(\CovPosXTau))^2}
+\end{align}
+Now, using $\sminP > 0$,
+\begin{align}
+\frac{\smax(\CovPosXTau)^2}{(\sminP + \smin(\CovPosXTau))^2} &\le \frac{\smax(\CovPosXTau)^2}{2\sminP\smin(\CovPosXTau) + \smin(\CovPosXTau)^2} \\
+&\le \frac{1}{\frac{2\sminP}{\smax(\CovPosXTau) \condtau} + \frac{1}{\condtau^2}}
+\end{align}
+Introducing the auxillary matrix $X$ and using Lemma~\ref{lemma:sigma_sum_lemma} and Lemma~\ref{lemma:sigma_prod_lemma} on $\CovPosXTau$, we have
+\begin{align}
+\frac{1}{\frac{2\sminP}{\smax(\CovPosXTau) \condtau} + \frac{1}{\condtau^2}} \le \frac{1}{\frac{2M\sminP\smin(\DX^\top \posC{}^{-1} \DX)}{\condtau} + \frac{1}{\condtau^2}},
+\end{align}
+where,
+\begin{align}
+\smin(\DX^\top \posCX^{-1} \DX) &\geq \frac{\smin(\DX^\top \DX)}{\smax(\posCX)}\\
+&= \frac{\nX \sminX^2}{\smax(\posCX)}.
+\end{align}
+This gives the first stated inequality,
+\begin{align}
+\smax^2(\CovPosXThetaTau^{-1} \CovPosXTau)
+&\le \frac{1}{\frac{2M\sminP\nX \sminX^2}{\smax(\posCX) \condtau} + \frac{1}{\condtau^2}} =: D_1
+\end{align}
+The second follows as,
+\begin{align}
+\smax(\CXs \posCX^{-1}) &= \frac{\smaxCX}{\smin(\XPXT + \CX)} \\
+&\le\frac{\smaxCX}{\smin(\XPXT) + \smin(\CX)}\\
+&\le\frac{\smaxCX}{\nX\sminX^2 \sminP + \sminCX}\\
+&=\frac{1}{ \frac{\nX\sminX^2}{\alphaX} + 1} =: D_2
+\end{align}
+\end{proof}
+
+
+\noindent In Lemma~\ref{lemma:source_tasks_cov_bound}, we introduced additional condition numbers, which we can bound as follows,
+\begin{align}
+\condtC &= \cond(\posCX) = \cond(\XPXT + \CX) 
+\le \cond(\XPXT) \le \cond(\XPXT) \cond(\CTheta) = \condX^2,\\
+\condtau &= \cond(\CovPosXTau) \le \cond(\DX^\top \DX) \cond(\posCX) = \condX^2 \condtC \le \condX^4.
+\end{align}
+
+
+\subsubsection{Variance upper bound}
+We are now ready to put the above technical results together to achieve a bound on the variance of the estimator. 
+
+\begin{lemma}(\textbf{Variance bound})\label{lemma:variance_ubound}
+\[ \tr(S(\thetaEst)) \le \frac{\condY^2 \sCY^2}{\sminY^2} \dim \left[ \nY + \frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-2} 
+\left[ \nY + \frac{M\nX}{ 
+(\frac{\nX}{\LLConst} + \MMConst ) 
+(\frac{M\nX}{\LLLConst} + \MMMConst)} \right] \]
+\end{lemma}
+
+\begin{proof}
+First, by Lemma~\ref{lemma:variance_decomp} we can decompose the overall variance into two terms:
+\[\tr(S(\thetaEst)) = \tr(\CPos \XTCYX \CPos) + \tr(S(\CPos {\CPosT}^{-1} \muPosXTau)) \]
+We deal with the left term first.
+
+Using trace permutation invariance and the von Neumann trace inequality (Lemma~\ref{lemma:von_neumann_trace}). We can upper bound the left variance term as follows,
+\begin{align}
+\tr(\CPos \XTCYX \CPos) &=  \sminCYInv \tr(\CPos\CPos \DY^\top \DY)\\
+&\le \dim \nY \sminCYInv \smax(\CPos)^2 \smax^2(\DY/\sqrt{\nY})\\
+&= \dim \nY \sminCYInv \smax(\CPos)^2 \sminY^2 \condY^2 
+\end{align}
+For the second variance term, we observe that,
+\begin{align}
+& \ \ \ \ \ \tr(\CPos \CPosT^{-1} S(\muPosXTau) \CPosT^{-1} \CPos) \\
+&=\tr(\CPos \CPosT^{-1} S(\muPosXTauExpanded) \CPosT^{-1} \CPos)\\
+&\leq M\tr(\CPos \CPosT^{-1} \CovPosXTau \DX^\top \posC{}^{-1} S(y_1) \posC{}^{-1} \DX \CovPosXTau \CPosT^{-1} \CPos)\\
+&=M\tr(\CPos \CPosT^{-1} \CovPosXTau \DX^\top \posCX^{-1} \CX \posCX^{-1} \DX \CovPosXTau \CPosT^{-1} \CPos)\\
+&\le M\smax(\CPos)^2 \smax^2(\CovPosXThetaTau^{-1} \CovPosXTau) \smaxCX \tr(\DX^\top \posC{}^{-1} \posC{}^{-1} \DX)
+\end{align}
+Using Lemma~\ref{lemma:source_tasks_cov_bound}, we have,
+\begin{align}
+\tr(\CPos \CPosT^{-1} S(\muPosXTau) \CPosT^{-1} \CPos) &\le \smax(\CPos)^2 M D_1 D_2 \tr(\DX^\top \DX) \smax(\posCX^{-1})\\
+& \le \smax(\CPos)^2 M D_1 D_2 \min(\nX,\dim) \nX \smax(\posCX^{-1})\\
+& \le \smax(\CPos)^2 D_2 \frac{M\min(\nX,\dim) \nX}{\frac{2M\sminP\nX \sminX^2 \smin(\posCX)}{\smax(\posCX)\condtau} + \frac{\smin(\posCX)}{\condtau^2}} \ \\
+& \le \smax(\CPos)^2 D_2 \frac{M\min(\nX,\dim) \nX}{\frac{2M\sminP\nX \sminX^2 \smin(\posCX)}{\smax(\posCX)\condtau} + \frac{\sminCX}{\condtau^2}} \ \\
+& \le \smax(\CPos)^2 D_2 \frac{\min(\nX,\dim) \nX}{\sCY^2} \frac{M}{\frac{2M\nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminCX^2 \alphaY}} \ \\
+& \le  \frac{\smax(\CPos)^2}{\sCY^2}  \frac{\nX \dim}{ \frac{\nX\sminX^2}{\alphaX} + 1}  \frac{M}{\frac{2M \nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminX^2 \alphaY}}
+\end{align}
+Finally, rearranging and using Lemma~\ref{lemma:novel_tasks_cov_bound}, we can bound the sum of the two terms in the variance as follows,
+\begin{align}
+\tr(S(\thetaEst))
+& \le \frac{\smax(\CPos)^2}{\sCY^2}
+(\nY \dim \sminY^2 \condY^2  + 
+\frac{\nX \dim}{ \frac{\nX\sminX^2}{\alphaX} + 1} \frac{M}{\frac{2M\nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminX^2 \alphaY}})\\
+& \le \frac{\smax(\CPos)^2 \sminY^2 \condY^2}{\sCY^2}
+(\nY \dim + 
+\frac{\nX \dim}{ \frac{\nX\sminX^2\sminY^2 \condY^2}{\alphaX} + \sminY^2 \condY^2} \frac{M}{\frac{2M \nX \sminY^2 \condY^2}{\condtC \condtau \alphaY} + \frac{\alphaX \sminY^2 \condY^2}{\condtau^2 \sminX^2 \alphaY}})\\
+& \le \frac{\condY^2 \sCY^2}{\sminY^2} \left[ \nY + \frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-2} \cdot \\
+& \hspace{2cm}\left[ \nY \dim + \frac{M\nX \dim}{ 
+(\frac{\nX\sminX^2\sminY^2 \condY^2}{\alphaX} + \sminY^2 \condY^2 ) 
+(\frac{2M \nX \sminY^2 \condY^2}{\condtC \condtau \alphaY} + \frac{\alphaX \sminY^2 \condY^2}{\condtau^2 \sminX^2 \alphaY})} \right]\\
+& \le \frac{\condY^2 \sCY^2}{\sminY^2} \dim \left[ \nY + \frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-2} 
+\left[ \nY + \frac{M\nX}{ 
+(\frac{\nX}{\LLConst} + \MMConst ) 
+(\frac{M\nX}{\LLLConst} + \MMMConst)} \right]
+\end{align}
+\end{proof}
+
+\subsubsection{Bounding the Bias}
+\begin{lemma}(\textbf{Bias upper bound})\label{lemma:bias_ubound}
+Given $\theta_1,\ldots,\thetaY \in \bball_2(1)$, we have,
+\[\bbE[(\thetaEst - \thetaY)] \le O\left(\dim \left[ \nY + 
+\frac{M\nX}{\frac{\nX (M +\condX^2)\sminY^2}{\alphaY} + A} \right]^{-2}\right) \]
+\end{lemma}
+\begin{proof}
+The bias can be computed as follows,
+\begin{align}
+\bbE[(\thetaEst - \thetaY)] &= \bbE \muPosTheta - \thetaY\\
+&= \CovPosTheta \bbE (\XTCY y_2 + \CovPosXThetaTau^{-1} \muPosXTau) - \thetaY \\
+&= \CovPosTheta (\XTCYX \thetaY + \CovPosXThetaTau^{-1} \bbE\muPosXTau) -\thetaY\\
+&= (\XTCYX + \CovPosXThetaTau^{-1})^{-1}\cdot\\
+&\hspace{2cm}(\XTCYX \thetaY + \CovPosXThetaTau^{-1} \bbE\muPosXTau) - \thetaY \\
+&= (F+G)^{-1} (F \thetaY + G \muPosXTau) - \thetaY\\
+&= (F+G)^{-1} F \thetaY - (F+G)^{-1} (F + G) \thetaY + (F+G)^{-1} G \bbE\muPosXTau\\
+&= (F+G)^{-1} G (\bbE\muPosXTau- \thetaY),
+\end{align}
+where we wrote $F = \XTCYX$, and $G = \CovPosXThetaTau^{-1}$. Thus,
+\[\bbE[(\thetaEst - \thetaY)]^\top\bbE[(\thetaEst - \thetaY)] \le \norm{(F+G)^{-1}}_2^2\norm{G}_2^2 \norm{\bbE\muPosXTau- \thetaY}_2^2\]
+We can bound each term in turn. First, note that $\norm{G}_2^2 \le 1/\sminP$, and we have bounded $\norm{(F+G)^{-1}}_2^2$ above. We can write,
+\begin{align*}
+    \norm{\bbE\muPosXTau- \thetaY}_2^2 &= \bignorm{\CovPosXTau\left(\sum^{M}_{i=1}\DXi{i}^\top \posC{i}^{-1}\DXi{i}\theta_i \right) - \thetaY}_2^2\\
+    \norm{\bbE\muPosXTau- \thetaY}_2^2 &= \bignorm{\CovPosXTau\left(\sum^{M}_{i=1}\DXi{i}^\top \posC{i}^{-1}\DXi{i}\theta_i \right) - \CovPosXTau\CovPosXTau^{-1}\thetaY}_2^2\\
+    &= \bignorm{\CovPosXTau \sum^{M}_{i=1}\DXi{i}^\top\posC{i}^{-1}\DXi{i}(\theta_i - \thetaY)}_2^2\\
+    &\le \left(\sum^{M}_{i=1}\norm{\CovPosXTau}_2 \ \norm{\DXi{i}^\top\posC{i}^{-1}\DXi{i}(\theta_i - \thetaY)}_2\right)^2\\
+    &\le \left(\sum^{M}_{i=1}\norm{\CovPosXTau}_2 \ \norm{\DXi{i}^\top\posC{i}^{-1}\DXi{i}}_2\right)^2
+\end{align*}
+The last line follows from the fact that the parameters lie in a ball of unit radius. We now proceed by bounding the sum by $M$ times the supremum --- with some light abuse of notation,
+\begin{align*}
+    \norm{\muPosXTau- \thetaY}_2^2 &\le (\smax(X^\top \posC{}^{-1} X)\smax(\DXi{}\posC{}^{-1}\DXi{}))^2\\
+    &= \smax(X^\top \posC{}^{-1} X)^4 \le O(1)\\
+\end{align*}
+Thus, overall the convergence of the bias is bounded by,
+\[\bbE[(\thetaEst - \thetaY)]^\top\bbE[(\thetaEst - \thetaY)] \le O(\smax(\CPos)^2) \le O\left(\dim \left[ \nY + 
+\frac{M\nX}{\frac{\nX (M +\condX^2)\sminY^2}{\alphaY} + A} \right]^{-2}\right)\]
+\end{proof}
+
+The proof of Theorem~\ref{thm:lregression_bias_variance} is given by the combination of Lemma~\ref{lemma:variance_ubound} and Lemma~\ref{lemma:bias_ubound}, and the bias-variance decomposition of the risk .

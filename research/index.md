@@ -161,7 +161,7 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
 [[html](2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
 
-* Theoretical bounds on estimation error for meta-learning.
+* [Theoretical bounds on estimation error for meta-learning](2021/theoretical-bounds-on-estimation-error-for-meta-learning).
 James Lucas, Mengye Ren, Irene Kameni, Toniann Pitassi, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2010.07140)]
@@ -173,6 +173,7 @@ James Lucas, Mengye Ren, Irene Kameni, Toniann Pitassi, Richard Zemel.
 Bob Wei``*``, Mengye Ren``*``, Wenyuan Zeng, Ming Liang, Bin Yang, Raquel Urtasun.
 *ICRA*, 2021.
 [[arxiv](https://arxiv.org/abs/2011.01153)]
+[[pdf](2021/perceive-attend-and-drive-learning-spatial-attention-for-safe-self-driving/wei-2021-perceive.pdf)]
 [[video](https://youtu.be/3ffaQ2PIQCM)]
 [[html](2021/perceive-attend-and-drive-learning-spatial-attention-for-safe-self-driving)]
 
@@ -180,12 +181,14 @@ Bob Wei``*``, Mengye Ren``*``, Wenyuan Zeng, Ming Liang, Bin Yang, Raquel Urtasu
 Jingkang Wang, Ava Pun, James Tu, Sivabalan Manivasagam, Abbas Sadat, Sergio Casas, Mengye Ren, Raquel Urtasun.
 *CVPR*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06549)]
+[[pdf](2021/advsim-generating-safety-critical-scenarios-for-self-driving-vehicles/wang-2021-advsim.pdf)]
 
 * SceneGen: Learning to generate realistic traffic scenes.
 Shuhan Tan``*``, Kelvin Wong``*``, Shenlong Wang, Sivabalan Manivasagam, Mengye Ren,
 Raquel Urtasun.
 *CVPR*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06541)]
+[[pdf](2021/scenegen-learning-to-generate-realistic-traffic-scenes/tan-2021-scenegen.pdf)]
 
 ----------------------------------------------------------------------------
 
@@ -195,6 +198,7 @@ Raquel Urtasun.
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 *NeurIPS*, 2020.
 [[arxiv](https://arxiv.org/abs/2008.01342)]
+[[pdf](2020/loco-local-contrastive-representation-learning/xiong-2020-loco.pdf)]
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
 [[html](2020/loco-local-contrastive-representation-learning)]
 
@@ -219,6 +223,7 @@ Nicholas Vadivelu, Mengye Ren, James Tu, Jingkang Wang, Raquel Urtasun.
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 *ICML*, 2020.
 [[arxiv](https://arxiv.org/abs/2007.05096)]
+[[pdf](2020/multi-agent-routing-value-iteration-network/sykora-2020-multi.pdf)]
 [[code](https://github.com/uber-research/MARVIN)]
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
 [[html](2020/multi-agent-routing-value-iteration-network)]
@@ -227,6 +232,7 @@ Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 Jingkang Wang``*``, Mengye Ren``*``, Ilija Bogunovic, Yuwen Xiong, Raquel Urtasun.
 *ICML RealML Workshop*, 2020.
 [[arxiv](https://arxiv.org/abs/2101.06590)]
+[[pdf](2020/cost-efficient-online-hyperparameter-optimization/wang-2020-cost.pdf)]
 [[slide](https://realworldml.github.io/files/slides/28_slide.pdf)]
 
 * Perceive, predict, and plan: Safe motion planning through interpretable semantic representations.

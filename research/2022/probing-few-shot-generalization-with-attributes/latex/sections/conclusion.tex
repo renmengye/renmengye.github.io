@@ -1,0 +1,31 @@
+% !TEX root = ../neurips2022.tex
+\savespacebeforesection
+\section{Conclusion}
+\savespacebeforesection
+\savespacebeforeitem
+\looseness=-1
+
+To investigate few-shot generalization, we developed FSAL, a novel few-shot
+learning paradigm that requires learners to generalize to novel attributes at
+test time. We developed benchmarks using the Celeb-A, Zappos-50K, and ImageNet
+datasets to create learning episodes using existing attribute labels. This
+setting presents a strong generalization challenge, since the split in
+attribute space can make the training and test tasks less similar than
+traditional few-shot learning tasks. Consequently, standard supervised
+representation learning performs poorly on the test set, unlike recent
+benchmark results in few-shot learning of semantic classes. However,
+unsupervised contrastive learning preserved more general features, and further
+finetuning yielded strong performance. We also studied the performance gap
+under different splits in the attribute label space where we found that
+supervised representation learning works better when there is more information
+shared between train and test attributes.
+
+\paragraph{Limitations:} Our empirical analysis could be made more complete by
+including other unsupervised representation learning methods and extending to
+other domains. Further, the episodes contained in our benchmark tasks can
+sometimes be difficult for humans to resolve even after we removed ambiguous
+attributes.
+
+\paragraph{Societal Impact:} FSAL relies on attribute labels, which can be
+difficult to obtain and encode bias in some settings (\eg the \emph{attractive}
+attribute in Celeb-A).

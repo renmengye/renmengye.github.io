@@ -1,0 +1,111 @@
+% !TEX root = main.tex
+
+\section{Analysis of a hierarchical Bayesian model of meta-learning}
+\label{sec:hierarchical_bayes}
+
+Our goal is to analyze the sample complexity of meta-learning for linear regression, where samples are drawn from multiple meta-training tasks and we want to generalize to a new task with only a few data points. After introducing the setting, we will compute lower-bounds on the minimax risk using our results from Section~\ref{sec:lbounds}, revealing a $2^{d}$ scaling on the meta-training sample complexity. Following the lower bound, we derive an accompanying upper-bound on the risk of a MAP estimator, derived from an empirical Bayes estimate over a hierarchical Bayesian model. Asymptotic analysis of this bound reveals that if the observed samples from the novel task vary considerably more than the task parameters, then observing more meta-training samples may significantly improve convergence in the small $k$ regime. This is validated empirically in Section~\ref{sec:empirical}.
+
+% \begin{minipage}[t]{0.48\linewidth}
+For $i = 1...M+1$, where $M+1$ is the total number of tasks, we define,
+\begin{align*}
+\by_i      &= X_i\lregparams_i + \beps_i, &&  X_i \in \bbR^{n_i \times d}, \by_i \in \bbR^{n_i}, \beps_i \in \bbR^{n_i} \\
+\beps_i &\sim \mathcal{N}(0, \sigma^2_i I), && \sigma^2_i \in \bbR^{+}
+\end{align*}
+Each task has some design matrix $X_i$ and unknown parameters $\lregparams_i$. For simplicity, we assume known isotropic noise models and that $n_i = \nX$ for all $i\leq M$, with $n_{M+1}=\nY$.
+
+Our meta learner will fit the data using an empirical Bayes estimate in a hierarchical Bayesian model:
+\begin{align*}
+\lregparams_i = \btau + \bxi, \:\:\:\: \btau \in \bbR^{d},\:\:\:\: \bxi \in \bbR^{d},
+\:\:\:\: \bxi \sim \mathcal{N}(0, \sigma^2_\theta I),\:\:\:\: \sigma^2_\theta \in \bbR^{+}
+\end{align*}
+
+% \end{minipage}\hfill%
+% \begin{minipage}[t]{0.48\linewidth}
+% \centering
+%     \strut\vspace*{-\baselineskip}\newline
+%     \begin{tikzpicture}[
+%     roundnode/.style={circle, draw=gray, very thick, minimum size=8mm},
+%     observednode/.style={circle, draw=gray, fill=gray!25, very thick, inner sep=2pt},
+%     ]
+%     %Nodes
+%     \node[roundnode]        (tau)                              {$\tau$};
+%     \node[roundnode]        (thetax)       [below left=0.8cm and 1.2cm of tau] {$\btheta_1$};
+%     \node[roundnode]        (thetay)       [below right=0.8cm and 1.2cm of tau] {$\btheta_2$};
+%     \node[observednode]     (x1)       [below left=0.8cm and 0.5cm of thetax] {$\by^{(1)}_1$};
+%     \node[observednode]     (xn)       [below right=0.8cm and 0.5cm of thetax] {$\by^{(n)}_1$};
+%     \node[observednode]     (y1)       [below left=0.8cm and 0.5cm of thetay] {$\by^{(1)}_2$};
+%     \node[observednode]     (yk)       [below right=0.8cm and 0.5cm of thetay] {$\by^{(k)}_2$};
+     
+%     %Lines
+%     \draw[->] (tau) -- (thetax);
+%     \draw[->] (tau) -- (thetay);
+%     \draw[->] (thetax) -- (x1.north);
+%     \path (x1) -- node[auto=false]{\ldots} (xn);
+%     \draw[->] (thetax) -- (xn.north);
+%     \draw[->] (thetay) -- (y1.north);
+%     \path (y1) -- node[auto=false]{\ldots} (yk);
+%     \draw[->] (thetay) -- (yk.north);
+    
+%     \end{tikzpicture}
+%     \captionof{figure}{A simple two-task hierarchical model.}
+%     \label{fig:hierachical_gaussian_model}
+% \end{minipage}
+
+
+
+We will consider the Maximum a Posterior estimator,
+\[\bestimatorNovel = \argmax_{\thetaY}p(\thetaY|\by_1,\ldots,\by_{M+1}),\]
+and will characterize its risk, $\bbE[\norm{\bestimatorNovel~-~\thetaY}_2^2]$, where the expectation is with respect to sampled data only. The posterior distribution under the Empirical Bayes estimate for $\btau$ is given in Appendix~\ref{app:proofs:ubounds}. The derivation is standard but dense and we recommend dedicated readers to consult \citet{gelman2013bayesian}, or an equivalent text, for more details.
+
+\subsection{Minimax lower bounds}
+
+We now compute lower bounds for parameter estimation with meta-learning over multiple linear regression tasks.
+% To do so, we first formalize this setting using the terminology and notation of prior sections.
+Beginning with a definition of the space of data generating distributions,
+\[\calP_{LR} = \{ p_{\lregparams}(\by) = \calN(X\lregparams, \sigma^2 I): \lregparams \in \bball_2(1), X \in \bbR^{n \times d}. \} \]
+
+where $\lregparams$ are the parameters to be learned, and $X$ is the design matrix of each linear regression task in the environment.
+% We say this in the section above
+%For simplicity, we assume here that all distributions share the same, known, isotropic noise model, $\sigma I$ and that the number of data points per task is equal, $n_i = n$ for all $i < M+1$.
+We write $\gamma = \max_{i} \sigma_{\max}(X_i/\sqrt{n})$, which we assume is bounded for all $X$ and $n$ (an assumption that is validated for random Gaussian matrices by \citet{raskutti2011minimax}).
+
+\begin{restatable}[Meta linear regression lower bound]{theorem}{mlreglbound}\label{thm:mlreg_lower_bound}
+Consider $\calP_{LR}$ defined as above and let $\lossfn(a,b) = (\norm{a-b}_2)^2$. If $d \geq 2$ and $2^{-d}M + kn^{-1} \geq \max\{\frac{d}{4\beta}, d\sigma^2/(256\gamma^2 n)$, then,
+\[R^*_{\calP_{LR}}(\beta) \geq O\left(\frac{d\sigma^2}{\gamma^2 (2^{-d}\nX M + \nY)}\right) \]
+\end{restatable}
+
+The proof is given in Appendix~\ref{app:proofs:linear_lower}. We see that the size of the meta-training set has an inverse exponential scaling in the dimension, $d$. This reflects the complexity of the space growing exponentially in dimensions and the need for a matching growth in data size to cover the environment sufficiently.
+
+\subsection{Minimax upper bounds}
+
+To compute upper bounds on the estimation error, we require an additional assumption. Namely, we will assume that the design matrices also have bounded minimum singular values, $0 < s \leq \sigma_{\min}(X/\sqrt{n})$ (see \citet{raskutti2011minimax} for some justification). For the upper-bounds, we allow the bounds on the singular values of the design matrices and the observation noise in the novel task to be different than those in the meta-training tasks. We note that we can still recover the setting assumed in the lower bounds, where all tasks match on these parameters, as a special case.
+
+The learner observes $\nX$ data points from each linear regression model in $\{ P_{\lregparams_1}, \ldots, P_{\lregparams_M} \} \subset \calP$. We then bound the error of estimating $\lregparams_{M+1}$, for which $\nY$ samples are available.
+
+The expected error rate of the MAP estimator can be decomposed as the posterior variance and bias squared. In the appendix we provide a detailed derivation of these results. The bound depends on dimensionality $d$, the observation noise in each task $\sigma^2_i$, the number of tasks $M$, the number of data points in each meta-training task $n$, and the number of data points in the novel task $k$.
+
+\begin{restatable}[Meta Linear Regression Upper Bound]{theorem}{mlrbv}\label{thm:lregression_bias_variance}
+Let $\thetaEst$ be the maximum-a-posteriori estimator, $\muPosTheta$. Then,
+\[ R^*_{\calP_{LR}} \leq \sup_{\btheta_1,\ldots,\thetaY \in \bball_2(1)}\bbE[\Vert\thetaEst - \thetaY\Vert^2] \leq O\Bigl(\dim \sigma^2_{M+1} C(M, \nX, \nY)^{-2} D(M, \nX, \nY)\Bigr) \]
+where,
+\[C(M, \nX, \nY) = \left[ \nY + 
+\frac{M\nX}{\frac{\nX (M +\condX^2)\sminY^2}{\alphaY} + A} \right], \textrm{ and,  }D(M, \nX, \nY) = \left[ \nY + \frac{M\nX}{ 
+(\frac{\nX}{\LLConst} + \MMConst ) 
+(\frac{M\nX}{\LLLConst} + \MMMConst)}\right].\]
+Expectations are taken over the data conditioned on $\lregparams_1,\ldots,\lregparams_{M+1}$. Additional terms not depending on $d,\:M,\:\nX,\:\nY$ are defined in Appendix~\ref{app:proofs:ubounds}.
+\end{restatable}
+
+While the bounds presented in Theorem~\ref{thm:lregression_bias_variance} are relatively complicated, we can probe the asymptotic convergence of the MAP estimator to the true task parameters, $\thetaY$. In the following section, we will discuss some of the consequences of this result and its implications for our lower bounds.
+
+\subsection{Asymptotic behavior of the MAP estimator} 
+
+We first notice that when $k$ is small, the risk cannot be reduced to zero by adding more meta-training data. Recent work has suggested such a relationship may be inevitable \citep{hanneke2020no}. Our lower bound presented in Corollary~\ref{thm:env_lower_bound_asymp} agrees that more samples from a small number of meta-training tasks will not reduce the error to zero. However, 
+unlike our lower bounds
+based on local packing, the lower bounds presented in this section predict that if the meta-training tasks cover the space sufficiently then an optimal algorithm might hope to reduce the error entirely with enough samples. We hypothesize that this gap is due to limitations in the standard proof techniques we utilize for the lower-bounds when the number of tasks grows, and expect a sharper bound may be possible.
+
+To emulate the few-shot learning setting where $k$ is relatively small, we consider $n \rightarrow \infty$, with $k$ and $M$ fixed. In this case, the risk is bounded as,
+\[\sup_{\btheta_1,\ldots,\thetaY \in \bball_2(1)}\bbE[\Vert\thetaEst - \thetaY\Vert^2] \leq O\left(\dim \sigma^2_{M+1}\left[k + \frac{2\alpha_2 M}{M + \condX^2} \right]^{-1}\right),\]
+where $\alpha_2 = \smaxCY / \smaxP$, is the ratio of the observation noise to the variance in sampling $\btheta$, and $\condX$ is the condition number of the design matrices. This leads to a key takeaway: if the observed samples from $P_{M+1}$ vary considerably more than the parameters $\btheta$, then observing more samples in $\envS$ will significantly improve convergence towards the true parameters in the small $k$ regime. Further, adding more tasks (increasing $M$) also improves these constant factors by removing the dependence on the condition number, $\kappa$.
+
+
+

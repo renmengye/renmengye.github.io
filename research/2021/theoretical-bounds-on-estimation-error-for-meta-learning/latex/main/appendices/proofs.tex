@@ -1,0 +1,188 @@
+
+\section{Lower Bound Proofs}
+\label{app:proofs}
+
+We will make use of several standard results below, which we present here.
+
+\begin{lemma}\textbf{Fano's Inequality \citep{fano1961transmission, cover2012elements} }\label{lemma:fano}
+For any estimator $\hat{Y}$ of a random variable $Y$ such that $Y \rightarrow Z \rightarrow \hat{Y}$ forms a Markov chain, it holds that,
+\[
+\bbP(\hat{Y} \neq Y) \geq \dfrac{H(Y|Z) - 1}{\log_2 |Y|} = \dfrac{H(Y) - I(Y;Z) - 1}{\log_2 |Y|}.
+\]
+\end{lemma}
+
+\begin{lemma}\textbf{Mutual information equality \citep{khas1979lower}}\label{lemma:mi_ineq}
+Consider random variables $Z_1, Z_2, Y$, then,
+\[I(Y; (Z_1,Z_2)) + I(Z_1;Z_2) = I(Z_1; (Z_2, Y)) + I(Z_2; Y)\]
+\end{lemma}
+
+\begin{lemma}\textbf{Local packing lemma \citep{loh2017lower}}\label{lemma:local_packing}
+Consider distributions $P_1,\ldots,P_J \in \calP$. Let $Y$ be a random variable distributed uniformly on $[J]$ and let $Z|\{Y=j\}$ be a vector of $k$ \iid samples from $P_{j}$. Then,
+\[
+I(Y;Z) \leq \frac{k}{J^2} \sum_{1 \leq i,j \leq J} \KL{P_i}{P_j}.
+\]
+\end{lemma}
+We will require a novel local packing bound for the novel-task risk, which we present in Lemma~\ref{lemma:env_local_mixture_packing}.
+
+\subsection{IID Lower Bound}\label{app:proofs:lbounds}
+
+We first prove the \iid result, which will serve as a guide for our novel lower bounds.
+
+\iidlbound*
+
+\begin{proof}
+First, notice that,
+\[
+\sup_{P \in \calP}\iidexploss \geq \dfrac{1}{J}\sum_{i=1}^J \bbE_{S\sim P_i^k}\left[ \loss{}{S}{P_i} \right].
+\]
+
+Now define the decision rule,
+\[f(S) = \argmin_{1\leq j \leq J}\metricfn(\estimator(S), \theta_{P_j})],\]
+with ties broken arbitrarily. We proceed by bounding the expected loss. First, using Markov's inequality,
+\begin{align*}
+\bbE_{S\sim P_i^k}\left[ \loss{}{S}{P_i} \right] &\geq \monofn(\delta)\bbP_{S\sim P^k_i}\left[\monofn(\metricfn(\estimator(S), \theta_{P_i})) \geq \monofn(\delta) \right], \\
+&= \monofn(\delta)\bbP_{S\sim P^k_i}\left[\metricfn(\estimator(S), \theta_{P_i}) \geq \delta \right].
+\end{align*}
+
+Next, consider the case $\metricfn(\estimator(S), \theta_{i})) < \delta$. Through the triangle inequality,
+\begin{align*}
+    \metricfn(\estimator(S), \theta_{P_j}) &\geq \metricfn(\theta_{P_i}, \theta_{P_j}) - \metricfn(\estimator(S), \theta_{P_i}) \\
+    &\geq 2\delta - \delta > \metricfn(\estimator(S), \theta_{P_i})
+\end{align*}
+Thus, the probability that the distance is less than $\delta$ is at least as large as the probability that the estimator is correct.
+\[
+\monofn(\delta)\bbP_{S\sim P^k_i}\left[ \lossfn(\estimator(S), \theta_{P_i}) \geq \monofn(\delta) \right] \geq \monofn(\delta) \bbP(f(S) \neq i). 
+\]
+Now, using Fano's inequality with $Y = \pi_{M+1}$, and $\hat{Y} = f(S)$ (and the corresponding Markov chain\\$\pi_{M+1} \rightarrow S \rightarrow f(S)$), we have,
+\[
+\dfrac{1}{J}\sum_{i=1}^J \bbP(f(S) \neq i) \geq \dfrac{\log_2 J - I(\pi_{M+1}; Z) - 1}{\log_2 J}.
+\]
+Combining the above inequalities with the Local Packing Lemma gives the final result.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:env_lower_bound}}
+
+\envlbound*
+
+\begin{proof}
+As in the \iid case, we first bound the supremum from below with an average,
+\[\sup_{P'_1,\ldots,P'_{M+1} \in \calP} \exploss{(P'_{1:M})}{(P'_i)}{\envS}{\testS}
+\geq 
+\frac{1}{J}\sum^{J}_{i=1} \frac{1}{{J-1 \choose M}}\sum_{\pi|\{\pi_{M+1} = i\}}
+\bbE_{\substack{w\sim W|\pi\\z \sim Z|\pi}}\left[ \loss{w}{z}{i} \right],
+\]
+where the inner sum is over all length $M$ orderings, $\pi$ with $\pi_{M+1} = i$.
+
+As before, we consider the following estimator,
+\[f(W,Z) = \argmin_{1\leq j\leq J} \rho(\hat{\theta}_{W}(Z), \theta(P_j))\]
+
+Using Markov's inequality, and then following the proof of Theorem~\ref{thm:lower_bound}, we have,
+\begin{align*}
+    \frac{1}{J}\sum^{J}_{i=1} \frac{1}{{J-1 \choose M}}\sum_{\pi|\{\pi_{M+1} = i\}}
+\bbE_{\substack{w\sim W|\pi\\z \sim Z|\pi}}\left[ \loss{w}{z}{i} \right]
+&\geq\frac{1}{J}\sum^{J}_{i=1} \frac{1}{{J-1 \choose M}}\sum_{\pi|\{\pi_{M+1} = i\}}\monofn(\delta)\bbP[f(W,Z) \neq i\vert \pi] \\
+    &= \monofn(\delta)\bbP[f(W,Z) \neq \pi_{M+1}]
+\end{align*}
+
+with the use of Fano's inequality, we arrive at,
+\begin{align*}
+\monofn(\delta)\left(1 - \dfrac{I(\pi_{M+1}; (W,Z)) + 1}{\log_2 J}\right)
+\end{align*}
+Conditioned on $Y$, each element of $W$ and $Z$ are independent but they are not identically distributed. Thus, with the application of Lemma~\ref{lemma:mi_ineq},
+\[ I(\pi_{M+1}; (W,Z)) \leq I(\pi_{M+1};Z) + I(\pi_{M+1};W)\]
+The result follows by combining these inequalities.
+\end{proof}
+
+\paragraph{Remark}
+In the above proof of Theorem~\ref{thm:env_lower_bound}, we did not need to make use of the form of the distribution of $W|{Y=i}$, only that the correct graph structure was observed. This grants us some flexibility, which we utilize later in Section~\ref{app:mixture_lbounds} to prove lower bounds for mixture distributions.
+
+We now proceed with proofs of the corollaries of Section 4.
+
+% \envlboundloo*
+
+% \begin{proof}
+% We first observe that if $J=M+1$, then the random variable $U|\{Y=i\}$ is fixed at $[J]\setminus\{i\}$, and so each entry of $W|\{Y=i\} \stackrel{\iid}{\sim} \bar{P}_{-i}$. The result follows from Lemma~\ref{lemma:mi_ineq},
+% \[I(Y;W) = I(w_1;Y,w_2,\ldots,w_n) + I(w_2,\ldots,w_n;Y) - I(w_1;w_2,\ldots,w_n) \leq n I(V; Y).\]
+% \end{proof}
+
+\subsection{Local packing results}\label{app:proofs:lpacking}
+
+\begin{restatable}[Meta-learning local packing]{lemma}{looproductpacking}\label{lemma:env_local_product_packing}
+Consider the same setting as in Theorem~\ref{thm:env_lower_bound}, then
+\[I(\pi_{M+1}; W) \leq \frac{Mn}{J^2(J-1)} \sum_{1 \leq i,j \leq J} \KL{P_{i}}{P_{j}}\]
+\end{restatable}
+% \looproductpacking*
+
+\begin{proof}
+There are $(J-1)!/(J-M-1)!$ orderings on the first $M$ indices, given the $(M+1)^{th}$. We introduce the following notation,
+\[\bar{P}_{-i} := \frac{(J-M-1)!}{(J-1)!} \sum_{\pi|\pi_{M+1}=i} p(W|\pi) \hspace{2cm} \bar{P} := \frac{1}{J} \sum_{i=1}^{J} \bar{P}_{-i}\]
+As in previous proofs, we notice that we can write,
+\[\bar{P} = \frac{1}{J} \bar{P}_{-i} + \frac{J-1}{J} \frac{1}{J-1} \sum_{j \neq i} \bar{P}_{-j}\]
+First, note that we can upper bound $I(\pi_{M+1};W) \leq n I(\pi_{M+1};w)$, where $w$ denotes a single row in $W$. Further,
+\begin{align*}
+    I(\pi_{M+1}; w) &= \frac{1}{J}\sum_{i=1}^{J} \bbE \log \frac{\bar{P}_{-i}}{\bar{P}}\\
+    &= \frac{1}{J}\sum_{i=1}^{J} \KL{\bar{P}_{-i}}{\frac{1}{J} \bar{P}_{-i} + \frac{J-1}{J} \frac{1}{J-1} \sum_{j \neq i} \bar{P}_{-j}} \\
+    &\leq \frac{1}{J}\sum_{i=1}^{J} \frac{1}{J}\KL{\bar{P}_{-i}}{\bar{P}_{-i}} + \frac{J-1}{J} \KL{\bar{P}_{-i}}{\frac{1}{J-1} \sum_{j \neq i} \bar{P}_{-j}} \\
+    &\leq \frac{1}{J(J-1)} \sum_{1 \leq i\neq j \leq J} \KL{\bar{P}_{-i}}{\bar{P}_{-j}}
+\end{align*}
+We will use convexity of the KL divergence to upper bound this quantity. Each distribution $\bar{P}_{-i}$ is an average over a random selection of index orderings.
+
+When applying convexity, all pairs of selections that exactly match will lead to a KL divergence of zero. There are the same number of these in each component of $\bar{P}_{-i}$. Thus we care only about selections that contain either $j$ or $i$ such that matching pairs of distributions exactly is not possible. Further, we need only consider pairs of product distributions who differ only in a single, identical position.
+
+Each of the above described pairs of distributions has KL divergence equal to $\KL{P_{j}}{P_{i}}$. We conclude by counting the total number of orderings producing such pairs. First, there are $M$ choices for the index of $P_j$ and $P_i$. Then, there are $(J-2)!/(J-M-1)!$ total orderings of the remaining $M-1$ elements. Thus, we have,
+
+\begin{align*}
+I(\pi_{M+1};w) &\leq \frac{1}{J(J-1)} \sum_{1 \leq i\neq j \leq J} \KL{\bar{P}_{-i}}{\bar{P}_{-j}}\\
+&\leq \frac{1}{J(J-1)} \frac{(J-M-1)!}{(J-1)!}\frac{M(J-2)!}{(J-M-1)!} \sum_{1 \leq i\neq j \leq J} \KL{P_{j}}{P_{i}}\\
+&= \frac{M}{J(J-1)^2} \sum_{1 \leq i\neq j \leq J} \KL{P_{j}}{P_{i}}\\
+\end{align*}
+\end{proof}
+
+These results together provide an immediate proof of Corollary 1.
+
+\envlboundpacking*
+
+\begin{proof}
+Putting together the results of Theorem~1, Lemma~3, and Lemma~4, and using the fact that $\KL{P_i}{P_j} \leq \alpha$, the result follows immediately.
+\end{proof}
+
+\envlboundasymp*
+
+\begin{proof}
+This result follows as an application of the data processing inequality. Notice that $\pi_{M+1} \rightarrow \pi_{1:M} \rightarrow W$ forms a Markov chain. Thus,
+\[I(\pi_{M+1};W) \leq I(\pi_{M+1};\pi_{1:M}),\]
+by the data processing inequality. We can compute $I(\pi_{M+1};\pi_{1:M})$ in closed form:
+\[I(\pi_{M+1};\pi_{1:M}) = \log \frac{J}{J-M}.\]
+The proof is completed by plugging in the \iid local packing bound alongside the above.
+\end{proof}
+
+\subsection{Bounds using mixture distributions}\label{app:mixture_lbounds}
+
+In this section we introduce tools to lower bound the minimax risk when the meta-training set is sampled from a mixture over the meta-training tasks, $\bar{P}_{1:M} = \frac{1}{M}\sum_{i=1}^{M} P_i$. We note first that Theorem~\ref{thm:env_lower_bound} can be reproduced exactly when $W \sim \bar{P}_{1:M}$. Thus, we need only provide a local packing bound for the mixture distribution. In Lemma~\ref{lemma:env_local_mixture_packing} we provide such a lower bound for the special case where $M = J-1$, so that data is sampled from a mixture over the entire environment.
+
+\begin{restatable}[Leave-one-task-out mixture local packing]{lemma}{loopacking}\label{lemma:env_local_mixture_packing}
+Let $\calJ \subset \calP$ contain $J$ distinct distributions such that $\metricfn(\theta_{P}, \theta_{P'})~\geq~2\delta$ for all $P,P' \in \calJ$ and let $\bar{P}_{-i} = \frac{1}{J-1} \sum_{j \neq i} P_j$. Let $\pi$ be a random ordering of the $J$ elements, and define $W|\pi$ to be a vector of $n$ \iid samples from $\bar{P}_{-\pi_{M+1}}$. Then,
+\[I(\pi_{M+1}; W) \le \frac{1}{(J-1)J^2} \sum_{1 \le i,j \le J} \KL{P_i}{P_j}.\]
+\end{restatable}
+
+\begin{proof}
+From Lemma~\ref{lemma:local_packing} (and some simple arithmetic) we have,
+\begin{align*}
+I(\pi_{M+1}; W) &= \frac{1}{J} \sum_{i=1}^{J} \KL{\barP_{-i}}{\barP_{1:J}}.
+\end{align*}
+Note that by the definition of the mixture distribution,
+\[
+\barP_{1:J} = \frac{J-1}{J} \barP_{-i} + \frac{1}{J} P_i.
+\]
+Using the convexity of the KL divergence,
+\begin{align*}
+I(\pi_{M+1}; W) &= \frac{1}{J} \sum_{i=1}^{J} D_{\mathrm{KL}}\left(\barP_{-i}\Big\Vert\frac{J-1}{J} \barP_{-i}
++ \frac{1}{J} P_i\right)\\ 
+&\le \frac{1}{J} \sum_{i=1}^{J} \frac{J-1}{J} \KL{\barP_{-i}}{\barP_{-i}} + \frac{1}{J} \KL{\barP_{-i}}{P_i}\\
+&=\frac{1}{J^2} \sum_{i=1}^{J} \KL{\barP_{-i}}{P_i}\\
+&= \frac{1}{J^2} \sum_{i=1}^{J} D_{\mathrm{KL}}\left(\frac{1}{J-1}\sum_{1 \le j \le J, j \neq i} P_j \Big\Vert P_i \right)\\
+&\le \frac{1}{(J-1)J^2} \sum_{i=1}^{J} \sum_{1 \le j \le J, j \neq i} \KL{P_j}{P_i}\\
+&= \frac{1}{(J-1)J^2} \sum_{1 \le i,j \le J} \KL{P_i}{P_j}.
+\end{align*}
+Noting for the last step that the KL is zero if and only if the distributions are the same almost everywhere.
+\end{proof}

@@ -1,0 +1,196 @@
+% !TEX root = main.tex
+\DeclareMathOperator*{\argmax}{\textrm{argmax}}
+
+\newcommand{\iid}{\emph{i.i.d }}
+\newcommand{\risk}{R}
+\newcommand{\emprisk}{R_{emp}}
+
+
+\newcommand{\lossfn}{\ell}
+\newcommand{\metricfn}{\rho}
+\newcommand{\monofn}{\psi}
+
+\newcommand{\estimator}{\hat{\theta}}
+
+\newcommand{\loss}[3]{\lossfn(\estimator_{#1}(#2), \theta_{#3})}
+\newcommand{\metaloss}[3]{\lossfn\left((f(#1))(#2), \theta_{#3}\right)}
+\newcommand{\substackdata}[2]{\substack{S\sim #1^n\\\testS \sim #2^k}}
+\newcommand{\exploss}[4]{\bbE_{\substack{#3\sim #1^n\\\testS \sim #2^k}}\left[ \loss{#3}{#4}{#2} \right]}
+\newcommand{\iidexploss}{\bbE_{S\sim P^k}\left[ \loss{}{S}{P} \right]}
+\newcommand{\envexploss}[4]{\bbE_{\substack{#3\sim #1^n\\\testS \sim #2^k}}\left[ \metaloss{#3}{#4}{#2} \right]}
+
+
+\newcommand{\mixtureset}[1]{T_M^{\setminus #1}}
+
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\XX}{\bX}
+\newcommand{\YY}{\mathbf{Y}}
+
+\newcommand{\bX}{\mathbf{X}}
+
+\newcommand{\envS}{S_{1:M}}
+\newcommand{\testS}{S_{M+1}}
+
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\Varop}{\mathop{\textrm{Var}}}
+\newcommand{\argmin}{\mathop{\textrm{argmin}}}
+% \newcommand{\argmax}{\mathop{\textrm{argmax}}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbN}{\mathbb{N}}
+
+\newcommand{\KL}[2]{D_{\mathrm{KL}}\left(#1\Vert#2\right)}
+
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\bball}{\mathbb{B}}
+\newcommand{\spaceZ}{\mathcal{Z}}
+\newcommand{\spaceX}{\mathcal{X}}
+\newcommand{\spaceY}{\mathcal{Y}}
+
+\newcommand{\bvarphi}{\bm{\phi}}
+\newcommand{\btheta}{\bm{\theta}}
+
+\newcommand{\bbEop}{\mathop{\mathbb{E}}}
+\newcommand{\Covop}{\mathop{\mathrm{Cov}}}
+\newcommand{\barP}{\bar{P}}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\bignorm}[1]{\left\lVert #1 \right\rVert}
+
+
+%%% Linear regression macros
+\newcommand{\bestimator}{\bm{\estimator}}
+\newcommand{\bestimatorNovel}{\bm{\estimator}_{M+1}}
+\newcommand{\lregparams}{\btheta}
+\newcommand{\btau}{\bm{\tau}}
+\newcommand{\bxi}{\bm{\xi}}
+\newcommand{\beps}{\bm{\epsilon}}
+\newcommand{\tr}{\mathrm{Tr}}
+\newcommand{\sminX}{s_1}
+\newcommand{\sminY}{s_2}
+\newcommand{\smaxX}{\gamma_1}
+\newcommand{\smaxY}{\gamma_2}
+\newcommand{\posC}[1]{\tilde{C}_{#1}}
+\newcommand{\posCX}{\posC{1}}
+\newcommand{\nX}{{n}}
+\newcommand{\nY}{{k}}
+\newcommand{\DXi}[1]{X_{#1}}
+\newcommand{\DX}{\DXi{}}
+\newcommand{\DXP}{\DX \CTheta}
+\newcommand{\DY}{\DXi{M+1}}
+\newcommand{\Ci}[1]{\sigma_{#1}^2 I}
+\newcommand{\CX}{\sigma_1^2 I}
+\newcommand{\CY}{\CYvar I}
+\newcommand{\condX}{\kappa}
+\newcommand{\condY}{\kappa_{M+1}}
+\newcommand{\condtC}{\tilde{\kappa}}
+\newcommand{\condtau}{\kappa_\tau}
+\newcommand{\alphaX}{\alpha_1}
+\newcommand{\alphaY}{\alpha_2}
+\newcommand{\thetai}[1]{\bm{\theta}_{#1}}
+\newcommand{\thetaX}{\thetai{1}}
+\newcommand{\thetaY}{\thetai{M+1}}
+
+% For non-isotropic
+% \newcommand{\sing}{\sigma}
+% \newcommand{\smax}{{\sigma_{\max}}}
+% \newcommand{\smin}{{\sigma_{\min}}}
+
+% For isotropic
+\newcommand{\sing}{s}
+\newcommand{\smax}{{s_{\max}}}
+\newcommand{\smin}{{s_{\min}}}
+
+% For non-isotropic
+% \newcommand{\CX}{{C_1}}
+% \newcommand{\CY}{{C_2}}
+% \newcommand{\CTheta}{P}
+% \newcommand{\smaxP}{{\smax(P)}}
+% \newcommand{\sminP}{{\smin(P)}}
+% \newcommand{\smaxCX}{{\smax(\CX)}}
+% \newcommand{\smaxCY}{{\smax(\CY)}}
+% \newcommand{\sminCX}{{\smin(\CX)}}
+% \newcommand{\sminCY}{{\smin(\CY)}}
+% \newcommand{XPXT}{\DX \CTheta \DX^\top}
+% \newcommand{\XCYX}{\DY^\top \CY^{-1} \DY}
+% \newcommand{\XTCY}{\DY^\top \CY^{-1}}
+% \newcommand{\sminCYInv}{\smin(\CY)^{-1}}
+% \newcommand{\CYInv}{\CY^{-1}}
+% \newcommand{\CXs}{\sigma_1^2I}
+
+% For isotropic
+\newcommand{\sCX}{\sigma_1}
+\newcommand{\sCY}{\sigma_{M+1}}
+\newcommand{\CTheta}{{\sigma_\theta^2 I}}
+\newcommand{\smaxP}{{\sigma_\theta^2}}
+\newcommand{\sminP}{{\sigma_\theta^2}}
+\newcommand{\smaxCX}{{\sigma_1^2}}
+\newcommand{\smaxCY}{{\sigma_{M+1}^2}}
+\newcommand{\sminCX}{{\sigma_1^2}}
+\newcommand{\sminCY}{{\sigma_{M+1}^2}}
+\newcommand{\XPXT}{\sigma_\theta^2 \DX \DX^\top}
+\newcommand{\XPXTi}[1]{\sigma_\theta^2 \DXi{#1} \DXi{#1}^\top}
+\newcommand{\XTCYX}{\sigma_{M+1}^{-2} \DY^\top \DY}
+\newcommand{\XTCY}{\sigma_{M+1}^{-2} \DY^\top}
+\newcommand{\sminCYInv}{\sCY^{-2}}
+\newcommand{\CYInv}{\sCY^{-2}}
+\newcommand{\CXs}{\sigma_1^2}
+
+
+% Single Task
+% \newcommand{\sourceData}{\by^\nX_1}
+% \newcommand{\novelData}{\by^\nY_2}
+% \newcommand{\PrecPosXTauExpanded}{\DX^\top(\XPXT + \CXs I)^{-1}\DX}
+% \newcommand{\muPosXTauExpanded}{\CovPosXTau \DX^\top (\XPXT + \CXs I)^{-1}\by_1}
+
+\newcommand{\CovPosTheta}{\Sigma_{\thetaY \vert \allData}}
+\newcommand{\CovPosThetaShort}{\Sigma_{\thetaY \vert \cdots}}
+\newcommand{\muPosTheta}{\mu_{\thetaY \vert \allData}}
+\newcommand{\muPosThetaShort}{\mu_{\thetaY \vert \cdots}}
+\newcommand{\CovPosXThetaTau}{\Sigma_{\theta + \tau \vert \sourceData}}
+\newcommand{\CovPosXThetaTauShort}{\Sigma_{\theta + \tau \vert \cdots}}
+\newcommand{\CovPosXTau}{\Sigma_{\tau \vert \sourceData}}
+\newcommand{\CovPosXTauShort}{\Sigma_{\tau \vert \cdots}}
+\newcommand{\muPosXTau}{\mu_{\tau \vert \sourceData}}
+\newcommand{\muPosXTauShort}{\mu_{\tau \vert \cdots}}
+
+% Multi Task
+\newcommand{\sourceDataFull}{\by_{1},\ldots,\by_{M}}
+\newcommand{\sourceData}{Y_{1:M}}
+\newcommand{\novelData}{\by_{M+1}}
+\newcommand{\allData}{Y_{1:M+1}}
+\newcommand{\PrecPosXTauExpanded}{\sum^{M}_{i=1}\DXi{i}^\top(\XPXTi{i} + \CXs I)^{-1}\DXi{i}}
+\newcommand{\muPosXTauExpanded}{\CovPosXTau \sum^{M}_{i=1}\DXi{i}^\top (\XPXTi{i} + \CXs I)^{-1}\by_{i}}
+
+
+
+%%%%
+\newcommand{\thetaEst}{\bestimatorNovel}
+\newcommand{\CPos}{{\Sigma'}}
+\newcommand{\CPosT}{{\Sigma'_{0}}}
+\newcommand{\MConst}{A}
+\newcommand{\MMConst}{A_1}
+\newcommand{\MMMConst}{A_2}
+\newcommand{\LConst}{L}
+\newcommand{\LLConst}{L_1}
+\newcommand{\LLLConst}{L_2}
+\renewcommand{\dim}{d}
+\newcommand{\cond}{\kappa}
+\newcommand{\Normal}{\mathcal{N}}
+
+%%% Theorem statement macros
+% \theorembodyfont{\upshape}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+%\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\theoremstyle{remark}
+%\newtheorem*{remark*}{Remark}

@@ -1,0 +1,66 @@
+
+\section{Information theoretic lower bounds on novel task generalization}
+\label{sec:lbounds}
+\vspace{-0.1in}
+
+In this section, we first present our most general result: Theorem~\ref{thm:env_lower_bound}. Using this, we derive Corollary~\ref{corollary:env_lbound_packing} that gives a lower bound in terms of the sample size in the training and novel tasks. Corollary~\ref{corollary:env_lbound_packing} recovers a well-known \iid lower bound (Theorem~\ref{thm:lower_bound}) when $Mn=0$, and, importantly, highlights that the novel task data is significantly more valuable than the training task data. Additionally, we provide a specialized bound that applies when the environment is partially observed --- proving that in this setting training task data is insufficient to drive the minimax risk to zero.
+
+In Theorem~\ref{thm:env_lower_bound}, we assume that $\calP$ contains $J$ distinct $2\delta$-separated distributions but only $M+1 \leq J$ tasks are visible to the learner. Intuitively, the error rate lower-bound shrinks as the amount of information shared between the training tasks and the novel task grows.
+All proofs are given in Appendix~\ref{app:proofs:lbounds}. Recall $\lossfn(a,b) = \monofn(\metricfn(a, b))$ for non-decreasing $\monofn$ and arbitrary metric $\metricfn$.
+
+\begin{restatable}[Minimax novel task risk lower bound]{theorem}{envlbound}\label{thm:env_lower_bound}
+Let $\calJ \subset \calP$ contain $J$ distinct distributions such that $\metricfn(\theta_{P}, \theta_{P'})~\geq~2\delta$ and $\KL{P}{P'} \leq \beta$ for all $P,P' \in \calJ$. 
+Let $\pi$ be a random ordering of the $J$ elements, and $Z|\pi$ be a vector of $k$ \iid samples from $P_{\pi_{M+1}}$.
+Further, define $W|\pi$ to be an $n \times M$ matrix whose $j^{th}$ column consist of $n$ \iid samples from $P_{\pi_j}$. Then,
+\begin{align*}
+R^*_\calP(\beta) \geq
+\monofn(\delta)\left(1 - \dfrac{I(\pi_{M+1}; W) + I(\pi_{M+1};Z) + 1}{\log_2 J}\right).
+\end{align*}
+\end{restatable}
+Note that $\delta$ is a property of the so-called packing set, $\calJ$, and may depend on the sample size, $\beta$, and other properties of $\calP$. For example, practical instances of this bound typically require $\monofn(\delta) = O(1/k)$ or similar, as in Theorem~\ref{thm:mlreg_lower_bound} below.
+To derive this result, we bound the statistical estimation error by the error on a corresponding decoding problem where we must predict the novel task index, given the meta-training set $\envS$ and $\testS$. Fano's inequality provides best-case error rates for this problem.
+
+% \input{main/kl_packing}
+
+% Combining Theorem~\ref{thm:env_lower_bound}, Lemma~\ref{lemma:env_local_product_packing}, and a standard \iid local packing bound on $I(\pi_{M+1}; Z)$ (Lemma~\ref{lemma:local_packing}, Appendix~\ref{app:proofs}) we recover a bound on the novel-task minimax risk that depends on the number of tasks and datapoints per task.
+Using Theorem~\ref{thm:env_lower_bound}, we derive our first bound on the novel-task minimax risk that depends on the number of meta-training tasks ($M$) and datapoints per training task ($n$, $k$), via a local-packing argument. The following corollary implies that if we have $J$ meta-training tasks in our $2\delta$-packing that are close
+(in terms of their pairwise KL distance), then learning a novel task from training samples drawn
+from the meta-training tasks requires significantly more examples; in particular, learning the novel task from samples drawn from the
+meta training set requires  $\Omega(J)$ times the sample complexity of the novel task. This matches our intuition that learning the novel task implies the ability to distinguish it from all $J$ well-separated meta-training tasks.
+\begin{restatable}[]{corollary}{envlboundpacking}\label{corollary:env_lbound_packing}
+Assume the same setting as in Theorem~\ref{thm:env_lower_bound}. Then,
+\begin{align*}
+R^*_\calP(\beta) \geq \monofn(\delta) \left(1 - \dfrac{1 + \left(\frac{Mn}{(J-1)} + k\right)\frac{1}{J^2}\sum_{1 \leq i,j \leq J}\KL{P_i}{P_j}}{\log_2 J}\right).
+\end{align*}
+\end{restatable}
+
+\paragraph{A tighter bound on partially observed environments} We now consider the special case of Theorem~\ref{thm:env_lower_bound} when $M < J-1$, meaning that the meta-training tasks cannot cover the full packing set. In this setting, we prove that no algorithm can generalize perfectly to tasks in unseen regions of the space with small $k$, regardless of the number of data points $n$ observed in each meta-training task.
+
+\begin{restatable}[]{corollary}{envlboundasymp}\label{thm:env_lower_bound_asymp}
+Assume the same setting as in Theorem 1, with $M+1 < J$. Then,
+\begin{align*}
+R^*_\calP \geq \monofn(\delta)\left(\dfrac{\log_2 (J - M) - \frac{k}{J^2}\sum_{1 \leq i,j \leq J}\KL{P_i}{P_j} - 1}{\log_2 J}\right).
+\end{align*}
+\end{restatable}
+
+In this work, we have focused on the setting where $W$ contains an equal number of samples from each of the meta-training tasks --- this is the sampling scheme shown in Figure~2. However, it is possible to extend these results to different sampling schemes for $W$. For example, in the appendix we derive bounds with $W|\pi$ as a mixture distribution. Surprisingly, despite task identity being hidden from the learner, the asymptotic rate for these two sampling schemes match.
+
+\subsection{Measuring Task-Relatedness}
+
+The use of local packing requires the design of an appropriate set of distributions whose corresponding parameters are $2\delta$-separated but maintain small KL divergences. In the multi-task setting such an assumption is intuitively reasonable: challenging tasks should require separated parameters for ideal explanations ($2\delta$-separated) but should satisfy some relatedness measure (small KL). Importantly, these parameters can depend on sample size and other problem-specific variables. As we will see shortly, lower bounds on minimax risk in the \iid setting may also assume the same notion of relatedness for the local-packing in $\calP$.
+
+Task relatedness is a necessary feature for upper-bounds on novel task generalization, but are typically difficult to define (see e.g. \citet{ben2008notion}). Our lower bounds utilize a relatively weak notion of task-relatedness, and thus may be overly pessimistic compared to the upper bounds computed in existing work. However, task relatedness of this form can be formulated in a representation space shared across tasks and thus can be applied in settings like those explored by e.g. \citet{du2020few}. Deriving lower bounds under the different task relatedness assumptions present in the literature would make for exciting future work.
+
+\subsection{Comparison to risk of \iid learners}
+
+From the statement of Theorem~\ref{thm:env_lower_bound} it is not clear how this lower-bound compares to that of the \iid learner which has access only to the $k$ samples from $\testS$.
+To investigate the benefit of additional meta-training tasks, we compare our derived minimax risk lower bounds to those achieved by \iid learners. To do so, we revisit standard minimax lower bounds that can be found in e.g. \citet{loh2017lower}. 
+
+\begin{restatable}[IID minimax lower-bound]{theorem}{iidlbound}\label{thm:lower_bound}
+Suppose $\{P_1,\dots,P_J\} \subseteq \calP$ satisfy $\metricfn(\theta_{P_i}, \theta_{P_j}) \geq 2\delta$ for all $i\neq j$. Then,
+\begin{align*}
+R^* \geq \monofn(\delta)\left(1 - \dfrac{\frac{k}{J^2}\sum_{1 \leq i,j \leq J}\KL{P_i}{P_j} + 1}{\log_2 J}\right).
+\end{align*}
+\end{restatable}
+
+We include a proof of this result in Appendix~\ref{app:proofs:lbounds}, using local-packing as in our meta-learning bounds. As hoped, Corollary~\ref{corollary:env_lbound_packing} recovers Theorem~\ref{thm:lower_bound} when there are no training tasks available. Moreover, this \iid bound is strictly larger than the one computed in Corollary~\ref{corollary:env_lbound_packing} in general. Note that while this \iid minimax risk is asymptotically tight for several learning problems \citep{loh2017lower, raskutti2011minimax}, there is no immediate guarantee that the same is true for our meta-learning minimax bounds. We investigate the quality of these bounds by providing comparable upper bounds in the next section.

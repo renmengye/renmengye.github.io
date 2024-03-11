@@ -1,0 +1,183 @@
+% !TEX root = ../main.tex
+\subsection{Posterior estimate}
+\begin{align}
+p(\tau \vert y_1^{\nX}) &= \Normal(\muPosXTau, \CovPosXTau),\\
+\CovPosXTau &= (\DX^\top \posCX^{-1} \DX)^{-1}, \\
+\muPosXTau &= \Sigma_{\tau \vert y_1^n} \DX^\top \posCX^{-1} y_1\\
+\posCX &= \textrm{Cov}(\DX\xi + \epsilon) = \DXP\DX^\top + \CX
+\end{align}
+\begin{align}
+p(\thetaY \vert y_1^{\nX}, y_2^{\nY}) &= \Normal(\muPosTheta, \CovPosTheta),\\
+\CovPosXThetaTau &= \CTheta + \Sigma_{\tau \vert y_1^n} \\
+\CovPosTheta &= (\DY^\top \CY^{-1} \DY + \CovPosXThetaTau^{-1})^{-1}\\
+\muPosTheta &= \CovPosTheta (\DY^\top \CY^{-1} y_2 + \CovPosXThetaTau^{-1} \muPosXTau)
+\end{align}
+
+\subsection{Upper bound}
+First the identity for multivariate case:
+\begin{align}
+\bX &= [\DX, \dots, X_m]^\top \\
+\Covop[\bX \bX^\top] &= \bbE[(\bX - \bbE \bX) (\bX - \bbE \bX)^\top] \\
+&= \bbE[\bX \bX^\top] - \bbE[\bX] \bbE[\bX]^\top
+\end{align}
+
+Bias and variance decomposition:
+\begin{align}
+\hat{\thetaY} &= \mu_{\theta \vert y_1^n, y_2^k} \\
+\bbE[\norm{ \thetaEst - \thetaY }^2]  
+&= \bbE[\tr( (\thetaEst - \thetaY) (\thetaEst - \thetaY)^\top)] \\
+&= \tr( \bbE [(\thetaEst - \thetaY) (\thetaEst - \thetaY)^\top] ) \\
+&= \tr( \Covop [(\thetaEst - \thetaY), (\thetaEst - \thetaY)] + 
+\bbE[(\thetaEst - \thetaY)]\bbE[(\thetaEst - \thetaY)]^\top) \\
+&= \tr( \Covop [\thetaEst, \thetaEst]) + 
+\tr( \bbE[(\thetaEst - \thetaY)] \bbE[(\thetaEst - \thetaY)]^\top )
+\end{align}
+
+Let 
+\begin{itemize}
+\item $\smin(\DX / \sqrt{\nX}) = \sminX$
+\item $\smin(\DY / \sqrt{\nY}) = \sminY$
+\item $\smax(\DX / \sqrt{\nX}) = \condX \sminX$
+\item $\smax(\DY / \sqrt{\nY}) = \condY \sminY$
+\item $\alphaX = \smaxCX / \smaxP$
+\item $\alphaY = \smaxCY / \smaxP$
+\end{itemize}
+
+We proceed by bounding terms in the variance of the estimator.
+
+\begin{align}
+\smax(\CPos) &= \smax(\CovPosTheta) \\
+&= \smax((\DY^\top \CY^{-1} \DY + \CovPosXThetaTau^{-1})^{-1}) \\
+&= 1/\smin(\DY^\top \CY^{-1} \DY + \CovPosXThetaTau^{-1}) \\
+&\leq 1/(\smin(\DY^\top \CY^{-1} \DY) + \smin(\CovPosXThetaTau^{-1})) \\
+&= 1/(\smin(\DY^\top \CY^{-1} \DY) + 1/\smax(\CovPosXThetaTau)) \\
+&\leq 1/(\smin(\DY^\top \CY^{-1} \DY) + 1/(\smaxP + \smax^2((\DX^\top \posCX^{-1} \DX)^{-1}))) \\
+&= \left[ \smin(\DY^\top \CY^{-1} \DY) + \frac{1}{\smaxP + \smax((\DX^\top \posCX^{-1} \DX)^{-1})}\right]^{-1} \\
+&\le \left[ \smin(\CY^{-1})\smin(\DY^\top \DY) + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top \posCX^{-1} \DX)}}\right]^{-1} \\
+&= \left[ \frac{\smin(\DY^\top \DY)}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top \posCX^{-1} \DX)}} \right]^{-1} \\
+&\le \left[ \frac{\nY\smin^2(\DY/\sqrt{\nY})}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top \posCX^{-1} \DX)}} \right]^{-1} \\
+&\le \left[\frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top (\DXP\DX^\top + \CX)^{-1} \DX)}}\right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top (\DXP\DX^\top + \CX)^{-1} \DX)}} \right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{1}{\smin(\DX^\top \DX) \smin((\DXP\DX^\top + \CX)^{-1})} } \right]^{-1} \\
+&= \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP + \frac{\smax(\DXP\DX^\top + \CX)}{\smin(\DX^\top \DX)}} \right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP +\frac{\smax(\DXP\DX^\top) +\smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&\le \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP +\frac{\smaxP\smax(\DX\DX^\top) + \smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&= \left[ \frac{\nY\sminY^2}{\smaxCY} + \frac{1}{\smaxP +\frac{\smaxP\nX \sminX^2 \condX^2 + \smaxCX}{\nX \sminX^2}} \right]^{-1} \\
+&=\smaxCY
+\left[ \nY\sminY^2 + 
+\frac{\nX}{\frac{\nX (1+\condX^2)}{\alphaY} + \frac{\alphaX}{\sminX^2 \alphaY}} \right]^{-1} \\
+&=\frac{\smaxCY}{\sminY^2}
+\left[ \nY + 
+\frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-1},
+\end{align}
+where $\LConst = \frac{\alphaY}{(1 + \condX^2)\sminY^2}$, $\MConst = \frac{\sminY^2 \alphaX}{\sminX^2 \alphaY}$.
+
+Let $\CPos = \CovPosTheta, \CPosT = \CovPosXThetaTau$.
+\begin{align}
+\tr(S(\thetaEst)) &= \tr(\Covop [\thetaEst, \thetaEst]) \\
+&=\tr(S(\CPos (\DY^\top \CY^{-1} y_2 + {\CPosT}^{-1} \muPosXTau)))\\
+&=\tr(S(\CPos \DY^\top \CY^{-1} y_2) + S(\CPos {\CPosT}^{-1}  \muPosXTau))\\
+&=\tr(\CPos \DY^\top \CY^{-1} S(y_2) \CY^{-1} \DY \CPos + S(\CPos {\CPosT}^{-1} \muPosXTau))\\
+&=\tr(\CPos \DY^\top \CY^{-1} \CY \CY^{-1} \DY \CPos + S(\CPos {\CPosT}^{-1} \muPosXTau))\\
+&=\tr(\CPos \DY^\top \CY^{-1} \DY \CPos) + \tr(S(\CPos {\CPosT}^{-1} \muPosXTau))\\
+\end{align}
+
+\begin{align}
+\tr(\CPos \DY^\top \CY^{-1} \DY \CPos) &= \tr( \CY^{-1} \DY \CPos\CPos \DY^\top)\\
+&\le \smin(\CY)^{-1} \tr(\DY \CPos\CPos \DY^\top)\\
+&\le \smin(\CY)^{-1} \smax(\CPos)^2 \tr(\DY^\top \DY)\\
+&\le \smin(\CY)^{-1} \smax(\CPos)^2 \nY \min(\nY, \dim) \smax^2(\DY/\sqrt{\nY}) \\
+&= \smax(\CPos)^2 \nY \min(\nY, \dim) \sminY^2 \condY^2 \smin(\CY)^{-1}
+\end{align}
+
+\begin{align}
+\smax^2(\CovPosXThetaTau^{-1} \CovPosXTau)
+&= \smax^2(\CovPosXThetaTau^{-1}\CovPosXTau) \\
+&\le \smax^2(\CovPosXThetaTau^{-1}) \smax^2(\CovPosXTau) \\
+&= \smin^{-2}(\CovPosXThetaTau) \smax^2(\CovPosXTau) \\
+&= \smin^{-2}(\CTheta + \CovPosXTau) \smax^2(\CovPosXTau) \\
+&\le \frac{\smax(\CovPosXTau)^2}{(\sminP + \smin(\CovPosXTau))^2} \\
+&\le \frac{\smax(\CovPosXTau)^2}{2\sminP\smin(\CovPosXTau) + \smin(\CovPosXTau)^2} \\
+&\le \frac{1}{\frac{2\sminP}{\smax(\CovPosXTau) \condtau} + \frac{1}{\condtau^2}} \\
+\end{align}
+
+\begin{align}
+\smax(\CovPosXTau) &= \frac{1}{\smin(\DX^\top \posCX^{-1} \DX)} \\
+&\le \frac{\smax(\posCX)}{\smin(\DX^\top \DX)} \\
+&= \frac{\smax(\posCX)}{\nX \sminX^2}
+\end{align}
+
+Condition numbers:
+\begin{align}
+\condtC &= \cond(\posCX) = \cond(\DX^\top \CTheta \DX + \CX) 
+\le \cond(\DX^\top \CTheta \DX) \le \cond(\DX^\top \DX) \cond(\CTheta) = \condX^2,\\
+\condtau &= \cond(\CovPosXTau) \le \cond(\DX^\top \DX) \cond(\posCX) = \condX^2 \condtC \le \condX^4
+\end{align}
+
+\begin{align}
+\smax^2(\CovPosXThetaTau^{-1} \CovPosXTau)
+&\le \frac{1}{\frac{2\sminP\nX \sminX^2}{\smax(\posCX) \condtau} + \frac{1}{\condtau^2}} \\
+&= D_1
+\end{align}
+
+\begin{align}
+\smax(\CX \posCX^{-1}) &= \frac{\smaxCX}{\smin(\DX \CTheta \DX^\top + \CX)} \\
+&\le\frac{\smaxCX}{\smin(\DX \CTheta \DX^\top) + \smin(\CX)}\\
+&\le\frac{\smaxCX}{\nX\sminX^2 \sminP + \smin(\CX)}\\
+&=\frac{1}{ \frac{\nX\sminX^2}{\alphaX} + 1} = D_2
+\end{align}
+
+\begin{align}
+& \ \ \ \ \ \tr(\CPos \CPosT^{-1} S(\muPosXTau) \CPosT^{-1} \CPos) \\
+&=\tr(\CPos \CPosT^{-1} S(\CovPosXTau \DX^\top \posCX^{-1} y_1) \CPosT^{-1} \CPos)\\
+&=\tr(\CPos \CPosT^{-1} \CovPosXTau \DX^\top \posCX^{-1} S(y_1) \posCX^{-1} \DX \CovPosXTau \CPosT^{-1} \CPos)\\
+&=\tr(\CPos \CPosT^{-1} \CovPosXTau \DX^\top \posCX^{-1} \CX \posCX^{-1} \DX \CovPosXTau \CPosT^{-1} \CPos) \\
+& \le \smax(\CPos)^2 \smax^2(\CovPosXThetaTau^{-1} \CovPosXTau) \smaxCX \tr(\DX^\top \posCX^{-1} \posCX^{-1} \DX)\\
+& \le \smax(\CPos)^2 D_1 D_2 \tr(\DX^\top \DX) \smax(\posCX^{-1})\\
+& \le \smax(\CPos)^2 D_1 D_2 \min(\nX,\dim) \nX \smax(\posCX^{-1})\\
+& \le \smax(\CPos)^2 D_2 \frac{\min(\nX,\dim) \nX}{\frac{2\sminP\nX \sminX^2 \smin(\posCX)}{\smax(\posCX)\condtau} + \frac{\smin(\posCX)}{\condtau^2}} \ \\
+& \le \smax(\CPos)^2 D_2 \frac{\min(\nX,\dim) \nX}{\frac{2\sminP\nX \sminX^2 \smin(\posCX)}{\smax(\posCX)\condtau} + \frac{\sminCX}{\condtau^2}} \ \\
+& \le \smax(\CPos)^2 D_2 \frac{\min(\nX,\dim) \nX}{\sCY^2} \frac{1}{\frac{2 \nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminCX^2 \alphaY}} \ \\
+& \le  \frac{\smax(\CPos)^2}{\sCY^2}  \frac{\nX \dim}{ \frac{\nX\sminX^2}{\alphaX} + 1}  \frac{1}{\frac{2 \nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminX^2 \alphaY}}
+\end{align}
+
+\begin{align}
+\tr(S(\thetaEst))
+& \le \frac{\smax(\CPos)^2}{\sCY^2}
+(\nY \dim \sminY^2 \condY^2  + 
+\frac{\nX \dim}{ \frac{\nX\sminX^2}{\alphaX} + 1} \frac{1}{\frac{2 \nX}{\condtC \condtau \alphaY} + \frac{\alphaX}{\condtau^2 \sminX^2 \alphaY}})\\
+& \le \frac{\smax(\CPos)^2 \sminY^2 \condY^2}{\sCY^2}
+(\nY \dim + 
+\frac{\nX \dim}{ \frac{\nX\sminX^2\sminY^2 \condY^2}{\alphaX} + \sminY^2 \condY^2} \frac{1}{\frac{2 \nX \sminY^2 \condY^2}{\condtC \condtau \alphaY} + \frac{\alphaX \sminY^2 \condY^2}{\condtau^2 \sminX^2 \alphaY}})\\
+& \le \frac{\condY^2 \sCY^2}{\sminY^2} \left[ \nY + \frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-2} 
+\left[ \nY \dim + \frac{\nX \dim}{ 
+(\frac{\nX\sminX^2\sminY^2 \condY^2}{\alphaX} + \sminY^2 \condY^2 ) 
+(\frac{2 \nX \sminY^2 \condY^2}{\condtC \condtau \alphaY} + \frac{\alphaX \sminY^2 \condY^2}{\condtau^2 \sminX^2 \alphaY})} \right]\\
+& \le \frac{\condY^2 \sCY^2}{\sminY^2} \dim \left[ \nY + \frac{\nX}{\frac{\nX}{\LConst} + \MConst} \right]^{-2} 
+\left[ \nY + \frac{\nX}{ 
+(\frac{\nX}{\LLConst} + \MMConst ) 
+(\frac{\nX}{\LLLConst} + \MMMConst)} \right]
+\end{align}
+
+Bias term:
+\begin{align}
+\bbE[(\thetaEst - \thetaY)] &= \bbE \muPosTheta - \thetaY\\
+&= \CovPosTheta \bbE (\DY^\top \CY^{-1} y_2 + \CovPosXThetaTau^{-1} \muPosXTau) - \thetaY \\
+&= \CovPosTheta (\DY^\top \CY^{-1} \DY \thetaY + \CovPosXThetaTau^{-1} \muPosXTau) -\thetaY\\
+&= (\DY^\top \CY^{-1} \DY + \CovPosXThetaTau^{-1})^{-1}(\DY^\top \CY^{-1} \DY \thetaY + \CovPosXThetaTau^{-1} \muPosXTau) - \thetaY \\
+&= (A+B)^{-1} (A \thetaY + B \muPosXTau) - \thetaY\\
+&= (A+B)^{-1} A \thetaY - (A+B)^{-1} (A + B) \thetaY + (A+B)^{-1} B \muPosXTau\\
+&= (A+B)^{-1} B (\muPosXTau- \thetaY)
+\end{align}
+
+\begin{align}
+\tr(\bbE[(\thetaEst - \thetaY)]\bbE[(\thetaEst - \thetaY)]^\top) &= 
+\tr( (A+B)^{-1} B (\thetaY - \muPosXTau) (\thetaY - \muPosXTau) ^\top B^\top (A+B)^{-1 \top})\\
+&= \dim \smax^2((A+B)^{-1} B)\\ 
+&= \dim \smax^2((\DY^\top \CY^{-1} \DY + \CovPosXThetaTau^{-1})^{-1}\CovPosXThetaTau^{-1}) \\
+&\le \dim \smax(\CPos)^2 \smax^2(\CovPosXThetaTau^{-1})  \\
+&\le \dim \smax(\CPos)^2 \smax^2((\CTheta + \CovPosXTau)^{-1}) \\
+&\le \dim \smax(\CPos)^2 [\smin^2(\CTheta + \CovPosXTau)]^{-1} \\
+&\le \dim \smax(\CPos)^2 \sminP^{-2} \\
+&\le O\left(\dim \left[ \nY + \frac{\nX}{\frac{\nX}{L} + \MConst} \right]^{-2}\right)
+\end{align}

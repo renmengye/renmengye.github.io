@@ -1,0 +1,35 @@
+% !TEX root = main.tex
+\section{Novel task environment risk}
+\label{sec:minimax_setting}
+% \vspace{-0.1in}
+Most existing theoretical work studying out-of-distribution generalization focuses on providing upper-bounds on generalization performance \citep{ben2010theory, pentina2014pac, amit2017meta}. We begin by instead exploring the converse: what is the best performance we can hope to achieve on any given task in the environment? After introducing notation and minimax risks, we then show how these ideas can be applied, using meta linear regression as an example.
+%problem.
+
+A full reference table for notation can be found in Appendix~\ref{app:notation} and a short summary is given here.
+We consider algorithms that learn in an environment $(\spaceZ, \calP)$, with data domain $\spaceZ = \spaceX \times \spaceY$ and $\calP$ a space of distributions with support $\spaceZ$. In the typical \iid setting, the algorithm is provided training data $S \in \spaceZ^k$, consisting of $k$ \iid samples from $P \in \calP$. 
+
+In the standard {\it multi-task} setting, we sample training data from a set of training tasks $\{P_1,\ldots,P_{M+1}\} \subset \calP$.
+We extend this to a meta-learning, or {\it novel-task} setting by first drawing $\envS$: $n$ training data points from the first $M$ distributions, for a total of $nM$ samples. We call this the {\it meta-training set}. We then draw a small sample of novel data,
+called a {\it support set}, $\testS \in \spaceZ^k$, from $P_{M+1}$. 
+%Throughout, we use $P^k$ to denote the %product distribution, whose samples %correspond to $k$ independent samples from %$P$.
+
+Consider a symmetric loss function $\lossfn(a,b) = \monofn(\metricfn(a, b))$ for non-decreasing $\monofn$ and arbitrary metric $\metricfn$. We seek to estimate the output of $\theta: \calP \rightarrow \Omega$, a functional that maps distributions to a metric space $\Omega$. For example, $\theta(P)$ may describe the coefficient vector of a high-dimensional hyperplane when $\calP$ is a space of linear models, and $\metricfn$ may be the Euclidean distance.
+
+\paragraph{The \iid minimax risk} Before studying the meta-learning setting, we first begin with a definition of the \iid minimax risk that measures the worst-case error of the best possible estimator,
+\begin{equation}\label{eqn:iid_risk}
+    R^* = \inf_{\estimator}\sup_{P \in \calP}\iidexploss.
+\end{equation}
+For notational convenience, we denote the output of $\theta(P)$ by $\theta_P$. The estimator for $\theta$ is denoted, $\estimator: \spaceZ^k \rightarrow \Omega$, and maps $k$ samples from $P$ to an estimate of $\theta_P$.
+
+\paragraph{Novel-task minimax risk} In the novel-task setting, we wish to estimate $\theta_{P_{M+1}}$, the parameters of the novel task distribution $P_{M+1}$.
+We consider two-stage estimators for $\theta_{P_{M+1}}$. In the first stage, the meta-learner uses a learning algorithm $f: \envS \mapsto \bestimator_{\envS}$,  that maps the meta-training set to an estimation algorithm, $\bestimator_{\envS}:~\spaceZ^k\rightarrow~\Omega$. In the second stage, the learner computes $\bestimator_{\envS}(\testS)$, the estimate of $\theta_{P_{M+1}}$.
+
+The novel-task minimax risk is given by, 
+\begin{equation}\label{eqn:novel_risk}
+    R^*_\calP(\beta) = \inf_{f} \sup_{P_1,\ldots,P_{M+1} \in \calQ^{\beta}_{\calP}} \envexploss{P_{1:M}}{P_{M+1}}{\envS}{\testS},
+\end{equation}
+where $\calQ^{\beta}_{\calP} = \{(P_1,\ldots,P_{M+1}) \in \calP : \KL{P_{M+1}}{P_i} \leq \beta, \textrm{ for } i=1,\ldots,M\}$. This ensures a degree of relatedness between the novel and meta-training tasks.
+
+The estimator for $\theta_{M+1}$ now depends additionally on the $Mn$ samples in $\envS$, where only $k\ll~Mn$ samples from $P_{M+1}$ are available to the learner. Thus, $R^*_\calP$ addresses the domain shift expected at test-time in the meta-learning setting and allows the learner to use data from multiple tasks. The goal of $f$ is to learn an inductive bias from $\envS$ such that a good estimate is possible with only $k$ data points from $P_{M+1}$. In this setting, $k$ is equivalent to the number of shots in few-shot learning.
+
+% We will begin by reviewing lower-bounds on the minimax risk for the \iid setting and then extend these results to the environment minimax risk.

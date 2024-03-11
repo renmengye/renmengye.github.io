@@ -1,0 +1,18 @@
+% !TEX root = main.tex
+\section{Background}
+
+% \vspace{-0.1in}
+A full reference table for notation can be found in Appendix~\ref{app:notation} and a short summary is given here.
+
+We consider algorithms that learn in an environment $(\spaceZ, \calP)$, with data domain $\spaceZ = \spaceX \times \spaceY$ and $\calP$ a space of distributions with support $\spaceZ$. In the typical \iid setting, the algorithm is provided training data $S \in \spaceZ^k$, consisting of $k$ \iid samples from $P \in \calP$. 
+
+In the {\it multi-task} setting, we sample training data from a set of tasks $\{P_1,\ldots,P_{M+1}\} \subset \calP$.
+First, we draw $n$ training data points from the first $M$ distributions, for a total of $nM$ samples. We then draw a small sample of novel data,
+called a {\it support set}, $\testS \in \spaceZ^k$, from $P_{M+1}$. Throughout, we use $P^k$ to denote the product distribution, whose samples correspond to $k$ independent samples from $P$.
+\RZ{This is not completely clear}
+
+\subsection{Meta learning}
+
+Meta-learning approaches %to few-shot learning 
+typically distinguish between global parameters $\bvarphi$ and task-specific parameters $\btheta$. The meta-learner uses $\envS$ to produce an estimation algorithm, $\bestimator_{\envS} \leftarrow f(\envS)$, according to some meta-learning algorithm $f$. Then, given $\testS$, $\bestimator_{\envS}(\testS)$ computes an estimate of $\bestimator$. In this work, we compute bounds on the error of this estimation problem.
+\MR{right now the background section is very short. I wonder if it still makes sense to have a separate section or we can merge it in the main analysis section.} \JL{We could also make related work section 2.2. I don't see this often but it seems reasonable to me to include related work as background.}

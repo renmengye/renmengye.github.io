@@ -1,0 +1,82 @@
+\documentclass{article} % For LaTeX2e
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm,algorithmic}
+\usepackage{amsfonts,bm}
+\usepackage{bbm}
+\usepackage{eqparbox}
+\renewcommand{\algorithmiccomment}[1]{\eqparbox{COMMENT}{// #1}}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{booktabs}
+%\usepackage[font=small]{caption}
+\usepackage{natbib}
+\usepackage{latexml}
+\newif\iflatexml
+\latexmltrue
+
+\newif\ifarxiv
+\arxivtrue
+\input{sections/macros}
+\input{sections/math_commands}
+
+\makeatletter
+\def\thanks#1{\protected@xdef\@thanks{\@thanks
+        \protect\footnotetext{#1}}}
+\makeatother
+
+
+\title{Probing Few-Shot Generalization with Attributes}
+
+\author{
+  Mengye Ren${}^{1,2}$, Eleni Triantafillou${}^{2}$, Kuan-Chieh Wang${}^{3}$,
+  James Lucas${}^{4}$, Jake Snell${}^{5,6}$, Xaq Pitkow${}^{7,8}$, Andrews S.
+  Tolias${}^{8,7}$, Richard Zemel${}^{9,5,6,10}$\\\\
+  ${}^1$New York University, 
+  ${}^2$Google,
+  ${}^3$Stanford University,
+  ${}^4$NVIDIA,
+  ${}^5$University of Toronto,
+  ${}^6$Vector Institute,
+  ${}^7$Rice University,
+  ${}^8$Baylor College of Medicine,
+  ${}^9$Columbia University,
+  ${}^{10}$Canadian Institute for Advanced Research\\
+  \texttt{mengye@nyu.edu}, \texttt{etriantafillou@google.com},
+  \texttt{wangkua1@stanford.edu}, \texttt{jlucas@cs.toronto.edu},
+  \texttt{jsnell@cs.toronto.edu}, \texttt{xaq@rice.edu},
+  \texttt{astolias@bcm.edu}, \texttt{zemel@cs.columbia.edu}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    \input{sections/abstract_generalization}
+\end{abstract}
+\input{sections/intro_generalization}
+\input{sections/fig_benchmark}
+\input{sections/benchmark}
+\input{sections/method}
+\input{sections/tab_comparison}
+\input{sections/related}
+\input{sections/experiments}
+\input{sections/conclusion}
+\input{sections/ack}
+\bibliography{ref}
+\appendix
+\clearpage
+\input{appendix/appendix}
+\end{document}

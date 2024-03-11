@@ -1,0 +1,38 @@
+% !TEX root = main.tex
+\section{Introduction}
+% \vspace{-0.1in}
+Many practical machine learning applications deal with distributional shift from training to testing. One example is few-shot classification
+%learning 
+\citep{ravi2016optimization, vinyals2016matching}, where new classes need to be learned at test time based on only a few examples for each novel class. Recently, few-shot classification has seen increased success; however, 
+theoretical properties of this
+%or the more general learning-to-learn or {\it meta-learning} 
+problem remain poorly understood. 
+%While some progress has been made towards understanding the generalization performance of specific meta-learning algorithms \citep{finn2019online, khodak2019provable, fallah2019convergence, amit2017meta}, little is known about the difficulty of the meta-learning problem in general.
+% include ref to arXiv:1909.11722  
+%A Theoretical Analysis of the Number of %Shots in Few-Shot Learning
+%Tianshi Cao, Marc Law, Sanja Fidler.
+
+%In the meta-learning setting, the learner %is given access to samples from a set of %distributions, or tasks. Later at %test-time, the learner is exposed to only %a small number of samples from some new %novel task. The meta-learner aims to %uncover a useful inductive bias from the %original samples, which allows them to %learn more efficiently on new tasks.
+
+In this paper we analyze the {\it meta-learning} setting, where 
+the learner is given access to samples from a set of meta-training distributions, or tasks.  At test-time, the learner is exposed to only a small number of samples from some novel task. The meta-learner aims to uncover a useful inductive bias from the original samples, which allows them to learn a new task more efficiently.\footnote{Note that this definition encompasses few-shot learning.}
+While some progress has been made towards understanding the generalization performance of specific meta-learning algorithms \citep{amit2017meta, khodak2019provable, pmlr-v98-bullins19a, pmlr-v97-denevi19a, cao2019theoretical}, little is known about the difficulty of the meta-learning problem in general.
+Existing work has studied generalization upper-bounds for novel data distributions \citep{ben2010theory, amit2017meta}, yet to our knowledge, the inherent difficulty of these tasks relative to the \iid case has not been characterized. 
+
+% In general, lower bounds on the error of statistical estimation problems allow us to determine the gap between
+% the performance of specific learning algorithms and the theoretically best achievable error. If the
+% generalization upper bound and lower bound (asymptotically) match, then we know that the learning
+% algorithm is (asymptotically) optimal for this learning problem.
+% In this work, we extend tools from information theory \citep{khas1979lower, yang1999information, loh2017lower} to present lower-bounds on the minimax risk of meta-learning algorithms. The lower-bounds we derive depend on the number of meta-training distributions, the number of data samples available, and the relatedness of the distributions.
+In this work, we derive novel bounds for meta learners. We first present a general information theoretic lower bound, Theorem~\ref{thm:env_lower_bound}, that we use to derive bounds in particular settings. Using this result, we derive lower bounds in terms of the number of training tasks, data per training task, and data available in a novel target task. Additionally, we provide a specialized analysis for the case where the space of learning tasks is only partially observed, proving that infinite training tasks or data per training task are insufficient to achieve zero minimax risk (Corollary~\ref{thm:env_lower_bound_asymp}).
+
+We then derive upper and lower bounds for a particular meta-learning setting. In recent work, \citet{grant2018recasting} recast the popular meta-learning algorithm MAML \citep{finn2017model} in terms of inference in a Bayesian hierarchical model. Following this, we provide a theoretical analysis of a hierarchical Bayesian model for meta-linear-regression. We compute sample complexity bounds for posterior inference under Empirical Bayes \citep{robbins1956} in this model and compare them to our predicted lower-bounds in the minimax framework.  Furthermore, through asymptotic analysis of the error rate of the MAP estimator, we identify crucial features of the meta-learning environment which are necessary for novel task generalization.
+
+Our primary contributions can be summarized as follows:
+\begin{itemize}
+    \item We introduce novel lower bounds on minimax risk of parameter estimation in meta-learning.
+    \item Through these bounds, we compare the relative utility of samples from meta-training tasks and the novel task and emphasize the importance of the relationship between the tasks.
+    \item We provide novel upper bounds on the error rate for estimation in a hierarchical meta-linear-regression problem, which we verify through an empirical evaluation.
+\end{itemize}
+
+% Meta-learning is exciting and presents great potential for breakthroughs in both practical and theoretical machine learning. 

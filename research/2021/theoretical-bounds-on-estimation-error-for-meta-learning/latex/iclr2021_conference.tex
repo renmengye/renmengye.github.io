@@ -1,0 +1,60 @@
+
+\documentclass{article} % For LaTeX2e
+\usepackage{natbib}
+\usepackage{iclr2021_conference,times}
+
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+% \input{math_commands.tex}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{latexml}
+
+% \usepackage[1-11]{pagesel} % Main paper
+% \usepackage[12-26]{pagesel} % supplementary
+
+
+\title{Theoretical bounds on estimation error\\for meta-learning}
+
+% Authors must not appear in the submitted version. They should be hidden
+% as long as the \iclrfinalcopy macro remains commented out below.
+% Non-anonymous submissions will be rejected without review.
+\author{James Lucas, Mengye Ren, Irene Raissa KAMENI KAMENI, Toniann Pitassi \& Richard Zemel}
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+\iclrfinalcopy % Uncomment for camera-ready version, but NOT for submission.
+
+\input{main/main}
+
+\begin{document}
+
+
+\maketitle
+
+\input{main/abstract}
+\input{main/introduction}
+\input{main/related.tex}
+% \input{playground.tex}
+% \input{summary.tex}
+
+\input{main/setting.tex}
+\input{main/examples.tex}
+\input{main/lower_bounds.tex}
+\input{main/hierarchical_model.tex}
+\input{main/experiments/experiments.tex}
+\input{main/discussion.tex}
+\input{main/acknowledgements.tex}
+
+
+\bibliography{iclr2021_conference}
+\bibliographystyle{iclr2021_conference}
+\clearpage
+\appendix
+%\section{Appendix}
+%You may include other additional sections here.
+\onecolumn
+\input{main/appendices/appendix.tex}
+\end{document}

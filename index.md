@@ -322,6 +322,7 @@ Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*`
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 *NeurIPS*, 2020.
 [[arxiv](https://arxiv.org/abs/2008.01342)]
+[[pdf](research/2020/loco-local-contrastive-representation-learning/xiong-2020-loco.pdf)]
 [[video](https://slideslive.com/38936405/loco-local-contrastive-representation-learning)]
 [[html](research/2020/loco-local-contrastive-representation-learning)]
 
@@ -329,6 +330,7 @@ Yuwen Xiong, Mengye Ren, Raquel Urtasun.
 Quinlan Sykora``*``, Mengye Ren``*``, Raquel Urtasun.
 *ICML*, 2020.
 [[arxiv](https://arxiv.org/abs/2007.05096)]
+[[pdf](research/2020/multi-agent-routing-value-iteration-network/sykora-2020-multi.pdf)]
 [[code](https://github.com/uber-research/MARVIN)]
 [[video](https://slideslive.com/38927801/multiagent-routing-value-iteration-network-marvin)]
 [[html](research/2020/multi-agent-routing-value-iteration-network)]

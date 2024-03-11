@@ -1,0 +1,64 @@
+% !TEX root = ../main.tex
+
+\section{Hierarchical Bayesian Linear Regression Upper Bounds}
+\subsection{Some useful linear algebra results}
+Let $\smax(A)$ denotes the maximum singular value of $A$; $\smin(A)$ denotes the minimum singular value of $A$.
+
+\begin{lemma}\textbf{Singular value of sum of two matrices}\label{lemma:sigma_sum_lemma}
+Let $A, B \in \bbR^{m \times n}$, then
+$\smax(A) + \smax(B) \ge \smax(A+B)$. Furthermore, if $A, B$ are positive definite, 
+$\smin(A) + \smin(B) \le \smin(A+B)$.
+\end{lemma}
+\begin{proof}
+The first result follows immediately from the triangle inequality of the matrix norm $\norm{\cdot}_2$.
+
+For the second result, suppose that $A$ and $B$ are positive definite.
+\begin{align}
+\smin(A + B) &= \inf_{\norm{u}=1} \norm{(A+B)u} \\
+&= \sqrt{\inf_{\norm{u}=1} \norm{(A+B)u}^2} \\
+&= \sqrt{\inf_{\norm{u}=1} \norm{Au}^2 + \norm{Bu}^2 + 2\langle Au, Bu \rangle } \\
+&= \sqrt{\inf_{\norm{u}=1} \norm{Au}^2 + \norm{Bu}^2 + 2u^\top A^\top Bu } \\
+\end{align}
+Now, notice that $A^\top B$ is similar to the matrix $A^{1/2}BA^{1/2}$, which exists as $A$ is positive definite. This matrix is itself positive definite, and thus has non-negative eigenvalues, meaning $A^\top B$ also has all positive eigenvalues. Thus, $u^\top A^\top Bu \ge 0$, for all $u$, and,
+\begin{align}
+\smin(A + B) & \ge \sqrt{\inf_{\norm{u}=1} \norm{Au}^2 + \norm{Bu}^2} & \\
+& \ge \sqrt{\inf_{\norm{u}=1} \norm{Au}^2 + \inf_{\norm{v}=1} \norm{Bv}^2} \\
+& \ge \sqrt{\smin^2(A) + \smin^2(B)} \\
+& \ge \smin(A) + \smin(B) & (\text{Concavity of} \ \ \sqrt{\cdot})
+\end{align}
+\end{proof}
+
+\begin{lemma}
+\textbf{Singular value of product of two matrices}\label{lemma:sigma_prod_lemma}
+Let $A, B \in \mathbb{C}^{n \times n}$, then
+$\smax(A)\smax(B) \ge \smax(AB)$, and, $\smin(A)\smin(B) \le \smin(AB)$.
+\end{lemma}
+First we prove the maximum singular value.
+\begin{proof}
+\begin{align}
+\smax(AB) &= \sup_{\norm{v} = 1} \sqrt{v^* B^* A^* A B v} \\
+&= \sup_{\norm{v} = 1} \sqrt{\norm{Bv}^2 u^* A^* A u} \ \ \text{for } u = \frac{Bv}{\norm{Bv}}, \\
+&\le \sup_{\norm{v} = 1, \norm{u} = 1} \sqrt{\norm{Bv}^2 u^* A^* A u}\\
+&= \sqrt{\sup_{\norm{v} = 1}  \norm{Bv}^2 \sup_{\norm{u} = 1} \norm{Au}^2}\\
+&= \sqrt{\smax^2(B) \smax^2(A)}\\
+&= \smax(A)\smax(B).
+\end{align}
+The minimum singular value follows a similar structure. Suppose $AB$ is full rank,
+\begin{align}
+\smin(AB) &= \inf_{\norm{v} = 1} \sqrt{v^* B^* A^* A B v} \\
+&= \inf_{\norm{v} = 1} \sqrt{\norm{Bv}^2 u^* A^* A u} \ \ \text{for } u = \frac{Bv}{\norm{Bv}}, \\
+&\ge \inf_{\norm{v} = 1, \norm{u} = 1} \sqrt{\norm{Bv}^2 u^* A^* A u} \\
+&= \sqrt{\inf_{\norm{v} = 1}  \norm{Bv}^2 \inf_{\norm{u} = 1} \norm{Au}^2}\\
+&= \sqrt{\smin^2(B) \smin^2(A)}\\
+&= \smin(A)\smin(B).
+\end{align}
+If $AB$ is not full rank, then $\smin(AB) = \smin(A) \smin(B) = 0$.
+\end{proof}
+
+\begin{lemma}(\textbf{Von Neumann's Trace Inequality} \citep{von1937some})\label{lemma:von_neumann_trace}
+Given two $n\times n$ complex matrices $A,B$, with singular vales $a_1 \geq\ldots\geq a_n$ and $b_1\geq\ldots\geq b_n$ respectively. We have,
+\[\left\vert \tr(AB)\right\vert \leq \sum_{i=1}^{n} a_i b_i\]
+\end{lemma}
+This is a classic result whose proof we exclude.
+
+As a direct consequence of Lemma~\ref{lemma:von_neumann_trace}, $\left\vert \tr(AB)\right\vert \leq n a_1 b_1$.

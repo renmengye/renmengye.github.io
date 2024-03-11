@@ -1,0 +1,62 @@
+% !TEX root = ../arxiv/main.tex
+% train_strs
+% ['pink', 'spotted', 'wet', 'blue', 'shiny', 'rough', 'striped', 'white', 'metallic', 'wooden', 'gray']
+% val_strs
+% ['brown', 'green', 'violet', 'red', 'orange', 'yellow', 'furry', 'black', 'vegetation', 'smooth']
+
+\begin{table*}[t]
+\centering
+% \vspace{-0.5in}
+\begin{center}
+\begin{small}
+% \resizebox{0.98\textwidth}{!}{
+\begin{tabular}{ccccc}
+% \toprule
+\hline
+\mr{4}{\textbf{Train}} &
+pink & 
+spotted & 
+wet & 
+blue\\
+& 
+shiny & 
+rough & 
+striped & 
+white\\
+& 
+metallic & 
+wooden & 
+gray & 
+\\
+% \midrule
+\hline
+\mr{4}{\textbf{Val/Test}} &
+brown & 
+green & 
+violet & 
+red\\
+& 
+orange & 
+yellow & 
+furry & 
+black\\
+& 
+vegetation & 
+smooth & 
+ & 
+\\
+% \bottomrule
+\hline
+\end{tabular}
+% }
+\end{small}
+\caption{Attribute Splits for ImageNet-with-Attributes}
+\label{tab:imageneta-split}
+\end{center}
+\end{table*}
+
+\section{Attribute splits of ImageNet-with-Attributes}
+\label{app:imageneta-split}
+We include the attribute split for ImageNet-with-Attributes in Table~\ref{tab:imageneta-split}.
+There are 11 attributes in training and 10 attributes in val/test. We discarded the rest of the 4
+attributes in the ``shape'' category (long, round, rectangular and square), since they are difficult to predict from the images.

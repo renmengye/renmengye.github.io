@@ -1,0 +1,131 @@
+% !TEX root = ../cvpr2021/supp.tex
+\begin{table*}[t]
+\centering
+% \vspace{-0.5in}
+\begin{center}
+\begin{small}
+\resizebox{0.98\textwidth}{!}{
+\begin{tabular}{ccccc}
+% \toprule
+\hline
+\mr{10}{\textbf{Train}} &
+Category-Shoes &
+Category-Sandals &
+SubCategory-Oxfords &
+SubCategory-Heel \\
+&
+SubCategory-Boot &
+SubCategory-Slipper Flats & SubCategory-Short heel& SubCategory-Flats \\
+&
+SubCategory-Slipper Heels & SubCategory-Athletic &
+SubCategory-Knee High &
+SubCategory-Crib Shoes \\
+&
+SubCategory-Over the Knee &
+HeelHeight-High heel &
+Closure-Pull-on &
+Closure-Ankle Strap \\
+&
+Closure-Zipper & 
+Closure-Elastic Gore &
+Closure-Sling Back &
+Closure-Toggle \\
+&
+Closure-Snap &
+Closure-T-Strap &
+Closure-Spat Strap &
+Gender-Men \\ 
+&
+Gender-Boys & 
+Material-Rubber &
+Material-Wool & 
+Material-Silk \\
+&
+Material-Aluminum &
+Material-Plastic &
+Toestyle-Capped Toe &
+Toestyle-Square Toe \\
+&
+Toestyle-Snub Toe &
+Toestyle-Bicycle Toe &
+Toestyle-Open Toe &
+Toestyle-Pointed Toe \\
+&
+Toestyle-Almond &
+Toestyle-Apron Toe &
+Toestyle-Snip Toe &
+Toestyle-Medallion\\
+\hline
+
+\mr{10}{\textbf{Val/Test}} &
+Category-Boots & 
+Category-Slippers & 
+SubCategory-Mid-Calf & 
+SubCategory-Ankle \\
+&
+SubCategory-Loafers & 
+SubCategory-Boat Shoes & 
+SubCategory-Clogs and Mules &
+SubCategory-Sneakers and Athletic Shoes \\
+&
+SubCategory-Heels & 
+SubCategory-Prewalker &
+SubCategory-Prewalker Boots & SubCategory-Firstwalker \\
+&
+HeelHeight-Short heel &
+Closure-Lace up & 
+Closure-Buckle & 
+Closure-Hook and Loop \\
+&
+Closure-Slip-On &
+Closure-Ankle Wrap &
+Closure-Bungee &
+Closure-Adjustable \\
+&
+Closure-Button Loop &
+Closure-Monk Strap &
+Closure-Belt &
+Gender-Women \\
+&
+Gender-Girls &
+Material-Suede &
+Material-Snakeskin &
+Material-Corduroy \\
+&
+Material-Horse Hair &
+Material-Stingray &
+Toestyle-Round Toe &
+Toestyle-Closed Toe \\
+&
+Toestyle-Moc Toe &
+Toestyle-Wingtip &
+Toestyle-Center Seam &
+Toestyle-Algonquin \\
+&
+Toestyle-Bump Toe &
+Toestyle-Wide Toe Box &
+Toestyle-Peep Toe & \\
+\hline
+\end{tabular}
+}
+\end{small}
+\end{center}
+% \vspace{-0.2in}
+\caption{Attribute splits for Zappos-50K}
+\label{tab:zappossplit}
+\end{table*}
+
+% \textbf{Training attributes:} Category-Shoes, Category-Sandals, SubCategory-Oxfords, SubCategory-Heel, SubCategory-Boot, SubCategory-Slipper Flats, SubCategory-Short heel, SubCategory-Flats, SubCategory-Slipper Heels, SubCategory-Athletic, SubCategory-Knee High, SubCategory-Crib Shoes, SubCategory-Over the Knee, HeelHeight-High heel, Closure-Pull-on, Closure-Ankle Strap, Closure-Zipper, Closure-Elastic Gore, Closure-Sling Back, Closure-Toggle, Closure-Snap, Closure-T-Strap, Closure-Spat Strap, Gender-Men, Gender-Boys, Material-Rubber, Material-Wool, Material-Silk, Material-Aluminum, Material-Plastic, Toestyle-Capped Toe, Toestyle-Square Toe, Toestyle-Snub Toe, Toestyle-Bicycle Toe, Toestyle-Open Toe, Toestyle-Pointed Toe, Toestyle-Almond, Toestyle-Apron Toe, Toestyle-Snip Toe, Toestyle-Medallion.
+
+% \textbf{Held-out attributes:} Category-Boots, Category-Slippers, SubCategory-Mid-Calf, SubCategory-Ankle, SubCategory-Loafers, SubCategory-Boat Shoes, SubCategory-Clogs and Mules, SubCategory-Sneakers and Athletic Shoes, SubCategory-Heels, SubCategory-Prewalker, SubCategory-Prewalker Boots, SubCategory-Firstwalker, HeelHeight-Short heel, Closure-Lace up, Closure-Buckle, Closure-Hook and Loop, Closure-Slip-On, Closure-Ankle Wrap, Closure-Bungee, Closure-Adjustable, Closure-Button Loop, Closure-Monk Strap, Closure-Belt, Gender-Women, Gender-Girls, Material-Suede, Material-Snakeskin, Material-Corduroy, Material-Horse Hair, Material-Stingray, Toestyle-Round Toe, Toestyle-Closed Toe, Toestyle-Moc Toe, Toestyle-Wingtip, Toestyle-Center Seam, Toestyle-Algonquin, Toestyle-Bump Toe, Toestyle-Wide Toe Box, Toestyle-Peep Toe.
+
+\section{Attribute splits of Zappos-50K}
+% \subsection{Description of the data}
+The Zappos-50K dataset annotates images with different values relating to the following aspects of shoes: `Category', `Subcategory', `HeelHeight', `Insole', `Closure', `Gender', `Material' and `Toestyle'.
+
+We discarded the `Insole' values, since those refer to the inside part of the shoe which isn't visible in the images. We also discarded some `Material' values that we deemed hard to recognize visually. We also modified the values of `HeelHeight' which originally was different ranges of cm of the height of the heel of each shoe. Instead, we divided those values into only two groups: `short heel' and `high heel', to avoid having to perform very fine-grained heel height recognition which we deemed was too difficult.
+
+These modifications leave us with a total of 79 values (across all higher-level categories). Not all images are tagged with a value from each category, while some are even tagged with more than one value from the same category (e.g. two different materials used in different parts of the shoe). We split these values into 40 `training attributes' and 39 `val/test attributes'. %As mentioned in the main paper, the training attributes are used to construct training episodes (when performing episodic training), or to define the classification layer (in the case of the SA and UFT models). The `val/test attributes', on the other hand, are used to construct our flexible evaluation episodes. For example, a particular training episode might define its positive class as the conjunction: `Category=Sandals and Material=Plastic' and a test episode might define its positive class as the conjunction: `Category=Boots and Closure=Buckle'.
+
+% \subsection{List of attributes per split}
+We include the complete list of attributes in Table~\ref{tab:zappossplit}. The format we use is `X-Y' where X stands for the category (e.g. `Material') and Y stands for the value of that category (e.g. `Wool'). We do this to avoid ambiguity, since it may happen that different categories have some value names in common, e.g. `Short Heel' is a value of both `SubCategory' and `HeelHeight'.

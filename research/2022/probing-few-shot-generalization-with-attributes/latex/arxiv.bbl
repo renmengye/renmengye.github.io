@@ -1,0 +1,347 @@
+\begin{thebibliography}{51}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Akata et~al.(2013)Akata, Perronnin, Harchaoui, and Schmid]{labelembed}
+Zeynep Akata, Florent Perronnin, Za{\"{\i}}d Harchaoui, and Cordelia Schmid.
+\newblock Label-embedding for attribute-based classification.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2013.
+
+\bibitem[Akata et~al.(2015)Akata, Reed, Walter, Lee, and
+  Schiele]{evaluateoutput}
+Zeynep Akata, Scott~E. Reed, Daniel Walter, Honglak Lee, and Bernt Schiele.
+\newblock Evaluation of output embeddings for fine-grained image
+  classification.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2015.
+
+\bibitem[Alfassy et~al.(2019)Alfassy, Karlinsky, Aides, Shtok, Harary, Feris,
+  Giryes, and Bronstein]{alfassy2019laso}
+Amit Alfassy, Leonid Karlinsky, Amit Aides, Joseph Shtok, Sivan Harary,
+  Rog{\'{e}}rio~Schmidt Feris, Raja Giryes, and Alexander~M. Bronstein.
+\newblock Laso: Label-set operations networks for multi-label few-shot
+  learning.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2019.
+
+\bibitem[Amit and Meir(2018)]{amit2018meta}
+Ron Amit and Ron Meir.
+\newblock Meta-learning by adjusting priors based on extended pac-bayes theory.
+\newblock In Jennifer~G. Dy and Andreas Krause, editors, \emph{Proceedings of
+  the 35th International Conference on Machine Learning, {ICML}}, 2018.
+
+\bibitem[Arnold and Sha(2021)]{arnold2021embedding}
+S{\'{e}}bastien M.~R. Arnold and Fei Sha.
+\newblock Embedding adaptation is still needed for few-shot learning.
+\newblock \emph{CoRR}, abs/2104.07255, 2021.
+
+\bibitem[Ba et~al.(2015)Ba, Swersky, Fidler, and Salakhutdinov]{descriptionzsl}
+Lei~Jimmy Ba, Kevin Swersky, Sanja Fidler, and Ruslan Salakhutdinov.
+\newblock Predicting deep zero-shot convolutional neural networks using textual
+  descriptions.
+\newblock In \emph{{IEEE} International Conference on Computer Vision, {ICCV}},
+  2015.
+
+\bibitem[Baxter(2000)]{baxter2000model}
+Jonathan Baxter.
+\newblock A model of inductive bias learning.
+\newblock \emph{Journal of artificial intelligence research}, 12:\penalty0
+  149--198, 2000.
+
+\bibitem[Ben-David and Borbely(2008)]{ben2008notion}
+Shai Ben-David and Reba~Schuller Borbely.
+\newblock A notion of task relatedness yielding provable multiple-task learning
+  guarantees.
+\newblock \emph{Machine learning}, 73\penalty0 (3):\penalty0 273--287, 2008.
+
+\bibitem[Ben-David et~al.(2010)Ben-David, Blitzer, Crammer, Kulesza, Pereira,
+  and Vaughan]{ben2010theory}
+Shai Ben-David, John Blitzer, Koby Crammer, Alex Kulesza, Fernando Pereira, and
+  Jennifer~Wortman Vaughan.
+\newblock A theory of learning from different domains.
+\newblock \emph{Machine learning}, 79\penalty0 (1-2):\penalty0 151--175, 2010.
+
+\bibitem[Chen et~al.(2020)Chen, Kornblith, Norouzi, and Hinton]{simclr}
+Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey~E. Hinton.
+\newblock A simple framework for contrastive learning of visual
+  representations.
+\newblock \emph{CoRR}, abs/2002.05709, 2020.
+
+\bibitem[Chen et~al.(2019)Chen, Liu, Kira, Wang, and Huang]{closerlook}
+Wei{-}Yu Chen, Yen{-}Cheng Liu, Zsolt Kira, Yu{-}Chiang~Frank Wang, and
+  Jia{-}Bin Huang.
+\newblock A closer look at few-shot classification.
+\newblock In \emph{Proceedings of the 7th International Conference on Learning
+  Representations, {ICLR}}, 2019.
+
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and
+  Fei-Fei]{deng2009imagenet}
+Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li~Fei-Fei.
+\newblock Imagenet: A large-scale hierarchical image database.
+\newblock In \emph{IEEE Conference on Computer Vision and Pattern Recognition,
+  {CVPR}}, 2009.
+
+\bibitem[Farhadi et~al.(2009)Farhadi, Endres, Hoiem, and
+  Forsyth]{farhadi2009describe}
+Ali Farhadi, Ian Endres, Derek Hoiem, and David~A. Forsyth.
+\newblock Describing objects by their attributes.
+\newblock In \emph{IEEE Conference on Computer Vision and Pattern Recognition,
+  {CVPR}}, 2009.
+
+\bibitem[Farhadi et~al.(2010)Farhadi, Endres, and Hoiem]{farhadi2010attribute}
+Ali Farhadi, Ian Endres, and Derek Hoiem.
+\newblock Attribute-centric recognition for cross-category generalization.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2010.
+
+\bibitem[Fei-Fei et~al.(2006)Fei-Fei, Fergus, and Perona]{fei2006one}
+Li~Fei-Fei, Rob Fergus, and Pietro Perona.
+\newblock One-shot learning of object categories.
+\newblock \emph{IEEE TPAMI}, 28\penalty0 (4):\penalty0 594--611, 2006.
+
+\bibitem[Ferrari and Zisserman(2007)]{ferrari2007attribute}
+Vittorio Ferrari and Andrew Zisserman.
+\newblock Learning visual attributes.
+\newblock In \emph{Advances in Neural Information Processing Systems 20,
+  {NIPS}}, 2007.
+
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{maml}
+Chelsea Finn, Pieter Abbeel, and Sergey Levine.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning, {ICML}}, 2017.
+
+\bibitem[Guo et~al.(2020)Guo, Codella, Karlinsky, Smith, Rosing, and
+  Feris]{broadstudy}
+Yunhui Guo, Noel C.~F. Codella, Leonid Karlinsky, John~R. Smith, Tajana Rosing,
+  and Rog{\'{e}}rio~Schmidt Feris.
+\newblock A broader study of cross-domain few-shot learning.
+\newblock In \emph{14th European Conference on Computer Vision, {ECCV}}, 2020.
+
+\bibitem[He et~al.(2016)He, Zhang, Ren, and Sun]{resnet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In \emph{Proceedings of the {IEEE} Conference on Computer Vision and
+  Pattern Recognition, {CVPR}}, 2016.
+
+\bibitem[Koh et~al.(2020)Koh, Nguyen, Tang, Mussmann, Pierson, Kim, and
+  Liang]{koh2020concept}
+Pang~Wei Koh, Thao Nguyen, Yew~Siang Tang, Stephen Mussmann, Emma Pierson, Been
+  Kim, and Percy Liang.
+\newblock Concept bottleneck models.
+\newblock In \emph{Proceedings of the 37th International Conference on Machine
+  Learning, {ICML}}, 2020.
+
+\bibitem[Lake et~al.(2011)Lake, Salakhutdinov, Gross, and
+  Tenenbaum]{lake2011oneshot}
+Brenden~M. Lake, Ruslan Salakhutdinov, Jason Gross, and Joshua~B. Tenenbaum.
+\newblock One shot learning of simple visual concepts.
+\newblock In \emph{Proceedings of the 33th Annual Meeting of the Cognitive
+  Science Society, {CogSci}}, 2011.
+
+\bibitem[Lampert et~al.(2014)Lampert, Nickisch, and Harmeling]{attributezsl}
+Christoph~H. Lampert, Hannes Nickisch, and Stefan Harmeling.
+\newblock Attribute-based classification for zero-shot visual object
+  categorization.
+\newblock \emph{{IEEE} Trans. Pattern Anal. Mach. Intell.}, 36\penalty0
+  (3):\penalty0 453--465, 2014.
+
+\bibitem[Li et~al.(2021)Li, Mozer, and Whitehill]{li2021compositional}
+Zeqian Li, Michael Mozer, and Jacob Whitehill.
+\newblock Compositional embeddings for multi-label one-shot learning.
+\newblock In \emph{{IEEE} Winter Conference on Applications of Computer Vision,
+  {WACV}}, 2021.
+
+\bibitem[Liu et~al.(2015)Liu, Luo, Wang, and Tang]{celeba}
+Ziwei Liu, Ping Luo, Xiaogang Wang, and Xiaoou Tang.
+\newblock Deep learning face attributes in the wild.
+\newblock In \emph{Proceedings of International Conference on Computer Vision,
+  {ICCV}}, 2015.
+
+\bibitem[Lucas et~al.(2021)Lucas, Ren, Kameni, Pitassi, and Zemel]{lucas2020lb}
+James Lucas, Mengye Ren, Irene Kameni, Toniann Pitassi, and Richard~S. Zemel.
+\newblock Theoretical bounds on estimation error for meta-learning.
+\newblock 2021.
+
+\bibitem[Misra et~al.(2017)Misra, Gupta, and Hebert]{czsl}
+Ishan Misra, Abhinav Gupta, and Martial Hebert.
+\newblock From red wine to red tomato: Composition with context.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2017.
+
+\bibitem[Oreshkin et~al.(2018)Oreshkin, L{\'{o}}pez, and Lacoste]{tadam}
+Boris~N. Oreshkin, Pau~Rodr{\'{\i}}guez L{\'{o}}pez, and Alexandre Lacoste.
+\newblock {TADAM:} task dependent adaptive metric for improved few-shot
+  learning.
+\newblock In \emph{Advances in Neural Information Processing Systems 31,
+  {NeurIPS}}, 2018.
+
+\bibitem[Patterson and Hays(2016)]{patterson2016coco}
+Genevieve Patterson and James Hays.
+\newblock {COCO} attributes: Attributes for people, animals, and objects.
+\newblock In Bastian Leibe, Jiri Matas, Nicu Sebe, and Max Welling, editors,
+  \emph{14th European Conference Computer Vision, {ECCV}}, 2016.
+
+\bibitem[Pentina and Lampert(2014)]{pentina2014}
+Anastasia Pentina and Christoph~H. Lampert.
+\newblock A pac-bayesian bound for lifelong learning.
+\newblock In \emph{Proceedings of the 31th International Conference on Machine
+  Learning, {ICML}}, 2014.
+
+\bibitem[Pham et~al.(2021)Pham, Kafle, Lin, Ding, Cohen, Tran, and
+  Shrivastava]{pham2021attribute}
+Khoi Pham, Kushal Kafle, Zhe Lin, Zhihong Ding, Scott Cohen, Quan Tran, and
+  Abhinav Shrivastava.
+\newblock Learning to predict visual attributes in the wild.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2021.
+
+\bibitem[Purushwalkam et~al.(2019)Purushwalkam, Nickel, Gupta, and
+  Ranzato]{taskdriven}
+Senthil Purushwalkam, Maximilian Nickel, Abhinav Gupta, and Marc'Aurelio
+  Ranzato.
+\newblock Task-driven modular networks for zero-shot compositional learning.
+\newblock In \emph{{IEEE/CVF} International Conference on Computer Vision,
+  {ICCV}}, 2019.
+
+\bibitem[Raghu et~al.(2020)Raghu, Raghu, Bengio, and Vinyals]{anil}
+Aniruddh Raghu, Maithra Raghu, Samy Bengio, and Oriol Vinyals.
+\newblock Rapid learning or feature reuse? towards understanding the
+  effectiveness of {MAML}.
+\newblock In \emph{8th International Conference on Learning Representations,
+  {ICLR}}, 2020.
+
+\bibitem[Ren et~al.(2018)Ren, Triantafillou, Ravi, Snell, Swersky, Tenenbaum,
+  Larochelle, and Zemel]{fewshotssl}
+Mengye Ren, Eleni Triantafillou, Sachin Ravi, Jake Snell, Kevin Swersky,
+  Joshua~B. Tenenbaum, Hugo Larochelle, and Richard~S. Zemel.
+\newblock Meta-learning for semi-supervised few-shot classification.
+\newblock In \emph{Proceedings of 6th International Conference on Learning
+  Representations, {ICLR}}, 2018.
+
+\bibitem[Romera{-}Paredes and Torr(2015)]{ezzsl}
+Bernardino Romera{-}Paredes and Philip H.~S. Torr.
+\newblock An embarrassingly simple approach to zero-shot learning.
+\newblock In \emph{Proceedings of the 32nd International Conference on Machine
+  Learning, {ICML}}, 2015.
+
+\bibitem[Rosch and Mervis(1975)]{roschmervis1975family}
+Eleanor Rosch and Carolyn~B Mervis.
+\newblock Family resemblances: Studies in the internal structure of categories.
+\newblock \emph{Cognitive psychology}, 7\penalty0 (4):\penalty0 573--605, 1975.
+
+\bibitem[Sariyildiz et~al.(2021)Sariyildiz, Kalantidis, Larlus, and
+  Alahari]{sariyildiz2021}
+Mert~B{\"{u}}lent Sariyildiz, Yannis Kalantidis, Diane Larlus, and Karteek
+  Alahari.
+\newblock Concept generalization in visual representation learning.
+\newblock 2021.
+
+\bibitem[Snell et~al.(2017)Snell, Swersky, and Zemel]{protonet}
+Jake Snell, Kevin Swersky, and Richard~S. Zemel.
+\newblock Prototypical networks for few-shot learning.
+\newblock In \emph{Advances in Neural Information Processing Systems 30,
+  {NIPS}}, 2017.
+
+\bibitem[Thrun(1998)]{Thrun1998}
+Sebastian Thrun.
+\newblock Lifelong learning algorithms.
+\newblock In \emph{Learning to learn}, pages 181--209. Springer, 1998.
+
+\bibitem[Tokmakov et~al.(2019)Tokmakov, Wang, and Hebert]{tokmakov2019learning}
+Pavel Tokmakov, Yu{-}Xiong Wang, and Martial Hebert.
+\newblock Learning compositional representations for few-shot recognition.
+\newblock In \emph{2019 {IEEE/CVF} International Conference on Computer Vision,
+  {ICCV} 2019, Seoul, Korea (South), October 27 - November 2, 2019}, pages
+  6371--6380. {IEEE}, 2019.
+\newblock \doi{10.1109/ICCV.2019.00647}.
+\newblock URL \url{https://doi.org/10.1109/ICCV.2019.00647}.
+
+\bibitem[Triantafillou et~al.(2020)Triantafillou, Zhu, Dumoulin, Lamblin, Xu,
+  Goroshin, Gelada, Swersky, Manzagol, and Larochelle]{triantafillou2019meta}
+Eleni Triantafillou, Tyler Zhu, Vincent Dumoulin, Pascal Lamblin, Kelvin Xu,
+  Ross Goroshin, Carles Gelada, Kevin Swersky, Pierre-Antoine Manzagol, and
+  Hugo Larochelle.
+\newblock Meta-dataset: A dataset of datasets for learning to learn from few
+  examples.
+\newblock In \emph{8th International Conference on Learning Representations,
+  {ICLR}}, 2020.
+
+\bibitem[Vinyals et~al.(2016)Vinyals, Blundell, Lillicrap, Kavukcuoglu, and
+  Wierstra]{matchingnet}
+Oriol Vinyals, Charles Blundell, Tim Lillicrap, Koray Kavukcuoglu, and Daan
+  Wierstra.
+\newblock Matching networks for one shot learning.
+\newblock In \emph{Advances in Neural Information Processing Systems 29,
+  {NIPS}}, 2016.
+
+\bibitem[Wang et~al.(2019{\natexlab{a}})Wang, Zheng, Yu, and
+  Miao]{wang2019survey}
+Wei Wang, Vincent~W Zheng, Han Yu, and Chunyan Miao.
+\newblock A survey of zero-shot learning: Settings, methods, and applications.
+\newblock \emph{ACM Transactions on Intelligent Systems and Technology,
+  {TIST}}, 10\penalty0 (2):\penalty0 1--37, 2019{\natexlab{a}}.
+
+\bibitem[Wang et~al.(2019{\natexlab{b}})Wang, Yu, Darrell, and
+  Gonzalez]{taskaware}
+Xin Wang, Fisher Yu, Trevor Darrell, and Joseph~E. Gonzalez.
+\newblock Task-aware feature generation for zero-shot compositional learning.
+\newblock \emph{CoRR}, abs/1906.04854, 2019{\natexlab{b}}.
+
+\bibitem[Wang et~al.(2019{\natexlab{c}})Wang, Yu, Wang, Darrell, and
+  Gonzalez]{tafenet}
+Xin Wang, Fisher Yu, Ruth Wang, Trevor Darrell, and Joseph~E. Gonzalez.
+\newblock Tafe-net: Task-aware feature embeddings for low shot learning.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2019{\natexlab{c}}.
+
+\bibitem[Wang and Mori(2010)]{wang2010discriminative}
+Yang Wang and Greg Mori.
+\newblock A discriminative latent model of object classes and attributes.
+\newblock In \emph{11th European Conference on Computer Vision, {ECCV}}, 2010.
+
+\bibitem[Welinder et~al.(2010)Welinder, Branson, Mita, Wah, Schroff, Belongie,
+  and Perona]{cub}
+Peter Welinder, Steve Branson, Takeshi Mita, Catherine Wah, Florian Schroff,
+  Serge Belongie, and Pietro Perona.
+\newblock Caltech-ucsd birds 200.
+\newblock 2010.
+
+\bibitem[Xian et~al.(2019)Xian, Lampert, Schiele, and Akata]{goodbadugly}
+Yongqin Xian, Christoph~H. Lampert, Bernt Schiele, and Zeynep Akata.
+\newblock Zero-shot learning - {A} comprehensive evaluation of the good, the
+  bad and the ugly.
+\newblock \emph{{IEEE} Trans. Pattern Anal. Mach. Intell.}, 41\penalty0
+  (9):\penalty0 2251--2265, 2019.
+
+\bibitem[Xiang et~al.(2019)Xiang, Jin, Ding, Han, and Li]{xiang2019incremental}
+Liuyu Xiang, Xiaoming Jin, Guiguang Ding, Jungong Han, and Leida Li.
+\newblock Incremental few-shot learning for pedestrian attribute recognition.
+\newblock In \emph{Proceedings of the Twenty-Eighth International Joint
+  Conference on Artificial Intelligence, {IJCAI}}, 2019.
+
+\bibitem[Yang et~al.(2020)Yang, Deng, Yan, Liu, and Tao]{unseencomposition}
+Muli Yang, Cheng Deng, Junchi Yan, Xianglong Liu, and Dacheng Tao.
+\newblock Learning unseen concepts via hierarchical decomposition and
+  composition.
+\newblock In \emph{{IEEE/CVF} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2020.
+
+\bibitem[Yu and Grauman(2014)]{zappos}
+Aron Yu and Kristen Grauman.
+\newblock Fine-grained visual comparisons with local learning.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2014.
+
+\bibitem[Zhou et~al.(2016)Zhou, Khosla, Lapedriza, Oliva, and Torralba]{cam}
+Bolei Zhou, Aditya Khosla, {\`{A}}gata Lapedriza, Aude Oliva, and Antonio
+  Torralba.
+\newblock Learning deep features for discriminative localization.
+\newblock In \emph{{IEEE} Conference on Computer Vision and Pattern
+  Recognition, {CVPR}}, 2016.
+
+\end{thebibliography}

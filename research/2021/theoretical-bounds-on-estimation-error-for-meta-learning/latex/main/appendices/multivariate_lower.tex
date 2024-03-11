@@ -1,0 +1,41 @@
+\subsection{Proof of Hierarchical linear model lower bound}
+\label{app:proofs:linear_lower}
+
+Recall that the space of distributions we consider is given by,
+\[\calP_{LR} = \{ p_{\lregparams}(\by) = \calN(X\lregparams, \sigma^2 I): \lregparams \in \bball_2(1), X \in \bbR^{n \times d}. \} \]
+
+\mlreglbound*
+
+\begin{proof}The proof consists of two steps, we first construct a $2\delta$-packing of $\calP_{LR}$. Then, we upper bound the KL divergence between two distributions in this packing and use Corollary~\ref{corollary:env_lbound_packing} to give the desired bound.
+
+The maximal packing number $J$ for the unit 2-norm ball can be bounded by the following,
+\[ \left(\frac{1}{\delta}\right)^d\leq J \leq \left(1 + \frac{2}{\delta}\right)^d.\]
+We use a common scaling trick. First, through this bound, we can build a packing set, $\calV$, with packing radius $1/2$, giving $2^d \leq J \leq 5^d$. We define a new packing set of the same cardinality by taking $\theta_i = 4\delta v_i$ for all $v_i \in \calV$ (requiring $\delta \leq 1/2$). Giving for all $i \neq j$,
+\[ \Vert\theta_i - \theta_j\Vert = 4\delta\Vert v_i - v_j\Vert \geq 2\delta\]
+similarly, $\Vert \theta_i - \theta_j\Vert \leq 4\delta$.
+
+We now proceed with bounding the KL divergences.
+\begin{align*}
+    \KL{P_i}{P_j} &= \frac{1}{2\sigma^2}\Vert X_i\lregparams_i - X_j\lregparams_j\Vert_2^2\\
+    &= \frac{1}{2\sigma^2}\left(\lregparams_i^\top X_i^\top X_i \lregparams_i + \lregparams_j^\top X_j^\top X_j \lregparams_j - 2\lregparams_i^\top X_i^\top X_j \lregparams_j \right)\\
+    &\leq \frac{1}{2\sigma^2}\left(n_i \gamma_i^2 \Vert \lregparams_i \Vert^2 + n_j \gamma_j^2 \Vert \lregparams_j \Vert^2 - 2\lregparams_i^\top X_i^\top X_j \lregparams_j \right)
+\end{align*}
+where $\gamma_i^2 = \sup_{\lregparams} \frac{\Vert X_i \lregparams \Vert}{\sqrt{n_i}\Vert \lregparams \Vert}$. We write $n = \max_k{n_k}$ and $\gamma = \max_{k}{\gamma_k}$, then,
+\begin{align*}
+    \KL{P_i}{P_j} &\leq \frac{n \gamma^2}{2\sigma^2}\left(\Vert \lregparams_i \Vert^2 + \Vert \lregparams_j \Vert^2 - \frac{2}{n\gamma^2}\lregparams_i^\top X_i^\top X_j \lregparams_j \right)\\
+    &\leq \frac{n \gamma^2}{2\sigma^2}\left(\Vert \lregparams_i \Vert^2 + \Vert \lregparams_j \Vert^2 + 2\Vert\lregparams_i\Vert \Vert\lregparams_j\Vert \right)\\
+    &= \frac{n \gamma^2}{2\sigma^2}\left( \Vert\lregparams_i\Vert + \Vert\lregparams_j\Vert\right)^2 \leq \frac{32 n \gamma^2 \delta^2}{\sigma^2} \leq \beta
+\end{align*}
+The second line is derived using the Cauchy-Schwarz inequality, and the final inequality uses $\Vert \lregparams_i \Vert = \Vert 4\delta v_i \Vert \leq 4\delta$. We will not proceed by invoking Corollary~\ref{corollary:env_lbound_packing} on this packing set. This will require choosing $\delta$ to achieve our desired rate and will in turn impose constraints on the problem dimensions to ensure the packing is valid.
+
+Now, using Corollary~\ref{corollary:env_lbound_packing},
+\[R^*_{\calP_{LR}} \geq \delta^2\left(1 - \frac{(nM 2^{-d} + k)32\gamma^2\delta^2 / \sigma^2 + 1}{d}\right),\]
+Choosing $\delta^2 = d\sigma^2 / \left[128\gamma^2 (2^{-d} Mn + k)\right]$ gives,
+\[1 - \frac{(nM 2^{-d} + k)32\delta^2 / \sigma^2 + 1}{d} = 1 - \frac{d/4 + 1}{d} \geq 1/4,\]
+for $d \geq 2$. To enforce $\delta \leq 1/2$, we further require that,
+\[2^{-d}Mn + k \geq \frac{d\sigma^2}{256\gamma^2}\]
+Additionally, we may only consider packing sets with KL divergence no more than $\beta$, hence we also require that,
+\[2^{-d}M + kn^{-1} \geq \frac{d}{4\beta}\]
+Thus,
+\[R^*_\calP \geq O\left(\frac{d\sigma^2}{\gamma^2 (2^{-d}nM + k)}\right)\]
+\end{proof}

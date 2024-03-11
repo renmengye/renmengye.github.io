@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+    roundnode/.style={circle, draw=gray, very thick, minimum size=8mm},
+    observednode/.style={circle, draw=gray, fill=gray!25, very thick, minimum size=9mm},
+    ]
+    %Nodes
+    \node[roundnode]          (Y)           {$Y$};
+    \node (Ydescr) [right=0.5cm of Y] {(Novel task index)};
+    \node[roundnode]          (Z)           [above=0.6cm of Y]
+    {$Z$};
+    \node (Zdescr) [right=0.5cm of Z] {(Novel task data)};
+    \node[roundnode]          (U)           [below=0.6cm of Y]
+    {$U$};
+    \node (Udescr) [right=0.5cm of U] {(Support tasks indices)};
+    \node[roundnode]          (W)           [below=0.6cm of U]
+    {$W$};
+    \node (Wdescr) [right=0.5cm of W] {(Support tasks data)};
+     
+    %Lines
+    \draw[->] (Y.north) -- (Z);
+    
+    \draw[->] (Y.south) -- (U);
+    \draw[->] (U) -- (W);
+    \end{tikzpicture}
+    \captionof{figure}{PGM for meta learning environment. \JL{To clarify: Each $Z$ is $k$ sample, each $W$ is $Mn$ samples. }}
+    \label{fig:meta_learning_pgm}

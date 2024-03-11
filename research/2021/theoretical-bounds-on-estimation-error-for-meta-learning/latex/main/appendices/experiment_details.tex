@@ -1,0 +1,69 @@
+\section{Additional Experiment Details}
+\label{app:exp_details}
+
+\subsection{Hierarchical Bayes Evaluation}
+We sample $M$ linear models according to the hierarchical model in Section~\ref{sec:hierarchical_bayes}, with design matrices constructed by uniformly sampling points, $x \sim U[-1,1]$, and storing the vector $\bx_j = x^j$, for $i=0,\ldots,d$ in each row of $\DXi{i}$.
+
+To produce the plots in Figure~\ref{fig:hierarchical_lreg_simulation} we computed the average loss over 100 random draws of the training data and labels from the same set of fixed $\btheta_{1:M+1}$ values. The $\btheta$ values were sampled once from the hierarchical model with $\tau = [0, 1, 2, 0, 0, 3, 1]$, and $\sigma^2_\theta = 0.1$
+
+Code to reproduce these plots is provided in the supplementary materials with our submission.
+
+\subsection{Sinusoid Regression with MAML}
+
+% \input{main/experiments/sinusoids.tex}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c}
+    Hyper parameters & Description \\
+    \hline
+    $\sigma$ & noise at test time.\\
+    M & number of tasks at the training tasks\\
+    $M_q$     & number of tasks at the testing tasks \\
+    eps\_per\_batch & episode per batch          \\
+    train\_ampl\_range &    range of amplitude at training          \\
+    train\_phase\_range &  range of phase at training \\
+    val\_ampl\_range &  range of amplitude  at testing \\
+    val\_phase\_range & range of phase at testing\\
+    inner\_steps &  number of steps of Maml  \\
+    inner\_lr &  learning rate used to optimize parameter of the model \\
+    meta\_lr & used to optimize parameter of the meta-learner \\
+    n & number of datapoints at training tasks(support set) \\
+    k & number of datapoints at testing  tasks (support set)\\
+
+    $n_q$ &  number of datapoints at training  tasks (query set)  .\\
+    $k_q$ & number of datapoints at testing  tasks (query set).\\
+    
+    \end{tabular}
+\end{table}
+
+%\subsubsection{Sinusoid Regression on sinusoids with MAML: Experiment design}
+
+For all of these experiments we used a fully connected network with 6 layers and 40 hidden units per layer. The network is trained using the MAML algorithm \citep{finn2017model} with 5 inner steps using SGD with an inner learning rate of $10^{-3}$. We used Adam for the outer loop learning with a learning rate of $10^{-3}$.
+
+
+Expected error was computed after 500 epochs of optimization and was averaged over 30 runs. We produced our results through a comprehensive grid search over 72 combinations of the settings below and it required around 30 minutes to produce the output of each setting, using a system with 1 gpu and 3 cpus. This experiment therefore lasted 20 hours in total.
+\\
+\iflatexml
+$M=50$, $n \in \{20, 200\}$, $k \in \{100,1000\}$,
+$\sigma \in [ 10^{-8}, 1.5]$,
+$M_q = 100$, 
+eps\_per\_batch = $25$,
+train\_ampl\_range = $[1,4]$,
+train\_phase\_range = $[0, \pi / 2 ]$,
+val\_ampl\_range = $[3,5]$,
+val\_phase\_range = $[0, \pi / 2 ]$,
+inner\_steps = $5$,
+inner\_lr = $10^{-3}$,
+meta\_lr = $10^{-3}$.
+\else
+$M=50, n \in \{20, 200\} , k \in \{100,1000\},
+\sigma \in [ 10^{-8}, 1.5],
+M_q = 100 , \text{ eps\_per\_batch} = 25, \text{ train\_ampl\_range} = [1,4] ,
+\text{ train\_phase\_range} =[0, \pi / 2 ],
+\text{ val\_ampl\_range} = [3,5],
+\text{ val\_phase\_range}= [0, \pi / 2 ],
+\text{ inner\_steps} =  5,
+\text{ inner\_lr} = 10^{-3},
+\text{ meta\_lr} = 10^{-3} $
+\fi

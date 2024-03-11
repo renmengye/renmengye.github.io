@@ -1,0 +1,9 @@
+% !TEX root = main.tex
+
+\paragraph{Lower bounding with local packing} The lower bound of Theorem~\ref{thm:env_lower_bound} requires a difficult computation of the information shared between the samples and the identity of the novel task distribution. To alleviate this difficulty, we introduce a local packing bound on the information.
+
+\begin{restatable}[Meta-learning local packing]{lemma}{looproductpacking}\label{lemma:env_local_product_packing}
+Consider the same setting as in Theorem~\ref{thm:env_lower_bound}, then
+\[I(\pi_{M+1}; W) \leq \frac{Mn}{J^2(J-1)} \sum_{1 \leq i,j \leq J} \KL{P_{i}}{P_{j}}\]
+\end{restatable}
+

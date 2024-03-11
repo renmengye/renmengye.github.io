@@ -1,0 +1,176 @@
+% !TEX root = ../arxiv.tex
+
+\savespacebeforesection
+\section{Experiment Methodology}
+\savespacebeforesection
+\label{sec:method}
+
+In this section, we describe a range of methods that can be used for the
+problem of
+\titlelower{}. The methods can be organized into two stages. The first stage is
+representation learning through either pre-training the network or performing
+meta-learning. The second stage is learning a few-shot classifier at test-time
+to solve a new episode. We describe each stage of learning below.
+
+\savespacebeforesection
+\subsection{Stage I: Representation Learning}
+\label{sec:ft}
+\savespacebeforesection
+We consider the following representation approaches in our evaluation.
+\savespacebeforesection
+\paragraph{Supervised:} Many of the existing few-shot learning approaches
+include a stage of supervised representation learning. Two classes of
+approaches are frequently employed:
+\iflatexml
+\begin{itemize}
+\else
+\begin{itemize}[leftmargin=*]
+\fi
+\savespacebeforesection
+\item Episodic meta-learning approaches train directly from a set of few-shot
+episodes using episodic labels. This class of methods can be naturally applied
+to our learning setting.
+\item Supervised classification approaches train a network to directly classify
+a set of training classes using absolute labels, and at test time, the
+embedding network is transferred to solve the test task by training another
+classifier on top. If absolute attributes are provided to the learner, then one
+natural approach is to instead train an attribute classifier with multiple
+binary outputs. After the attribute classifier network is learned, we can then
+transfer the representations to recognize test attributes. We denote this
+method as Supervised Attributes (\textbf{SA}).
+\end{itemize}
+\savespacebeforesection
+\paragraph{Unsupervised:} 
+As supervised representation learning may not generalize to novel attributes,
+we also consider unsupervised representation learning as another option. We
+chose SimCLR~\citep{simclr} as a representative from this category due to its
+empirical success. In general, contrastive learning approaches aim to build
+invariant representations between a pair of inputs $\{\mathbf{x},
+\mathbf{x'}\}$ that are produced by applying random data augmentations (e.g.
+cropping) to an input image. It is likely to preserve more general semantic
+features since all attributes are useful towards identifying another random
+crop of the same image. We first obtain the embedding output $\mathbf{h}$ from
+the CNN, and then following \citep{simclr}, we project $\mathbf{h}$ to
+$\mathbf{z}$ using a multi-layered perceptron (MLP): $\mathbf{h} =
+\mathrm{CNN}(\mathbf{x}), \mathbf{z} =
+\mathrm{MLP}_1(\mathbf{h})$. With a batch of image pairs denoted by
+$\{\mathbf{x}_i\}, \{ \mathbf{x}_i'\}$, we can obtain their features
+$\{\mathbf{z}_i\}, \{ \mathbf{z}_i'\}$, and the contrastive loss function is
+defined similar to the cross entropy function:
+\ifarxiv
+\begin{align}
+    \mathcal{L}_1 = -\sum_i \log\frac{\exp(\mathbf{z}_i \cdot \mathbf{z}_i' /
+    \tau)}{\sum_j
+    \exp(\mathbf{z}_i \cdot \mathbf{z}_j' / \tau)},
+\end{align}
+\savespaceeqn
+\else
+$
+    \mathcal{L}_1 = -\sum_i \log\frac{\exp(\mathbf{z}_i \cdot \mathbf{z}_i' /
+    \tau)}{\sum_j
+    \exp(\mathbf{z}_i \cdot \mathbf{z}_j' / \tau)},
+$
+\fi
+where $\tau$ is a temperature parameter. We denote Unsupervised representation
+learning as \textbf{U}.
+
+\savespacebeforesection
+\paragraph{Unsupervised-then-Finetuning:} For unsupervised learning, we also
+consider adding a subsequent stage of supervised fine-tuning to utilize
+attribute labels from the training set. Note that fine-tuning here is different
+from fine-tuning in regular few-shot learning as it is not fine-tuning on test
+episodes but rather on the original training set. To prevent overwriting the
+representations and making them overly sensitive to training attributes, we add
+another projection MLP that learns more specific representations for finetuning
+on training attributes: $\mathbf{g} = \mathrm{MLP}_2(\mathbf{h}).$ Here, we
+again consider using two different modes of supervision: 1) the \taskname{}
+binary episodic labels, or 2) the underlying absolute attribute labels:
+\iflatexml
+\begin{itemize}[leftmargin=*]
+\else
+\begin{itemize}
+\fi
+\savespacebeforesection
+\item Unsupervised-then-FineTune-on-Episodes (\textbf{\uftpn}).
+We adopt the
+Prototypical Networks~\citep{protonet} formulation, where the network solves a
+learning episode of $N$ positive and negative support examples by using
+prototypes $\mathbf{p}$: $\mathbf{p}^+ = \frac{1}{N} \sum_i \mathbf{g}^+_i;
+\mathbf{p}^- =
+\frac{1}{N} \sum_i \mathbf{g}^-_i.$ With query example $\mathbf{g}^q$, we can
+make a binary prediction:
+$\hat{y}^q = \frac{\exp(-d(\mathbf{g}^q,
+    \mathbf{p}^+))}{\exp(-d(\mathbf{g}^q, \mathbf{p}^+)) +
+    \exp(-d(\mathbf{g}^q, \mathbf{p}^-))},$
+%\end{align}
+% \vskip -0.2cm
+where $d$ is some dissimilarity score, \eg Euclidean distance or cosine
+dissimilarity, and the training objective is to minimize the classification
+loss between the prediction $\hat{y}^q$ and the label $y^q$:
+\ifarxiv
+\begin{align}
+\mathcal{L}_{2E} &= \sum_j - y_j \log \hat{y}^q_j - (1-y^q_j) \log (1 -
+\hat{y}^q_j),
+\end{align}
+where $j$ is the index of query examples.
+\else
+$\mathcal{L}_{2E} = \sum_j - y_j \log \hat{y}^q_j - (1-y^q_j) \log (1 -
+\hat{y}^q_j),$
+where $j$ is the index of query examples.
+\fi
+    
+\item Unsupervised-then-FineTune-on-Attributes (\textbf{\uftsa}). With
+persistent attribute information, we can train a linear classifier with sigmoid
+activation to directly predict the absolute attribute labels $\mathbf{a}$:
+$\hat{\mathbf{a}} = W_A \mathbf{g} + b_A$, with the loss being
+\ifarxiv
+\begin{align}
+\mathcal{L}_{2A} &= \sum_k - \mathbf{a}_k \log \hat{\mathbf{a}}_k -
+(1-\mathbf{a}_k) \log (1 -
+\hat{\mathbf{a}}_k),
+\end{align}
+\savespaceeqn
+\vskip -0.6cm
+where $k$ is the index of attributes.
+\else
+$\mathcal{L}_{2A} = \sum_k - \mathbf{a}_k \log \hat{\mathbf{a}}_k -
+(1-\mathbf{a}_k) \log (1 -
+\hat{\mathbf{a}}_k),$
+where $k$ is the index of attributes.
+\fi
+\end{itemize}
+
+\savespacebeforesection
+\subsection{Stage II: Few-Shot Learning}
+\label{sec:fsl}
+\savespacebeforesection
+
+Once representations are learned, it remains to be decided how to use the small
+support set of each given test episode in order to make predictions for the
+associated query set. For each model described in the previous stages, we
+consider three candidate approaches: nearest neighbor (\textbf{NN}) used in
+MatchingNet~\citep{matchingnet}, the nearest centroid (\textbf{NC}) used in
+ProtoNet~\citep{protonet}, and logistic regression (\textbf{LR}) used in
+\citet{closerlook}. The LR approach learns a weight coefficient for each
+feature dimension, thus performing some level of feature selection, unlike the
+NC or NN alternatives. In addition, we apply an L1 regularizer on LR to
+encourage sparsity. In this way, the learning of a classifier is essentially
+done at the same time as the selection of feature dimensions. The overall
+objective of the classifier is:
+\ifarxiv
+\begin{align}
+\argmin_{\mathbf{w}, b} - y \log(\hat{y}) - (1-y) \log(1 - \hat{y}) + 
+\lambda \lVert \mathbf{w}
+\rVert_1,
+\end{align}
+\else
+$
+\argmin_{\mathbf{w}, b} - y \log(\hat{y}) - (1-y) \log(1 - \hat{y}) + 
+\lambda \lVert \mathbf{w}
+\rVert_1,$
+\fi
+where $\hat{y} = \sigmoid(\mathbf{w}^\top \mathbf{h} + b)$, and $\mathbf{h}$ is
+the representation vector extracted from the CNN backbone. Note that in this
+stage we discard the projection MLPs that are defined in previous stages since
+they are trained towards training attributes and self-supervised objectives,
+and we found that they do not transfer well to novel attributes.
