@@ -33,6 +33,7 @@ Yixuan Luo, Mengye Ren, Sai Qian Zhang.
 Andrew J. Nam``*``, Mengye Ren``*``, Chelsea Finn, James L. McClelland.
 *arXiv preprint 2210.02615*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.02615)]
+[[pdf](2022/learning-to-reason-with-relational-abstractions/nam-2022-learning.pdf)]
 [[dataset](https://github.com/renmengye/grade-school-math-relational)]
 
 * Gaussian-Bernoulli RBMs without tears.
@@ -65,6 +66,8 @@ Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, Mengye Ren, 
 *CVPR*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.02007)]
 [[pdf](2023/towards-unsupervised-object-detection-from-lidar-point-clouds/zhang-2023-towards.pdf)]
+[[video](https://research-assets.waabi.ai/wp-content/uploads/2023/05/oyster_video-2.mp4)]
+[[website](https://waabi.ai/oyster)]
 
 * Egocentric video comprehension via large language model inner speech.
 Ying Wang, Dongdong Sun, Rui Chen, Yanlai Yang, Mengye Ren.
@@ -79,33 +82,40 @@ Ying Wang, Dongdong Sun, Rui Chen, Yanlai Yang, Mengye Ren.
 Andrew J. Nam``*``, Mengye Ren``*``, Chelsea Finn, James L. McClelland.
 *NeurIPS MATH-AI Worshop*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.02615)]
+[[pdf](2022/learning-to-reason-with-relational-abstractions/nam-2022-learning.pdf)]
 [[dataset](https://github.com/renmengye/grade-school-math-relational)]
 
 * Neural network online training with sensitivity to multiscale temporal structure.
 Matt Jones, Tyler R. Scott, Gamaleldin F. Elsayed, Mengye Ren, Katherine Hermann, David Mayo, Michael C. Mozer.
 *NeurIPS MemARI Workshop*, 2022.
+[[pdf](2022/neural-network-online-training-with-sensitivity-to-multiscale-temporal-structure/jones-2022-neural.pdf)]
 
 * Rethinking closed-loop training for autonomous driving.
 Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai, Rui Hu, 
 Mengye Ren, Raquel Urtasun.
 *ECCV*, 2022.
-[[pdf](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf)]
+<!-- [[pdf](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf)] -->
+[[arxiv](https://arxiv.org/abs/2306.15713)]
+[[pdf](2022/rethinking-closed-loop-training-for-autonomous-driving/zhang-2022-rethinking.pdf)]
 
 * Open-world machine learning with limited labeled data.
 Mengye Ren. *Ph.D. Thesis, University of Toronto*, 2022.
-[[pdf](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)]
+<!-- [[pdf](https://tspace.library.utoronto.ca/bitstream/1807/123215/2/Ren_Mengye_202206_PhD_thesis.pdf)] -->
+[[pdf](2022/phd-thesis/Ren_Mengye_202206_PhD_thesis.pdf)]
 
-* [Probing few-shot generalization with attributes](2020/probing-few-shot-generalization-with-attributes).
+* [Probing few-shot generalization with attributes](2022/probing-few-shot-generalization-with-attributes).
 Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
+[[pdf](2022/probing-few-shot-generalization-with-attributes/ren-2022-probing.pdf)]
 [[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
-[[html](2020/probing-few-shot-generalization-with-attributes)]
+[[html](2022/probing-few-shot-generalization-with-attributes)]
 
 * [Online unsupervised learning of visual representations and categories](2022/online-unsupervised-learning-of-visual-representations-and-categories).
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2021.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
+[[pdf](2022/online-unsupervised-learning-of-visual-representations-and-categories/ren-2022-online.pdf)]
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
 [[html](2022/online-unsupervised-learning-of-visual-representations-and-categories)]
 
@@ -117,6 +127,7 @@ Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zeme
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
+[[pdf](2021/self-supervised-representation-learning-from-flow-equivariance/xiong-2021-self.pdf)]
 [[html](2021/self-supervised-representation-learning-from-flow-equivariance)]
 
 * Adversarial attacks on multi-agent communication.

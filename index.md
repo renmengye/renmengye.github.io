@@ -282,6 +282,7 @@ Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *arXiv preprint 2109.05675*, 2022.
 [[arxiv](https://arxiv.org/abs/2109.05675)]
+[[pdf](research/2022/online-unsupervised-learning-of-visual-representations-and-categories/ren-2022-online.pdf)]
 [[code](https://github.com/renmengye/online-unsup-proto-net)]
 [[html](research/2022/online-unsupervised-learning-of-visual-representations-and-categories)]
 
@@ -310,8 +311,9 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 Mengye Ren``*``, Eleni Triantafillou``*``, Kuan-Chieh Wang``*``, James Lucas``*``, Jake Snell, Xaq Pitkow, Andreas S. Tolias, Richard Zemel.
 *arXiv preprint 2012.05895*, 2020.
 [[arxiv](https://arxiv.org/abs/2012.05895)]
+[[pdf](2022/probing-few-shot-generalization-with-attributes/ren-2022-probing.pdf)]
 [[video](https://slideslive.at/38941548/flexible-fewshot-learning-of-contextual-similarities)]
-[[html](research/2020/probing-few-shot-generalization-with-attributes)]
+[[html](research/2022/probing-few-shot-generalization-with-attributes)]
 
 * [LoCo: Local contrastive representation learning](research/2020/loco-local-contrastive-representation-learning).
 Yuwen Xiong, Mengye Ren, Raquel Urtasun.
