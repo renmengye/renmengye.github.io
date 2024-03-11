@@ -149,12 +149,14 @@ James Tu, Huichen Li, Xinchen Yan, Mengye Ren, Yun Chen, Ming Liang, Eilyan Bita
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
+[[pdf](2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings/wang-2021-sketch.pdf)]
 [[html](2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
 * [Wandering within a world: Online contextualized few-shot learning](2021/wandering-within-a-world-online-contextualized-few-shot-learning).
 Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
+[[pdf](2021/wandering-within-a-world-online-contextualized-few-shot-learning/ren-2021-wandering.pdf)]
 [[code](https://github.com/renmengye/oc-fewshot-public)]
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
 [[html](2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
@@ -163,6 +165,7 @@ Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 James Lucas, Mengye Ren, Irene Kameni, Toniann Pitassi, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2010.07140)]
+[[pdf](2021/theoretical-bounds-on-estimation-error-for-meta-learning/lucas-2021-theoretical.pdf)]
 [[video](https://slideslive.com/38954221/theoretical-bounds-on-estimation-error-for-metalearning)]
 [[html](2021/theoretical-bounds-on-estimation-error-for-meta-learning)]
 

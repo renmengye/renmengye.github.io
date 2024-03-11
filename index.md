@@ -290,12 +290,14 @@ Mengye Ren, Tyler R. Scott, Michael L. Iuzzolino, Michael C. Mozer, Richard Zeme
 Yuwen Xiong, Mengye Ren, Wenyuan Zeng, Raquel Urtasun.
 *ICCV*, 2021.
 [[arxiv](https://arxiv.org/abs/2101.06553)]
+[[pdf](research/2021/self-supervised-representation-learning-from-flow-equivariance/xiong-2021-self.pdf)]
 [[html](research/2021/self-supervised-representation-learning-from-flow-equivariance)]
 
 * [SketchEmbedNet: Learning novel concepts by imitating drawings](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings).
 Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 *ICML*, 2021.
 [[arxiv](https://arxiv.org/abs/2009.04806)]
+[[pdf](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings/wang-2021-sketch.pdf)]
 [[code](https://github.com/alexnwang/SketchEmbedNet-public)]
 [[html](research/2021/sketch-embed-net-learning-novel-concepts-by-imitating-drawings)]
 
@@ -303,6 +305,7 @@ Alexander Wang``*``, Mengye Ren``*``, Richard Zemel.
 Mengye Ren, Michael L. Iuzzolino, Michael C. Mozer, Richard Zemel.
 *ICLR*, 2021.
 [[arxiv](https://arxiv.org/abs/2007.04546)]
+[[pdf](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning/ren-2021-wandering.pdf)]
 [[code](https://github.com/renmengye/oc-fewshot-public)]
 [[video](https://slideslive.com/38931573/wandering-within-a-world-online-contextualized-fewshot-learning)]
 [[html](research/2021/wandering-within-a-world-online-contextualized-few-shot-learning)]
