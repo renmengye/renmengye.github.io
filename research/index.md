@@ -8,40 +8,40 @@
 
 ## Preprints
 
-* <span class='paper-title'>Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training.</span>
+* <span class='paper-title'>[Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training](https://arxiv.org/abs/2403.09613).</span>
 Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
 *arXiv preprint 2403.09613*, 2024.
 [[arxiv](https://arxiv.org/abs/2403.09613)]
 
-* <span class='paper-title'>Self-supervised learning of video representations from a child's perspective.</span>
+* <span class='paper-title'>[Self-supervised learning of video representations from a child's perspective](https://arxiv.org/abs/2402.00300).</span>
 Emin Orhan, Wentao Wang, Alex N. Wang, Mengye Ren, Brenden M. Lake.
 *arXiv preprint 2402.00300*, 2024.
 [[arxiv](https://arxiv.org/abs/2402.00300)]
 
-* <span class='paper-title'>Learning and forgetting unsafe examples in large language models.</span>
+* <span class='paper-title'>[Learning and forgetting unsafe examples in large language models](https://arxiv.org/abs/2312.12736).</span>
 Jiachen Zhao, Zhun Deng, David Madras, James Zou, Mengye Ren.
 *arXiv preprint 2312.12736*, 2023.
 [[arxiv](https://arxiv.org/abs/2312.12736)]
 
-* <span class='paper-title'>LifelongMemory: Leveraging LLMs for answering queries in egocentric videos.</span>
+* <span class='paper-title'>[LifelongMemory: Leveraging LLMs for answering queries in egocentric videos](https://arxiv.org/abs/2312.05269).</span>
 Ying Wang, Yanlai Yang, Mengye Ren.
 *arXiv preprint 2312.05269*, 2023.
 [[webpage](https://lifelongmemory.github.io/)]
 [[arxiv](https://arxiv.org/abs/2312.05269)]
 
-* <span class='paper-title'>BIM: Block-wise self-supervised learning with masked image modeling.</span>
+* <span class='paper-title'>[BIM: Block-wise self-supervised learning with masked image modeling](https://arxiv.org/abs/2311.17218).</span>
 Yixuan Luo, Mengye Ren, Sai Qian Zhang. 
 *arXiv preprint 2311.17218*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.17218)]
 
-* <span class='paper-title'>Learning to reason with relational abstractions.</span>
+* <span class='paper-title'>[Learning to reason with relational abstractions](https://arxiv.org/abs/2210.02615).</span>
 Andrew J. Nam``*``, Mengye Ren``*``, Chelsea Finn, James L. McClelland.
 *arXiv preprint 2210.02615*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.02615)]
 [[pdf](2022/learning-to-reason-with-relational-abstractions/nam-2022-learning.pdf)]
 [[dataset](https://github.com/renmengye/grade-school-math-relational)]
 
-* <span class='paper-title'>Gaussian-Bernoulli RBMs without tears.</span>
+* <span class='paper-title'>[Gaussian-Bernoulli RBMs without tears](https://arxiv.org/abs/2210.10318).</span>
 Renjie Liao, Simon Kornblith, Mengye Ren, David J. Fleet, Geoffrey Hinton.
 *arXiv preprint 2210.10318*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.10318)]
@@ -67,7 +67,7 @@ Matt Jones, Tyler R. Scott, Mengye Ren, Gamaleldin F. Elsayed, Katherine Hermann
 David Mayo, Tyler Scott, Mengye Ren, Gamaleldin Elsayed, Katherine Hermann, Matt Jones, Michael Mozer. *CogSci*, 2023.
 [[pdf](2023/multitask-learning-via-interleaving-a-neural-network-investigation/mayo-2023-multitask.pdf)]
 
-* <span class='paper-title'>Towards unsupervised object detection from LiDAR point clouds.</span>
+* <span class='paper-title'>[Towards unsupervised object detection from LiDAR point clouds](https://arxiv.org/abs/2311.02007).</span>
 Lunjun Zhang, Anqi Joyce Yang, Yuwen Xiong, Sergio Casas, Bin Yang, Mengye Ren, Raquel Urtasun.
 *CVPR*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.02007)]
@@ -84,7 +84,7 @@ Ying Wang, Dongdong Sun, Rui Chen, Yanlai Yang, Mengye Ren.
 
 ## 2022
 
-* <span class='paper-title'>Learning to reason with relational abstractions.</span>
+* <span class='paper-title'>[Learning to reason with relational abstractions](https://arxiv.org/abs/2210.02615).</span>
 Andrew J. Nam``*``, Mengye Ren``*``, Chelsea Finn, James L. McClelland.
 *NeurIPS MATH-AI Worshop*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.02615)]
@@ -96,7 +96,7 @@ Matt Jones, Tyler R. Scott, Gamaleldin F. Elsayed, Mengye Ren, Katherine Hermann
 *NeurIPS MemARI Workshop*, 2022.
 [[pdf](2022/neural-network-online-training-with-sensitivity-to-multiscale-temporal-structure/jones-2022-neural.pdf)]
 
-* <span class='paper-title'>Rethinking closed-loop training for autonomous driving.</span>
+* <span class='paper-title'>[Rethinking closed-loop training for autonomous driving](https://arxiv.org/abs/2306.15713).</span>
 Chris Zhang``*``, Runsheng Guo``*``, Wenyuan Zeng``*``, Yuwen Xiong, Binbin Dai, Rui Hu, Mengye Ren, Raquel Urtasun.
 *ECCV*, 2022.
 <!-- [[pdf](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf)] -->

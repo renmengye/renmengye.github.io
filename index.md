@@ -240,30 +240,30 @@ research has centered on developing *representation learning* and
 
 ----------------------------------------------------------------------------
 
-## <a name="preprints">Preprints</a>
+## <a name="preprints">Recent Preprints</a>
 
-* Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training.
+* <span class='paper-title'>[Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training](https://arxiv.org/abs/2403.09613).</span>
 Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
 *arXiv preprint 2403.09613*, 2024.
 [[arxiv](https://arxiv.org/abs/2403.09613)]
 
-* Self-supervised learning of video representations from a child's perspective.
+* <span class='paper-title'>[Self-supervised learning of video representations from a child's perspective](https://arxiv.org/abs/2402.00300).</span>
 Emin Orhan, Wentao Wang, Alex N. Wang, Mengye Ren, Brenden M. Lake.
 *arXiv preprint 2402.00300*, 2024.
 [[arxiv](https://arxiv.org/abs/2402.00300)]
 
-* Learning and forgetting unsafe examples in large language models.
+* <span class='paper-title'>[Learning and forgetting unsafe examples in large language models](https://arxiv.org/abs/2312.12736).</span>
 Jiachen Zhao, Zhun Deng, David Madras, James Zou, Mengye Ren.
 *arXiv preprint 2312.12736*, 2023.
 [[arxiv](https://arxiv.org/abs/2312.12736)]
 
-* LifelongMemory: Leveraging LLMs for answering queries in egocentric videos.
+* <span class='paper-title'>[LifelongMemory: Leveraging LLMs for answering queries in egocentric videos](https://arxiv.org/abs/2312.05269).</span>
 Ying Wang, Yanlai Yang, Mengye Ren.
 *arXiv preprint 2312.05269*, 2023.
 [[webpage](https://lifelongmemory.github.io/)]
 [[arxiv](https://arxiv.org/abs/2312.05269)]
 
-* BIM: Block-wise self-supervised learning with masked image modeling.
+* <span class='paper-title'>[BIM: Block-wise self-supervised learning with masked image modeling](https://arxiv.org/abs/2311.17218).</span>
 Yixuan Luo, Mengye Ren, Sai Qian Zhang. 
 *arXiv preprint 2311.17218*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.17218)]
@@ -361,24 +361,24 @@ Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 [[video](https://vimeo.com/287808016)]
 [[html](research/2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
-* <span class='paper-title'>Meta-learning for semi-supervised few-shot classification.
+* <span class='paper-title'>[Meta-learning for semi-supervised few-shot classification](https://arxiv.org/abs/1803.00676).</span>
 Mengye Ren, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin
-Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.</span>
+Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.
 *ICLR*, 2018.
 [[link](research/fewshotssl/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.00676)]
 [[code](https://github.com/renmengye/few-shot-ssl-public)]
 
-* <span class='paper-title'>End-to-end instance segmentation with recurrent attention.
-Mengye Ren, Richard S. Zemel.</span>
+* <span class='paper-title'>[End-to-end instance segmentation with recurrent attention](https://arxiv.org/abs/1605.09410).</span>
+Mengye Ren, Richard S. Zemel.
 *CVPR*, 2017.
 [[link](research/recattend/index.html)]
 [[arxiv](https://arxiv.org/abs/1605.09410)]
 [[code](https://github.com/renmengye/rec-attend-public)]
 [[video](https://www.youtube.com/watch?v=oHgUowLph7E)]
 
-* <span class='paper-title'>Exploring models and data for image question answering.
-Mengye Ren, Ryan Kiros, Richard S. Zemel.</span>
+* <span class='paper-title'>[Exploring models and data for image question answering](https://arxiv.org/abs/1505.02074).</span>
+Mengye Ren, Ryan Kiros, Richard S. Zemel.
 *NIPS*, 2015.
 [[link](research/imageqa/index.html)]
 [[arxiv](https://arxiv.org/abs/1505.02074)]
