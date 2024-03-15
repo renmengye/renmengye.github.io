@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* <span class='paper-title'>Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training.</span>
+Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
+*arXiv preprint 2403.09613*, 2024.
+[[arxiv](https://arxiv.org/abs/2403.09613)]
+
 * <span class='paper-title'>Self-supervised learning of video representations from a child's perspective.</span>
 Emin Orhan, Wentao Wang, Alex N. Wang, Mengye Ren, Brenden M. Lake.
 *arXiv preprint 2402.00300*, 2024.
