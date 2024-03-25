@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* <span class='paper-title'>[CoLLEGe: Concept embedding generation for large language models](https://arxiv.org/abs/2403.15362).</span>
+Ryan Teehan, Brenden M. Lake, Mengye Ren.
+*arXiv preprint 2403.15362*, 2024.
+[[arxiv](https://arxiv.org/abs/2403.15362)]
+
 * <span class='paper-title'>[Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training](https://arxiv.org/abs/2403.09613).</span>
 Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
 *arXiv preprint 2403.09613*, 2024.
