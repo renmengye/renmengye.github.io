@@ -323,13 +323,14 @@ Mengye Ren``*``, Andrei Pokrovsky``*``, Bin Yang``*``, Raquel Urtasun.
 [[code](https://github.com/uber/sbnet)]
 [[html](2018/sbnet-sparse-blocks-network-for-fast-inference)]
 
-* <span class='paper-title'>Meta-learning for semi-supervised few-shot classification.</span>
+* <span class='paper-title'>[Meta-learning for semi-supervised few-shot classification](2018/meta-learning-for-semi-supervised-few-shot-classification).</span>
 Mengye Ren, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin
 Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.
 *ICLR*, 2018.
 [[link](fewshotssl/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.00676)]
 [[code](https://github.com/renmengye/few-shot-ssl-public)]
+[[html](2018/meta-learning-for-semi-supervised-few-shot-classification)]
 
 * <span class='paper-title'>[Understanding short-horizon bias in stochastic meta-optimization](2018/understanding-short-horizon-bias-in-stochastic-meta-optimization).</span>
 Yuhuai Wu``*``, Mengye Ren``*``, Renjie Liao, Roger B. Grosse.

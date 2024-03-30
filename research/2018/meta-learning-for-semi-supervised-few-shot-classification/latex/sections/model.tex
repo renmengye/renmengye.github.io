@@ -1,0 +1,144 @@
+% !TEX root = ../main.tex
+\section{Semi-Supervised Few-Shot Learning}
+
+We now define the semi-supervised setting considered in this work for few-shot learning.
+
+The training set is denoted as a tuple of labeled and unlabeled examples: $(\mathcal{S},
+\mathcal{R})$. The labeled portion is the usual support set $\mathcal{S}$ of the few-shot learning
+literature, containing a list of tuples of inputs and targets.  In addition to classic few-shot
+learning, we introduce an unlabeled set $\mathcal{R}$ containing only inputs:
+$\mathcal{R}=\{\tilde{\bm{x}}_1, \tilde{\bm{x}}_2, \dots, \tilde{\bm{x}}_M\}$.  As in the purely
+supervised setting, our models are trained to perform well when predicting the labels for the
+examples in the episode's query set $\mathcal{Q}$.  Figure~\ref{fig:episode_setup} shows a
+visualization of training and test episodes.
+
+% Feel free to move this around:
+\input figures/episode_figure
+
+\subsection{Semi-Supervised Prototypical Networks}
+
+In their original formulation, Prototypical Networks do not specify a way to leverage the unlabeled
+set $\mathcal{R}$. In  what follows, we now propose various extensions that start from the basic
+definition of prototypes $\bm{p}_c$ and provide a procedure for producing refined prototypes
+$\tilde{\bm{p}}_c$ using the unlabeled examples in $\mathcal{R}$.
+
+% Feel free to move this around:
+\input figures/refinement_figure
+
+After the refined prototypes are obtained, each of these models is trained with the same loss
+function for ordinary Prototypical Networks of Equation~\ref{eq:loss}, but replacing $\bm{p}_c$
+with $\tilde{\bm{p}}_c$. That is, each query example is classified into one of the $N$ classes based
+on the proximity of its embedded position with the corresponding {\it refined} prototypes, and the
+average negative log-probability of the correct classification is used for training.
+
+\subsubsection{Prototypical Networks with Soft $k$-Means}
+We first consider a simple way of leveraging unlabeled examples for refining prototypes, by taking
+inspiration from semi-supervised clustering. Viewing each prototype as a cluster center, the
+refinement process could attempt to adjust the cluster locations to better fit the examples in both
+the support and unlabeled sets. Under this view, cluster assignments of the labeled examples in the
+support set are considered known and fixed to each example's label.  The refinement process must
+instead estimate the cluster assignments of the unlabeled examples and adjust the cluster locations
+(the prototypes) accordingly.
+
+One natural choice would be to borrow from the inference performed by soft $k$-means. We prefer this
+version of $k$-means over hard assignments since hard assignments would make the inference 
+non-differentiable.  We start with the regular Prototypical Network's prototypes $\bm{p}_{c}$ (as
+specified in Equation~\ref{eq:prototypes}) as the cluster locations. Then, the unlabeled examples
+get a partial assignment ($\tilde{z}_{j,c}$) to each cluster based on their Euclidean distance to
+the cluster locations. Finally, refined  prototypes are obtained by incorporating these unlabeled
+examples.
+
+This process can be summarized as follows:
+\begin{align}
+    \tilde{\bm{p}}_c = \frac{\sum_i h(\bm{x}_i) z_{i,c} + \sum_j h(\tilde{\bm{x}}_j) \tilde{z}_{j,c}}
+    {\sum_i z_{i,c} + \sum_j \tilde{z}_{j,c}}, ~~{\rm where }~~
+    \tilde{z}_{j,c} = \frac{\exp \left(-||h(\tilde{\bm{x}}_j) - \bm{p}_c||^2_2 \right)}
+    {\sum_{c'} \exp \left(-||h(\tilde{\bm{x}}_j) - \bm{p}_{c'}||^2_2 \right) } \label{eq:softassign}
+\end{align}
+Predictions of each query input's class is then modeled as in Equation~\ref{eq:classprobs}, but 
+using the refined prototypes $\tilde{\bm{p}}_c$.
+
+We could perform several iterations of refinement, as is usual in $k$-means. However, we have
+experimented with various number of iterations and found results to not improve beyond a single
+refinement step.
+
+\subsubsection{Prototypical Networks with Soft $k$-Means with a Distractor Cluster}
+The soft $k$-means approach described above implicitly assumes that each unlabeled example belongs
+to either one of the $N$ classes in the episode. However, it would be much more general to not make
+that assumption and have a model robust to the existence of examples from other classes, which we
+refer to as distractor classes. For example, such a situation would arise if we wanted to distinguish
+between pictures of unicycles and scooters, and decided to add an unlabeled set  by downloading
+images from the web. It then would not be realistic to assume that all these images are of unicycles
+or scooters. Even with a focused search, some may be from similar classes, such as bicycle.
+
+Since soft $k$-means distributes its soft assignments across all classes, distractor items could be
+harmful and interfere with the refinement process, as prototypes would be adjusted to also partially
+account for these distractors. A simple way to address this is to add an additional cluster whose
+purpose is to capture the distractors, thus preventing them from polluting the clusters of the
+classes of interest:
+\begin{equation}
+    \bm{p}_c =
+    \begin{cases}
+        \frac{\sum_i h(\bm{x}_i) z_{i,c}}{\sum_i z_{i,c}} & \text{\ \ for\ \ } c = 1...N\\
+        \bm{0} & \text{\ \ for\ \ } c = N+1
+    \end{cases}
+\end{equation}
+Here we take the simplifying assumption that the distractor cluster has a prototype centered at the
+origin.  We also consider introducing length-scales $r_c$ to represent variations in the 
+within-cluster distances, specifically for the distractor cluster:
+\begin{align}
+    \tilde{z}_{j,c} = \frac{\exp \left(-\frac{1}{r_c^2}||\tilde{\bm{x}}_j - \bm{p}_c||^2_2 -A(r_c) \right)}
+    {\sum_{c'} \exp \left(-\frac{1}{r_c^2}||\tilde{\bm{x}}_j - \bm{p}_{c'}||^2_2 -A(r_{c'}) \right) }, ~~{\rm where}~~
+    A(r) = \frac{1}{2}\log(2\pi) + \log(r)
+\end{align}
+For simplicity, we set $r_{1\dots N}$ to 1 in our experiments, and only learn the
+length-scale of the distractor cluster $r_{N+1}$.
+
+\subsubsection{Prototypical Networks with Soft $k$-Means and Masking}
+Modeling distractor unlabeled examples with a single  cluster is likely too simplistic. Indeed, it
+is inconsistent with our assumption that each cluster corresponds to one class, since distractor
+examples may very well cover more than a single natural object category.  Continuing with our
+unicycles and bicycles example, our web search for unlabeled images could accidentally include not
+only bicycles, but other related objects such as tricycles or cars.   This was also reflected in our
+experiments, where we constructed the episode generating process so that it would sample distractor
+examples from multiple classes.
+
+To address this problem, we propose an improved variant: instead of capturing distractors with a
+high-variance catch-all cluster, we model distractors as examples that are not within some area of
+any of the legitimate class prototypes. This is done by incorporating a soft-masking mechanism on
+the contribution of unlabeled examples. At a high level, we want unlabeled examples that are closer
+to a prototype to be masked less than those that are farther.
+
+More specifically, we modify the soft $k$-means refinement as follows. We start by computing 
+normalized distances $\tilde{d}_{j,c}$ between examples $\tilde{\bm{x}}_j$ and prototypes $\bm{p}_c$: 
+\begin{align}
+    \tilde{d}_{j,c}=\frac{d_{j,c}}
+    {\frac{1}{M} \sum_j d_{j,c}},&~~{\rm where }~~ d_{j,c} = ||h(\tilde{\bm{x}}_j) - \bm{p}_c||^2_2
+\end{align}
+Then, soft thresholds $\beta_c$ and slopes $\gamma_c$ are predicted for each prototype, by feeding 
+to a small neural network various statistics of the normalized distances for the prototype:
+\begin{align}
+    \left[\beta_c, \gamma_c \right] &= {\rm MLP} \left(
+    \left[\min_j(\tilde{d}_{j,c}), \max_j(\tilde{d}_{j,c}), 
+    \var_j(\tilde{d}_{j,c}), \skewness_j(\tilde{d}_{j,c}), 
+    \kurt_j(\tilde{d}_{j,c}) \right] \right) \label{eq:masks}
+\end{align}
+This allows each threshold to use information on the amount of intra-cluster variation to determine 
+how aggressively it should cut out unlabeled examples.
+
+Then, soft masks $m_{j,c}$ for the contribution of each example to each prototype are computed, by 
+comparing to the threshold the normalized distances, as follows:
+\begin{align}
+\tilde{\bm{p}}_c = \frac{\sum_i h(\bm{x}_i) z_{i,c} + \sum_j h(\tilde{\bm{x}}_j) \tilde{z}_{j,c} m_{j,c}}
+                             {\sum_i z_{i,c} + \sum_j \tilde{z}_{j,c} m_{j,c}},
+    &~~{\rm where }~~ m_{j,c} = \sigma \left(-\gamma_c \left(
+    \tilde{d}_{j,c}-\beta_c \right) \right)
+\end{align}
+where $\sigma(\cdot)$ is the sigmoid function. 
+
+When training with this refinement process, the model can now use its MLP in Equation~\ref{eq:masks}
+to learn to include or ignore entirely certain unlabeled examples. The use of soft masks makes this
+process entirely differentiable\footnote{We stop gradients from passing through the computation of
+the statistics in Equation~\ref{eq:masks}, to avoid potential numerical instabilities.}.
+Finally, much like for regular soft $k$-means (with or without a distractor cluster), while we could
+recursively repeat the refinement for multiple steps, we found a single step to perform well enough.

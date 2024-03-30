@@ -1,0 +1,136 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{snell2017protonet}
+\citation{Thrun1998,Hochreiter2001}
+\citation{vinyals2016matchingnet,snell2017protonet}
+\citation{ravi2017oneshot,FinnC2017}
+\citation{Santoro2016,MishraN2017}
+\select@language{english}
+\@writefile{toc}{\select@language{english}}
+\@writefile{lof}{\select@language{english}}
+\@writefile{lot}{\select@language{english}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
+\citation{ChapelleO2010}
+\citation{snell2017protonet}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Consider a setup where the aim is to learn a classifier to distinguish between two previously unseen classes, goldfish and shark, given not only labeled examples of these two classes, but also a larger pool of unlabeled examples, some of which may belong to one of these two classes of interest. In this work we aim to move a step closer to this more natural learning framework by incorporating in our learning episodes unlabeled data from the classes we aim to learn representations for (shown with dashed red borders) as well as from {\it  distractor} classes .\relax }}{2}{figure.caption.1}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:motivation}{{1}{2}{Consider a setup where the aim is to learn a classifier to distinguish between two previously unseen classes, goldfish and shark, given not only labeled examples of these two classes, but also a larger pool of unlabeled examples, some of which may belong to one of these two classes of interest. In this work we aim to move a step closer to this more natural learning framework by incorporating in our learning episodes unlabeled data from the classes we aim to learn representations for (shown with dashed red borders) as well as from {\it distractor} classes .\relax }{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}{section.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Few-shot learning}{2}{subsection.2.1}}
+\citation{snell2017protonet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Prototypical Networks}{3}{subsection.2.2}}
+\newlabel{eq:prototypes}{{1}{3}{Prototypical Networks}{equation.2.1}{}}
+\newlabel{eq:classprobs}{{2}{3}{Prototypical Networks}{equation.2.2}{}}
+\newlabel{eq:loss}{{3}{3}{Prototypical Networks}{equation.2.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Semi-Supervised Few-Shot Learning}{3}{section.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Example of the semi-supervised few-shot learning setup. Training involves iterating through training episodes, consisting of a support set $\mathcal  {S}$, an unlabeled set $\mathcal  {R}$, and a query set $\mathcal  {Q}$. The goal is to use the labeled items (shown with their numeric class label) in $\mathcal  {S}$ and the unlabeled items in $\mathcal  {R}$ within each episode to generalize to good performance on the corresponding query set. The unlabeled items in $\mathcal  {R}$ may either be pertinent to the classes we are considering (shown above with green plus signs) or they may be \emph  {distractor} items which belong to a class that is not relevant to the current episode (shown with red minus signs). However note that the model does not actually have ground truth information as to whether each unlabeled example is a distractor or not; the plus/minus signs are shown only for illustrative purposes. At test time, we are given new episodes consisting of novel classes not seen during training that we use to evaluate the meta-learning method.\relax }}{4}{figure.caption.2}}
+\newlabel{fig:episode_setup}{{2}{4}{Example of the semi-supervised few-shot learning setup. Training involves iterating through training episodes, consisting of a support set $\mathcal {S}$, an unlabeled set $\mathcal {R}$, and a query set $\mathcal {Q}$. The goal is to use the labeled items (shown with their numeric class label) in $\mathcal {S}$ and the unlabeled items in $\mathcal {R}$ within each episode to generalize to good performance on the corresponding query set. The unlabeled items in $\mathcal {R}$ may either be pertinent to the classes we are considering (shown above with green plus signs) or they may be \emph {distractor} items which belong to a class that is not relevant to the current episode (shown with red minus signs). However note that the model does not actually have ground truth information as to whether each unlabeled example is a distractor or not; the plus/minus signs are shown only for illustrative purposes. At test time, we are given new episodes consisting of novel classes not seen during training that we use to evaluate the meta-learning method.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Semi-Supervised Prototypical Networks}{4}{subsection.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Left: The prototypes are initialized based on the mean location of the examples of the corresponding class, as in ordinary Prototypical Networks. Support, unlabeled, and query examples have solid, dashed, and white colored borders respectively. Right: The refined prototypes obtained by incorporating the unlabeled examples, which classifies all query examples correctly.\relax }}{4}{figure.caption.3}}
+\newlabel{fig:refinement}{{3}{4}{Left: The prototypes are initialized based on the mean location of the examples of the corresponding class, as in ordinary Prototypical Networks. Support, unlabeled, and query examples have solid, dashed, and white colored borders respectively. Right: The refined prototypes obtained by incorporating the unlabeled examples, which classifies all query examples correctly.\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Prototypical Networks with Soft $k$-Means}{4}{subsubsection.3.1.1}}
+\newlabel{eq:softassign}{{4}{5}{Prototypical Networks with Soft $k$-Means}{equation.3.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Prototypical Networks with Soft $k$-Means with a Distractor Cluster}{5}{subsubsection.3.1.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Prototypical Networks with Soft $k$-Means and Masking}{5}{subsubsection.3.1.3}}
+\citation{koch2015siamese}
+\citation{vinyals2016matchingnet}
+\citation{snell2017protonet}
+\citation{bachman2017active-learning}
+\citation{ravi2017oneshot,FinnC2017}
+\citation{Santoro2016}
+\citation{MishraN2017}
+\citation{zhu2005semi,ChapelleO2010}
+\citation{yarowsky1995unsupervised,rosenberg2005semi}
+\newlabel{eq:masks}{{8}{6}{Prototypical Networks with Soft $k$-Means and Masking}{equation.3.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Related Work}{6}{section.4}}
+\citation{vapnik1998statistical,Joachims1999TSVM,Fu2015TransductiveZSL}
+\citation{lloyd1982least}
+\citation{hautamaki2005improving,chawla2013k,gupta2017local}
+\citation{lake2011oneshot}
+\citation{vinyals2016matchingnet}
+\citation{vinyals2016matchingnet}
+\citation{russakovsky2015imagenet}
+\citation{ravi2017oneshot}
+\citation{deng2009imagenet}
+\citation{vinyals2016matchingnet}
+\citation{ravi2017oneshot}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{7}{section.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Datasets}{7}{subsection.5.1}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Omniglot 1-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }}{8}{table.caption.4}}
+\newlabel{tab:omniglot}{{1}{8}{Omniglot 1-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Adapting the Datasets for Semi-Supervised Learning}{8}{subsection.5.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Results}{8}{subsection.5.3}}
+\citation{ba2016fw,FinnC2017}
+\bibdata{references}
+\bibcite{ba2016fw}{{1}{2016}{{Ba et~al.}}{{Ba, Hinton, Mnih, Leibo, and Ionescu}}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces {\it  mini}ImageNet 1/5-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }}{9}{table.caption.5}}
+\newlabel{tab:miniImageNet}{{2}{9}{{\it mini}ImageNet 1/5-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }{table.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces \textit  {tiered}ImageNet 1/5-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }}{9}{table.caption.6}}
+\newlabel{tab:tieredImageNet}{{3}{9}{\textit {tiered}ImageNet 1/5-shot classification results. ``w/ D'' denotes ``with distractors'' where the unlabeled images contain irrelevant classes.\relax }{table.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{9}{section.6}}
+\@writefile{toc}{\contentsline {paragraph}{Acknowledgement}{9}{section*.8}}
+\bibcite{bachman2017active-learning}{{2}{2017}{{Bachman et~al.}}{{Bachman, Sordoni, and Trischler}}}
+\bibcite{ChapelleO2010}{{3}{2010}{{Chapelle et~al.}}{{Chapelle, Sch{\"o}lkopf, and Zien}}}
+\bibcite{chawla2013k}{{4}{2013}{{Chawla \& Gionis}}{{Chawla and Gionis}}}
+\bibcite{deng2009imagenet}{{5}{2009}{{Deng et~al.}}{{Deng, Dong, Socher, Li, Li, and Fei-Fei}}}
+\bibcite{FinnC2017}{{6}{2017}{{Finn et~al.}}{{Finn, Abbeel, and Levine}}}
+\bibcite{Fu2015TransductiveZSL}{{7}{2015}{{Fu et~al.}}{{Fu, Hospedales, Xiang, and Gong}}}
+\bibcite{gupta2017local}{{8}{2017}{{Gupta et~al.}}{{Gupta, Kumar, Lu, Moseley, and Vassilvitskii}}}
+\bibcite{hautamaki2005improving}{{9}{2005}{{Hautam{\"a}ki et~al.}}{{Hautam{\"a}ki, Cherednichenko, K{\"a}rkk{\"a}inen, Kinnunen, and Fr{\"a}nti}}}
+\bibcite{Hochreiter2001}{{10}{2001}{{Hochreiter et~al.}}{{Hochreiter, Younger, and Conwell}}}
+\bibcite{Joachims1999TSVM}{{11}{1999}{{Joachims}}{{}}}
+\bibcite{kingma2014adam}{{12}{2014}{{Kingma \& Ba}}{{Kingma and Ba}}}
+\bibcite{koch2015siamese}{{13}{2015}{{Koch et~al.}}{{Koch, Zemel, and Salakhutdinov}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Model Performance on {\it  tiered}ImageNet with different number of unlabeled items during test time.\relax }}{10}{figure.caption.7}}
+\newlabel{fig:tnet_num_unlabel}{{4}{10}{Model Performance on {\it tiered}ImageNet with different number of unlabeled items during test time.\relax }{figure.caption.7}{}}
+\bibcite{lake2011oneshot}{{14}{2011}{{Lake et~al.}}{{Lake, Salakhutdinov, Gross, and Tenenbaum}}}
+\bibcite{lloyd1982least}{{15}{1982}{{Lloyd}}{{}}}
+\bibcite{MishraN2017}{{16}{2017}{{Mishra et~al.}}{{Mishra, Rohaninejad, Chen, and Abbeel}}}
+\bibcite{ravi2017oneshot}{{17}{2017}{{Ravi \& Larochelle}}{{Ravi and Larochelle}}}
+\bibcite{rosenberg2005semi}{{18}{2005}{{Rosenberg et~al.}}{{Rosenberg, Hebert, and Schneiderman}}}
+\bibcite{russakovsky2015imagenet}{{19}{2015}{{Russakovsky et~al.}}{{Russakovsky, Deng, Su, Krause, Satheesh, Ma, Huang, Karpathy, Khosla, Bernstein, et~al.}}}
+\bibcite{Santoro2016}{{20}{2016}{{Santoro et~al.}}{{Santoro, Bartunov, Botvinick, Wierstra, and Lillicrap}}}
+\bibcite{snell2017protonet}{{21}{2017}{{Snell et~al.}}{{Snell, Swersky, and Zemel}}}
+\bibcite{Thrun1998}{{22}{1998}{{Thrun}}{{}}}
+\bibcite{vapnik1998statistical}{{23}{1998}{{Vapnik}}{{}}}
+\bibcite{vinyals2016matchingnet}{{24}{2016}{{Vinyals et~al.}}{{Vinyals, Blundell, Lillicrap, Kavukcuoglu, and Wierstra}}}
+\bibcite{yarowsky1995unsupervised}{{25}{1995}{{Yarowsky}}{{}}}
+\bibcite{zhu2005semi}{{26}{2005}{{Zhu}}{{}}}
+\bibstyle{iclr2018_conference}
+\citation{vinyals2016matchingnet}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Omniglot Dataset Details}{12}{appendix.A}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}\textit  {tiered}Imagenet Dataset Details}{12}{appendix.B}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Statistics of the \textit  {tiered}ImageNet dataset.\relax }}{12}{table.caption.10}}
+\newlabel{tab:tiered_stats}{{4}{12}{Statistics of the \textit {tiered}ImageNet dataset.\relax }{table.caption.10}{}}
+\citation{snell2017protonet}
+\citation{kingma2014adam}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Few-shot learning baseline results using labeled/unlabeled splits. Baselines either takes inputs directly from the pixel space or use a CNN to extract features. ``rnd'' denotes using a randomly initialized CNN, and ``pre'' denotes using a CNN that is pretrained for supervised classification for all training classes.\relax }}{13}{table.caption.12}}
+\newlabel{tab:tieredImageNet}{{5}{13}{Few-shot learning baseline results using labeled/unlabeled splits. Baselines either takes inputs directly from the pixel space or use a CNN to extract features. ``rnd'' denotes using a randomly initialized CNN, and ``pre'' denotes using a CNN that is pretrained for supervised classification for all training classes.\relax }{table.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Extra Experimental Results}{13}{appendix.C}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Few-shot classification baselines}{13}{subsection.C.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Number of unlabeled items}{13}{subsection.C.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Hyperparameter Details}{13}{appendix.D}}
+\newlabel{sec:hyperparam}{{D}{13}{Hyperparameter Details}{appendix.D}{}}
+\newlabel{RF1}{14}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Hierarchy of \textit  {tiered}Imagenet categories. Training categories are highlighted in red and test categories in blue. Each category indicates the number of associated classes from ILSVRC-12. Best viewed zoomed-in on electronic version.\relax }}{14}{figure.caption.11}}
+\newlabel{fig:tiered_hierarchy}{{5}{14}{Hierarchy of \textit {tiered}Imagenet categories. Training categories are highlighted in red and test categories in blue. Each category indicates the number of associated classes from ILSVRC-12. Best viewed zoomed-in on electronic version.\relax }{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Model Performance on \textit  {tiered}ImageNet with different number of unlabeled items during test time. We include test accuracy numbers in this chart.\relax }}{15}{figure.caption.13}}
+\newlabel{fig:tnet_num_unlabel_text}{{6}{15}{Model Performance on \textit {tiered}ImageNet with different number of unlabeled items during test time. We include test accuracy numbers in this chart.\relax }{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Mask values predicted by masked soft k-means on Omniglot.\relax }}{15}{figure.caption.14}}
+\newlabel{fig:histo}{{7}{15}{Mask values predicted by masked soft k-means on Omniglot.\relax }{figure.caption.14}{}}

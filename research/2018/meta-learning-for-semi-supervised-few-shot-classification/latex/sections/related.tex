@@ -1,0 +1,60 @@
+% !TEX root = ../main.tex
+\section{Related Work}
+
+We summarize here the most relevant work from the literature on few-shot learning, semi-supervised learning and clustering.
+
+The best performing methods for few-shot learning use the episodic training framework prescribed by
+meta-learning. The approach within which our work falls is that of metric learning methods. Previous
+work in metric-learning for few-shot-classification includes Deep Siamese
+Networks~\citep{koch2015siamese}, Matching Networks~\citep{vinyals2016matchingnet}, and Prototypical
+Networks~\citep{snell2017protonet}, which is the model we extend to the semi-supervised setting in
+our work. The general idea here is to learn an embedding function that embeds examples belonging to
+the same class close together while keeping embeddings from separate classes far apart. Distances
+between embeddings of items from the support set and query set are then used as a notion of
+similarity to do classification. Lastly, closely related to our work with regard to extending the
+few-shot learning setting,~\cite{bachman2017active-learning} employ Matching Networks in an active
+learning framework where the model has a choice of which unlabeled item to add to the support set
+over a certain number of time steps before classifying the query set. Unlike our setting, their
+meta-learning agent can acquire ground-truth labels from the unlabeled set, and they do not use
+distractor examples.
+
+Other meta-learning approaches to few-shot learning include learning how to use the support set to
+update a learner model so as to generalize to the query set. Recent work has involved learning
+either the weight initialization and/or update step that is used by a learner neural
+network~\citep{ravi2017oneshot,FinnC2017}. Another approach is to train a generic neural
+architecture such as a memory-augmented recurrent network~\citep{Santoro2016} or a temporal
+convolutional network~\citep{MishraN2017} to sequentially process the support set and perform
+accurate predictions of the labels of the query set examples. These other methods are also
+competitive for few-shot learning, but we chose to extend Prototypical Networks in this work for its
+simplicity and efficiency.
+
+As for the literature on semi-supervised learning, while it is quite vast~\citep{zhu2005semi,
+ChapelleO2010}, the most relevant category to our work is related to 
+self-training~\citep{yarowsky1995unsupervised, rosenberg2005semi}. Here, a classifier is first trained on
+the initial training set. The classifier is then used to classify unlabeled items, and the most
+confidently predicted unlabeled items are added to the training set with the prediction of the
+classifier as the assumed label.  This is similar to our soft $k$-Means extension to Prototypical
+Networks. Indeed, since the soft assignments (Equation~\ref{eq:softassign}) match the regular
+Prototypical Network's classifier output for new inputs (Equation~\ref{eq:classprobs}), then the
+refinement can be thought of re-feeding to a Prototypical Network a new support set  augmented with
+(soft) self-labels from the unlabeled set.
+
+Our algorithm is also related to transductive 
+learning~\citep{vapnik1998statistical,Joachims1999TSVM,Fu2015TransductiveZSL}, where the base
+classifier gets refined by seeing the unlabeled examples. In practice, one could use our method in a
+transductive setting where the unlabeled set is the same as the query set; 
+however, here to avoid our model memorizing labels of the unlabeled set during the meta-learning 
+procedure, we split out a separate unlabeled set that is different from the query set.
+
+In addition to the original $k$-Means method~\citep{lloyd1982least}, the most related work to our
+setup involving clustering algorithms considers applying $k$-Means in the presence of
+outliers~\citep{hautamaki2005improving, chawla2013k, gupta2017local}. The goal here is to correctly
+discover and ignore the outliers so that they do not wrongly shift the cluster locations to form a
+bad partition of the true data. This objective is also important in our setup as not ignoring
+outliers (or distractors) will wrongly shift the prototypes and negatively influence classification
+performance.
+
+Our contribution to the semi-supervised learning and clustering literature is to go beyond the
+classical setting of training and evaluating within a single dataset, and consider the setting where
+we must learn to transfer from a set of training classes ${\cal C}_{\rm train}$ to a new set of test
+classes ${\cal C}_{\rm test}$.

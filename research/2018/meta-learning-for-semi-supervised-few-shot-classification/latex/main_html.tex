@@ -1,0 +1,75 @@
+\documentclass{article} % For LaTeX2e
+
+\usepackage[T1]{fontenc}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[english]{babel}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{iclr2018_conference,times}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage[colorlinks=true, citecolor=black, urlcolor=black]{hyperref}
+\usepackage{multicol}
+\usepackage{latexml}
+
+\iclrfinalcopy
+
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\var}{var}
+\DeclareMathOperator*{\skewness}{skew}
+\DeclareMathOperator*{\kurt}{kurt}
+\let\ck\checkmark
+\let\tb\textbf
+\hyphenpenalty=1000
+
+\title{Meta-Learning for Semi-Supervised Few-Shot Classification}
+
+\author{Mengye Ren${}^1$, Eleni Triantafillou${}^{*,1}$, Sachin Ravi${}^{*,2}$, Jake Snell${}^1$, Kevin Swersky${}^3$, Joshua B. Tenenbaum${}^4$, Hugo Larochelle$^{3,5}$ \& Richard S. Zemel$^{1,5}$\\\\
+${}^1$University of Toronto, ${}^2$Princeton University, ${}^3$Google Brain, ${}^4$MIT, ${}^5$CIFAR\\
+\texttt{\{mren,eleni\}@cs.toronto.edu, sachinr@cs.princeton.edu}\\
+\texttt{jsnell@cs.toronto.edu, kswersky@google.com}\\
+\texttt{jbt@mit.edu, hugolarochelle@google.com, zemel@cs.toronto.edu}
+}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/model}
+\input{sections/related}
+\input{sections/experiments}
+\input{sections/conclusion}
+\input{sections/acknowledgement}
+
+\bibliography{references}
+\bibliographystyle{iclr2018_conference}
+
+\newpage
+\appendix
+\input{sections/supplementary}
+
+\end{document}

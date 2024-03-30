@@ -1,0 +1,54 @@
+% !TEX root = ../main.tex
+\section{Introduction}
+
+The availability of large quantities of labeled data has enabled deep learning methods to achieve
+impressive breakthroughs in several tasks related to artificial intelligence, such as speech
+recognition, object recognition and machine translation. However, current deep learning approaches
+struggle in tackling problems for which labeled data are scarce. Specifically, while current methods
+excel at tackling a single problem with lots of labeled data, methods that can simultaneously solve
+a large variety of problems that each have only a few labels are lacking. Humans on the other hand
+are readily able to rapidly learn new classes, such as new types of fruit when we visit a tropical
+country. This significant gap between human and machine learning provides fertile ground for deep
+learning developments.
+
+%HUGO: SOMETHING ABOUT THE GAP BETWEEN PEOPLE AND CURRENT ALGORITHMS?
+
+For this reason, recently there has been an increasing body of work on few-shot learning, which
+considers the design of learning algorithms that specifically allow for better generalization on
+problems with small labeled training sets. Here we focus on the case of few-shot classification,
+where the given classification problem is assumed to contain only a handful of labeled examples per
+class. One approach to few-shot learning follows a form of meta-learning
+\footnote{See the following blog post for an overview: 
+\url{http://bair.berkeley.edu/blog/2017/07/18/learning-to-learn/}}
+~\citep{Thrun1998, Hochreiter2001}, which performs transfer learning from a pool of various
+classification problems generated from large quantities of available labeled data, to new
+classification problems from classes unseen at training time. Meta-learning may take the form of
+learning a shared metric~\citep{vinyals2016matchingnet,snell2017protonet}, a common initialization
+for few-shot classifiers~\citep{ravi2017oneshot,FinnC2017} or a generic inference
+network~\citep{Santoro2016,MishraN2017}.
+
+% Feel free to move this around:
+\input figures/motivation_figure
+
+These various meta-learning formulations have led to significant progress recently in few-shot
+classification. However, this progress has been limited in the setup of each few-shot learning
+episode, which differs from how humans learn new concepts in many dimensions. 
+In this paper we aim to generalize the setup in two ways. 
+First, we consider a scenario where the new classes are learned in the presence of additional 
+unlabeled data. While there have been many successful applications of semi-supervised learning to the
+regular setting of a single classification task~\citep{ChapelleO2010} where classes at training and 
+test time are the same, such work has not addressed the challenge of performing transfer to new 
+classes never seen at training time, which we consider here. 
+Second, we consider the situation where the new classes to be learned are not viewed in isolation. 
+Instead, many of the unlabeled examples are from different classes; the presence of such 
+{\it distractor} classes introduces an additional and more realistic level of difficulty to the 
+few-shot problem.
+
+This work is a first study of this challenging semi-supervised form of few-shot learning. First, we
+define the problem and propose benchmarks for evaluation that are adapted from the Omniglot and 
+{\it mini}ImageNet benchmarks used in ordinary few-shot learning. We perform an extensive empirical
+investigation of the two settings mentioned above, with and without distractor classes. Second, we
+propose and study three novel extensions of Prototypical Networks~\citep{snell2017protonet}, a
+state-of-the-art approach to few-shot learning, to the semi-supervised setting. Finally, we
+demonstrate in our experiments that our semi-supervised variants successfully learn to leverage
+unlabeled examples and outperform purely supervised Prototypical Networks.

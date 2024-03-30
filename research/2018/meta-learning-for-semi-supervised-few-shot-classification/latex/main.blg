@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: iclr2018_conference.bst
+Database file #1: references.bib
+Warning--empty journal in bachman2017active-learning
+Warning--empty journal in rosenberg2005semi
+Warning--empty journal in zhu2005semi
+You've used 26 entries,
+            2773 wiz_defined-function locations,
+            745 strings with 9608 characters,
+and the built_in function-call counts, 13550 in all, are:
+= -- 1177
+> -- 848
+< -- 18
++ -- 287
+- -- 261
+* -- 1061
+:= -- 2029
+add.period$ -- 86
+call.type$ -- 26
+change.case$ -- 163
+chr.to.int$ -- 26
+cite$ -- 55
+duplicate$ -- 652
+empty$ -- 1101
+format.name$ -- 293
+if$ -- 2899
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 28
+newline$ -- 140
+num.names$ -- 104
+pop$ -- 381
+preamble$ -- 1
+purify$ -- 138
+quote$ -- 0
+skip$ -- 501
+stack$ -- 0
+substring$ -- 422
+swap$ -- 112
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 276
+warning$ -- 3
+while$ -- 110
+width$ -- 0
+write$ -- 341
+(There were 3 warnings)

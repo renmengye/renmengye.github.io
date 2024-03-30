@@ -1,0 +1,12 @@
+% !TEX root = ../main.tex
+\section{Conclusion}
+
+In this work, we propose a novel semi-supervised few-shot learning paradigm, where an unlabeled set
+is added to each episode. We also extend the setup to more realistic situations where the unlabeled
+set has classes not belonging to the labeled classes. To address the problem that current few-shot
+classification dataset is too small for a labeled vs.\ unlabeled split and does not have
+hierarchical levels of labels, we also introduce a new dataset, \textit{tiered}ImageNet. We propose
+several novel extensions of Prototypical Networks, and they show consistent improvements under 
+semi-supervised settings compared to our baselines. As future work, we are working on incorporating 
+fast weights \citep{ba2016fw,FinnC2017} into our framework so that examples can have different
+embedding representation given the contents in the episode.

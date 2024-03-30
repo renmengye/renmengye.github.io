@@ -366,13 +366,14 @@ Mengye Ren, Wenyuan Zeng, Bin Yang, Raquel Urtasun.
 [[video](https://vimeo.com/287808016)]
 [[html](research/2018/learning-to-reweight-examples-for-robust-deep-learning)]
 
-* <span class='paper-title'>[Meta-learning for semi-supervised few-shot classification](https://arxiv.org/abs/1803.00676).</span>
+* <span class='paper-title'>[Meta-learning for semi-supervised few-shot classification](research/2018/meta-learning-for-semi-supervised-few-shot-classification).</span>
 Mengye Ren, Eleni Triantafillou``*``, Sachin Ravi``*``, Jake Snell, Kevin
 Swersky, Joshua B. Tenenbaum, Hugo Larochelle, Richard S. Zemel.
 *ICLR*, 2018.
 [[link](research/fewshotssl/index.html)]
 [[arxiv](https://arxiv.org/abs/1803.00676)]
 [[code](https://github.com/renmengye/few-shot-ssl-public)]
+[[html](research/2018/meta-learning-for-semi-supervised-few-shot-classification)]
 
 * <span class='paper-title'>[End-to-end instance segmentation with recurrent attention](https://arxiv.org/abs/1605.09410).</span>
 Mengye Ren, Richard S. Zemel.

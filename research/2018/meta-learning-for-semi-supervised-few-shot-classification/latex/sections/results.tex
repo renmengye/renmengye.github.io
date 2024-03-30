@@ -1,0 +1,36 @@
+% !TEX root = ../main.tex
+\subsection{Results}
+\input{sections/results_omniglot}
+
+\input{sections/results_miniImagenet}
+
+\input{sections/results_tieredImagenet}
+
+Results for Omniglot, {\it mini}ImageNet and {\it tiered}ImageNet are given in
+Tables~\ref{tab:omniglot},~\ref{tab:miniImageNet} and~\ref{tab:tieredImageNet}, respectively, while
+Figure~\ref{fig:tnet_num_unlabel} shows the performance of our models on {\it tiered}ImageNet (our
+largest dataset) using different values for $M$ (number of items in the unlabeled set per class).
+
+Across all three benchmarks, at least one of our proposed models outperform the baselines,
+demonstrating the effectiveness of our semi-supervised meta-learning procedure. 
+In particular, 
+both
+Soft $k$-Means and Soft $k$-Means+Cluster perform well on 1-shot non-distractor settings, and 
+Soft $k$-Means is better on 5-shot, as it considers the most unlabeled examples. 
+With the presence of distractors, Masked Soft $k$-Means shows the most robust performance across all
+three datasets, reaching comparable performance compared to the upper bound of the best under
+non-distractor settings.
+
+% For 5-shot, Masked soft $k$-Means reaches comparable performance compared to the upper bound
+% of the best non-distractor performance.
+
+From Figure~\ref{fig:tnet_num_unlabel}, we observe clear improvement in test accuracy when the
+number grows from 0 to 25. Note that our models were trained with $M=5$ and thus are showing an
+ability to extrapolate in generalization. This confirms that, through meta-training, the models
+learned to acquire a better representation that will be more helpful after semi-supervised
+refinement.
+
+Note that the wins obtained in our semi-supervised learning are super-additive. Consider the case of
+the simple $k$-Means model on 1-shot without Distractors. Training only on labeled examples while
+incorporating the unlabeled set during test time produces an advantage of 4.2\% (50.7-46.5), and
+incorporating unlabeled examples during both training and test yields a win of 5.9\% (52.4-46.5).

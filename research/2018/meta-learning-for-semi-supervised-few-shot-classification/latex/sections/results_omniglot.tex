@@ -1,0 +1,20 @@
+% !TEX root = ../main.tex
+\begin{table}[t]
+    \centering
+    \begin{tabular}{l|c|c}
+    Models                             & Acc.                  & Acc.  w/ D              \\
+    \hline\hline
+    Supervised                         & 94.62 $\pm$ 0.09      & 94.62 $\pm$ 0.09        \\
+    \hline
+    Semi-Supervised Inference          & 97.45 $\pm$ 0.05      & 95.08 $\pm$ 0.09        \\
+    \hline\hline
+    Soft $k$-Means                     & 97.25 $\pm$ 0.10      & 95.01 $\pm$ 0.09        \\
+    \hline
+    Soft $k$-Means+Cluster             & \tb{97.68 $\pm$ 0.07} & 97.17 $\pm$ 0.04        \\
+    \hline
+    Masked Soft $k$-Means              & 97.52 $\pm$ 0.07      & \tb{97.30 $\pm$ 0.08}   \\
+    \end{tabular}
+    \caption{Omniglot 1-shot classification results. ``w/ D'' denotes ``with distractors'' where the
+    unlabeled images contain irrelevant classes.}
+    \label{tab:omniglot}
+\end{table}

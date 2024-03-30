@@ -1,0 +1,84 @@
+% !TEX root = ../main.tex
+\section{Experiments}
+
+\subsection{Datasets}
+
+We evaluate the performance of our model on three datasets: two benchmark few-shot classification
+datasets and a novel large-scale dataset that we hope will be useful for future few-shot learning
+work.
+
+\textbf{Omniglot} \citep{lake2011oneshot} is a dataset of 1,623 handwritten characters from 50
+alphabets. Each character was drawn by 20 human subjects. We follow the few-shot setting proposed by
+\citet{vinyals2016matchingnet}, in which the images are resized to $28 \times 28$ pixels and
+rotations in multiples of 90$^\circ$ are applied, yielding 6,492 classes in total. These are split
+into 4,112 training classes, 688 validation classes, and 1,692 testing classes.
+
+\textbf{\textit{mini}ImageNet} \citep{vinyals2016matchingnet} is a modified version of the ILSVRC-12
+dataset \citep{russakovsky2015imagenet}, in which 600 images for each of 100 classes were randomly
+chosen to be part of the dataset. We rely on the class split used by \citet{ravi2017oneshot}. These
+splits use 64 classes for training, 16 for validation, and 20 for test. All images are of size 84
+$\times$ 84 pixels.
+
+\textbf{\textit{tiered}ImageNet} is our proposed dataset for few-shot classification. Like
+\textit{mini}Imagenet, it is a subset of ILSVRC-12. However, \textit{tiered}ImageNet represents a
+larger subset of ILSVRC-12 (608 classes rather than 100 for \textit{mini}ImageNet). Analogous to
+Omniglot, in which characters are grouped into alphabets, \textit{tiered}ImageNet groups classes
+into broader categories corresponding to higher-level nodes in the ImageNet \citep{deng2009imagenet}
+hierarchy. There are 34 categories in total, with each category containing between 10 and 30
+classes. These are split into 20 training, 6 validation and 8 testing categories (details of the
+dataset can be found in the supplementary material). This ensures that all of the training classes
+are sufficiently distinct from the testing classes, unlike \textit{mini}ImageNet and other
+alternatives such as \textit{rand}ImageNet proposed by  \citet{vinyals2016matchingnet}. For example,
+``pipe organ'' is a training class and ``electric guitar'' is a test class in the
+\citet{ravi2017oneshot} split of  \textit{mini}Imagenet, even though they are both musical
+instruments. This scenario would not occur in \textit{tiered}ImageNet since ``musical instrument''
+is a high-level category and as such is not split between training and test classes. This represents
+a more realistic few-shot learning scenario since in general we cannot assume that test classes will
+be similar to those seen in training. Additionally, the tiered structure of \textit{tiered}ImageNet
+may be useful for few-shot learning approaches that can take advantage of hierarchical relationships
+between classes. We leave such interesting extensions for future work.
+
+\subsection{Adapting the Datasets for Semi-Supervised Learning}
+For each dataset, we first create an additional split to separate the images of each class into
+disjoint labeled and unlabeled sets. For Omniglot and {\it tiered}ImageNet we sampled 10\% of the
+images of each class to form the labeled split. The remaining 90\% can only be used in the unlabeled
+portion of episodes. For {\it mini}ImageNet we instead used 40\% of the data for the labeled split
+and the remaining 60\% for the unlabeled, since we noticed that 10\% was too small to achieve
+reasonable performance and avoid overfitting. We report the average classification scores over 10
+random splits of labeled and unlabeled portions of the training set, with uncertainty computed in
+standard error (standard deviation divided by the square root of the total number of splits).
+
+We would like to emphasize that due to this labeled/unlabeled split, we are using strictly less
+label information than in the previously-published work on these datasets. Because of this, we do
+not expect our results to match the published numbers, which should instead be interpreted as an
+upper-bound for the performance of the semi-supervised models defined in this work.
+
+Episode construction then is performed as follows. For a given dataset, we create a training episode
+by first sampling $N$ classes uniformly at random from the set of training classes ${\cal C}_{\rm
+train}$. We then sample $K$ images from the labeled split of each of these classes to form the
+support set, and $M$ images from the unlabeled split of each of these classes to form the unlabeled
+set. Optionally, when including distractors, we additionally sample $H$ other classes from the set
+of training classes and $M$ images from the unlabeled split of each to act as the distractors. These
+distractor images are added to the unlabeled set along with the unlabeled images of the $N$ classes
+of interest (for a total of $MN + MH$ images). The query portion of the episode is comprised of a
+fixed number of images from the labeled split of each of the $N$ chosen classes. Test episodes are
+created analogously, but with the $N$ classes (and optionally the $H$ distractor classes) sampled
+from ${\cal C}_{\rm test}$. Note that we used $M=5$ for training and $M=20$ for testing, thus also
+measuring the ability of the models to generalize to a larger unlabeled set size. We also used
+$H=N=5$, i.e.\ used 5 classes for both the labeled classes and the disctractor classes.
+
+In each dataset we compare our three semi-supervised models with two baselines. The first baseline,
+referred to as ``Supervised'' in our tables, is an ordinary Prototypical Network that is trained in
+a purely supervised way on the labeled split of each dataset. The second baseline, referred to as
+``Semi-Supervised Inference'', uses the embedding function learned by this supervised Prototypical
+Network, but performs semi-supervised refinement of the prototypes at inference time using a step of
+Soft $k$-Means refinement. This is to be contrasted with our semi-supervised models that perform
+this refinement both at training time and at test time, therefore learning a different embedding
+function. We evaluate each model in two settings: one where all unlabeled examples belong to the
+classes of interest, and a more challenging one that includes distractors. Details of the model
+hyperparameters can be found in Appendix~\ref{sec:hyperparam} and our online repository\footnote{
+Code available at
+\url{https://github.com/renmengye/few-shot-ssl-public}}.
+
+\input{sections/results}
+

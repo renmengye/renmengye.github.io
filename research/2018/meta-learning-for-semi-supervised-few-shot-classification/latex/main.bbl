@@ -1,0 +1,174 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ba et~al.(2016)Ba, Hinton, Mnih, Leibo, and Ionescu]{ba2016fw}
+Jimmy Ba, Geoffrey~E. Hinton, Volodymyr Mnih, Joel~Z. Leibo, and Catalin
+  Ionescu.
+\newblock Using fast weights to attend to the recent past.
+\newblock In \emph{Advances in Neural Information Processing Systems 29: Annual
+  Conference on Neural Information Processing Systems 2016, December 5-10,
+  2016, Barcelona, Spain}, pp.\  4331--4339, 2016.
+
+\bibitem[Bachman et~al.(2017)Bachman, Sordoni, and
+  Trischler]{bachman2017active-learning}
+Philip Bachman, Alessandro Sordoni, and Adam Trischler.
+\newblock Learning algorithms for active learning.
+\newblock 2017.
+
+\bibitem[Chapelle et~al.(2010)Chapelle, Sch{\"o}lkopf, and Zien]{ChapelleO2010}
+Olivier Chapelle, Bernhard Sch{\"o}lkopf, and Alexander Zien.
+\newblock \emph{Semi-Supervised Learning}.
+\newblock The MIT Press, 1st edition, 2010.
+\newblock ISBN 0262514125, 9780262514125.
+
+\bibitem[Chawla \& Gionis(2013)Chawla and Gionis]{chawla2013k}
+Sanjay Chawla and Aristides Gionis.
+\newblock k-means--: A unified approach to clustering and outlier detection.
+\newblock In \emph{Proceedings of the 2013 SIAM International Conference on
+  Data Mining}, pp.\  189--197. SIAM, 2013.
+
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and
+  Fei-Fei]{deng2009imagenet}
+Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li~Fei-Fei.
+\newblock Imagenet: A large-scale hierarchical image database.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2009. CVPR 2009.
+  IEEE Conference on}, pp.\  248--255. IEEE, 2009.
+
+\bibitem[Finn et~al.(2017)Finn, Abbeel, and Levine]{FinnC2017}
+Chelsea Finn, Pieter Abbeel, and Sergey Levine.
+\newblock Model-agnostic meta-learning for fast adaptation of deep networks.
+\newblock In \emph{34th International Conference on Machine Learning}, 2017.
+
+\bibitem[Fu et~al.(2015)Fu, Hospedales, Xiang, and Gong]{Fu2015TransductiveZSL}
+Yanwei Fu, Timothy~M. Hospedales, Tao Xiang, and Shaogang Gong.
+\newblock Transductive multi-view zero-shot learning.
+\newblock \emph{{IEEE} Trans. Pattern Anal. Mach. Intell.}, 37\penalty0
+  (11):\penalty0 2332--2345, 2015.
+
+\bibitem[Gupta et~al.(2017)Gupta, Kumar, Lu, Moseley, and
+  Vassilvitskii]{gupta2017local}
+Shalmoli Gupta, Ravi Kumar, Kefu Lu, Benjamin Moseley, and Sergei
+  Vassilvitskii.
+\newblock Local search methods for k-means with outliers.
+\newblock \emph{Proceedings of the VLDB Endowment}, 10\penalty0 (7):\penalty0
+  757--768, 2017.
+
+\bibitem[Hautam{\"a}ki et~al.(2005)Hautam{\"a}ki, Cherednichenko,
+  K{\"a}rkk{\"a}inen, Kinnunen, and Fr{\"a}nti]{hautamaki2005improving}
+Ville Hautam{\"a}ki, Svetlana Cherednichenko, Ismo K{\"a}rkk{\"a}inen, Tomi
+  Kinnunen, and Pasi Fr{\"a}nti.
+\newblock Improving k-means by outlier removal.
+\newblock In \emph{Scandinavian Conference on Image Analysis}, pp.\  978--987.
+  Springer, 2005.
+
+\bibitem[Hochreiter et~al.(2001)Hochreiter, Younger, and
+  Conwell]{Hochreiter2001}
+Sepp Hochreiter, A~Steven Younger, and Peter~R Conwell.
+\newblock Learning to learn using gradient descent.
+\newblock In \emph{International Conference on Artificial Neural Networks},
+  pp.\  87--94. Springer, 2001.
+
+\bibitem[Joachims(1999)]{Joachims1999TSVM}
+Thorsten Joachims.
+\newblock Transductive inference for text classification using support vector
+  machines.
+\newblock In \emph{Proceedings of the Sixteenth International Conference on
+  Machine Learning}, 1999.
+
+\bibitem[Kingma \& Ba(2014)Kingma and Ba]{kingma2014adam}
+Diederik Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
+\newblock \emph{arXiv preprint arXiv:1412.6980}, 2014.
+
+\bibitem[Koch et~al.(2015)Koch, Zemel, and Salakhutdinov]{koch2015siamese}
+Gregory Koch, Richard Zemel, and Ruslan Salakhutdinov.
+\newblock Siamese neural networks for one-shot image recognition.
+\newblock In \emph{ICML Deep Learning Workshop}, volume~2, 2015.
+
+\bibitem[Lake et~al.(2011)Lake, Salakhutdinov, Gross, and
+  Tenenbaum]{lake2011oneshot}
+Brenden~M. Lake, Ruslan Salakhutdinov, Jason Gross, and Joshua~B. Tenenbaum.
+\newblock One shot learning of simple visual concepts.
+\newblock In \emph{Proceedings of the 33th Annual Meeting of the Cognitive
+  Science Society, CogSci 2011, Boston, Massachusetts, USA, July 20-23, 2011},
+  2011.
+
+\bibitem[Lloyd(1982)]{lloyd1982least}
+Stuart Lloyd.
+\newblock Least squares quantization in pcm.
+\newblock \emph{IEEE transactions on information theory}, 28\penalty0
+  (2):\penalty0 129--137, 1982.
+
+\bibitem[Mishra et~al.(2017)Mishra, Rohaninejad, Chen, and Abbeel]{MishraN2017}
+Nikhil Mishra, Mostafa Rohaninejad, Xi~Chen, and Pieter Abbeel.
+\newblock Meta-learning with temporal convolutions.
+\newblock \emph{CoRR}, abs/1707.03141, 2017.
+
+\bibitem[Ravi \& Larochelle(2017)Ravi and Larochelle]{ravi2017oneshot}
+Sachin Ravi and Hugo Larochelle.
+\newblock Optimization as a model for few-shot learning.
+\newblock In \emph{5th International Conference on Learning Representations},
+  2017.
+
+\bibitem[Rosenberg et~al.(2005)Rosenberg, Hebert, and
+  Schneiderman]{rosenberg2005semi}
+Chuck Rosenberg, Martial Hebert, and Henry Schneiderman.
+\newblock Semi-supervised self-training of object detection models.
+\newblock 2005.
+
+\bibitem[Russakovsky et~al.(2015)Russakovsky, Deng, Su, Krause, Satheesh, Ma,
+  Huang, Karpathy, Khosla, Bernstein, et~al.]{russakovsky2015imagenet}
+Olga Russakovsky, Jia Deng, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma,
+  Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, et~al.
+\newblock Imagenet large scale visual recognition challenge.
+\newblock \emph{International Journal of Computer Vision}, 115\penalty0
+  (3):\penalty0 211--252, 2015.
+
+\bibitem[Santoro et~al.(2016)Santoro, Bartunov, Botvinick, Wierstra, and
+  Lillicrap]{Santoro2016}
+Adam Santoro, Sergey Bartunov, Matthew Botvinick, Daan Wierstra, and Timothy~P.
+  Lillicrap.
+\newblock One-shot learning with memory-augmented neural networks.
+\newblock In \emph{33rd International Conference on Machine Learning}, 2016.
+
+\bibitem[Snell et~al.(2017)Snell, Swersky, and Zemel]{snell2017protonet}
+Jake Snell, Kevin Swersky, and Richard~S. Zemel.
+\newblock Prototypical networks for few-shot learning.
+\newblock In \emph{Advances in Neural Information Processing Systems 30}, 2017.
+
+\bibitem[Thrun(1998)]{Thrun1998}
+Sebastian Thrun.
+\newblock Lifelong learning algorithms.
+\newblock In \emph{Learning to learn}, pp.\  181--209. Springer, 1998.
+
+\bibitem[Vapnik(1998)]{vapnik1998statistical}
+V.N. Vapnik.
+\newblock \emph{Statistical Learning Theory}.
+\newblock Wiley, 1998.
+\newblock ISBN 9788126528929.
+
+\bibitem[Vinyals et~al.(2016)Vinyals, Blundell, Lillicrap, Kavukcuoglu, and
+  Wierstra]{vinyals2016matchingnet}
+Oriol Vinyals, Charles Blundell, Tim Lillicrap, Koray Kavukcuoglu, and Daan
+  Wierstra.
+\newblock Matching networks for one shot learning.
+\newblock In \emph{Advances in Neural Information Processing Systems 29}, pp.\
+  3630--3638, 2016.
+
+\bibitem[Yarowsky(1995)]{yarowsky1995unsupervised}
+David Yarowsky.
+\newblock Unsupervised word sense disambiguation rivaling supervised methods.
+\newblock In \emph{Proceedings of the 33rd annual meeting on Association for
+  Computational Linguistics}, pp.\  189--196. Association for Computational
+  Linguistics, 1995.
+
+\bibitem[Zhu(2005)]{zhu2005semi}
+Xiaojin Zhu.
+\newblock Semi-supervised learning literature survey.
+\newblock 2005.
+
+\end{thebibliography}

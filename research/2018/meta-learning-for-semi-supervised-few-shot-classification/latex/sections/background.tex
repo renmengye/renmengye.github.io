@@ -1,0 +1,52 @@
+% !TEX root = ../main.tex
+\section{Background}
+
+We start by defining precisely the current paradigm for few-shot learning and the Prototypical
+Network approach to this problem.
+
+\subsection{Few-shot learning}
+
+Recent progress on few-shot learning has been made possible by following an episodic paradigm.
+Consider a situation where we have a large labeled dataset for a set of classes ${\cal C}_{\rm
+train}$. However, after training on examples from ${\cal C}_{\rm train}$, our ultimate goal is to
+produce classifiers for a disjoint set of new classes ${\cal C}_{\rm test}$, for which only a few
+labeled examples will be available. The idea behind the episodic paradigm is to simulate the types
+of few-shot problems that will be encountered at test, taking advantage of the large quantities of
+available labeled data for classes ${\cal C}_{\rm train}$.
+
+%\todo[linecolor=red,backgroundcolor=orange!25,bordercolor=orange,inline]{Eleni: The following notation confused me as I'm used to talking about K-shot N-way where K is the number of labeled per class and N is the number of classes. Whereas in the following paragraph we have it the other way around. Is this just me? I don't want us to be inconsistent with the literature. BTW is there a better way of leaving comments for each other? :)  Rich: I agree that we should revise this -- I started but not thinking clearly enough to finish it now!}
+
+Specifically, models are trained on $K$-shot, $N$-way episodes constructed by first sampling a small subset of $N$ classes from ${\cal C}_{\rm train}$ and then generating:
+1) a training (support) set ${\cal S}=\{(\bm{x}_1,y_1), (\bm{x}_2,y_2),
+\dots, (\bm{x}_{N\times K},y_{N\times K})\}$ containing $K$ examples from each of the $N$ classes and 2) a test (query) set ${\cal Q}=\{(\bm{x}^*_1,y^*_1), (\bm{x}^*_2,y^*_2),
+\dots, (\bm{x}^*_T,y^*_T)\}$ of different examples from the same $N$ classes. Each $\bm{x}_i \in \mathbb{R}^D$ is an input vector of
+dimension $D$ and $y_i \in \{1, 2, \dots, N\}$ is a class label (similarly for $\bm{x}^*_i$ and $y^*_i$). Training on such episodes is done by feeding the support set ${\cal S}$ to the model and updating its parameters to minimize the loss of its predictions for the examples in the query set ${\cal Q}$.
+
+%\todo[linecolor=red,backgroundcolor=orange!25,bordercolor=orange,inline]{Rich: Not fond of the previous sentence - we need to relate it to meta-learning, and clarify that we can only minimize prediction loss for the query set during training.\\ Hugo: isn't this exactly what the next paragraph does?}
+
+One way to think of this approach is that our model  effectively trains to be a good learning algorithm. Indeed, much like a learning algorithm, the model must take in a set of labeled examples and produce a predictor that can be applied to new examples. Moreover, training directly encourages the classifier produced by the model to have good generalization on the new examples of the query set. Due to this analogy, training under this paradigm is often referred to as learning to learn or meta-learning. 
+
+On the other hand, referring to the content of episodes as training and test sets and to the process of learning on these episodes as meta-learning or meta-training (as is sometimes done in the literature) can be confusing. So for the sake of clarity, we will refer to the content of episodes as support and query sets, and to the process of iterating over the training episodes simply as training.
+
+\subsection{Prototypical Networks}
+
+%One model that has the virtue of was shown to be %particularly successful for few-shot learning is the 
+Prototypical Network~\citep{snell2017protonet} is a few-shot learning model that has the virtue  of being simple and yet obtaining state-of-the-art performance. At a high-level, it uses the support set ${\cal S}$ to extract a prototype vector from each class, and classifies the inputs in the query set based on their distance to the prototype of each class.
+
+More precisely, Prototypical Networks learn an embedding function $h(\bm{x})$, parameterized as a neural network, that maps examples into a space where examples from the same class are close and those from different classes are far. All parameters of Prototypical Networks lie in the embedding function.
+
+To compute the prototype $\bm{p}_c$ of each class $c$, a per-class average of the embedded examples is performed: 
+\begin{align}
+    \bm{p}_c = \frac{\sum_i h(\bm{x}_i) z_{i,c}}{\sum_i z_{i,c}},~~{\rm where }~~z_{i,c} = \mathbbm{1}[y_i = c].~\label{eq:prototypes}
+\end{align}
+These prototypes define a predictor for the class of any new (query) example $\bm{x}^*$, which assigns a probability over any class $c$ based on the distances between $\bm{x}^*$ and each prototype, as follows:
+\begin{align}
+    p(c|\bm{x}^*,\{\bm{p}_c\}) = \frac{\exp(-||h(\bm{x}^*) - \bm{p}_c||^2_2)}{\sum_{c'}\exp(-||h(\bm{x}^*) - \bm{p}_{c'}||^2_2)}~.\label{eq:classprobs}
+\end{align}
+The loss function used to update Prototypical Networks for a given training episode is then simply the average negative log-probability of the correct class assignments, for all query examples:
+\begin{align}
+    -\frac{1}{T}\sum_{i} \log p(y^*_i|\bm{x}_i^*,\{\bm{p}_c\})~.\label{eq:loss}
+\end{align}
+Training proceeds by minimizing the average loss, iterating over training episodes and performing a gradient descent update for each. 
+
+Generalization performance is measured on test set episodes, which contain images from classes in ${\cal C}_{\rm test}$ instead of ${\cal C}_{\rm train}$. For each test episode, we use the predictor produced by the Prototypical Network for the provided support set ${\cal S}$ to classify each of query input $\bm{x}^*$ into the most likely class $\hat{y} = \argmax_c p(c|\bm{x}^*,\{\bm{p}_c\})$.
