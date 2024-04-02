@@ -35,7 +35,11 @@ body, table {
 @media screen and (max-width:640px) {
   body {
     width: 80% !important;
-    min-width: 450px;
+    min-width: 340px;
+  }
+  .txt-panel {
+    width:65%;
+    min-width: 100px;
   }
 }
 
