@@ -31,6 +31,14 @@ body, table {
     color: #333;
     margin: auto;
 }
+
+@media screen and (max-width:640px) {
+  body {
+    width: 80% !important;
+    min-width: 450px;
+  }
+}
+
 a {
     text-decoration: none;
 }
