@@ -284,7 +284,7 @@ Yixuan Luo, Mengye Ren, Sai Qian Zhang.
 Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 *ICLR*, 2023.
 [[arxiv](https://arxiv.org/abs/2210.03310)]
-[[pdf](2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
+[[pdf](research/2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](research/2023/scaling-forward-gradient-with-local-losses)]
 
