@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 /*html{font-size:100%;} */
-/* @media(min-width:60em){html{font-size:120%}} */
+/*@media(min-width:60em){html{font-size:120%}} */
 
 body, table {
     font-family: 'Roboto', sans-serif;
@@ -29,6 +29,7 @@ body, table {
     width: 600px;
     padding: 0 50px 0 50px;
     color: #333;
+    font-size: 1.0em;
     margin: auto;
 }
 
@@ -152,17 +153,6 @@ hr{
 
 /* -----GitHub MarkDown----- */
 
-/*body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: white;
-  padding: 30px;
-  color: #333;
-}*/
-
 body > *:first-child {
   margin-top: 0 !important;
 }
@@ -207,20 +197,20 @@ h2 {
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 1.2em;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 1.2em;
 }
 
 h5 {
-  font-size: 14px;
+  font-size: 1.2em;
 }
 
 h6 {
   color: #777777;
-  font-size: 14px;
+  font-size: 1.2em;
 }
 
 h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -248,52 +238,9 @@ span.paper-title a:active {
   color: #FFA500;
 }
 
-/*h2 {
-    font-size: 2.0em;
-}*/
-
-/*
-a {
-  color: #4183C4;
-  text-decoration: none;
-}
-
-a.absent {
-  color: #cc0000;
-}
-
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-}*/
-
-/*h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative;
-}*/
-
 p, blockquote, ul, ol, dl, li, table, pre {
   margin: 15px 0;
 }
-
-/*
-hr {
-  border: 0 none;
-  color: #cccccc;
-  height: 4px;
-  padding: 0;
-}
-*/
 
 body > h2:first-child {
   margin-top: 0;
@@ -347,7 +294,7 @@ dl {
 }
 
 dl dt {
-  font-size: 14px;
+/*  font-size: 14px;*/
   font-weight: bold;
   font-style: italic;
   padding: 0;
@@ -396,7 +343,7 @@ blockquote > :last-child {
 table {
   padding: 0;
   border-collapse: collapse;
-  font-size: 11pt;
+  /*  font-size: 11pt;*/
 }
 
 .headdiv {
@@ -552,7 +499,7 @@ pre code {
 .highlight pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
+/*  font-size: 13px;*/
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
@@ -562,7 +509,7 @@ pre code {
 pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
+/*  font-size: 13px;*/
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
