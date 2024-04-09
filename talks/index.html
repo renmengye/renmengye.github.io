@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta id="testViewport" name="viewport" content="width=380, initial-scale=0.75, maximum-scale=1, user-scalable=no">
+<script>
+var sw = screen.width;
+var sh = screen.height;
+if ( window.matchMedia("(orientation: landscape)").matches ) {
+  var fw = sh;
+} else {
+  var fw = sw;
+}
+if (fw < 768) {
+    var mvp = document.getElementById("testViewport");
+    mvp.setAttribute("content","width=380,initial-scale=0.75");
+} else {
+    var mvp = document.getElementById("testViewport");
+    mvp.setAttribute("content","width=device-width,initial-scale=1");
+}
+</script>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700|Crete+Round" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../style.css">
 <script>
@@ -30,7 +46,14 @@
 <h1 id="talks-by-year">Talks by Year</h1>
 <p>[<a href="https://www.youtube.com/@mengyetalks">Youtube</a>]</p>
 <hr />
-<h2 id="section">2023</h2>
+<h2 id="section">2024</h2>
+<ul>
+<li>Lifelong and human-like learning in foundation models. Smart Minds
+meet Smart Machines: AI for Science and Public Good. German Consulate
+General in New York. New York, NY, USA. 2024/04/08. [<a
+href="https://drive.google.com/file/d/1kg_jqdLS1ztTcwEn9Oe235xIjULPN7G2/view?usp=sharing">slides</a>]</li>
+</ul>
+<h2 id="section-1">2023</h2>
 <ul>
 <li><p>Lifelong learning in structured environments. American
 Statistical Association, Statistical Learning and Data Science Webinar.
@@ -46,7 +69,7 @@ Medicine, Journal Club Invited Talk. Houston, TX, USA. 2023/06. [<a
 href="https://drive.google.com/file/d/1-sWBTjUcoE2ZbrSJSBXRE0B1Kwj22hCN/view?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-1">2022</h2>
+<h2 id="section-2">2022</h2>
 <ul>
 <li><p>Meta-learning within a lifetime. NeurIPS 2022 MetaLearn Workshop,
 Invited Talk. New Orleans, LA, USA. 2022/12. [<a
@@ -62,7 +85,7 @@ and Vision (CRV), Invited Symposium. Toronto, ON, Canada. 2022/06. [<a
 href="https://drive.google.com/file/d/1cWMBA3nsrwXCuCOCIf5PuYjPSXf25nVa/view?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-2">2021</h2>
+<h2 id="section-3">2021</h2>
 <ul>
 <li><p>Visual learning in the open world. University of Oxford. Oxford,
 UK. 2021/11. [<a
@@ -84,7 +107,7 @@ learning. Vector Institute. Toronto, ON, Canada. 2021/01. [<a
 href="https://drive.google.com/file/d/1T-pBg9otkmsJIU6aCaaSEnQ7Ty0Gvhj2/view?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-3">2020</h2>
+<h2 id="section-4">2020</h2>
 <ul>
 <li><p>How can we apply few-shot learning? Vector Institute. Toronto,
 ON, Canada. 2020/10. [<a
@@ -116,7 +139,7 @@ learning. ICML 2020 Continual Learning Workshop. Virtual webinar.
 href="https://drive.google.com/file/d/1HhXSVx7pJsSp1LO7W880BqMZfFSo48od/view?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-4">2019</h2>
+<h2 id="section-5">2019</h2>
 <ul>
 <li><p>Jointly learnable behavior and trajectory planning for
 self-driving vehicles. IROS 2019. Macau, China. 2019/11. [<a
@@ -126,7 +149,7 @@ University, Department of Statistics. New York, NY, USA. 2019/10. [<a
 href="https://drive.google.com/file/d/1S6HgdAMx8_QYz5hcSf4B7tj_ZzwDd1t_/view?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-5">2018</h2>
+<h2 id="section-6">2018</h2>
 <ul>
 <li><p>Learning to reweight examples for robust deep learning. CIFAR
 deep learning and reinforcement learning summer school. Toronto,
@@ -150,7 +173,7 @@ Toronto, ON, Canada. 2018/02. [<a
 href="https://docs.google.com/presentation/d/1mTo8Dv3BjQwh2lNerLnwQgsa4YTrDb-O8kkAN4lcCI4/edit?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-6">2017</h2>
+<h2 id="section-7">2017</h2>
 <ul>
 <li><p>Meta-learning for semi-supervised few-shot classification. Vector
 Institute. Toronto, ON, Canada. 2017/11. [<a
@@ -168,14 +191,14 @@ Toronto. Toronto, ON, Canada. 2017/01. [<a
 href="https://docs.google.com/presentation/d/1cTfhrPa5EFtRsbKXSKv4AAmAi9lZoe0vq0Yt4oZtElc/edit?usp=sharing">slides</a>]</p></li>
 </ul>
 <hr />
-<h2 id="section-7">2016</h2>
+<h2 id="section-8">2016</h2>
 <ul>
 <li>Deep dashboard tutorial. University of Toronto. 2016/02. University
 of Guelph. Guelph, ON, Canada. 2016/03. [<a
 href="https://docs.google.com/presentation/d/1hWINp0UY6aAINjgmWqHmYg_Qtt13DsHL8X6J6xGq1jc/edit?usp=sharing">slides</a>]</li>
 </ul>
 <hr />
-<h2 id="section-8">2015</h2>
+<h2 id="section-9">2015</h2>
 <ul>
 <li>Exploring data and models for image question answering. ICML 2015
 Deep Learning Workshop. Lille, France. 2015/07. [<a
