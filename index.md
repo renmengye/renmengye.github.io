@@ -116,7 +116,7 @@ research has centered on developing *representation learning* and
 
 ## <a name="teaching">Teaching</a>
 
-* NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning [2024 spring]
+* NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning [[2024 spring](https://drive.google.com/drive/folders/12OMYhwWql5EH_jOrmqI3j2QY9GjNLX6N?usp=sharing)]
 
 * NYU CSCI-GA 2565: Machine Learning [[2023 fall](https://nyu-cs2565.github.io/2023-fall)]
 
@@ -131,13 +131,23 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/04: I will give an invited [talk](https://www.simonsfoundation.org/event/machine-learning-at-the-flatiron-institute-seminar-mengye-ren/) at Simons Flatiron Institute in New York.
+
+* 2024/04: One paper is accepted at CoLLAs 2024.
+
+* 2024/04: One [paper](https://arxiv.org/abs/2402.00300) is accepted at CogSci 2024.
+
+* 2024/04: I gave an invited [talk](https://www.northamerica.uaruhr.de/nyc/events/2024/event00228.html.en) at the German Consulate General in New York.
+
+* 2023/09: Congrats [Alex Wang](https://alexnwang.github.io/) on getting the NSERC PGS-D award!
+
 * 2023/06: I am co-organizing [Localized Learning Workshop](https://sites.google.com/view/localized-learning-workshop) at ICML 2023.
 
-* 2023/04: One paper is accepted at CogSci 2023.
+* 2023/04: One [paper](research/2023/multitask-learning-via-interleaving-a-neural-network-investigation/mayo-2023-multitask.pdf) is accepted at CogSci 2023.
 
-* 2023/02: One paper is accepted at CVPR 2023.
+* 2023/02: One [paper](https://arxiv.org/abs/2311.02007) is accepted at CVPR 2023.
 
-* 2023/01: Two papers are accepted at ICLR 2023.
+* 2023/01: Two papers [[1](https://arxiv.org/abs/2210.03310), [2](research/2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)] are accepted at ICLR 2023.
 
 * 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
 
@@ -146,7 +156,7 @@ research has centered on developing *representation learning* and
 
 * 2022/10: One [paper](https://arxiv.org/abs/2210.02615) accepted at MATH-AI workshop at NeurIPS.
 
-* 2022/10: One paper accepted at MemARI workshop at NeurIPS.
+* 2022/10: One [paper](research/2022/neural-network-online-training-with-sensitivity-to-multiscale-temporal-structure/jones-2022-neural.pdf) is accepted at MemARI workshop at NeurIPS.
 
 * 2022/09: I have moved to New York and officially joined NYU.
 
