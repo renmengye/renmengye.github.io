@@ -154,7 +154,7 @@ research has centered on developing *representation learning* and
 * 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
   plausible learning with local activity perturbation.
 
-* 2022/10: One [paper](https://arxiv.org/abs/2210.02615) accepted at MATH-AI workshop at NeurIPS.
+* 2022/10: One [paper](https://arxiv.org/abs/2210.02615) is accepted at MATH-AI workshop at NeurIPS.
 
 * 2022/10: One [paper](research/2022/neural-network-online-training-with-sensitivity-to-multiscale-temporal-structure/jones-2022-neural.pdf) is accepted at MemARI workshop at NeurIPS.
 
