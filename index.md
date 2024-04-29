@@ -414,7 +414,7 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
     [[slides](https://drive.google.com/file/d/11vaeustbBEDfFpc9LH_M2Ke3M6UJuJ68/view?usp=sharing)]
     [[video](https://youtu.be/XRro25Am0JE)]
 
-* Visual learning in the open world / meta-learning within a lifetime.
+* Visual learning in the open world.
     * NeurIPS 2022 MetaLearn. New Orleans, LA, USA. 2022/12.
     [[slides](https://drive.google.com/file/d/1gA968oKiO1ufAtX3ogGsQbqJVkW0ztry/view?usp=sharing)]
     [[video](https://youtu.be/bYZ_lO8nNf0)]
