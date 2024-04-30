@@ -125,7 +125,7 @@ research has centered on developing *representation learning* and
 * Vector Institute: Deep Learning II [2020 fall]
 
 * UofT CSC 411: Machine Learning and Data Mining 
-[[2019 winter](teach/csc411_19s)]
+[[2019 winter](https://www.cs.toronto.edu/~mren/teach/csc411_19s/)]
 
 -------------------------------------------------------------------------------
 
