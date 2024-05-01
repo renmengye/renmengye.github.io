@@ -255,7 +255,7 @@ research has centered on developing *representation learning* and
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
-* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2403.15362).</span>
+* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
 Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
 *arXiv preprint 2404.19132*, 2024.
 [[arxiv](https://arxiv.org/abs/2404.19132)]

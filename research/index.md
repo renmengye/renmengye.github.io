@@ -8,7 +8,7 @@
 
 ## Preprints
 
-* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2403.15362).</span>
+* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
 Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
 *arXiv preprint 2404.19132*, 2024.
 [[arxiv](https://arxiv.org/abs/2404.19132)]
