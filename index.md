@@ -299,6 +299,15 @@ Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
 [[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
 [[html](research/2023/scaling-forward-gradient-with-local-losses)]
 
+* <span class='paper-title'>Learning in temporally structured environments.</span>
+Matt Jones, Tyler R. Scott, Mengye Ren, Gamaleldin F. Elsayed, Katherine Hermann, David Mayo, Michael C. Mozer.
+*ICLR*, 2023.
+[[pdf](2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)]
+
+* <span class='paper-title'>Multitask learning via interleaving: A neural network investigation.</span>
+David Mayo, Tyler Scott, Mengye Ren, Gamaleldin Elsayed, Katherine Hermann, Matt Jones, Michael Mozer. *CogSci*, 2023.
+[[pdf](2023/multitask-learning-via-interleaving-a-neural-network-investigation/mayo-2023-multitask.pdf)]
+
 <!-- ----------------------------------------------------------------------------
 
 ## <a name="papers">Selected Papers</a>
