@@ -39,7 +39,7 @@ Scholar</a>&nbsp;
 <a href="#teaching">Teaching</a> |
 <a href="#news">News</a> |
 <a href="#group">Group</a> |
-<a href="#preprints">Preprints</a> |
+<!-- <a href="#preprints">Preprints</a> | -->
 <a href="#papers">Papers</a> |
 <a href="#talks">Talks</a>
 </div>
@@ -149,7 +149,7 @@ research has centered on developing *representation learning* and
 
 * 2023/01: Two papers [[1](https://arxiv.org/abs/2210.03310), [2](research/2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)] are accepted at ICLR 2023.
 
-* 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
+<!-- * 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
 
 * 2022/10: New [preprint](https://arxiv.org/abs/2210.03310) on biologically
   plausible learning with local activity perturbation.
@@ -158,7 +158,7 @@ research has centered on developing *representation learning* and
 
 * 2022/10: One [paper](research/2022/neural-network-online-training-with-sensitivity-to-multiscale-temporal-structure/jones-2022-neural.pdf) is accepted at MemARI workshop at NeurIPS.
 
-* 2022/09: I have moved to New York and officially joined NYU.
+* 2022/09: I have moved to New York and officially joined NYU. -->
 
 <!-- * 2022/07: One [paper](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990259.pdf) accepted at ECCV 2022.
 
@@ -250,7 +250,10 @@ research has centered on developing *representation learning* and
 
 ----------------------------------------------------------------------------
 
-## <a name="preprints">Recent Preprints</a>
+## <a name="papers">Recent Papers</a>
+[[Full List](research)]
+[[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
+[[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
 * <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2403.15362).</span>
 Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
@@ -288,7 +291,15 @@ Yixuan Luo, Mengye Ren, Sai Qian Zhang.
 *arXiv preprint 2311.17218*, 2023.
 [[arxiv](https://arxiv.org/abs/2311.17218)]
 
-----------------------------------------------------------------------------
+* <span class='paper-title'>[Scaling forward gradient with local losses](research/2023/scaling-forward-gradient-with-local-losses).</span>
+Mengye Ren, Simon Kornblith, Renjie Liao, Geoffrey Hinton.
+*ICLR*, 2023.
+[[arxiv](https://arxiv.org/abs/2210.03310)]
+[[pdf](research/2023/scaling-forward-gradient-with-local-losses/ren-2023-scaling.pdf)]
+[[code](https://github.com/google-research/google-research/tree/master/local_forward_gradient)]
+[[html](research/2023/scaling-forward-gradient-with-local-losses)]
+
+<!-- ----------------------------------------------------------------------------
 
 ## <a name="papers">Selected Papers</a>
 [[Full List](research)]
@@ -407,10 +418,11 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 [[dataset](research/imageqa/data/cocoqa)]
 [[code](https://github.com/renmengye/imageqa-public)]
 [[question generation](https://github.com/renmengye/imageqa-qgen)]
+ -->
 
 -------------------------------------------------------------------------------
 
-## <a name="talks">Selected Talks</a>
+## <a name="talks">Recent Talks</a>
 
 [[Full List](talks)]
 
@@ -434,7 +446,7 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
     * Stanford University. Stanford, CA, USA. 2021/10.
     [[slides](https://drive.google.com/file/d/10-WWd-GQ3Udf_IL_d6TIlq738tj_MKtt/view?usp=sharing)]
 
-* Towards continual and compositional few-shot learning.
+<!-- * Towards continual and compositional few-shot learning.
     * Stanford University. Stanford, CA, USA. 2020/10.
     [[slides](https://drive.google.com/file/d/1Y8jXp0wTlWqn9pBE97btRJX7FutQOqP1/view?usp=sharing)]
     * Brown University. Providence, RI, USA. 2020/09.
@@ -454,5 +466,5 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
     [[slides](https://drive.google.com/file/d/1nUqYGh1QKv5eyXsEStBo4bf5pQRbhFsF/view?usp=sharing)]
     * NEC Laboratories America. Princeton, NJ, USA. 2018/06.
     [[slides](https://drive.google.com/file/d/14_H34NgmQ6NN8XJkn_lwK_awrypUdQvv/view?usp=sharing)]
-
+ -->
 <div class="ribbon"></div>
