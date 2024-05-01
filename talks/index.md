@@ -6,6 +6,9 @@
 ----------------------------------------------------------------------------
 
 ## 2024
+* Lifelong and human-like learning in foundation models. Machine Learning Seminar. Flatiron Institute. New York, NY, USA. 2024/04/30.
+[[slides](https://drive.google.com/file/d/1r2veZmRrQb3QI29m446e9QDjeR-cILl8/view?usp=sharing)]
+
 * Lifelong and human-like learning in foundation models. Smart Minds meet Smart Machines: AI for Science and Public Good. German Consulate General in New York. New York, NY, USA. 2024/04/08.
 [[slides](https://drive.google.com/file/d/1kg_jqdLS1ztTcwEn9Oe235xIjULPN7G2/view?usp=sharing)]
 

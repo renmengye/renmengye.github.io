@@ -131,7 +131,7 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
-* 2024/04: I will give an invited [talk](https://www.simonsfoundation.org/event/machine-learning-at-the-flatiron-institute-seminar-mengye-ren/) at Simons Flatiron Institute in New York.
+* 2024/04: I will give an invited [talk](https://www.simonsfoundation.org/event/machine-learning-at-the-flatiron-institute-seminar-mengye-ren/) at Flatiron Institute in New York.
 
 * 2024/04: One paper is accepted at CoLLAs 2024.
 
@@ -409,7 +409,11 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 
 [[Full List](talks)]
 
-* Lifelong learning in structured environments.
+* Lifelong and human-like learning in foundation models.
+    * Flatiron Institute. New York, NY, USA. 2024/04.
+    [[slides](https://drive.google.com/file/d/1r2veZmRrQb3QI29m446e9QDjeR-cILl8/view?usp=sharing)]
+    * German Consulate General in New York. New York, NY, USA. 2024/04.
+    [[slides](https://drive.google.com/file/d/1kg_jqdLS1ztTcwEn9Oe235xIjULPN7G2/view?usp=sharing)]
     * American Statistical Association. Statistical Learning and Data Science Webinar. 2023/10.
     [[slides](https://drive.google.com/file/d/11vaeustbBEDfFpc9LH_M2Ke3M6UJuJ68/view?usp=sharing)]
     [[video](https://youtu.be/XRro25Am0JE)]
