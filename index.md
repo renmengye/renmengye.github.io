@@ -133,7 +133,7 @@ research has centered on developing *representation learning* and
 
 * 2024/04: I will give an invited [talk](https://www.simonsfoundation.org/event/machine-learning-at-the-flatiron-institute-seminar-mengye-ren/) at Flatiron Institute in New York.
 
-* 2024/04: One paper is accepted at CoLLAs 2024.
+* 2024/04: One [paper](https://arxiv.org/pdf/2404.19132) is accepted at CoLLAs 2024.
 
 * 2024/04: One [paper](https://arxiv.org/abs/2402.00300) is accepted at CogSci 2024.
 
@@ -251,6 +251,11 @@ research has centered on developing *representation learning* and
 ----------------------------------------------------------------------------
 
 ## <a name="preprints">Recent Preprints</a>
+
+* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2403.15362).</span>
+Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
+*arXiv preprint 2404.19132*, 2024.
+[[arxiv](https://arxiv.org/abs/2404.19132)]
 
 * <span class='paper-title'>[CoLLEGe: Concept embedding generation for large language models](https://arxiv.org/abs/2403.15362).</span>
 Ryan Teehan, Brenden M. Lake, Mengye Ren.

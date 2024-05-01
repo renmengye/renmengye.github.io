@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2403.15362).</span>
+Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
+*arXiv preprint 2404.19132*, 2024.
+[[arxiv](https://arxiv.org/abs/2404.19132)]
+
 * <span class='paper-title'>[CoLLEGe: Concept embedding generation for large language models](https://arxiv.org/abs/2403.15362).</span>
 Ryan Teehan, Brenden M. Lake, Mengye Ren.
 *arXiv preprint 2403.15362*, 2024.
