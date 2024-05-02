@@ -131,6 +131,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/05: One [paper](https://arxiv.org/abs/2312.12736) is accepted at ICML 2024.
+
 * 2024/04: I will give an invited [talk](https://www.simonsfoundation.org/event/machine-learning-at-the-flatiron-institute-seminar-mengye-ren/) at Flatiron Institute in New York.
 
 * 2024/04: One [paper](https://arxiv.org/pdf/2404.19132) is accepted at CoLLAs 2024.
