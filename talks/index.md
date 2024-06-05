@@ -6,6 +6,9 @@
 ----------------------------------------------------------------------------
 
 ## 2024
+* Computer vision and deep learning: A primer. New York, NY, USA. 2024/06/04.
+[[slides](https://drive.google.com/file/d/1NtrZSkg1WUGevqWtjMKBseLT8jM2CtjW/view?usp=sharing)]
+
 * Lifelong and human-like learning in foundation models. Machine Learning Seminar. Flatiron Institute. New York, NY, USA. 2024/04/30.
 [[slides](https://drive.google.com/file/d/1r2veZmRrQb3QI29m446e9QDjeR-cILl8/view?usp=sharing)]
 
