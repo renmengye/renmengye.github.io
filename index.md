@@ -131,6 +131,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/07: One paper is accepted at ECCV 2024.
+
 * 2024/05: One [paper](https://arxiv.org/abs/2312.12736) is accepted at ICML 2024.
 
 * 2024/04: Congrats [Chris Hoang](https://2016choang.github.io/) on receiving the [2024 DoD NDSEG fellowship](https://ndseg.sysplus.com/NDSEG/Awardees/FY2024)!
