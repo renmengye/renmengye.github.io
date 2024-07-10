@@ -131,6 +131,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/07: One [paper](https://arxiv.org/abs/2403.15362) is accepted at COLM 2024.
+
 * 2024/07: One paper is accepted at ECCV 2024.
 
 * 2024/05: One [paper](https://arxiv.org/abs/2312.12736) is accepted at ICML 2024.
