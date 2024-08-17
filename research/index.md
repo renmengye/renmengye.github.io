@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* <span class='paper-title'>[ProCreate, dont reproduce! Propulsive energy diffusion for creative generation](https://arxiv.org/abs/2408.02226).</span>
+Jack Lu, Ryan Teehan, Mengye Ren.
+*arXiv preprint 2408.02226*, 2024.
+[[arxiv](https://arxiv.org/abs/2408.02226)]
+
 * <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
 Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
 *arXiv preprint 2404.19132*, 2024.

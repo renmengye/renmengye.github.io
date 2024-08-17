@@ -137,7 +137,7 @@ research has centered on developing *representation learning* and
 
 * 2024/07: One [paper](https://arxiv.org/abs/2403.15362) is accepted at COLM 2024.
 
-* 2024/07: One paper is accepted at ECCV 2024.
+* 2024/07: One [paper](https://arxiv.org/abs/2408.02226) is accepted at ECCV 2024.
 
 * 2024/05: One [paper](https://arxiv.org/abs/2312.12736) is accepted at ICML 2024.
 
@@ -266,6 +266,11 @@ research has centered on developing *representation learning* and
 [[Full List](research)]
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
+
+* <span class='paper-title'>[ProCreate, dont reproduce! Propulsive energy diffusion for creative generation](https://arxiv.org/abs/2408.02226).</span>
+Jack Lu, Ryan Teehan, Mengye Ren.
+*arXiv preprint 2408.02226*, 2024.
+[[arxiv](https://arxiv.org/abs/2408.02226)]
 
 * <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
 Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
