@@ -8,6 +8,11 @@
 
 ## Preprints
 
+* <span class='paper-title'>[PooDLe: Pooled and dense self-supervised learning from naturalistic videos](https://arxiv.org/abs/2408.11208).</span>
+Alex N. Wang, Christopher Hoang, Yuwen Xiong, Yann LeCun, Mengye Ren.
+*arXiv preprint 2408.11208*, 2024.
+[[arxiv](https://arxiv.org/abs/2408.11208)]
+
 * <span class='paper-title'>[ProCreate, dont reproduce! Propulsive energy diffusion for creative generation](https://arxiv.org/abs/2408.02226).</span>
 Jack Lu, Ryan Teehan, Mengye Ren.
 *arXiv preprint 2408.02226*, 2024.
