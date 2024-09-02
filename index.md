@@ -118,14 +118,14 @@ research has centered on developing *representation learning* and
 
 * NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning [[2024 spring](https://drive.google.com/drive/folders/12OMYhwWql5EH_jOrmqI3j2QY9GjNLX6N?usp=sharing)]
 
-* NYU CSCI-GA 2565: Machine Learning [[2023 fall](https://nyu-cs2565.github.io/2023-fall)]
+* NYU CSCI-GA 2565: Machine Learning [2023 fall] [[2024 fall](https://nyu-cs2565.github.io/2024-fall)]
 
-* NYU DS-GA 1003: Machine Learning [[2023 spring](https://nyu-ds1003.github.io/spring2023)]
+* NYU DS-GA 1003: Machine Learning [2023 spring]
 
 * Vector Institute: Deep Learning II [2020 fall]
 
-* UofT CSC 411: Machine Learning and Data Mining 
-[[2019 winter](https://www.cs.toronto.edu/~mren/teach/csc411_19s/)]
+* UofT CSC 411: Machine Learning and Data Mining [2019 winter]
+<!-- ](https://www.cs.toronto.edu/~mren/teach/csc411_19s/)] -->
 
 -------------------------------------------------------------------------------
 
