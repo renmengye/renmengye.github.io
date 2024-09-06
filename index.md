@@ -258,6 +258,7 @@ research has centered on developing *representation learning* and
 * [Jack Lu](https://jacklu0831.github.io/) (2023-)
 * [Ryan Teehan](https://rteehas.github.io/) (2022-)
 * [Alex Wang](https://alexnwang.github.io/) (2022-)
+* [Ying Wang](https://yingwangg.github.io/) (2024-) (joint with Andrew Gordon Wilson)
 * [Yanlai Yang](https://yanlai00.github.io/) (2022-)
 
 ----------------------------------------------------------------------------
