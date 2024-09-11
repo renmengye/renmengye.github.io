@@ -131,6 +131,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/09: I will give an invited talk at Columbia University.
+
 * 2024/07: We are organizing [Adaptive Foundation Models Workshop](https://www.paulvicol.com/neurips2024_workshop_site/) at NeurIPS 2024. Consider contributing your papers!
 
 * 2024/07: We are organizing [Compositional Learning Workshop]() at NeurIPS 2024. Consider contributing your papers!
@@ -153,7 +155,7 @@ research has centered on developing *representation learning* and
 
 * 2023/09: Congrats [Alex Wang](https://alexnwang.github.io/) on getting the NSERC PGS-D award!
 
-* 2023/06: We are organizing [Localized Learning Workshop](https://sites.google.com/view/localized-learning-workshop) at ICML 2023 in.
+* 2023/06: We are organizing [Localized Learning Workshop](https://sites.google.com/view/localized-learning-workshop) at ICML 2023.
 
 * 2023/04: One [paper](research/2023/multitask-learning-via-interleaving-a-neural-network-investigation/mayo-2023-multitask.pdf) is accepted at CogSci 2023.
 
