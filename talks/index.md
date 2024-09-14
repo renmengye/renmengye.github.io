@@ -6,6 +6,9 @@
 ----------------------------------------------------------------------------
 
 ## 2024
+* Lifelong and human-like learning in foundation models. Columbia University. New York, NY, USA. 2024/09/13.
+[[slides](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing)]
+
 * Computer vision and deep learning: A primer. New York, NY, USA. 2024/06/04.
 [[slides](https://drive.google.com/file/d/1NtrZSkg1WUGevqWtjMKBseLT8jM2CtjW/view?usp=sharing)]
 

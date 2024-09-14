@@ -461,6 +461,8 @@ Mengye Ren, Ryan Kiros, Richard S. Zemel.
 [[Full List](talks)]
 
 * Lifelong and human-like learning in foundation models.
+    * Columbia University. New York, NY, USA. 2024/09.
+    [[slides](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing)]
     * Flatiron Institute. New York, NY, USA. 2024/04.
     [[slides](https://drive.google.com/file/d/1r2veZmRrQb3QI29m446e9QDjeR-cILl8/view?usp=sharing)]
     * German Consulate General in New York. New York, NY, USA. 2024/04.
