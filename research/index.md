@@ -13,36 +13,6 @@ Alex N. Wang, Christopher Hoang, Yuwen Xiong, Yann LeCun, Mengye Ren.
 *arXiv preprint 2408.11208*, 2024.
 [[arxiv](https://arxiv.org/abs/2408.11208)]
 
-* <span class='paper-title'>[ProCreate, dont reproduce! Propulsive energy diffusion for creative generation](https://arxiv.org/abs/2408.02226).</span>
-Jack Lu, Ryan Teehan, Mengye Ren.
-*arXiv preprint 2408.02226*, 2024.
-[[arxiv](https://arxiv.org/abs/2408.02226)]
-
-* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
-Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
-*arXiv preprint 2404.19132*, 2024.
-[[arxiv](https://arxiv.org/abs/2404.19132)]
-
-* <span class='paper-title'>[CoLLEGe: Concept embedding generation for large language models](https://arxiv.org/abs/2403.15362).</span>
-Ryan Teehan, Brenden M. Lake, Mengye Ren.
-*arXiv preprint 2403.15362*, 2024.
-[[arxiv](https://arxiv.org/abs/2403.15362)]
-
-* <span class='paper-title'>[Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training](https://arxiv.org/abs/2403.09613).</span>
-Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
-*arXiv preprint 2403.09613*, 2024.
-[[arxiv](https://arxiv.org/abs/2403.09613)]
-
-* <span class='paper-title'>[Self-supervised learning of video representations from a child's perspective](https://arxiv.org/abs/2402.00300).</span>
-Emin Orhan, Wentao Wang, Alex N. Wang, Mengye Ren, Brenden M. Lake.
-*arXiv preprint 2402.00300*, 2024.
-[[arxiv](https://arxiv.org/abs/2402.00300)]
-
-* <span class='paper-title'>[Learning and forgetting unsafe examples in large language models](https://arxiv.org/abs/2312.12736).</span>
-Jiachen Zhao, Zhun Deng, David Madras, James Zou, Mengye Ren.
-*arXiv preprint 2312.12736*, 2023.
-[[arxiv](https://arxiv.org/abs/2312.12736)]
-
 * <span class='paper-title'>[LifelongMemory: Leveraging LLMs for answering queries in egocentric videos](https://arxiv.org/abs/2312.05269).</span>
 Ying Wang, Yanlai Yang, Mengye Ren.
 *arXiv preprint 2312.05269*, 2023.
@@ -65,6 +35,40 @@ Andrew J. Nam``*``, Mengye Ren``*``, Chelsea Finn, James L. McClelland.
 Renjie Liao, Simon Kornblith, Mengye Ren, David J. Fleet, Geoffrey Hinton.
 *arXiv preprint 2210.10318*, 2022.
 [[arxiv](https://arxiv.org/abs/2210.10318)]
+
+----------------------------------------------------------------------------
+
+## 2024
+
+* <span class='paper-title'>[Reawakening knowledge: Anticipatory recovery from catastrophic interference via structured training](https://arxiv.org/abs/2403.09613).</span>
+Yanlai Yang, Matt Jones, Michael C. Mozer, Mengye Ren.
+*NeurIPS*, 2024.
+[[arxiv](https://arxiv.org/abs/2403.09613)]
+
+* <span class='paper-title'>[CoLLEGe: Concept embedding generation for large language models](https://arxiv.org/abs/2403.15362).</span>
+Ryan Teehan, Brenden M. Lake, Mengye Ren.
+*COLM*, 2024.
+[[arxiv](https://arxiv.org/abs/2403.15362)]
+
+* <span class='paper-title'>[ProCreate, dont reproduce! Propulsive energy diffusion for creative generation](https://arxiv.org/abs/2408.02226).</span>
+Jack Lu, Ryan Teehan, Mengye Ren.
+*ECCV*, 2024.
+[[arxiv](https://arxiv.org/abs/2408.02226)]
+
+* <span class='paper-title'>[Integrating present and past in unsupervised continual learning](https://arxiv.org/abs/2404.19132).</span>
+Yipeng Zhang, Laurent Charlin, Richard Zemel, Mengye Ren.
+*CoLLAs*, 2024.
+[[arxiv](https://arxiv.org/abs/2404.19132)]
+
+* <span class='paper-title'>[Self-supervised learning of video representations from a child's perspective](https://arxiv.org/abs/2402.00300).</span>
+Emin Orhan, Wentao Wang, Alex N. Wang, Mengye Ren, Brenden M. Lake.
+*CogSci*, 2024.
+[[arxiv](https://arxiv.org/abs/2402.00300)]
+
+* <span class='paper-title'>[Learning and forgetting unsafe examples in large language models](https://arxiv.org/abs/2312.12736).</span>
+Jiachen Zhao, Zhun Deng, David Madras, James Zou, Mengye Ren.
+*ICML*, 2024.
+[[arxiv](https://arxiv.org/abs/2312.12736)]
 
 ----------------------------------------------------------------------------
 
