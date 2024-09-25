@@ -131,7 +131,9 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
-* 2024/09: I will give an invited talk at Columbia University.
+* 2024/09: One [paper](https://arxiv.org/abs/2403.09613) is accepted at NeurIPS 2024.
+
+* 2024/09: I will give an invited [talk](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing) at Columbia University.
 
 * 2024/07: We are organizing [Adaptive Foundation Models Workshop](https://www.paulvicol.com/neurips2024_workshop_site/) at NeurIPS 2024. Consider contributing your papers!
 
@@ -153,7 +155,7 @@ research has centered on developing *representation learning* and
 
 * 2024/04: I gave an invited [talk](https://www.northamerica.uaruhr.de/nyc/events/2024/event00228.html.en) at the German Consulate General in New York.
 
-* 2023/09: Congrats [Alex Wang](https://alexnwang.github.io/) on getting the NSERC PGS-D award!
+<!-- * 2023/09: Congrats [Alex Wang](https://alexnwang.github.io/) on getting the NSERC PGS-D award!
 
 * 2023/06: We are organizing [Localized Learning Workshop](https://sites.google.com/view/localized-learning-workshop) at ICML 2023.
 
@@ -161,7 +163,7 @@ research has centered on developing *representation learning* and
 
 * 2023/02: One [paper](https://arxiv.org/abs/2311.02007) is accepted at CVPR 2023.
 
-* 2023/01: Two papers [[1](https://arxiv.org/abs/2210.03310), [2](research/2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)] are accepted at ICLR 2023.
+* 2023/01: Two papers [[1](https://arxiv.org/abs/2210.03310), [2](research/2023/learning-in-temporally-structured-environments/jones-2023-learning.pdf)] are accepted at ICLR 2023. -->
 
 <!-- * 2022/12: I gave an invited [talk](https://youtu.be/bYZ_lO8nNf0) at NeurIPS 2022 Meta-Learn workshop.
 
