@@ -131,6 +131,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="news">News</a>
 
+* 2024/10: Congrats [Jack Lu](https://jacklu0831.github.io/) on getting the [NSERC PGS-D award](https://www.nserc-crsng.gc.ca/NSERC-CRSNG/FundingDecisions-DecisionsFinancement/ScholarshipsAndFellowships-ConcoursDeBourses/2024/schol_master_2024_e.pdf)!
+
 * 2024/09: One [paper](https://arxiv.org/abs/2403.09613) is accepted at NeurIPS 2024.
 
 * 2024/09: I will give an invited [talk](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing) at Columbia University.
