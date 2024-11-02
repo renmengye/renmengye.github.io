@@ -23,7 +23,8 @@ New York University</p>
 <!-- <a href="https://mengyeren.substack.com">Substack</a>&nbsp; -->
 <a href="https://scholar.google.com/citations?user=XcQ9WqMAAAAJ">Google
 Scholar</a>&nbsp;
-<a href="cv/cv_mengye_ren.pdf">CV</a>&nbsp;
+<a href="https://agenticlearning.ai">Agentic Learning AI Lab</a>&nbsp;
+<!-- <a href="cv/cv_mengye_ren.pdf">CV</a>&nbsp; -->
 <!-- <a href="http://blog.mengyer.com">Blog</a> -->
 </p>
 </div>
@@ -49,15 +50,15 @@ Scholar</a>&nbsp;
 ## <a name="bio">Bio</a>
 
 Mengye Ren is an assistant professor of computer science and data science at
-New York University (NYU). Before joining NYU, he was a visiting faculty
+New York University (NYU). He runs the [Agentic Learning AI Lab](https://agenticlearning.ai/).
+Before joining NYU, he was a visiting faculty
 researcher at Google Brain Toronto working with Prof. [Geoffrey
-Hinton](https://www.cs.toronto.edu/~hinton/). He received B.A.Sc. in
-Engineering Science (2015), and M.Sc. (2017) and Ph.D. (2022) in Computer
+Hinton](https://www.cs.toronto.edu/~hinton/). From 2017 to 2021, he was a
+senior research scientist at Uber Advanced Technologies Group (ATG) and Waabi,
+working on self-driving vehicles. He received Ph.D. in Computer
 Science from the University of Toronto, advised by Prof. [Richard
 Zemel](http://www.cs.toronto.edu/~zemel/) and Prof. [Raquel
-Urtasun](http://www.cs.toronto.edu/~urtasun/). From 2017 to 2021, he was also a
-senior research scientist at Uber Advanced Technologies Group (ATG) and Waabi,
-working on self-driving vehicles. His research focuses on making machine
+Urtasun](http://www.cs.toronto.edu/~urtasun/). His research focuses on making machine
 learning more natural and human-like, in order for AIs to continually learn,
 adapt, and reason in naturalistic environments.
 
@@ -72,7 +73,7 @@ learning, self-driving vehicles
 My key research question is: how do we enable human-like, agent-based machine
 intelligence to continually learn, adapt, and reason in naturalistic
 environments? I am interested in the emergence of intelligence by learning from
-a point-of-view experience. Current research topics in my group are:
+a point-of-view experience. Current research topics in my lab are:
 
 * Memorization and forgetting in sequentially changing environments
 
