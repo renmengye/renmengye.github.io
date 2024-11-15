@@ -275,6 +275,12 @@ research has centered on developing *representation learning* and
 [[Google Scholar](https://scholar.google.com/citations?user=XcQ9WqMAAAAJ)]
 [[dblp](https://dblp.org/pers/hd/r/Ren:Mengye)]
 
+* <span class='paper-title'>[Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle
+](https://arxiv.org/abs/2411.08324).</span>
+Hui Dai, Ryan Teehan, Mengye Ren.
+*arXiv preprint 2411.08324*, 2024.
+[[arxiv](https://arxiv.org/abs/2411.08324)]
+
 * <span class='paper-title'>[PooDLe: Pooled and dense self-supervised learning from naturalistic videos](https://arxiv.org/abs/2408.11208).</span>
 Alex N. Wang, Christopher Hoang, Yuwen Xiong, Yann LeCun, Mengye Ren.
 *arXiv preprint 2408.11208*, 2024.
@@ -313,7 +319,6 @@ Jiachen Zhao, Zhun Deng, David Madras, James Zou, Mengye Ren.
 * <span class='paper-title'>[LifelongMemory: Leveraging LLMs for answering queries in long-form egocentric videos](https://arxiv.org/abs/2312.05269).</span>
 Ying Wang, Yanlai Yang, Mengye Ren.
 *arXiv preprint 2312.05269*, 2023.
-[[webpage](https://lifelongmemory.github.io/)]
 [[arxiv](https://arxiv.org/abs/2312.05269)]
 
 * <span class='paper-title'>[BIM: Block-wise self-supervised learning with masked image modeling](https://arxiv.org/abs/2311.17218).</span>

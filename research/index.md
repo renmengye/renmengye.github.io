@@ -8,6 +8,12 @@
 
 ## Preprints
 
+* <span class='paper-title'>[Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle
+](https://arxiv.org/abs/2411.08324).</span>
+Hui Dai, Ryan Teehan, Mengye Ren.
+*arXiv preprint 2411.08324*, 2024.
+[[arxiv](https://arxiv.org/abs/2411.08324)]
+
 * <span class='paper-title'>[PooDLe: Pooled and dense self-supervised learning from naturalistic videos](https://arxiv.org/abs/2408.11208).</span>
 Alex N. Wang, Christopher Hoang, Yuwen Xiong, Yann LeCun, Mengye Ren.
 *arXiv preprint 2408.11208*, 2024.
