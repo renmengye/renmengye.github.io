@@ -117,6 +117,8 @@ research has centered on developing *representation learning* and
 
 ## <a name="teaching">Teaching</a>
 
+* NYU DS-GA 3001: Advanced Topics in Embodied Learning and Vision [2025 spring]
+
 * NYU DS-GA 1008 / CSCI-GA 2572: Deep Learning [[2024 spring](https://drive.google.com/drive/folders/12OMYhwWql5EH_jOrmqI3j2QY9GjNLX6N?usp=sharing)]
 
 * NYU CSCI-GA 2565: Machine Learning [2023 fall] [[2024 fall](https://nyu-cs2565.github.io/2024-fall)]
@@ -131,6 +133,8 @@ research has centered on developing *representation learning* and
 -------------------------------------------------------------------------------
 
 ## <a name="news">News</a>
+
+* 2024/12: I will teach a new course on Embodied Learning and Vision in Spring 2025 at NYU.
 
 * 2024/10: Congrats [Jack Lu](https://jacklu0831.github.io/) on getting the [NSERC PGS-D award](https://www.nserc-crsng.gc.ca/NSERC-CRSNG/FundingDecisions-DecisionsFinancement/ScholarshipsAndFellowships-ConcoursDeBourses/2024/schol_master_2024_e.pdf)!
 
