@@ -6,6 +6,9 @@
 ----------------------------------------------------------------------------
 
 ## 2024
+* Lifelong and human-like learning in foundation models. SNU AI Seminar. Seoul National University. Seoul, South Korea. 2024/12/05.
+[[slides](https://drive.google.com/file/d/11lz37VrYFCVLVZBXKAYt1F-4fL20Bndn/view?usp=sharing)]
+
 * Lifelong and human-like learning in foundation models. Columbia University. New York, NY, USA. 2024/09/13.
 [[slides](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing)]
 
