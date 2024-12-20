@@ -142,9 +142,9 @@ research has centered on developing *representation learning* and
 
 * 2024/09: I will give an invited [talk](https://drive.google.com/file/d/12uFgAk282KBuiDFCm4VQoKZVIoXpSFDB/view?usp=sharing) at Columbia University.
 
-* 2024/07: We are organizing [Adaptive Foundation Models Workshop](https://www.paulvicol.com/neurips2024_workshop_site/) at NeurIPS 2024. Consider contributing your papers!
+* 2024/07: We are organizing [Adaptive Foundation Models Workshop](https://adaptive-foundation-models.org/) at NeurIPS 2024. Consider contributing your papers!
 
-* 2024/07: We are organizing [Compositional Learning Workshop]() at NeurIPS 2024. Consider contributing your papers!
+* 2024/07: We are organizing [Compositional Learning Workshop](https://compositional-learning.github.io/) at NeurIPS 2024. Consider contributing your papers!
 
 * 2024/07: One [paper](https://arxiv.org/abs/2403.15362) is accepted at COLM 2024.
 
